@@ -1,8 +1,3 @@
-# readme.md deletar
-
-Criado em: March 5, 2024 8:48 AM
-Feito: No
-
 # Documento de Visão
 
 ## Histórico de Revisões
