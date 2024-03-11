@@ -24,7 +24,7 @@ Texto...
 
 | Nome | Descrição | Responsabilidade |
 | --- | --- | --- |
-| ? | - | - |
+| Mulheres em situação de violência ou não. | Obtendo informações sobre notificações de assédios, elas poderão se proteger e/ou alcançar o apoio necessário contra a violência. | Compartilhar informações fidedignas referente às notificações de violência contra as mulheres. |
 
 ## 4. Descrição do ambiente dos usuários
 
@@ -32,25 +32,27 @@ Texto...
 
 ## 5. Principais necessidades dos usuários
 
-Texto...
+- Constrangimento e/ou coerção do agressor, sensação de impunidade, abalo psicológico, identificação do agressor
+- Os dados sobre violência contra a mulheres, no âmbito da saúde, são registrados no Sistema de Informação sobre Agravos de Notificação (SINAN) através da Ficha de Notificação para **Violência** Doméstica, Sexual e/ou outras Violências (Secretaria de Vigilância à Saúde, Ministério da Saúde.)
+- Zona de incidência de casos, acesso rápido e fácil a informações legais, localização de unidades governamentais especializadas no atendimento a mulher e conseguir contato com relatos de outras mulheres que, ao realizarem as denúncias, lograram êxito na punição do agressor
 
 ## 6. Alternativas concorrentes
 
-- *PenhaS: é uma rede de apoio, informação e acolhimento para mulheres vítimas de violência. Garantindo o anonimato e acesso fácil aos direitos previstos em lei. Traz ainda funcionalidades, tais como: botão de pânico, mapas de pontos de apoio e possibilidade de gravações.*
+- PenhaS: é uma rede de apoio, informação e acolhimento para mulheres vítimas de violência. Garantindo o anonimato e acesso fácil aos direitos previstos em lei. Traz ainda funcionalidades, tais como: botão de pânico, mapas de pontos de apoio e possibilidade de gravações.
     
-    *(https://azmina.com.br/projetos/penhas/)*
+    (https://azmina.com.br/projetos/penhas/)
     
-- *SOS Mulher: Site do governo de SP que traz consigo notícias, entrevistas, materiais de apoio e informações acerca dos direitos.*
+- SOS Mulher: Site do governo de SP que traz consigo notícias, entrevistas, materiais de apoio e informações acerca dos direitos.
     
-    ([https://www.sosmulher.sp.gov.br/](https://www.sosmulher.sp.gov.br/))
+    (https://www.sosmulher.sp.gov.br/)
     
-- *Mulher Segura: Site do governo do estado de Goiás, permite a comunicação de casos de violência, bem como, explica para as vítimas que violência pode ocorrer. Existe a possibilidade de comunicação direta com a polícia através de chat. Informa a localização de delegacias da mulher mais próximas.*
+- Mulher Segura: Site do governo do estado de Goiás, permite a comunicação de casos de violência, bem como, explica para as vítimas que violência pode ocorrer. Existe a possibilidade de comunicação direta com a polícia através de chat. Informa a localização de delegacias da mulher mais próximas.
     
-    *(https://mulhersegura.ssp.go.gov.br/)*
+    (https://mulhersegura.ssp.go.gov.br/)
     
-- *IMP - Instituto Maria da Penha: apresenta informações às vítimas de violência doméstica visando fortalecer a aplicação da lei 11.340/2006 através do apoio e encorajamento das vítimas para realizar denúncias contra os agressores.*
+- IMP - Instituto Maria da Penha: apresenta informações às vítimas de violência doméstica visando fortalecer a aplicação da lei 11.340/2006 através do apoio e encorajamento das vítimas para realizar denúncias contra os agressores.
     
-    *(https://www.institutomariadapenha.org.br/)*
+    (https://www.institutomariadapenha.org.br/)
     
 
 ## 7. Visão geral do produto
