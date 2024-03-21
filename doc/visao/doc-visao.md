@@ -90,8 +90,6 @@ DAMA é um webapp projetado para combater a subnotificação da violência contr
 
     Rede de Apoio: O DAMA conecta as denunciantes a uma rede de apoio composta por organizações de defesa dos direitos das mulheres, centros de acolhimento, serviços de saúde e autoridades competentes. Isso garante que as vítimas recebam o suporte necessário após fazerem a denúncia.
 
-    Mapa de Calor: O DAMA apresenta um mapa das áreas com mais notificação de casos de violência
-
     Educação e Informação: Além de ser uma plataforma de denúncia, o DAMA também fornece informações educativas sobre direitos das mulheres, sinais de abuso, recursos disponíveis e estratégias de autoproteção.
 
     Dados Estatísticos: O aplicativo coleta dados estatísticos sobre casos de violência relatados, fornecendo insights valiosos para pesquisadores, organizações governamentais e não governamentais na formulação de políticas e programas de prevenção mais eficazes.
@@ -103,9 +101,9 @@ DAMA é um webapp projetado para combater a subnotificação da violência contr
 | Código | Nome | Descrição | Prioridade |
 | --- | --- | --- | --- |
 | F01 | Fazer relatos | espaço para as vítimas compartilharem seus relatos | média |
-| F02 | Mapa de Manchas | Mapa com informações de onde ocorreu violência | alta |
-| F03 | Descobrir seus direitos | seção do app com informações dos direitos das mulheres | alta |
-| F04 | Controle de acesso do usuário | somente usuários autenticados entram no sistema| Obrigatória |
+| F02 | Descobrir seus direitos | seção do app com informações dos direitos das mulheres | alta |
+| F03 | Controle de acesso do usuário | somente usuários autenticados entram no sistema| Obrigatória |
+| F04 | Seção de apoio | Lugar onde profissionais da área podem prestar serviços/divulgá-los | alta |
 
 ## 9. Requisitos não-funcionais
 
