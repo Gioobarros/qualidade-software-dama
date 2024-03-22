@@ -8,14 +8,16 @@
 
 # Equipe e Formas de Contato
 
-1. Nome...
-2. Nome...
-
-> Descrever as formas de contato da equipe - WhatsApp, Discord, etc.
+1. Fábio Ricardo Eduardo Cavalcante (a adicionar)
+2. Felipe da Costa Ferreira (f_cf_elipe)
+3. Giovana Beatriz Barros Firmino da Silva (gioobarros)
+4. Igor Gabriel dos Santos (igor1208biel)
+5. Leandro Ramos Sizilio (leandrosizilio)
+ 
 
 # Horário de Reuniões
 
-> Descrever dias, horários e local das reuniões da equipe
+* Quintas-feiras das 10h30 às 12h00
 
 # Documentação
 
