@@ -7,28 +7,30 @@
 | 27/02 | 0.0 | Versão inicial | Felipe da Costa, Giovana Beatriz, Igor Gabriel, Leandro Sizilio |
 | 14/03 | 1.0 | Primeira apresentação | Igor Gabriel, Giovana Beatriz |
 | 21/03 | 1.1 | Segunda apresentação - correção de erros (atual) | Igor Gabriel |
+| 22/03 | 1.2 | Ajuste nas seções: descrição do problema, usuário, visão geral do produto e requisitos funcionais. | Igor Gabriel |
 
 ## 1. Objetivo do projeto
 
-O objetivo do projeto DAMA - Denúncias Anônimas para Mulheres Assediadas, vai além da mera funcionalidade de relatar casos de violência contra a mulher. Ele busca fornecer uma plataforma educativa e capacitadora que empodere as mulheres, promova a conscientização e estimule a prevenção da violência de gênero.
+O objetivo do projeto DAMA - Denúncias Anônimas para Mulheres Assediadas, vai além da mera funcionalidade de relatar casos de violência contra a mulher. Ele busca fornecer uma plataforma educativa e formativa que empodere as mulheres, promova a conscientização e estimule a prevenção da violência de gênero.
 
 ## 2. Descrição do problema
 
-|  |  |
-| --- | --- |
-| Problema | Subnotificação de violência  contra mulheres no Rio Grande do Norte, bem como a inexistência ou escassez de informação de fácil acesso  à vítima. |
-| Afeta | Segundo a UFMG em pesquisa publicada no final de 2023, a subnotificação de violência contra as mulheres no Brasil foi de 98,5%, 75,9% e 89,4% para as violências psicológica, física e sexual, respectivamente. As regiões Norte e Nordeste possuem o maior índice de subnotificação de violência contra as mulheres. (https://rb.gy/pabsy0) |
-| Impacta | Adoecimento psicológico das mulheres, restrição de sociabilidade, sensação de impunidade ou de acobertamento por parte do Estado aos abusadores, baixa ou inexistente produtividade no ambiente de trabalho e sensação de isolamento ao enfrentamento desse problema. |
-| Solução | A criação de um webapp para que as vítimas possam obter acesso rápido e fácil ao amparo legal - informação acerca das leis vigentes de proteção à mulher, localização da DEAM (Delegacia Especializada no Atendimento à Mulher) mais próxima e como obter atendimento médico após o ocorrido na unidade hospitalar de referência. Também haveria a opção de registrar seu relato de abuso anonimamente, criando assim uma zona de casos que informaria a outras “não vítimas” a incidência de casos de assédios, e uma rede de apoio visando amparar a vítima e encoraja-la a notificar/denunciar a experiência traumática e criminosa. |
+Segundo a UFMG, em pesquisa publicada no final de 2023, a subnotificação de violência contra as mulheres no Brasil foi de 98,5%, 75,9% e 89,4% para as violências psicológica, física e sexual, respectivamente. As regiões Norte e Nordeste possuem o maior índice de subnotificação de violência contra as mulheres (https://rb.gy/pabsy0). 
+
+No Rio Grande do Norte a situação não é diferente dos demais estados e a inexistência ou escassez de informação de fácil acesso às vítimas de violência doméstica é um dos fatores que contribui com as altas taxas de subnotificação dos casos.
+
+Esse contexto social tem afetado as mulheres com o adoecimento psicológico, restrição de sociabilidade, sensação de impunidade ou de acobertamento por parte do Estado aos abusadores, baixa ou inexistente produtividade no ambiente de trabalho e sensação de isolamento ao enfrentamento desse problema.
+
+Uma solução para esse problema poderia ser a criação de uma aplicação web que fornecesse as vítimas de violência doméstica, de forma facil e rápida, acesso a profissionais de apoio psicológico, delegacias especializadas ao atendimento a mulher - DEAM, rede hospitalar e material educativo e de conscientização. Além, claro, de uma forma de denúncias e pedidos de socorro que podem partir da própria vítima ou de pessoas próximas.
 
 ## 3. Descrição dos usuários
 
 | Nome | Descrição | Responsabilidade |
 | --- | --- | --- |
-| Mulheres em situação de violência. | Obtendo informações sobre notificações de assédios, elas poderão se proteger e/ou alcançar o apoio necessário contra a violência. |     Compartilhar informações confiáveis sobre casos de violência contra as mulheres. Participar da comunidade DAMA, compartilhando experiências e oferecendo apoio mútuo. Aproveitar os recursos educativos e de apoio do aplicativo para entender direitos, buscar ajuda e se proteger. |
+| Vítimas de violência. | Mulheres que sofrem algum tipo de violência doméstica enquadrada na lei Maria da Penha. |     Compartilhar informações confiáveis sobre casos de violência contra as mulheres. Participar da comunidade DAMA, compartilhando experiências e oferecendo apoio mútuo. Aproveitar os recursos educativos e de apoio do aplicativo para entender direitos, buscar ajuda e se proteger. |
 | Órgãos Governamentais |  Agências governamentais responsáveis pela segurança pública, direitos humanos e igualdade de gênero. | Acessar e analisar os dados estatísticos sobre casos de violência contra a mulher relatados no aplicativo. Utilizar as informações para orientar políticas públicas, programas de prevenção e intervenções governamentais relacionadas à violência de gênero. Colaborar com a equipe do DAMA para garantir o cumprimento das leis e regulamentações relevantes relacionadas à proteção de dados e direitos das mulheres. |
-| Profissionais da área | Profissionais que trabalham diretamente com vítimas de violência de gênero, como assistentes sociais, psicólogos, advogados e profissionais de saúde. |     Oferecer suporte e orientação para as mulheres que relatam casos de violência, incluindo aconselhamento emocional, orientação legal e encaminhamento para serviços especializados. Monitorar e responder a relatos de violência, fornecendo assistência profissional e orientação prática conforme necessário. Colaborar com outras instituições e organizações de apoio para garantir uma resposta abrangente e coordenada às necessidades das vítimas. |
-| Desenvolvedores e Moderadores |  Responsáveis pela manutenção, atualização e melhoria contínua do DAMA. |        Manter e atualizar regularmente o aplicativo, corrigindo bugs e implementando novos recursos com base no feedback dos usuários. Monitorar e moderar a atividade dentro do aplicativo, garantindo que os relatos sejam tratados com seriedade. Garantir a segurança e a privacidade dos dados dos usuários, implementando medidas de segurança e conformidade com a LGPD. |
+| Rede de Apoio | Profissionais que trabalham diretamente com vítimas de violência de gênero, como assistentes sociais, psicólogos, advogados e profissionais de saúde. |     Oferecer suporte e orientação para as mulheres que relatam casos de violência, incluindo aconselhamento emocional, orientação legal e encaminhamento para serviços especializados. Monitorar e responder a relatos de violência, fornecendo assistência profissional e orientação prática conforme necessário. Colaborar com outras instituições e organizações de apoio para garantir uma resposta abrangente e coordenada às necessidades das vítimas. |
+| Administradores e Moderadores |  Responsáveis pela manutenção, atualização e melhoria contínua do DAMA. |        Manter e atualizar regularmente o aplicativo, corrigindo bugs e implementando novos recursos com base no feedback dos usuários. Monitorar e moderar a atividade dentro do aplicativo, garantindo que os relatos sejam tratados com seriedade. Garantir a segurança e a privacidade dos dados dos usuários, implementando medidas de segurança e conformidade com a LGPD. |
 
 ## 4. Descrição do ambiente dos usuários
 1. Usuárias Principais (Mulheres em Situação de Violência):
@@ -80,30 +82,34 @@ O objetivo do projeto DAMA - Denúncias Anônimas para Mulheres Assediadas, vai 
 
 ## 7. Visão geral do produto
 
-DAMA é um webapp projetado para combater a subnotificação da violência contra a mulher, oferecendo uma plataforma segura e acessível para mulheres que enfrentam assédio ou violência. Aqui está uma visão geral do produto:
+DAMA é um aplicação web projetado para combater a subnotificação da violência contra a mulher, oferecendo uma plataforma segura e acessível para mulheres que enfrentam assédio ou violência. 
 
-    Anonimato Garantido: O aplicativo permite que as mulheres façam denúncias de forma totalmente anônima, protegendo sua identidade e privacidade. Isso é crucial para encorajar vítimas a relatar casos de violência sem medo de retaliação ou estigma social.
+A aplicação será composta do cinco módulos, a saber:
 
-    Interface Amigável: A interface do aplicativo é intuitiva e fácil de usar, garantindo que mulheres de todas as idades e origens possam acessar e utilizar o serviço com facilidade.
-
-    Denúncias Diversas: Além de assédio sexual, o aplicativo permite denúncias de diferentes formas de violência contra a mulher, como violência doméstica, agressão física, verbal ou psicológica, stalking, entre outros.
-
-    Rede de Apoio: O DAMA conecta as denunciantes a uma rede de apoio composta por organizações de defesa dos direitos das mulheres, centros de acolhimento, serviços de saúde e autoridades competentes. Isso garante que as vítimas recebam o suporte necessário após fazerem a denúncia.
-
-    Educação e Informação: Além de ser uma plataforma de denúncia, o DAMA também fornece informações educativas sobre direitos das mulheres, sinais de abuso, recursos disponíveis e estratégias de autoproteção.
-
-    Dados Estatísticos: O aplicativo coleta dados estatísticos sobre casos de violência relatados, fornecendo insights valiosos para pesquisadores, organizações governamentais e não governamentais na formulação de políticas e programas de prevenção mais eficazes.
-
-    Atualizações e Suporte Contínuo: A equipe por trás do DAMA está constantemente atualizando e aprimorando o aplicativo com base no feedback dos usuários e nas últimas pesquisas sobre violência contra a mulher.
+    • Módulo de gerenciamento usuários: permite gerenciar os usuários do sistema;
+      
+    • Módulo de denúncias e alertas de segurança: permite o gerenciamento de denúncias e alertas de segurança;
+      
+    • Módulo de educação e conscientização: permite o gerenciamento de informações postadas para edução e conscientização da população em geral sobre o assunto;
+      
+    • Módulo de Apoio: permite o gerenciamento de dos servições, órgãos e profissionais prestadores de serviços para forma a rede de apoio;
+      
+    • Módulos de relatos: permite o gerenciamento dos relatos e comentários realizados por integrantes/membros do sistema.
 
 ## 8. Requisitos funcionais
 
-| Código | Nome | Descrição | Prioridade |
+| Código | Nome | Descrição | Etapa |
 | --- | --- | --- | --- |
-| F01 | Fazer relatos | espaço para as vítimas compartilharem seus relatos | média |
-| F02 | Descobrir seus direitos | seção do app com informações dos direitos das mulheres | alta |
-| F03 | Controle de acesso do usuário | somente usuários autenticados entram no sistema| Obrigatória |
-| F04 | Seção de apoio | Lugar onde profissionais da área podem prestar serviços/divulgá-los | alta |
+| RF01 | Realizar denuncias | Espaço para que pessoas possam realizar denuncias de violências sofridas contra se próprio ou terceiros. É preciso garantir o anonimato para o denunciante. | PDSWeb |
+| RF02 | Consultar/Visualizar serviços, Órgãos e Profissionais de apoio | Espaço do sistema que permite a busca e visualização dos serviços, órgãos e profissionais de apoio casos de violência doméstica. Para divulgação o usuários deve fazer parte da rede de profissionais de apoio da plataforma. | PDSWeb |
+| RF03 | Publicar experiências | Espaço para usuários poderem postas seus relatos, inclusive de forma anônima, interagindo com outras mulheres ou profissionais da rede de apoio, em forma de feed. Apenas membros da plataforma poderão realizar publicações.| PDSWeb |
+| RF04 | Publicar material educativo | Espaço para buscar e visualizar de material educativo que será apresentado a todos os visitantes do site DAMA, independente de ter uma conta no sistema. | PDSWeb |
+| RF05 | Apresentar estatísticas de casos | Permitir a visualização de dados estatísticos sobre as ocorrências de denuncias e pedidos de socorro, fornecendo insights valiosos para pesquisadores, organizações governamentais e não governamentais na formulação de políticas e programas de prevenção mais eficazes. | PDSWeb |
+| RF06 | Manter Profissionais de apoio | Permite o gerenciamento dos dados dos profissionais que deseja realizar trabalhos voluntários ou não para as vítimas de violência.  | PDSWeb |
+| RF07 | Manter membros do sistema | Permitir o gerenciamento dos dados daqueles usuários cadastrados no sistema.  | PDSWeb |
+| RF08 | Acionar rede de socorro | Permite disparar um alerta de socorro para uma rede de pessoas pré-cadastradas e CIOSP - CENTRO INTEGRADO DE OPERAÇÕES DE SEGURANÇA PÚBLICA. | PDSDist |
+| RF09 | Manter rede de socorro | Permitir o gerenciamento de um grupo de pessoas próximas e da confiança das vítimas que possam ser acionadas em momentos de alertas de socorro. | PDSDist |
+| RF10 | Realizar o monitoramento georreferenciado | Espaço para apresentar o mapa de calor e alertas de socorro para órgão de segurança | PDSDist |
 
 ## 9. Requisitos não-funcionais
 
@@ -111,6 +117,6 @@ DAMA é um webapp projetado para combater a subnotificação da violência contr
 | --- | --- | --- | --- | --- |
 | NF01 | Navegação rápida e eficiente | Facilidade do usuario no site | Performance | Desejável |
 | NF02 | Tempo de resposta | comunicação rápida entre o servidor e o app | Performance | Desejável |
-| NF03 | Acessibilidade para mulheres analfabetas | Facilidade no uso do app sem a necessidade de textos | Acessibilidade | Desejável |
-| NF05 |Disponibilidade e Confiabilidade |	Garantir que o aplicativo esteja disponível e funcional com tempo de inatividade mínimo. | Confiabilidade | Essencial |
+| NF03 | Acessibilidade para mulheres analfabetas | Facilidade no uso do site sem a necessidade de textos | Acessibilidade | Desejável |
+| NF05 | Disponibilidade e Confiabilidade |	Garantir que o aplicativo esteja disponível e funcional com tempo de inatividade mínimo. | Confiabilidade | Essencial |
 | NF06 | Compatibilidade com Dispositivos e Navegadores | compatibilidade com uma gama de dispositivos móveis e navegadores | Interoperabilidade | Desejável |
