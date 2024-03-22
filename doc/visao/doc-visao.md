@@ -7,7 +7,7 @@
 | 27/02 | 0.0 | Versão inicial | Felipe da Costa, Giovana Beatriz, Igor Gabriel, Leandro Sizilio |
 | 14/03 | 1.0 | Primeira apresentação | Igor Gabriel, Giovana Beatriz |
 | 21/03 | 1.1 | Segunda apresentação - correção de erros (atual) | Igor Gabriel |
-| 22/03 | 1.2 | Ajuste nas seções: descrição do problema, usuário, visão geral do produto e requisitos funcionais. | Igor Gabriel |
+| 22/03 | 1.2 | Ajuste nas seções: descrição do problema, usuário, visão geral do produto e requisitos funcionais. | Alessandro Souza |
 
 ## 1. Objetivo do projeto
 
