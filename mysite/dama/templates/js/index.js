@@ -1,12 +1,9 @@
 
 document.addEventListener('click', function(event){
-
     if (event.target.id === 'denuncia-banner')
-        var janela = 'denuncia.html'
+        window.location.href = 'denuncia.html'
     else if (event.target.id === 'header-login')
-        var janela = 'login.html'
+        window.location.href = 'login.html'
     else if (event.target.id === 'header-conta')
-        var janela = 'cadastro.html'
-
-    window.location.href = janela
+        window.location.href = 'cadastro.html'
 })

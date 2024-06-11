@@ -21,6 +21,7 @@ const bairrosPorZona = {
     "Bairro L": ["Rua L1", "Rua L2", "Rua L3"]
   };
 
+window.onload = mostrarBairros
   
 function mostrarBairros(){
     // pega o select do form 
@@ -44,7 +45,6 @@ function mostrarBairros(){
     }
   }
 
-
 function mostrarRuas() {
     // pego o bairro selecionado
     const bairroSelecionado = document.getElementById('bairros').value;
@@ -66,4 +66,56 @@ function mostrarRuas() {
     }
   }
 
-  window.onload = mostrarBairros
+const botaoDenunciar = document.getElementById('denunciar')
+
+botaoDenunciar.addEventListener('click', function(event){
+  event.preventDefault()
+
+  var janela = document.getElementById('denuncia-feita')
+  if(janela.classList.contains('oculto')){
+    setTimeout(function(){
+      if(janela.classList.contains('oculto')){
+        janela.classList.remove('oculto')
+        janela.classList.add('denuncia-feita')
+        var main = document.getElementById('main')
+        main.classList.add('embassado')
+      }
+    },1000)
+  
+    setTimeout(function(){
+        janela.classList.add('oculto')
+        janela.classList.remove('denuncia-feita')
+        var main = document.getElementById('main');
+        main.classList.remove('embassado');
+        event.target.closest('form').submit()
+    },8000)
+  } 
+  else{
+      var janela = document.getElementById('denuncia-feita')
+      janela.classList.remove('denuncia-feita');
+      janela.classList.add('oculto');
+      var main = document.getElementById('main');
+      main.classList.remove('embassado');
+  }
+
+
+})
+
+document.addEventListener('click', function(event) {
+  // se não for na janela
+  if (event.target.id !== 'denuncia-feita') { 
+    if (event.target.id === 'login-header')
+      window.location.href = 'login.html'
+    else if (event.target.id === 'conta-header')
+      window.location.href = 'cadastro.html'
+    else{
+      var janela = document.getElementById('denuncia-feita');
+      if(!janela.classList.contains('oculto')){
+        janela.classList.remove('denuncia-feita');
+        janela.classList.add('oculto');
+        var main = document.getElementById('main');
+        main.classList.remove('embassado');
+      }
+    }
+  } 
+});

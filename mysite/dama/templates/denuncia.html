@@ -29,14 +29,14 @@
         </ul>
       </nav>
       <div class="borda0 header-div-right">
-        <button class="button-header" onclick="Login()">Login</button>
-        <button class="button-header" onclick="criarConta()">Criar Conta</button>
+        <button id="login-header" class="button-header" >Login</button>
+        <button id="conta-header"class="button-header" >Criar Conta</button>
       </div>
     </header>
 
-    <main id="main" class="borda2">
-      <div class="div-form borda1">
-        <form id="denuncia" class="borda2 form" action="#" method="get" name="denuncia">
+    <main id="main" class="borda0">
+      <div id="div-form" class=" borda0">
+        <form id="denuncia" class="borda0 form" action="#" method="get" name="denuncia">
           <h1>Denúncia</h1>
           
           <label for="bairros">Bairro de Natal</label>
@@ -49,19 +49,25 @@
           </select>
 
           <label for="data">Informe o horário e a data da agressão</label>
-          <input id="data" type="datetime-local">
+          <input id="data" name="data" form="denuncia" type="datetime-local">
 
-          <div id="submeter" class="borda2">
-            <div id="cancelar" class="borda1">
+          <div id="submeter" class="borda0">
+            <div id="cancelar" class="borda0">
             </div>
-            <div id="criar" class="borda1">
-              <button id="denunciar" class="button-form" type="submit" >Denunciar</button>
+            <div id="criar" class="borda0">
+              <button id="denunciar" class="button-form" type="submit">Denunciar</button>
             </div>
           </div>
 
         </form>
       </div>
     </main>
+
+
+    <div id="denuncia-feita" class="oculto borda1">
+      <p>Denúncia realizada com sucesso!</p>
+    </div>
+
 
     <footer class="borda0">
       <div class="footer-div footer-div-left borda0">

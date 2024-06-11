@@ -1,7 +1,6 @@
 main {
     min-height: 520px;
     padding: 5px;
-
     background-color: rgba(240, 229, 223, 0.8);
     background-image: url("../images/bg-cadastro.png");
     background-size: auto;
@@ -10,27 +9,32 @@ main {
     background-position: bottom left;
     
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     display: flex;
     font-size: 18px;
      
 }
 
-.div-form {
+#div-form {
     height: 450px; /* A div-form agora ocupa 100% da altura do main */
     width: 40%;
     border: 2px solid rgb(239, 210, 214);
     border-radius: 40px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    text-align: left;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 form {
-    padding: 55px 70px;
-    text-align: left; /* Centraliza o conteúdo */
-    display: flex; /* Adiciona display flex para centralizar os elementos */
-    flex-direction: column; /* Alinha os elementos verticalmente */
-    align-items: center; /* Alinha os elementos horizontalmente */
-    width: 100%; /* Define a largura do formulário */
+    padding: 40px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+    height: 100%;
 }
 
 form h1{
@@ -40,29 +44,28 @@ form h1{
 
 form label{
     display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 2px;
 }
 
 form input, select{
-    width: 80%;
+    width: 100%;
     height: 30px;
     margin-bottom: 15px;
+    display: block;
 }
-
 
 #submeter{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding-right: 15px;
     width: 100%;
 }
 
-#criar, #cancelar{
-    width: 40%;
-    height: 80%;
-}
-
 #criar{
+    width: 40%;
+    height: 100%;
     display: flex;
     justify-content: flex-end;
 }
@@ -93,7 +96,6 @@ form input, select{
 }
 
 .button-form:active {
-    /* background-color: rgba(255, 100, 110, 0.2); */
     opacity: 0.8;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -112,7 +114,28 @@ form input, select{
     opacity: 0.5;
 }
 
+.denuncia-feita{
+    height: 36%;
+    width: 35%;
+    z-index: 99999;
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -45%);
+    border-radius: 35px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    background-color: rgba(240, 229, 223, 1);
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
 
+}
+
+#denunciar:disbaled{
+    cursor: not-allowed;
+}
 
 /* separação visual */
 .borda0{
