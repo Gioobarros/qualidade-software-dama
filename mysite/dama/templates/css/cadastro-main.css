@@ -10,7 +10,7 @@ main {
     background-position: bottom left;
     
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     display: flex;
     font-size: 18px;
      
@@ -210,12 +210,12 @@ form div {
 
 
 .cadastrado{
-    height: 55%;
+    height: 38%;
     width: 35%;
     z-index: 99999;
     display: block;
     position: fixed;
-    top: 50%;
+    top: 46%;
     left: 50%;
     opacity: 1;
     transform: translate(-50%, -45%);
