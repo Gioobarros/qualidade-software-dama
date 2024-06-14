@@ -6,4 +6,6 @@ document.addEventListener('click', function(event){
         window.location.href = 'login.html'
     else if (event.target.id === 'header-conta')
         window.location.href = 'cadastro.html'
+    else if (event.target.id === 'mural')
+        window.location.href = 'mural.html'
 })

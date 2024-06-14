@@ -68,6 +68,7 @@ function mostrarRuas() {
 
 const botaoDenunciar = document.getElementById('denunciar')
 
+
 botaoDenunciar.addEventListener('click', function(event){
   event.preventDefault()
 
@@ -119,3 +120,12 @@ document.addEventListener('click', function(event) {
     }
   } 
 });
+
+
+function login(){
+  window.location.href = "login.html"
+}
+
+function criarConta(){
+  window.location.href = "cadastro.html"
+}

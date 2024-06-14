@@ -64,3 +64,12 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+
+function denunciar(){
+    window.location.href = "denuncia.html"
+}
+
+function criarConta(){
+    window.location.href = "cadastro.html"
+}
