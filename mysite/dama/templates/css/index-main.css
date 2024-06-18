@@ -12,14 +12,13 @@ span{
     max-height: 400px;
     min-height: 400px;
     display: flex;
-    
+    background-color: rgba(240, 229, 223,0.5);
 }
 
 .main-div1{
     background-image: url("../images/banner-dama.png");
     background-position: left;
     background-repeat: no-repeat;
-    background-color: rgba(240, 229, 223,1);
     background-size: contain;
     padding: 5px;
 }

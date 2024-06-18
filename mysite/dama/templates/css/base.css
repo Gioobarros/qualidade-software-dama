@@ -18,7 +18,7 @@ body{
     display: flex;
     justify-content:flex-start;
     align-items: center;
-    background-color: rgba(240, 229, 223, 1);
+    background-color: rgba(240, 229, 223, 0.5);
 
 }
 
@@ -48,10 +48,7 @@ main {
     height: 83.4%;
     max-height: 1200px;
     min-height: 1200px;
-    /* padding: 0px 10px; */
     text-align: center;
-    background-color: rgba(240, 229, 223, 1);
-
 }
 
 /* Estilização do footer */
@@ -66,6 +63,9 @@ footer {
     text-align: center;
     background-color: rgba(240, 229, 223, 1);
 
+}
+body{
+    user-select: none;
 }
 
 h1, span {
@@ -84,3 +84,8 @@ h1, span {
     border: 1px solid #f00;
 }
 /* separação visual */
+
+a{
+    user-select: none;
+    cursor: pointer;
+}

@@ -21,189 +21,394 @@
   </head>
 
   <body>
-    <header class="borda2">
-      <div class="borda1 header-div header-div-left">
+    <header class="borda0">
+      <div class="borda0 header-div header-div-left">
         <img src="images/logo-dama.png" alt="logomarca do Dama" />
       </div>
-      <nav class="borda1 header-nav">
+      <nav class="borda0 header-nav">
         <ul>
-          <li><a href="#main">Home</a></li>
+          <li><a id="home">Home</a></li>
           <li><a href="#main-div2">Quem Somos</a></li>
           <li><a href="#main-div3">Conheça seus direitos</a></li>
           <li><a href="#redes">Rede de apoio</a></li>
-          <li><a href="#main">Denunciar</a></li>
+          <li><a id="denunciar">Denunciar</a></li>
         </ul>
       </nav>
-      <div class="borda1 header-div-right">
-        <button id="header-login" class="button-header" onclick="Login()">Login</button>
-        <button id="header-conta" class="button-header" onclick="criarConta()">Criar Conta</button>
+      <div class="borda0 header-div-right">
+        <button id="header-login" class="button-header" >Login</button>
+        <button id="header-conta" class="button-header" >Criar Conta</button>
       </div>
     </header>
 
     <main id="main" class="">
 
       <div id="main-div" class="borda0">
-        <table class="borda1">
+        <table class="borda0">
             <thead id="thead">
-                <tr id="thead" class="borda1">
-                    <th class="borda1" colspan="5">Mural de Força</th>
+                <tr id="thead" class="borda0">
+                    <th id="mural" class="borda0" colspan="5">Mural de Força</th>
                 </tr>
+                <tr id="intervalo" class="borda0">
+                  <th class="borda0" colspan="5">
+                      <label for="inicio">De:</label>
+                      <input type="date" id="inicio" name="inicio">
+                      <label for="fim">Até:</label>
+                      <input type="date" id="fim" name="fim">
+                      <button id="filtroButton">Filtrar</button>
+                  </th>
+              </tr>
             </thead>
-            <tbody class="borda1">
-                <tr>
-                    <td>
-                      <div class="borda2 div-texto"></div>
-                      <div class="borda2 div-usuario"></div>
-                    </td>
-                    <td>
-                      <div class="borda2 div-texto"></div>
-                      <div class="borda2 div-usuario"></div>
-                    </td>
-                    <td>
-                      <div class="borda2 div-texto"></div>
-                      <div class="borda2 div-usuario"></div>
-                    </td>
-                    <td>
-                      <div class="borda2 div-texto"></div>
-                      <div class="borda2 div-usuario"></div>
-                    </td>
-                    <td>
-                      <div class="borda2 div-texto"></div>
-                      <div class="borda2 div-usuario">
-                        <!-- <img src="/images/profile.png" alt="imagem do usuario"> -->
-                      </div>
-                    </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                  <td>
-                    <div class="borda2 div-texto"></div>
-                    <div class="borda2 div-usuario"></div>
-                  </td>
-                </tr>
+            <tbody class="borda0">
+              <tr>
+                <td>
+                  <div class="borda0 div-texto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                      sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                      Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                    </p>
+                  </div>
+                  <div class="borda0 div-usuario">
+                    <div class="borda0 div-profile">
+                      <img src="/images/profile.png" alt="icone de usuario">
+                    </div>
+                    <div class="borda0 div-nome">
+                      <p>anonimo12345</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="borda0 div-texto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                      sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                      Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                    </p>
+                  </div>
+                  <div class="borda0 div-usuario">
+                    <div class="borda0 div-profile">
+                      <img src="/images/profile.png" alt="icone de usuario">
+                    </div>
+                    <div class="borda0 div-nome">
+                      <p>anonimo12345</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="borda0 div-texto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                      sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                      Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                    </p>
+                  </div>
+                  <div class="borda0 div-usuario">
+                    <div class="borda0 div-profile">
+                      <img src="/images/profile.png" alt="icone de usuario">
+                    </div>
+                    <div class="borda0 div-nome">
+                      <p>anonimo12345</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="borda0 div-texto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                      sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                      Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                    </p>
+                  </div>
+                  <div class="borda0 div-usuario">
+                    <div class="borda0 div-profile">
+                      <img src="/images/profile.png" alt="icone de usuario">
+                    </div>
+                    <div class="borda0 div-nome">
+                      <p>anonimo12345</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="borda0 div-texto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                      sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                      Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                    </p>
+                  </div>
+                  <div class="borda0 div-usuario">
+                    <div class="borda0 div-profile">
+                      <img src="/images/profile.png" alt="icone de usuario">
+                    </div>
+                    <div class="borda0 div-nome">
+                      <p>anonimo12345</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+              <td>
+                <div class="borda0 div-texto">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                    sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                  </p>
+                </div>
+                <div class="borda0 div-usuario">
+                  <div class="borda0 div-profile">
+                    <img src="/images/profile.png" alt="icone de usuario">
+                  </div>
+                  <div class="borda0 div-nome">
+                    <p>anonimo12345</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="borda0 div-texto">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                    sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                  </p>
+                </div>
+                <div class="borda0 div-usuario">
+                  <div class="borda0 div-profile">
+                    <img src="/images/profile.png" alt="icone de usuario">
+                  </div>
+                  <div class="borda0 div-nome">
+                    <p>anonimo12345</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="borda0 div-texto">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                    sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                  </p>
+                </div>
+                <div class="borda0 div-usuario">
+                  <div class="borda0 div-profile">
+                    <img src="/images/profile.png" alt="icone de usuario">
+                  </div>
+                  <div class="borda0 div-nome">
+                    <p>anonimo12345</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="borda0 div-texto">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                    sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                  </p>
+                </div>
+                <div class="borda0 div-usuario">
+                  <div class="borda0 div-profile">
+                    <img src="/images/profile.png" alt="icone de usuario">
+                  </div>
+                  <div class="borda0 div-nome">
+                    <p>anonimo12345</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="borda0 div-texto">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                    sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                  </p>
+                </div>
+                <div class="borda0 div-usuario">
+                  <div class="borda0 div-profile">
+                    <img src="/images/profile.png" alt="icone de usuario">
+                  </div>
+                  <div class="borda0 div-nome">
+                    <p>anonimo12345</p>
+                  </div>
+                </div>
+              </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="borda0 div-texto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                      sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                      Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                    </p>
+                  </div>
+                  <div class="borda0 div-usuario">
+                    <div class="borda0 div-profile">
+                      <img src="/images/profile.png" alt="icone de usuario">
+                    </div>
+                    <div class="borda0 div-nome">
+                      <p>anonimo12345</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="borda0 div-texto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                      sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                      Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                    </p>
+                  </div>
+                  <div class="borda0 div-usuario">
+                    <div class="borda0 div-profile">
+                      <img src="/images/profile.png" alt="icone de usuario">
+                    </div>
+                    <div class="borda0 div-nome">
+                      <p>anonimo12345</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="borda0 div-texto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                      sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                      Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                    </p>
+                  </div>
+                  <div class="borda0 div-usuario">
+                    <div class="borda0 div-profile">
+                      <img src="/images/profile.png" alt="icone de usuario">
+                    </div>
+                    <div class="borda0 div-nome">
+                      <p>anonimo12345</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="borda0 div-texto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                      sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                      Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                    </p>
+                  </div>
+                  <div class="borda0 div-usuario">
+                    <div class="borda0 div-profile">
+                      <img src="/images/profile.png" alt="icone de usuario">
+                    </div>
+                    <div class="borda0 div-nome">
+                      <p>anonimo12345</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="borda0 div-texto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                      sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                      Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                    </p>
+                  </div>
+                  <div class="borda0 div-usuario">
+                    <div class="borda0 div-profile">
+                      <img src="/images/profile.png" alt="icone de usuario">
+                    </div>
+                    <div class="borda0 div-nome">
+                      <p>anonimo12345</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+              <td>
+                <div class="borda0 div-texto">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                    sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                  </p>
+                </div>
+                <div class="borda0 div-usuario">
+                  <div class="borda0 div-profile">
+                    <img src="/images/profile.png" alt="icone de usuario">
+                  </div>
+                  <div class="borda0 div-nome">
+                    <p>anonimo12345</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="borda0 div-texto">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                    sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                  </p>
+                </div>
+                <div class="borda0 div-usuario">
+                  <div class="borda0 div-profile">
+                    <img src="/images/profile.png" alt="icone de usuario">
+                  </div>
+                  <div class="borda0 div-nome">
+                    <p>anonimo12345</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="borda0 div-texto">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                    sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                  </p>
+                </div>
+                <div class="borda0 div-usuario">
+                  <div class="borda0 div-profile">
+                    <img src="/images/profile.png" alt="icone de usuario">
+                  </div>
+                  <div class="borda0 div-nome">
+                    <p>anonimo12345</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="borda0 div-texto">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                    sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                  </p>
+                </div>
+                <div class="borda0 div-usuario">
+                  <div class="borda0 div-profile">
+                    <img src="/images/profile.png" alt="icone de usuario">
+                  </div>
+                  <div class="borda0 div-nome">
+                    <p>anonimo12345</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="borda0 div-texto">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, 
+                    sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit...
+                  </p>
+                </div>
+                <div class="borda0 div-usuario">
+                  <div class="borda0 div-profile">
+                    <img src="/images/profile.png" alt="icone de usuario">
+                  </div>
+                  <div class="borda0 div-nome">
+                    <p>anonimo12345</p>
+                  </div>
+                </div>
+              </td>
+              </tr>
             </tbody>
+
             <tfoot>
-              <tr id="thead" class="borda1">
-                <th class="borda1" colspan="5">Mural de Força</th>
+              <tr id="thead" class="borda0">
+                <th class="borda0" colspan="5">(botões do carrossel)</th>
             </tr>
             </tfoot>
         </table>
       </div>
-
-
-      <!-- <div id="main-div main-div3" class="main-div3 borda1">
-        <div class="borda2 main-div3-left">
-          <article class="article-direitos borda0">
-            <h1>Conheça seus direitos</h1>
-            <p>Nós do <span>DAMA</span> acreditamos que <span>conhecimento também é poder!</span><br>
-              Por isso, trazemos até você algumas leis que <span>protegem, informam e ajudam</span> as mulheres no Brasil.
-            </p>
-          </article>
-        </div>
-        <div class="borda2 main-div3-right">
-          <ul class="carrossel borda0">
-            <li class="borda0">
-              <input type="radio" id="slide1" name="slide" checked>
-              <label for="slide1"></label>
-              <img src="images/feminicidio.jpeg" alt="">
-            </li>
-            <li>
-              <input type="radio" id="slide2" name="slide" checked>
-              <label for="slide2"></label>
-              <img src="images/carolina.jpeg" alt="">
-            </li>
-            <li>
-              <input type="radio" id="slide3" name="slide" checked>
-              <label for="slide3"></label>
-              <img src="images/joana.jpeg" alt="">
-            </li>
-            <li>
-              <input type="radio" id="slide4" name="slide" checked>
-              <label for="slide4"></label>
-              <img src="images/importunacao.jpeg" alt="">
-            </li>
-            <li>
-              <input type="radio" id="slide5" name="slide" checked>
-              <label for="slide5"></label>
-              <img src="images/minuto.jpeg" alt="">
-            </li>
-        </ul>
-        </div>
-
-      </div>  -->
-
     </main>
 
-    <footer class="borda1">
-        <div class="footer-div footer-div-left borda2">
+    <footer class="borda0">
+        <div class="footer-div footer-div-left borda0">
             <p>emergencia?</p>
             <h1><span>ligue 180</span></h1>
         </div>
-        <div class="footer-div footer-div-center borda2">
-          <div class="footer-div-center-top borda1" >
+        <div class="footer-div footer-div-center borda0">
+          <div class="footer-div-center-top borda0" >
               <h1>Ajuda</h1>
           </div>
 
-          <div class="footer-div-center-bottom borda1">
+          <div class="footer-div-center-bottom borda0">
             <p><a href="#">Sobre nós</a></p>
             <p><a href="#">Seja apoiador</a></p>
             <p><a href="#">Seja voluntário</a></p>
@@ -212,11 +417,11 @@
 
         </div>
 
-        <div class="footer-div footer-div-right borda2">
+        <div class="footer-div footer-div-right borda0">
           <img src="images/logo_rn.png" alt="">
         </div>
     </footer>
 
-    <script src="js/index.js"></script>
+    <script src="js/mural.js"></script>
   </body>
 </html>

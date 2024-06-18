@@ -109,6 +109,10 @@ document.addEventListener('click', function(event) {
       window.location.href = 'login.html'
     else if (event.target.id === 'conta-header')
       window.location.href = 'cadastro.html'
+    else if (event.target.id === 'mural')
+      window.location.href = 'mural.html'
+    else if (event.target.id === 'home')
+      window.location.href = 'index.html'
     else{
       var janela = document.getElementById('denuncia-feita');
       if(!janela.classList.contains('oculto')){

@@ -53,7 +53,17 @@ document.addEventListener('click', function(event) {
             event.target.closest('form').submit();
         }, 7000); 
 
-    } else {
+    } 
+    else if(event.target.id === 'denuncia' || event.target.id === 'bttdenuncia'){
+        window.location.href = "denuncia.html"
+    }
+    else if(event.target.id === 'bttcadastro'){
+        window.location.href = "cadastro.html"
+    }
+    else if(event.target.id === 'home'){
+        window.location.href = "index.html"
+    }
+    else {
         // Fechar a janela de confirmação se clicar fora dela
         var janela = document.getElementById('logado');
         if (janela.classList.contains('logado')) {
@@ -65,10 +75,6 @@ document.addEventListener('click', function(event) {
     }
 });
 
-
-function denunciar(){
-    window.location.href = "denuncia.html"
-}
 
 function criarConta(){
     window.location.href = "cadastro.html"
