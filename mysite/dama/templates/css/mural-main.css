@@ -1,3 +1,4 @@
+
 #main-div{
     width: 100%;
     max-width: 1366px;
@@ -159,3 +160,91 @@ td:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+#relato-modal{
+    width: 60%;
+    height: 70%;
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 1;
+    top: 20%;
+    background-color: rgba(237, 184, 189, 1);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 5px;
+}
+
+#fechar-modal{
+    align-self:center; /* Alinha o botão à direita */
+    background: none;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 2px;
+}
+
+#relato{
+    position: relative;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.relato-header{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.usuario-id{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px;
+}
+
+.usuario-id p{
+    display: inline;
+    margin-left: 5px;
+}
+
+.relato-texto{
+    text-align: left;
+    padding: 10px;
+}
+
+#comentarios{
+    height: fit-content;
+    padding: 5px;
+    justify-content: center;
+    display: flex;
+}
+
+#comentario{
+    height:fit-content;
+    width: 90%;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+#input-comentario{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    display: flex;
+    gap: 10px; /* Espaçamento entre o input e o botão */
+    box-sizing: border-box;
+}
+
+#input-comentario input{
+    width: 100%;
+    height: 30px;
+}
+
+svg{
+    width: 3%;
+    cursor: pointer;
+    color: rgba(255, 100, 100, 1);
+}
