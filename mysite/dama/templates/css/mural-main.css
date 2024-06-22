@@ -46,19 +46,20 @@ tr{
     border: 1px solid #000;
     user-select: none;
 }
-tr > td:nth-child(1){
+
+.coluna-1{
     background-color: rgba(235, 241, 243, 1);
 }
-tr > td:nth-child(2){
+.coluna-2{
     background-color: rgba(250, 226, 226, 1);
 }
-tr > td:nth-child(3){
+.coluna-3{
     background-color: rgba(230, 250, 227, 1);
 }
-tr > td:nth-child(4){
+.coluna-4{
     background-color: rgba(227, 228, 250, 1);
 }
-tr > td:nth-child(5){
+.coluna-5{
     background-color: rgba(252, 249, 218, 1);
 }
 
@@ -160,7 +161,16 @@ td:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-#relato-modal{
+.oculto{
+    display: none;
+}
+
+.embassado{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.janela-modal{
     width: 60%;
     height: fit-content;
     z-index: 1000;
@@ -218,6 +228,8 @@ td:hover {
     text-align: left;
     padding: 10px;
     height: fit-content;
+    word-wrap: break-word; /* Quebra de linha automática */
+    max-width: 100%; /* Limita a largura do texto ao máximo possível */
 }
 
 #comentarios{
@@ -225,9 +237,12 @@ td:hover {
     padding: 5px;
     justify-content: center;
     display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
 }
 
-#comentario{
+.comentario{
     height:fit-content;
     width: 90%;
     padding: 5px;
@@ -236,7 +251,11 @@ td:hover {
     justify-content: center;
     background-color: rgba(235, 241, 243, 1);
 }
+.comentario section{
+    height:fit-content;
+    width: 100%;
 
+}
 #input-comentario {
     position: relative;
     display: flex;
