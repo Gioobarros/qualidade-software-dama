@@ -1,21 +1,12 @@
-document.addEventListener('click', function(event){
 
+const comentário_input = document.getElementById('comentario-input')
+comentário_input.addEventListener('keydown', function(event){
+    if (event.key === 'Enter'){
+        if(comentário_input.value !== ''){
+            novoComentario()
+        }
+    }
 })
-
-function verRelato(){
-    var teste = document.createElement('div')
-    
-}
-
-function mostraModal(relato) {
-    var coluna = relato.dataset.column;
-    var modal = document.getElementById('relato-modal');
-    modal.classList.remove('oculto');
-    modal.className = `janela-modal coluna-${coluna}`;
-    
-    var main = document.getElementById('main');
-    main.classList.add('embassado');
-}
 
 document.addEventListener('click', function(event) {
     var main = document.getElementById('main')
@@ -30,23 +21,44 @@ document.addEventListener('click', function(event) {
     }
     else{ 
         // checa se é pra abrir o modal
-        if(event.target.closest('td'))
+        if(event.target.id === 'fechar-modal'){
+            main.classList.remove('embassado')
+            var modal = document.getElementById('relato-modal')
+            modal.classList.remove('janela-modal')
+            modal.classList.add('oculto')
+        }
+
+        else if(event.target.closest('td'))
             mostraModal(event.target.closest('td'))
     
-        else if (event.target.id == 'home')
+        else if (event.target.id === 'home')
             window.location.href = "index.html"
     
-        else if (event.target.id == 'denunciar')
+        else if (event.target.id === 'denunciar')
             window.location.href = "denuncia.html"
     
-        else if (event.target.id == 'header-login')
+        else if (event.target.id === 'header-login')
             window.location.href = "login.html"
     
-        else if (event.target.id == 'header-conta')
+        else if (event.target.id === 'header-conta')
             window.location.href = "cadastro.html"
     }
 
 });
+
+function mostraModal(relato) {
+    var coluna = relato.dataset.column;
+    var modal = document.getElementById('relato-modal');
+    modal.classList.remove('oculto');
+    modal.className = 'janela-modal borda2'
+
+    var relato_div = document.getElementById('relato')
+    relato_div.dataset.column = coluna
+    relato_div.className = `relato borda1 coluna-${coluna}`;
+
+    var main = document.getElementById('main');
+    main.classList.add('embassado');
+}
 
 function novoComentario(){
     var nome_usuario = document.createElement('p')
@@ -75,14 +87,18 @@ function novoComentario(){
     secao.appendChild(div_usuario)
     secao.appendChild(div_texto)
 
+    var relato_cor = document.getElementById('relato')
+
     var comentario = document.createElement('div')
     comentario.classList.add('borda2')
     comentario.classList.add('comentario')
+    comentario.className = `borda2 comentario coluna-${relato_cor.dataset.column}`
     comentario.appendChild(secao)
 
     var comentarios = document.getElementById('comentarios')
     comentarios.append(comentario)
     
 }
+
 
 

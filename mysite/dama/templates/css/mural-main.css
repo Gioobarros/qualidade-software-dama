@@ -194,11 +194,10 @@ td:hover {
     padding: 4px;
 }
 
-#relato{
+.relato{
     position: relative;
     padding: 5px;
     border-radius: 8px;
-    background-color: rgba(235, 241, 243, 1);
 }
 
 .relato-header{
@@ -249,7 +248,6 @@ td:hover {
     border-radius: 8px;
     display: flex;
     justify-content: center;
-    background-color: rgba(235, 241, 243, 1);
 }
 .comentario section{
     height:fit-content;
