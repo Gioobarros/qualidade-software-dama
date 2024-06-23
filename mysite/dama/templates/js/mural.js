@@ -31,7 +31,7 @@ document.addEventListener('click', function(event) {
         else if(event.target.closest('td'))
             mostraModal(event.target.closest('td'))
     
-        else if (event.target.id === 'home')
+        else if (event.target.id === 'home' || event.target.id === 'logo-img')
             window.location.href = "index.html"
     
         else if (event.target.id === 'denunciar')

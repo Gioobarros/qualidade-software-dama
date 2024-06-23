@@ -60,7 +60,7 @@ document.addEventListener('click', function(event) {
     else if(event.target.id === 'bttcadastro'){
         window.location.href = "cadastro.html"
     }
-    else if(event.target.id === 'home'){
+    else if(event.target.id === 'home' || event.target.id === 'logo-img'){
         window.location.href = "index.html"
     }
     else {

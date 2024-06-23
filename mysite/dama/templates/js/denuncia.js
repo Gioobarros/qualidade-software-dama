@@ -111,7 +111,7 @@ document.addEventListener('click', function(event) {
       window.location.href = 'cadastro.html'
     else if (event.target.id === 'mural')
       window.location.href = 'mural.html'
-    else if (event.target.id === 'home')
+    else if (event.target.id === 'home' || event.target.id === 'logo-img')
       window.location.href = 'index.html'
     else{
       var janela = document.getElementById('denuncia-feita');

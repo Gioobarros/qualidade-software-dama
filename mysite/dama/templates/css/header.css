@@ -75,7 +75,7 @@ header{
 header img{
     width: 80%;
     height: auto;
-
+    cursor: pointer;
 }
 
 
