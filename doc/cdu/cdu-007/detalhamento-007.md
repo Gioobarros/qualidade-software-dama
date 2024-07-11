@@ -1,4 +1,4 @@
-# CDU002. Nome... 
+# CDU007 Fazer Cadastro
 
 - **Ator principal**: ...
 - **Atores secundários**: ...	 
@@ -23,6 +23,9 @@
 | :-----------------: | :-----------------: | 
 | 2.1 - ... | |  
 | | 2.2 - ... |  
+
+## Imagem Representativa do Caso de Uso
+![Nome do Caso de Uso](caminho\imagem.png)
 
 > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 

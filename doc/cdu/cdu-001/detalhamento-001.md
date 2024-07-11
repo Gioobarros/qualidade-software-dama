@@ -1,4 +1,4 @@
-# CDU001. Comentar Relato  
+# CDU001. - Comentar Relato  
 
 - **Ator principal**: Membros inscritos
 - **Atores secundários**: 
@@ -47,6 +47,9 @@
 | | O sistema mostra uma mensagem pedindo para que algum comentário seja digitado |
 | | o usuário é direcionado para o passo 4 |
 | | |
+
+## Imagem Representativa do Caso de Uso
+![Comentar Relato](caminho\imagem.png)
 
 > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 

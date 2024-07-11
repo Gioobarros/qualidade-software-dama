@@ -1,9 +1,9 @@
-# CDU002. Nome... 
+# CDU013 - Moderar Pubilcação de Material 
 
 - **Ator principal**: ...
 - **Atores secundários**: ...	 
 - **Resumo**: ...
-- **Pré-condição**: ...
+- **Précondição**: ...
 - **Pós-Condição**: ...
 
 ## Fluxo Principal
@@ -18,13 +18,16 @@
 | 1.1 - ... | |  
 | | 1.2 - ... |
 
-## Fluxo Alternativo II - ...
+## Fluxo Alternativo III - ...
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: | 
 | 2.1 - ... | |  
 | | 2.2 - ... |  
 
-> Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
+## Imagem Representativa do Caso de Uso
+![Nome do Caso de Uso](caminho\imagem.png)
+
+> Obs. as sessões a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 
 ## Diagrama de Interação (Sequência ou Comunicação)
 
