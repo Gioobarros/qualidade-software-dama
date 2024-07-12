@@ -1,7 +1,8 @@
 
+
 main {
     min-height: 520px;
-    padding: 30px;
+    padding: 5px;
 
     background-color: rgba(240, 229, 223, 0.7);
     background-image: url("../images/bg-cadastro.png");
@@ -11,7 +12,7 @@ main {
     background-blend-mode:hard-light;
     
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     display: flex;
     font-size: 18px;
      
@@ -22,7 +23,7 @@ main {
 }
 
 .div-form {
-    height: 400px; /* A div-form agora ocupa 100% da altura do main */
+    height: 450px; /* A div-form agora ocupa 100% da altura do main */
     width: 40%;
     border: 2px solid rgb(239, 210, 214);
     border-radius: 40px;
@@ -31,8 +32,7 @@ main {
     align-items: center;
     display: flex;
     justify-content: center;
-    opacity: 1;
-    z-index: 99999;
+
 }
 
 .div-form-div {
@@ -46,6 +46,11 @@ form {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 40px;
+
+    flex-direction: column; 
+    width: 90%; 
+    height: 100%;
 }
 
 form h1{
@@ -199,14 +204,13 @@ form div {
     opacity: 0.5;
 }
 
-
 .logado{
-    height: 45%;
+    height: 36%;
     width: 35%;
     z-index: 99999;
     display: flex;
     position: fixed;
-    top: 50%;
+    top: 52%;
     left: 50%;
     opacity: 1;
     transform: translate(-50%, -45%);

@@ -18,20 +18,19 @@
   <body>
     <header class="borda0 header">
       <div class="borda0 header-div header-div-left">
-        <img src="images/logo-dama.png" alt="logomarca do Dama" />
+        <img id="logo-img" src="images/logo-dama.png" alt="logomarca do Dama" />
       </div>
       <nav class="borda0 header-nav">
         <ul>
-          <li><a href="#main">Home</a></li>
+          <li><a id="home">Home</a></li>
           <li><a href="#main-div2">Quem Somos</a></li>
           <li><a href="#main-div3">Conheça seus direitos</a></li>
           <li><a href="#redes">Rede de apoio</a></li>
-          <li><a href="#main">Denunciar</a></li>
         </ul>
       </nav>
-      <div class="borda0 header-div-right">
-        <button class="button-header" onclick="Login()">Login</button>
-        <button class="button-header" onclick="criarConta()">Criar Conta</button>
+      <div id="button-header" class="borda0 header-div-right borda0">
+        <button id="bttdenuncia"  class="button-header borda0">Denunciar</button>
+        <button id="bttcadastro" class="button-header borda0" onclick="criarConta()">Criar Conta</button>
       </div>
     </header>
 
@@ -40,7 +39,7 @@
         <form class="borda0 form" action="#" method="get" name="cadastro">
           <h1>Login</h1>
           <div id="nome-form" class="div-form-div">
-              <label for="nome" >Nome de Usuário</label>
+              <label for="nome">Nome do Usuario</label>
               <input type="text" id="nome" name="nome" placeholder="Nome de usuário no DAMA" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
           </div>
           <div id="senha-form" class="div-form-div">
@@ -67,7 +66,7 @@
       </div>
     </main>
 
-    <div id="logado" class="oculto borda1">
+    <div id="logado" class="oculto borda0">
         <p>Bem vinda(o) ao DAMA, <span id="nome-usuario"></span>! </p>
     </div>
 

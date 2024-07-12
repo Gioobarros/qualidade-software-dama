@@ -75,7 +75,20 @@ document.addEventListener('click', function(event) {
             event.target.closest('form').submit();
         }, 7000); 
     } 
-
+    else if(event.target.id === 'denuncia' || event.target.id === 'bttdenuncia'){
+        window.location.href = "denuncia.html"
+    }
+    else if(event.target.id === 'login'){
+        window.location.href = "login.html"
+    }
+    else if(event.target.id === 'home'){
+        window.location.href = "index.html"
+    }
+    else if(event.target.id === 'mural-forca'){
+        window.location.href = "mural.html"
+    }
+    else if (event.target.id === 'logo-img')
+        window.location.href = 'index.html'
     else {
         // Fechar a janela de confirmação se clicar fora dela
         var janela = document.getElementById('cadastrado');
@@ -87,6 +100,4 @@ document.addEventListener('click', function(event) {
         }
     }
 });
-
-
 

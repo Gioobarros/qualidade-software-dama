@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dama'
+    'dama.apps.DamaConfig'
 ]
 
 MIDDLEWARE = [
@@ -134,5 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
 MEDIA_ROOT = 'C:\\Users\\OMoral\\Downloads\\DAMA\\dama\\mysite\\media'
 MEDIA_URL = '/media/'
+
 STATIC_ROOT = 'C:\\Users\\OMoral\\Downloads\\DAMA\\dama\\mysite\\static\\admin'
+
 STATIC_URL = '/static/'

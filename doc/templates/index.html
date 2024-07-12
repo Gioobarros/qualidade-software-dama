@@ -21,22 +21,21 @@
   </head>
 
   <body>
-    <header class="borda2">
+    <header id="cabecalho" class="borda0">
       <div class="borda1 header-div header-div-left">
-        <img src="images/logo-dama.png" alt="logomarca do Dama" />
+        <img id="logo-img" src="images/logo-dama.png" alt="logomarca do Dama" />
       </div>
       <nav class="borda1 header-nav">
         <ul>
-          <li><a href="#main">Home</a></li>
+          <li><a href="#cabecalho">Home</a></li>
           <li><a href="#main-div2">Quem Somos</a></li>
           <li><a href="#main-div3">Conheça seus direitos</a></li>
           <li><a href="#redes">Rede de apoio</a></li>
-          <li><a href="#main">Denunciar</a></li>
         </ul>
       </nav>
       <div class="borda1 header-div-right">
-        <button class="button-header" onclick="Login()">Login</button>
-        <button class="button-header" onclick="criarConta()">Criar Conta</button>
+        <button id="header-login" class="button-header" onclick="Login()">Login</button>
+        <button id="header-conta" class="button-header" onclick="criarConta()">Criar Conta</button>
       </div>
     </header>
 
@@ -46,15 +45,15 @@
         <div class="borda1 main-div1-left">
         </div>
         <div class="borda1 main-div1-right">
-          <div class="borda2 main-div1-right-top">
+          <div class="borda0 main-div1-right-top">
             <p id="missao">
               Enfrentando o medo e o silêncio <br>com
               <span>conscientização e empoderamento,</span><br />para  juntos
               <span> combatermos</span> a violência contra a mulher,<br> no estado do Rio Grande do Norte.
             </p>
           </div>
-          <div class="borda2 main-div1-right-bottom">
-            <button class="button-main">Faça sua Denúncia</button>
+          <div class="borda0 main-div1-right-bottom">
+            <button id="denuncia-banner" class="button-main">Faça sua Denúncia</button>
           </div>
         </div>
       </div>
@@ -64,19 +63,22 @@
           <img src="images/circulo.png" alt="logo do dama">
         </div>
         <div class="main-div2-right borda1">
-          <div class="main-div2-right-top borda2">
-            <p> A sua história pode <span>salvar outras mulheres!</span><br>
-              Convidamos você para contar ela no nosso <span>Mural de Força</span>.
+          <div class="main-div2-right-top borda0">
+            <p>Conhecer uma história de <span>superação</span> à violência<br> 
+              pode trazer apoio e ainda <span>salvar mulheres!</span><br>
+              Visite nosso <span>Mural de Força</span> e conheça
+               relatos <br> de <span>superação</span> de mulheres que sofreram violência.
+              
             </p>
           </div>
-          <div class="main-div2-right-bottom borda2">
-            <button class="button-main-div2">Compartilhe sua história</button>
+          <div class="main-div2-right-bottom borda0">
+            <button id="mural" class="button-main-div2">Mural de Força</button>
           </div>
         </div>
       </div>
 
       <div id="main-div main-div3" class="main-div3 borda1">
-        <div class="borda2 main-div3-left">
+        <div class="borda0 main-div3-left">
           <article class="article-direitos borda0">
             <h1>Conheça seus direitos</h1>
             <p>Nós do <span>DAMA</span> acreditamos que <span>conhecimento também é poder!</span><br>
@@ -84,7 +86,7 @@
             </p>
           </article>
         </div>
-        <div class="borda2 main-div3-right">
+        <div class="borda0 main-div3-right">
           <ul class="carrossel borda0">
             <li class="borda0">
               <input type="radio" id="slide1" name="slide" checked>
@@ -119,11 +121,11 @@
     </main>
 
     <footer class="borda1">
-        <div class="footer-div footer-div-left borda2">
+        <div class="footer-div footer-div-left borda0">
             <p>emergencia?</p>
             <h1><span>ligue 180</span></h1>
         </div>
-        <div class="footer-div footer-div-center borda2">
+        <div class="footer-div footer-div-center borda0">
           <div class="footer-div-center-top borda1" >
               <h1>Ajuda</h1>
           </div>
@@ -137,11 +139,11 @@
 
         </div>
 
-        <div class="footer-div footer-div-right borda2">
+        <div class="footer-div footer-div-right borda0">
           <img src="images/logo_rn.png" alt="">
         </div>
     </footer>
 
-    <script src="js/muda_janela.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
