@@ -29,14 +29,36 @@ function visibilidadeSenha(id){
 
 function mostrarCampos(value){
 
-    if (value !== 'anonimo'){
+    if (value !== 'anom'){
         var elementos = document.querySelectorAll('.hidden')
-
+         
         elementos.forEach(function(elemento){
             elemento.classList.remove('hidden');
+
             elemento.classList.add('visivel');
         });
+        
+        var nome_usuario = document.getElementById('nome-usuario-label')
+        var nome_usuario_input = document.getElementById('nome-usuario-input')
 
+        var cadastro_label = document.getElementById('numero-cadastro-label')
+        var cadastro_input = document.getElementById('numero-cadastro-input')
+
+        if (value === 'pro'){
+            cadastro_label.innerText = 'CRP'
+            cadastro_input.name = 'crp'
+            cadastro_input.placeholder = ''
+            nome_usuario.innerHTML = "Nome completo"
+            nome_usuario_input.name = "nome_completo" 
+        }
+        else if (value === 'ong'){
+            cadastro_label.innerText = 'CNPJ'
+            cadastro_input.name = 'cnpj'
+            cadastro_input.placeholder = "XX.XXX.XXX/XXXX-XX" 
+            nome_usuario.innerHTML = "Razão social"
+            nome_usuario_input.name = "razao_social"
+        }
+        
     }
 
     else{
@@ -100,4 +122,6 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+
 

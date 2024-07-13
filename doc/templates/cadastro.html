@@ -35,8 +35,8 @@
       <div class="div-form">
         <form class="borda0 form" action="#" method="get" name="cadastro">
           <h1>Cadastro</h1>
-          <label for="nome" >Nome de Usuário</label>
-          <input type="text" id="nome" name="nome" placeholder="Crie seu nome no DAMA" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+          <label for="nome" >Nome de Login</label>
+          <input type="text" id="nome" name="nome" placeholder="Login de acesso ao DAMA" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
           
           <label for="senha">Senha</label>
           <div>
@@ -52,14 +52,17 @@
 
           <label for="usuario">Tipo de Usuário</label>
           <select id="usuario" name="usuario" form="cadastro" onchange="mostrarCampos(this.value)">
-            <option value="anonimo">Anonimo</option>
-            <option value="ong" >Organização Não-Governamental</option>
-            <option value="profissional">Profissional de Apoio</option>
-            <option value="orgao">Orgão Público</option>
+            <option value="anom">Anonimo</option>
+            <option value="ong">Organização Não-Governamental</option>
+            <option value="pro">Profissional de Apoio</option>
           </select>
 
-          <label id="cnpj-label" class="hidden" for="cnpj-input">CNPJ</label>
-          <input id="cnpj-input" class="hidden" type="text"  name="cnpj" placeholder="XX.XXX.XXX/XXXX-XX" maxlength="14" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)" pattern="[0-9]"/>
+          <label id="nome-usuario-label" class="hidden" for="nome-usuario-input"></label>
+          <input id="nome-usuario-input" class="hidden" type="text"  name=""  maxlength="100" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)" pattern="[0-9]"/>
+          
+
+          <label id="numero-cadastro-label" class="hidden" for="numero-cadastro-input"></label>
+          <input id="numero-cadastro-input" class="hidden" type="text"  name=""  maxlength="14" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)" pattern="[0-9]"/>
            
           <fieldset class="borda0">
             <div id="fieldset-left">
