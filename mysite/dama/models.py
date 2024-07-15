@@ -5,9 +5,9 @@ from django.utils import timezone
 class Usuario(models.Model):
     usuario_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
 
-    nome_login = models.CharField(max_length=40, unique=True)
+    nome_login = models.CharField(max_length=40, blank=False, required=True)
 
-    senha = models.CharField(max_length=20)
+    senha = models.CharField(max_length=20, blank=False, required=True, null=False)
 
     def __str__(self):
         return self.nome_login
@@ -15,11 +15,11 @@ class Usuario(models.Model):
 class UsuarioProfissional(Usuario):
     nome_completo = models.CharField(max_length=100)
 
-    cadastro_crp = models.CharField(max_length=11, unique=True)
+    cadastro_crp = models.CharField(max_length=11, blank=False, required=True)
 
-    telefone = models.CharField(max_length=20)
+    telefone = models.CharField(max_length=20,blank=False, required=True)
 
-    email = models.EmailField()
+    email = models.EmailField(blank=False, required=True)
 
     def __str__(self):
         return f"Nome: {self.nome_completo} - CRP: {self.cadastro_crp} - 
@@ -28,11 +28,11 @@ class UsuarioProfissional(Usuario):
 class UsuarioOng(Usuario):
     cnpj = models.CharField(max_length=11, unique=True)
 
-    razao_social = models.CharField(max_length=100, unique=True)
+    razao_social = models.CharField(max_length=100, unique=True,blank=False)
 
-    telefone = models.CharField(max_length=20)  
+    telefone = models.CharField(max_length=20,blank=False, required=True)  
 
-    email = models.EmailField()
+    email = models.EmailField(blank=False, required=True)
 
     def __str__(self):
         return f"Razão Social: {self.razao_social} - CNPJ: {self.cnpj} - 
@@ -45,17 +45,17 @@ class Denuncia(models.Model):
     
     data_denuncia = models.DateTimeField(default=timezone.now)  
 
-    descricao_denuncia = models.CharField(max_length=200)
+    descricao_denuncia = models.CharField(max_length=200, blank=True)
     
-    idade_vitima = models.PositiveIntegerField(null=True)
+    idade_vitima = models.PositiveIntegerField(blank=True, null=True)
 
-    tipo_local = models.CharField(max_length=30, null=True)
+    tipo_local = models.CharField(max_length=30,blank=True,  null=True)
 
-    relacao_autor = models.CharField(max_length=30, null=True)
+    relacao_autor = models.CharField(max_length=30,blank=True,  null=True)
 
-    zona_cidade = models.CharField(max_length=30, null=True)
+    zona_cidade = models.CharField(max_length=30, blank=True, null=True)
 
-    vitima_tipo = models.CharField(max_length=30, null=True)
+    vitima_tipo = models.CharField(max_length=30,blank=True,  null=True)
 
 
     def __str__(self):
@@ -71,7 +71,7 @@ class Relato(models.Model):
 
     usuario_id = models.ForeignKey(Usuario, on_delete=models.CASCADE, unique=True)
 
-    texto_relato = models.TextField()
+    texto_relato = models.TextField(blank=False, null=False)
 
     def __str__(self):
         return (
@@ -88,7 +88,7 @@ class Comentario(models.Model):
 
     usuario_id = models.UUIDField(editable=False)
 
-    texto_comentario = models.CharField(max_length=190)
+    texto_comentario = models.CharField(max_length=190, required=True, blank=False, null=False)
 
     def __str__(self):
         return (
@@ -106,6 +106,8 @@ class Material(models.Model):
     conteudo = models.TextField()
 
     arquivo_anexo = models.FileField(upload_to='anexos/', null=True, blank=True)
+
+    referencias = models.URLField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return (
