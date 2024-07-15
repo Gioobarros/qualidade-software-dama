@@ -1,6 +1,6 @@
 main {
     min-height: 520px;
-    padding: 5px;
+    padding: 0px;
     background-color: rgba(240, 229, 223, 0.8);
     background-image: url("../images/bg-cadastro.png");
     background-size: auto;
@@ -16,7 +16,7 @@ main {
 }
 
 #div-form {
-    height: 450px; /* A div-form agora ocupa 100% da altura do main */
+    height: 550px; /* A div-form agora ocupa 100% da altura do main */
     width: 40%;
     border: 2px solid rgb(239, 210, 214);
     border-radius: 40px;
@@ -33,12 +33,12 @@ form {
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    width: 90%; 
+    width: 100%; 
     height: 100%;
 }
 
 form h1{
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -49,14 +49,25 @@ form label{
     margin-bottom: 2px;
 }
 
+form input{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
 form input, select{
     width: 100%;
-    height: 30px;
-    margin-bottom: 15px;
+    height: 40px;
+    margin-bottom: 10px;
     display: block;
 }
 
+textarea{
+    width: 100%;
+}
+
 #submeter{
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
