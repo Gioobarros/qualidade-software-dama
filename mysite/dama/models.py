@@ -38,11 +38,10 @@ class UsuarioOng(Usuario):
         return f"Razão Social: {self.razao_social} - CNPJ: {self.cnpj} - 
         Telefone: {self.telefone} - Email: {self.email}"
     
-
 class Denuncia(models.Model):
     denuncia_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
 
-    denunciante_id = models.ForeignKey(Usuario, on_delete=models.CASCADE, unique=True)
+    denunciante_id = models.ForeignKey(Usuario, on_delete=models.CASCADE, unique=True, null=True)
     
     data_denuncia = models.DateTimeField(default=timezone.now)  
 
@@ -55,6 +54,8 @@ class Denuncia(models.Model):
     relacao_autor = models.CharField(max_length=30, null=True)
 
     zona_cidade = models.CharField(max_length=30, null=True)
+
+    vitima_tipo = models.CharField(max_length=30, null=True)
 
 
     def __str__(self):
@@ -95,7 +96,6 @@ class Comentario(models.Model):
             f"Descricao: {self.texto_comentario}"
         )
     
-
 class Material(models.Model):
     material_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
 
