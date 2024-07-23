@@ -2,6 +2,7 @@
 
 - **Ator principal**: ...
 - **Atores secundários**: ...	
+- **Resumo**: ...
 - **Pré-condição**: ...
 - **Pós-Condição**: ...
 
@@ -22,6 +23,9 @@
 | :-----------------: | :-----------------: | 
 | 2.1 - ... | |  
 | | 2.2 - ... |  
+
+## Imagem Representativa do Caso de Uso
+![Nome do Caso de Uso](caminho\imagem.png)
 
 > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 

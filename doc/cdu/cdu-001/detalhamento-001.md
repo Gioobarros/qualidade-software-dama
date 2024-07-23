@@ -49,7 +49,7 @@
 | | |
 
 ## Imagem Representativa do Caso de Uso
-![Comentar Relato](caminho\imagem.png)
+![Comentar Relato](../imagens/Comentar%20relato.png)
 
 > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 
