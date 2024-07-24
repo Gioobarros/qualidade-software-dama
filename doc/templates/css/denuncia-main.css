@@ -1,0 +1,160 @@
+main {
+    min-height: 520px;
+    padding: 0px;
+    background-color: rgba(240, 229, 223, 0.8);
+    background-image: url("../images/bg-cadastro.png");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-blend-mode: hard-light;
+    background-position: bottom left;
+    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 18px;
+     
+}
+
+#div-form {
+    height: 550px; /* A div-form agora ocupa 100% da altura do main */
+    width: 40%;
+    border: 2px solid rgb(239, 210, 214);
+    border-radius: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    text-align: left;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    padding: 40px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+    height: 100%;
+}
+
+form h1{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+form label{
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 2px;
+}
+
+form input{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+form input, select{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+textarea{
+    width: 100%;
+}
+
+#submeter{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#criar{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-form {
+    background-color: rgba(255, 90, 90, 1);
+    border: none;
+    padding: 10px 20px;
+    margin: 4px 2px;
+    height: 45px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 60px; /* Completely round edges */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    background-color: none;
+
+}
+
+.button-form:hover {
+    background-color: rgba(255, 100, 100, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    
+}
+
+.button-form:active {
+    opacity: 0.8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#confirmar{
+    width: 500px;
+    height: 400px;
+    display: none;
+}
+
+.oculto{
+    display: none;
+}
+
+.embassado{
+    opacity: 0.5;
+}
+
+.denuncia-feita{
+    height: 36%;
+    width: 35%;
+    z-index: 99999;
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -45%);
+    border-radius: 35px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    background-color: rgba(240, 229, 223, 1);
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+#denunciar:disbaled{
+    cursor: not-allowed;
+}
+
+/* separação visual */
+.borda0{
+    border: none;
+}
+.borda1{
+    border: 1px solid #000;
+}
+.borda2{
+    border: 1px solid #f00;
+}
+/* separação visual */
