@@ -9,9 +9,13 @@
 
 # Equipe e Formas de Contato
 [Fábio Ricardo Eduardo Cavalcante (fabioricardoeduardocavalcante)](https://github.com/fabioricardoeduardocavalcante).
+#
  [Felipe da Costa Ferreira (Felipe-CF)](https://github.com/Felipe-CF)
+ #
  [Giovana Beatriz Barros Firmino da Silva (Gioobarros)](https://github.com/Gioobarros)
+ #
  [Igor Gabriel dos Santos (Igor1208gabriel)](https://github.com/Igor1208gabriel)
+ #
  [Leandro Ramos Sizilio (LeandroSizilio)](https://github.com/LeandroSizilio)
  
 
