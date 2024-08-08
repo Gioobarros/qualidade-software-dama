@@ -1,10 +1,4 @@
 # Modelo de Domínio
 
-Descrição e imagem do diagrama de classes de domínio...
+<img src="https://imgur.com/r1Dcv94.png" width="600" height="100%" />
 
-## Glossário (sugestão)
-
-|  Termo  |  Explicação  |
-| ------- | ------------ |
-| Termo 1 | Explicação 1... |
-| Termo 2 | Explicação 2... |
