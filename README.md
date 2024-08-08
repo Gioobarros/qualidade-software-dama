@@ -1,6 +1,6 @@
 # DAMA - Denúncia Anônima de Mulheres Agredidas
 
-<img src="https://imgur.com/Rczn6Rr.png" width="400" height="100%" />
+<img src="https://imgur.com/fktwWmk.png" width="600" height="100%" />
 
 
 #

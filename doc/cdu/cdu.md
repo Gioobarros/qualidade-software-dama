@@ -2,7 +2,7 @@
 
 ## 1. Diagrama de Casos de Uso
 
-![Casos de Uso](imagens/casos%20de%20uso.png)
+![Casos de Uso](https://imgur.com/24QfY9p.png)
 
 ## 2. Listagem dos detalhamentos dos casos de uso
 
