@@ -1,12 +1,15 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/denuncia-main.css" />
-    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/denuncia-main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+
 
     <title>Login</title>
   </head>
@@ -14,7 +17,7 @@
   <body>
     <header class="borda0 header">
       <div class="borda0 header-div header-div-left">
-        <img id="logo-img" src="images/logo-dama.png" alt="logomarca do Dama" />
+        <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="logomarca do Dama" />
       </div>
       <nav class="borda0 header-nav">
         <ul>
@@ -34,6 +37,7 @@
     <main id="main" class="borda0">
       <div id="div-form" class=" borda0">
         <form id="denuncia" class="borda0 form" action="#" method="get" name="denuncia">
+          {% csrf_token %}
           <h1>Denúncia</h1>
           
           <label for="local">Tipo do Local*</label>
@@ -116,10 +120,10 @@
       </div>
 
       <div class="footer-div footer-div-right borda0">
-        <img src="images/logo_rn.png" alt="">
+        <img src="{% static 'img/logo_rn.png' %}" alt="">
       </div>
     </footer>
   
-    <script src="js/denuncia.js"></script>
+    <script src="{% static 'js/denuncia.js' %}"></script>
   </body>
 </html>

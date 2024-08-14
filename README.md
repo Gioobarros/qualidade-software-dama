@@ -1,22 +1,18 @@
-# DAMA - Denúncia Anônima de Mulheres Agredidas
+# Título do Projeto
 
-<img src="https://imgur.com/Rczn6Rr.png" width="400" height="100%" />
+<img src="logo.png" width="200" height="200" />
 
+>Inserir uma logo para o projeto
 
-#
->O projeto DAMA (Denúncias Anônimas de Mulheres Agredidas) é uma ferramenta digital dedicada ao apoio, orientação e defesa das mulheres vítimas de qualquer tipo de violência. O site oferece recursos educacionais, rede de apoio, e um espaço para relatos e denúncias, visando fornecer suporte seguro para as usuárias.
-
+>Inserir pequena descrição do projeto
 
 # Equipe e Formas de Contato
-[Fábio Ricardo Eduardo Cavalcante (fabioricardoeduardocavalcante)](https://github.com/fabioricardoeduardocavalcante).
-#
- [Felipe da Costa Ferreira (Felipe-CF)](https://github.com/Felipe-CF)
- #
- [Giovana Beatriz Barros Firmino da Silva (Gioobarros)](https://github.com/Gioobarros)
- #
- [Igor Gabriel dos Santos (Igor1208gabriel)](https://github.com/Igor1208gabriel)
- #
- [Leandro Ramos Sizilio (LeandroSizilio)](https://github.com/LeandroSizilio)
+
+1. Fábio Ricardo Eduardo Cavalcante (a adicionar)
+2. Felipe da Costa Ferreira (f_cf_elipe)
+3. Giovana Beatriz Barros Firmino da Silva (gioobarros)
+4. Igor Gabriel dos Santos (igor1208biel)
+5. Leandro Ramos Sizilio (leandrosizilio)
  
 
 # Horário de Reuniões
