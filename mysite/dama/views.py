@@ -86,3 +86,5 @@ class RelatoView(View):
         
         else: 
             return render(request, "mural.html", {'form': form})
+        
+        

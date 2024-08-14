@@ -101,15 +101,16 @@ A aplicação será composta do cinco módulos, a saber:
 | Código | Nome | Descrição | Etapa |
 | --- | --- | --- | --- |
 | RF01 | Realizar denuncias | Espaço para que pessoas possam realizar denuncias de violências sofridas contra se próprio ou terceiros. É preciso garantir o anonimato para o denunciante. | PDSWeb |
-| RF02 | Consultar/Visualizar serviços, Órgãos e Profissionais de apoio | Espaço do sistema que permite a busca e visualização dos serviços, órgãos e profissionais de apoio casos de violência doméstica. Para divulgação o usuários deve fazer parte da rede de profissionais de apoio da plataforma. | PDSWeb |
-| RF03 | Publicar experiências | Espaço para usuários poderem postas seus relatos, inclusive de forma anônima, interagindo com outras mulheres ou profissionais da rede de apoio, em forma de feed. Apenas membros da plataforma poderão realizar publicações.| PDSWeb |
+| RF02 | Consultar/Visualizar, Órgãos e Profissionais de apoio | Espaço do sistema que permite a busca e visualização dos órgãos e profissionais de apoio para casos de violência doméstica. Para divulgação o usuários deve fazer parte da rede de profissionais de apoio da plataforma. | PDSWeb |
+| RF03 | Publicar relato | Espaço para usuários poderem postas seus relatos, inclusive de forma anônima, interagindo com outras mulheres ou profissionais da rede de apoio, em forma de feed. Apenas membros da plataforma poderão realizar publicações.| PDSWeb |
 | RF04 | Publicar material educativo | Espaço para buscar e visualizar de material educativo que será apresentado a todos os visitantes do site DAMA, independente de ter uma conta no sistema. | PDSWeb |
-| RF05 | Apresentar estatísticas de casos | Permitir a visualização de dados estatísticos sobre as ocorrências de denuncias e pedidos de socorro, fornecendo insights valiosos para pesquisadores, organizações governamentais e não governamentais na formulação de políticas e programas de prevenção mais eficazes. | PDSWeb |
+| RF05 | Apresentar estatísticas de casos | Permitir a visualização de dados estatísticos sobre as ocorrências de denuncias e pedidos de socorro, fornecendo insights valiosos para pesquisadores, organizações governamentais e não governamentais na formulação de políticas e programas de prevenção mais eficazes. | PDSDist |
 | RF06 | Manter Profissionais de apoio | Permite o gerenciamento dos dados dos profissionais que deseja realizar trabalhos voluntários ou não para as vítimas de violência.  | PDSWeb |
 | RF07 | Manter membros do sistema | Permitir o gerenciamento dos dados daqueles usuários cadastrados no sistema.  | PDSWeb |
 | RF08 | Acionar rede de socorro | Permite disparar um alerta de socorro para uma rede de pessoas pré-cadastradas e CIOSP - CENTRO INTEGRADO DE OPERAÇÕES DE SEGURANÇA PÚBLICA. | PDSDist |
 | RF09 | Manter rede de socorro | Permitir o gerenciamento de um grupo de pessoas próximas e da confiança das vítimas que possam ser acionadas em momentos de alertas de socorro. | PDSDist |
 | RF10 | Realizar o monitoramento georreferenciado | Espaço para apresentar o mapa de calor e alertas de socorro para órgão de segurança | PDSDist |
+| RF11 | Prestação de serviços | Espaço para divulgação de serviços oferecidos pelas redes de apoio sendo ela Orgãos ou Profissionais | PDSDist |
 
 ## 9. Requisitos não-funcionais
 
