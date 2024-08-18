@@ -93,7 +93,7 @@ class DenunciaForm(forms.Form):
         fields = ['idade_vitima', 'vitima_tipo', 'relacao_autor', 'tipo_local', 'zona_cidade', 'descricao_denuncia']
 
 class RelatoForm(forms.ModelForm):
-    texto_relato = forms.Textarea(label='Descrição Relato')
+    texto_relato = forms.CharField(widget=forms.Textarea, label='texto_relato')
 
     class Meta:
         model = Relato
