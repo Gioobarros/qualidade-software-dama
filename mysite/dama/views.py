@@ -1,6 +1,6 @@
 from django.views import View
 from django.urls import reverse
-from .models import Denuncia, Relato
+from .models import Relato
 from .forms import *
 from django.shortcuts import render, HttpResponseRedirect, redirect
 
@@ -72,19 +72,14 @@ class RelatoView(View):
 
         form = RelatoForm()
 
-        return render(request, "relato.html", {'form': form})
+        relatos = Relato.objects.all().order_by('-created_at')
+
+        return render(request, "relato.html", {'form': form, 'relatos': relatos})
     
     def post(self, request, *args, **kwargs):
-        form =  RelatoForm(request.POST)
-
-        if form.is_valid():  
-            relato = form.save(commit=False)
-
+        text = request.POST.get('text')
+        if text:
+            relato = Relato(Relato=text)
             relato.save()
-
-            return HttpResponseRedirect(reverse("dama:mural"))
-        
-        else: 
-            return render(request, "mural.html", {'form': form})
-        
-        
+            return redirect('dama:relato')
+        return render(request, "relato.html", {'form': RelatoForm()})

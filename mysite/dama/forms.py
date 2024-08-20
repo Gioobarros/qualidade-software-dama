@@ -1,7 +1,7 @@
 import re
 from django import forms
 from .models import Usuario, UsuarioOng, UsuarioProfissional
-from .models import Denuncia, Relato
+from .models import Relato
 from django.core.validators import RegexValidator
 
 
@@ -75,22 +75,22 @@ class UsuarioProfissionalForm(forms.Form):
         fields = ['nome_login', 'senha', 'nome_completo', 'cadastro_crp', 'email', 'telefone']
 
 
-class DenunciaForm(forms.Form):
-    descricao_denuncia = forms.CharField(label='Descrição')
+# class DenunciaForm(forms.Form):
+#     descricao_denuncia = forms.CharField(label='Descrição')
     
-    idade_vitima = forms.IntegerField(label='Idade da Vitima')
+#     idade_vitima = forms.IntegerField(label='Idade da Vitima')
 
-    tipo_local = forms.CharField(label='Local da Violência')
+#     tipo_local = forms.CharField(label='Local da Violência')
 
-    relacao_autor = forms.CharField(label='Relação com Agressor')
+#     relacao_autor = forms.CharField(label='Relação com Agressor')
 
-    zona_cidade = forms.CharField(label='Zona da Cidade Onde Ocorreu a Violência')
+#     zona_cidade = forms.CharField(label='Zona da Cidade Onde Ocorreu a Violência')
 
-    vitima_tipo = forms.CharField(label='Vitima da Agressão')
+#     vitima_tipo = forms.CharField(label='Vitima da Agressão')
 
-    class Meta:
-        model = Denuncia
-        fields = ['idade_vitima', 'vitima_tipo', 'relacao_autor', 'tipo_local', 'zona_cidade', 'descricao_denuncia']
+#     class Meta:
+#         model = Denuncia
+#         fields = ['idade_vitima', 'vitima_tipo', 'relacao_autor', 'tipo_local', 'zona_cidade', 'descricao_denuncia']
 
 class RelatoForm(forms.ModelForm):
     texto_relato = forms.CharField(widget=forms.Textarea, label='texto_relato')

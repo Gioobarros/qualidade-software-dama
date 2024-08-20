@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>teste</title>
+  </head>
+
+  <body>
+    <h1>Publicar Relato</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" id="text" name="text" placeholder="Escreva seu relato">
+        <button type="submit">Publicar</button>
+    </form>
+
+    <h2>Relatos Publicados</h2>
+    {% for relato in relatos %}
+    <br>
+        <p>{{ relato.Relato }}</p>
+        <p>{{ relato.created_at }}</p>
+    {% endfor %}
+  </body>
+</html>

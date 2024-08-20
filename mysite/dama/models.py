@@ -39,55 +39,50 @@ class UsuarioOng(Usuario):
         return f"Razão Social: {self.razao_social} - CNPJ: {self.cnpj} - Telefone: {self.telefone} - Email: {self.email}"
     
 
-class Denuncia(models.Model):
-    denuncia_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
+# class Denuncia(models.Model):
+#     denuncia_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
 
-    denunciante_id = models.ForeignKey(Usuario, on_delete=models.CASCADE, unique=True, null=True)
+#     denunciante_id = models.OneToOneField(Usuario, on_delete=models.CASCADE)
     
-    data_denuncia = models.DateTimeField(default=timezone.now)  
-
-    descricao_denuncia = models.CharField(max_length=200, blank=True)
+#     #denunciante_id = models.ForeignKey(Usuario, on_delete=models.CASCADE, unique=True, null=True)
     
-    idade_vitima = models.PositiveIntegerField(blank=True, null=True)
+#     data_denuncia = models.DateTimeField(default=timezone.now)  
 
-    tipo_local = models.CharField(max_length=30,blank=True,  null=True)
+#     descricao_denuncia = models.CharField(max_length=200, blank=True)
+    
+#     idade_vitima = models.PositiveIntegerField(blank=True, null=True)
 
-    relacao_autor = models.CharField(max_length=30,blank=True,  null=True)
+#     tipo_local = models.CharField(max_length=30,blank=True,  null=True)
 
-    zona_cidade = models.CharField(max_length=30, blank=True, null=True)
+#     relacao_autor = models.CharField(max_length=30,blank=True,  null=True)
 
-    vitima_tipo = models.CharField(max_length=30,blank=True,  null=True)
+#     zona_cidade = models.CharField(max_length=30, blank=True, null=True)
+
+#     vitima_tipo = models.CharField(max_length=30,blank=True,  null=True)
 
 
-    def __str__(self):
-        return (
-            f"Data: {self.data_denuncia.day}/{self.data_denuncia.month}/{self.data_denuncia.year} - Denunciante_id: {self.denunciante_id} \n"
-            f"Descricao: {self.descricao_denuncia}"
-        )
+#     def __str__(self):
+#         return (
+#             f"Data: {self.data_denuncia.day}/{self.data_denuncia.month}/{self.data_denuncia.year} - Denunciante_id: {self.denunciante_id} \n"
+#             f"Descricao: {self.descricao_denuncia}"
+#         )
 
 
 class Relato(models.Model):
     relato_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
-
-    data_relato = models.DateTimeField(default=timezone.now) 
-
-    usuario_id = models.ForeignKey(Usuario, on_delete=models.CASCADE, unique=True)
-
-    texto_relato = models.TextField(blank=False, null=False)
+    Relato = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return (
-            f"Data: {self.data_relato.day}/{self.data_relato.month}/{self.data_relato.year} - Usuario_id: {self.usuario_id} \n"
-            f"Descricao: {self.texto_relato}"
-        )
+        return self.text[:500]
 
 class Comentario(models.Model):
     comentario_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
 
     data_comentario = models.DateTimeField(default=timezone.now) 
 
-    relato_id = models.ForeignKey(Relato, on_delete=models.CASCADE, unique=True)
-
+    relato_id = models.OneToOneField(Relato, on_delete=models.CASCADE)
+    
     usuario_id = models.UUIDField(editable=False)
 
     texto_comentario = models.CharField(max_length=190, blank=False, null=False)
@@ -103,7 +98,9 @@ class Material(models.Model):
 
     data_publicacao = models.DateTimeField(default=timezone.now) 
 
-    usuario_id = models.ForeignKey(Usuario, on_delete=models.CASCADE, unique=True)
+    usuario_id = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    
+    #usuario_id = models.ForeignKey(Usuario, on_delete=models.CASCADE, unique=True)
 
     conteudo = models.TextField()
 

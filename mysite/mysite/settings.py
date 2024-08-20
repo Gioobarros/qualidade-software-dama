@@ -137,9 +137,9 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    'C:\\Users\\OMoral\\Desktop\\CODIGOS\\dama\\mysite\\dama\\static',
-]
+# STATICFILES_DIRS = [
+#     'C:\\Users\\OMoral\\Desktop\\CODIGOS\\dama\\mysite\\dama\\static',
+# ]
 
 STATIC_ROOT = 'C:\\Users\\OMoral\\Desktop\\CODIGOS\\dama\\mysite\\static\\admin'
 
