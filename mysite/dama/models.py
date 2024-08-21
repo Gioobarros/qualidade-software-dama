@@ -37,9 +37,6 @@ class UsuarioOng(Usuario):
 
     def __str__(self):
         return f"Razão Social: {self.razao_social} - CNPJ: {self.cnpj} - Telefone: {self.telefone} - Email: {self.email}"
-    
-
-
 
 class Relato(models.Model):
     relato_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
