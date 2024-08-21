@@ -22,27 +22,7 @@ class CadastroView(View):
             return HttpResponseRedirect(reverse("dama:index"))
          
         return render(request, "cadastro.html", {'form': form})
-
-class DenunciaView(View):
-
-    def get(self, request, *args, **kwargs):
-        form = DenunciaForm()
-
-        return render(request, "denuncia.html", {'form': form})
-    
-    def post(self, request, *args, **kwargs):
-        form = Teste(request.POST)
-        
-        if form.is_valid():  
-            denuncia = form.save(commit=False)
-
-            denuncia.save()
-
-            return HttpResponseRedirect(reverse("dama:index"))
-        
-        else: 
-            return render(request, "denuncia.html", {'form': form})
-        
+       
 class MuralView(View):
 
     def get(self, request, *args, **kwargs):
