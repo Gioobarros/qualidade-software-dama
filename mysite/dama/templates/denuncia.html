@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/denuncia-main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+
+
+    <title>Login</title>
+  </head>
+
+  <body>
+    <header class="borda0 header">
+      <div class="borda0 header-div header-div-left">
+        <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="logomarca do Dama" />
+      </div>
+      <nav class="borda0 header-nav">
+        <ul>
+          <li><a id="home">Home</a></li>
+          <li><a >Quem Somos</a></li>
+          <li><a >Conheça seus direitos</a></li>
+          <li><a >Rede de apoio</a></li>
+          <li><a id="mural">Mural de Força</a></li>
+        </ul>
+      </nav>
+      <div class="borda0 header-div-right">
+        <button id="login-header" class="button-header" onclick="login()">Login</button>
+        <button id="conta-header"class="button-header" onclick="criarConta()">Criar Conta</button>
+      </div>
+    </header>
+
+    <main id="main" class="borda0">
+      <div id="div-form" class=" borda0">
+        <form id="denuncia" class="borda0 form" action="#" method="get" name="denuncia">
+          {% csrf_token %}
+          <h1>Denúncia</h1>
+          
+          <label for="local">Tipo do Local*</label>
+          <select id="local" name="local" form="denuncia" required>
+            <option value="" selected>Local onde ocorreu a violência</option>
+            <option value="casa">Minha residência</option>
+            <option value="trabalho">Trabalho</option>
+            <option value="estabelecimento">Estabelecimento</option>
+            <option value="trasnporte-app">Transporte público ou por Aplicativo</option>
+          </select>
+
+          <label for="relacao-autor">Relação com o autor*</label>
+          <select id="relacao-autor"  name="relacao-autor" form="denuncia" required>
+            <option value="" selected>Informe a relação com o agressor</option>
+            <option value="companheiro">Companheiro(a)</option>
+            <option value="parente">Parente</option>
+            <option value="rel-colega">Colega/amigo(a)</option>
+            <option value="nenhuma">Nenhuma</option>
+          </select>
+
+          <label for="zona">Zona da Cidade*</label>
+          <select id="zona"  name="zona" form="denuncia" required>
+            <option value="" selected>Área de Natal onde ocorreu a agressão</option>
+            <option value="companheiro">Norte</option>
+            <option value="parente">Sul</option>
+            <option value="colega">Leste</option>
+            <option value="nenhuma">Oeste</option>
+          </select>
+
+          <label for="tipo-vitima">Vitima da Agressão*</label>
+          <select id="tipo-vitima"  name="tipo-vitima" form="denuncia" required>
+            <option value="" selected></option>
+            <option value="eu">Eu mesma</option>
+            <option value="parente">Parente</option>
+            <option value="vit-colega">Colega/amiga</option>
+            <option value="terceira">Terceira</option>
+          </select>
+
+          <label for="idade">Idade da Vítima (opcional)</label>
+          <input id="idade" name="idade" type="text">
+          
+          <label for="descricao">Descrição do Ocorrido (opcional)</label>
+          <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+
+          <div id="submeter" class="borda0">
+            <div id="cancelar" class="borda0">
+            </div>
+            <div id="criar" class="borda0">
+              <button id="denunciar" class="button-form" type="submit">Denunciar</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </main>
+
+
+    <div id="denuncia-feita" class="oculto borda0">
+      <p>Denúncia realizada com sucesso!</p>
+    </div>
+
+
+    <footer class="borda0">
+      <div class="footer-div footer-div-left borda0">
+          <p>emergencia?</p>
+          <h1><span>ligue 180</span></h1>
+      </div>
+      <div class="footer-div footer-div-center borda0">
+        <div class="footer-div-center-top borda0" >
+            <h1>Ajuda</h1>
+        </div>
+
+        <div class="footer-div-center-bottom borda0">
+          <p><a href="#">Sobre nós</a></p>
+          <p><a href="#">Seja apoiador</a></p>
+          <p><a href="#">Seja voluntário</a></p>
+          <p><a href="#">Conheça seus direitos</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-div footer-div-right borda0">
+        <img src="{% static 'img/logo_rn.png' %}" alt="">
+      </div>
+    </footer>
+  
+    <script src="{% static 'js/denuncia.js' %}"></script>
+  </body>
+</html>

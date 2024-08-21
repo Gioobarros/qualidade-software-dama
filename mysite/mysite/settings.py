@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,8 @@ SECRET_KEY = 'django-insecure-tk&-i3kn-^kzy0^ka)bvbq^m_bd^4922y+w+u0v8tqt#_0mr!2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pdsweb.pythonanywhere.com']
+#ALLOWED_HOSTS = ['pdsweb.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dama.apps.DamaConfig'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +57,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,9 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -115,7 +118,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+
+STATIC_URL = 'static/' # usado durante o desenvolvimento
+STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles') # usado na hora da publicação
+
+MEDIA_URL = 'media/' # P/ SALVAR DADOS
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -124,7 +132,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = '/home/pdsweb/mysite/media'
+MEDIA_ROOT = 'C:\\Users\\OMoral\\Downloads\\DAMA\\dama\\mysite\\media'
 MEDIA_URL = '/media/'
-STATIC_ROOT = '/home/pdsweb/mysite/static'
+
 STATIC_URL = '/static/'
+
+# STATICFILES_DIRS = [
+#     'C:\\Users\\OMoral\\Desktop\\CODIGOS\\dama\\mysite\\dama\\static',
+# ]
+
+STATIC_ROOT = 'C:\\Users\\OMoral\\Desktop\\CODIGOS\\dama\\mysite\\static\\admin'
+

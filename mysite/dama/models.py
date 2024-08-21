@@ -5,65 +5,57 @@ from django.utils import timezone
 class Usuario(models.Model):
     usuario_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
 
-    nome_login = models.CharField(max_length=40, blank=False, required=True)
+    nome_login = models.CharField(max_length=100, blank=False)
 
-    senha = models.CharField(max_length=20, blank=False, required=True, null=False)
+    senha = models.CharField(max_length=20, blank=False, null=False)
 
     def __str__(self):
         return self.nome_login
 
+
 class UsuarioProfissional(Usuario):
-    nome_completo = models.CharField(max_length=100)
+    nome_completo = models.CharField(max_length=100, blank=False)
 
-    cadastro_crp = models.CharField(max_length=11, blank=False, required=True)
+    cadastro_crp = models.CharField(max_length=11, blank=False)
 
-    telefone = models.CharField(max_length=20,blank=False, required=True)
+    telefone = models.CharField(max_length=20,blank=False)
 
-    email = models.EmailField(blank=False, required=True)
+    email = models.EmailField(blank=False)
 
     def __str__(self):
-        return f"Nome: {self.nome_completo} - CRP: {self.cadastro_crp} - 
-        Telefone: {self.telefone} - Email: {self.email}"
+        return f"Nome: {self.nome_completo} - CRP: {self.cadastro_crp} - Telefone: {self.telefone} - Email: {self.email}"
+ 
 
 class UsuarioOng(Usuario):
     cnpj = models.CharField(max_length=11, unique=True)
 
     razao_social = models.CharField(max_length=100, unique=True,blank=False)
 
-    telefone = models.CharField(max_length=20,blank=False, required=True)  
+    telefone = models.CharField(max_length=20,blank=False,  )  
 
-    email = models.EmailField(blank=False, required=True)
+    email = models.EmailField(blank=False,  )
 
     def __str__(self):
-        return f"Razão Social: {self.razao_social} - CNPJ: {self.cnpj} - 
-        Telefone: {self.telefone} - Email: {self.email}"
-    
+        return f"Razão Social: {self.razao_social} - CNPJ: {self.cnpj} - Telefone: {self.telefone} - Email: {self.email}"
 
 class Relato(models.Model):
     relato_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
-
-    data_relato = models.DateTimeField(default=timezone.now) 
-
-    usuario_id = models.ForeignKey(Usuario, on_delete=models.CASCADE, unique=True)
-
-    texto_relato = models.TextField(blank=False, null=False)
+    Relato = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return (
-            f"Data: {self.data_relato.day}/{self.data_relato.month}/{self.data_relato.year} - Usuario_id: {self.usuario_id} \n"
-            f"Descricao: {self.texto_relato}"
-        )
+        return self.text[:500]
 
 class Comentario(models.Model):
     comentario_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
 
     data_comentario = models.DateTimeField(default=timezone.now) 
 
-    relato_id = models.ForeignKey(Relato, on_delete=models.CASCADE, unique=True)
-
+    relato_id = models.OneToOneField(Relato, on_delete=models.CASCADE)
+    
     usuario_id = models.UUIDField(editable=False)
 
-    texto_comentario = models.CharField(max_length=190, required=True, blank=False, null=False)
+    texto_comentario = models.CharField(max_length=190, blank=False, null=False)
 
     def __str__(self):
         return (
@@ -76,7 +68,8 @@ class Material(models.Model):
 
     data_publicacao = models.DateTimeField(default=timezone.now) 
 
-    usuario_id = models.ForeignKey(Usuario, on_delete=models.CASCADE, unique=True)
+    usuario_id = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    
 
     conteudo = models.TextField()
 
