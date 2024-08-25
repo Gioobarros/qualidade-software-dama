@@ -47,19 +47,16 @@ class MuralView(View):
             return render(request, "mural.html", {'form': "passa o form "})
         
 class RelatoView(View):
+    template_name = 'relato.html'
 
     def get(self, request, *args, **kwargs):
-
-        form = RelatoForm()
-
         relatos = Relato.objects.all().order_by('-created_at')
+        return render(request, self.template_name, {'relatos': relatos})
 
-        return render(request, "relato.html", {'form': form, 'relatos': relatos})
-    
     def post(self, request, *args, **kwargs):
         text = request.POST.get('text')
         if text:
             relato = Relato(Relato=text)
             relato.save()
             return redirect('dama:relato')
-        return render(request, "relato.html", {'form': RelatoForm()})
+        return render(request, self.template_name, {})
