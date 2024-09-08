@@ -1,54 +1,82 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/cadastro-main.css" />
-    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/cadastro-main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
 
     <title>Cadastro</title>
+
+    <style>
+      main {
+    min-height: 520px;
+    padding: 5px;
+
+    background-color: rgba(240, 229, 223, 0.8);
+    background-image: url("{% static 'img/bg-cadastro.png' %}");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-blend-mode: hard-light;
+    background-position: bottom left;
+    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 18px;
+     
+}
+    </style>
+
   </head>
 
   <body>
     <header class="borda0 header">
       <div class="borda0 header-div header-div-left">
-        <img id="logo-img" src="images/logo-dama.png" alt="logomarca do Dama" />
+                <a href="{% url 'dama:index' %}">
+          <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="logomarca do Dama" />
+        </a>
       </div>
       <nav class="borda0 header-nav">
         <ul>
-          <li><a id="home">Home</a></li>
-          <li><a href="#main-div2">Quem Somos</a></li>
-          <li><a href="#main-div3">Conheça seus direitos</a></li>
-          <li><a href="#redes">Rede de apoio</a></li>
-          <li><a id="mural-forca">Mural de Força</a></li>
+          <li><a href="{% url 'dama:index' %}">Home</a></li>
+          <li><a href="#">Quem Somos</a></li>
+          <li><a href="#">Conheça seus direitos</a></li>
+          <li><a href="#">Rede de apoio</a></li>
+          <li><a href="{% url 'dama:mural' %}">Mural de Força</a></li>
         </ul>
       </nav>
       <div class="borda0 header-div-right">
-        <button id="login" class="button-header">Login</button>
-        <button id="bttdenuncia" class="button-header">Denunciar</button>
+
+        <button id="login" class="button-header">
+          <a href="{% url 'dama:login' %}">Login</a>
+        </button>
+
+        <button id="bttdenuncia" class="button-header">
+          <a href="{% url 'dama:denuncia' %}">Denunciar</a>
+        </button>
       </div>
     </header>
 
     <main id="main" class="borda0">
       <div class="div-form">
-        <form class="borda0 form" action="#" method="get" name="cadastro">
+        <form class="borda0 form" action="{% url 'dama:cadastro' %}" method="post" name="cadastro">
+          {% csrf_token %}
+
           <h1>Cadastro</h1>
-          <label for="nome" >Nome de Login</label>
-          <input type="text" id="nome" name="nome" placeholder="Login de acesso ao DAMA" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+          <label for="nome_login" >Nome de Login</label>
+          <input type="text" id="nome" name="nome_login" placeholder="Login de acesso ao DAMA" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
           
           <label for="senha">Senha</label>
           <div>
             <input type="password" id="senha" name="senha" placeholder="Digite sua senha"  onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
             <span class="visibilidade-senha" onclick="visibilidadeSenha('senha')">👁️</span>
           </div>
-          
-          <label for="conf-senha">Confirme a Senha</label>
-          <div>
-            <input type="password" id="conf-senha" name="conf-senha" placeholder="Confirme sua senha" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)" pattern="[A-Za-z0-9].{8,}"/>
-            <span class="visibilidade-senha" onclick="visibilidadeSenha('conf-senha')">👁️</span>
-          </div>
+        
 
           <label for="usuario">Tipo de Usuário</label>
           <select id="usuario" name="usuario" form="cadastro" onchange="mostrarCampos(this.value)">
@@ -121,11 +149,11 @@
       </div>
 
       <div class="footer-div footer-div-right borda0">
-        <img src="images/logo_rn.png" alt="">
+        <img src="{% static 'img/logo_rn.png' %}" alt="">
       </div>
   </footer>
 
-    <script src="js/muda_janela.js"></script>
-    <script src="js/cadastro.js"></script>
+    <script src="{% static 'js/muda_janela.js' %}"></script>
+    <script src="{% static 'js/cadastro.js' %}"></script>
   </body>
 </html>

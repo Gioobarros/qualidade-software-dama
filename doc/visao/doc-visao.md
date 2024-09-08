@@ -27,9 +27,9 @@ Uma solução para esse problema poderia ser a criação de uma aplicação web 
 
 | Nome | Descrição | Responsabilidade |
 | --- | --- | --- |
-| Vítimas de violência. | Mulheres que sofrem algum tipo de violência doméstica enquadrada na lei Maria da Penha. |     Compartilhar informações confiáveis sobre casos de violência contra as mulheres. Participar da comunidade DAMA, compartilhando experiências e oferecendo apoio mútuo. Aproveitar os recursos educativos e de apoio do aplicativo para entender direitos, buscar ajuda e se proteger. |
+| Comunidade do DAMA | Pessoas que participam da comunidade e estão cadastrados no site |     Compartilhar informações confiáveis sobre casos de violência contra as mulheres. Participar da comunidade DAMA, compartilhando experiências e oferecendo apoio mútuo. Aproveitar os recursos educativos e de apoio do aplicativo para entender direitos, buscar ajuda e se proteger. |
 | Órgãos Governamentais |  Agências governamentais responsáveis pela segurança pública, direitos humanos e igualdade de gênero. | Acessar e analisar os dados estatísticos sobre casos de violência contra a mulher relatados no aplicativo. Utilizar as informações para orientar políticas públicas, programas de prevenção e intervenções governamentais relacionadas à violência de gênero. Colaborar com a equipe do DAMA para garantir o cumprimento das leis e regulamentações relevantes relacionadas à proteção de dados e direitos das mulheres. |
-| Rede de Apoio | Profissionais que trabalham diretamente com vítimas de violência de gênero, como assistentes sociais, psicólogos, advogados e profissionais de saúde. |     Oferecer suporte e orientação para as mulheres que relatam casos de violência, incluindo aconselhamento emocional, orientação legal e encaminhamento para serviços especializados. Monitorar e responder a relatos de violência, fornecendo assistência profissional e orientação prática conforme necessário. Colaborar com outras instituições e organizações de apoio para garantir uma resposta abrangente e coordenada às necessidades das vítimas. |
+| Rede de Apoio | Profissionais que trabalham diretamente com vítimas de violência de gênero. |     Oferecer suporte e orientação para as mulheres que relatam casos de violência. Monitorar e responder a relatos de violência, fornecendo assistência profissional e orientação prática conforme necessário. Colaborar com outras instituições e organizações de apoio para garantir uma resposta abrangente e coordenada às necessidades das vítimas. |
 | Administradores e Moderadores |  Responsáveis pela manutenção, atualização e melhoria contínua do DAMA. |        Manter e atualizar regularmente o aplicativo, corrigindo bugs e implementando novos recursos com base no feedback dos usuários. Monitorar e moderar a atividade dentro do aplicativo, garantindo que os relatos sejam tratados com seriedade. Garantir a segurança e a privacidade dos dados dos usuários, implementando medidas de segurança e conformidade com a LGPD. |
 
 ## 4. Descrição do ambiente dos usuários
@@ -38,8 +38,8 @@ Uma solução para esse problema poderia ser a criação de uma aplicação web 
         Elas podem anexar evidências, como fotos, vídeos ou áudios, para corroborar o relato.
         Além disso, as usuárias podem acessar recursos educativos e de apoio disponíveis no aplicativo para entender seus direitos, buscar ajuda e se proteger.
 
-2. Profissionais da Área:
-        Profissionais como assistentes sociais, psicólogos e advogados interagem com o sistema para acessar relatos de violência e oferecer suporte e orientação para as vítimas.
+2. Profissionais da Área e ONGs:
+        Profissionais interagem com o sistema para acessar relatos de violência e oferecer suporte e orientação para as vítimas.
         Eles monitoram e respondem a relatos de violência, fornecendo assistência profissional e encaminhamento para serviços especializados.
 
 3. Desenvolvedores e Moderadores:
@@ -82,15 +82,15 @@ Uma solução para esse problema poderia ser a criação de uma aplicação web 
 
 ## 7. Visão geral do produto
 
-DAMA é um aplicação web projetado para combater a subnotificação da violência contra a mulher, oferecendo uma plataforma segura e acessível para mulheres que enfrentam assédio ou violência. 
+DAMA é um aplicação web projetado para combater a subnotificação da violência contra a mulher, oferecendo uma plataforma segura e acessível para mulheres que enfrentam qualquer tipo de violência. 
 
 A aplicação será composta do cinco módulos, a saber:
 
-    • Módulo de gerenciamento usuários: permite gerenciar os usuários do sistema;
+    • Módulo de gerenciamento de usuários: permite gerenciar os usuários do sistema;
       
-    • Módulo de denúncias e alertas de segurança: permite o gerenciamento de denúncias e alertas de segurança;
+    • Módulo de denúncias: permite o gerenciamento de denúncias anônimas;
       
-    • Módulo de educação e conscientização: permite o gerenciamento de informações postadas para edução e conscientização da população em geral sobre o assunto;
+    • Módulo de educação e conscientização (Materiais educativos): permite o gerenciamento de informações postadas para edução e conscientização da população em geral sobre o assunto;
       
     • Módulo de Apoio: permite o gerenciamento de dos servições, órgãos e profissionais prestadores de serviços para forma a rede de apoio;
       

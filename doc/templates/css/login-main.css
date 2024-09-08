@@ -1,22 +1,5 @@
 
 
-main {
-    min-height: 520px;
-    padding: 5px;
-
-    background-color: rgba(240, 229, 223, 0.7);
-    background-image: url("../images/bg-cadastro.png");
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    background-blend-mode:hard-light;
-    
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    font-size: 18px;
-     
-}
 
 .embassado{
     opacity: 0.5;

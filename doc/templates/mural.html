@@ -1,12 +1,15 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/mural-main.css" />
-    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/mural-main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+
 
     <title>Mural de Força</title>
   </head>
@@ -14,19 +17,26 @@
   <body>
     <header class="borda0">
       <div class="borda0 header-div header-div-left">
-        <img id="logo-img" src="images/logo-dama.png" alt="logomarca do Dama" />
+        <a href="{% url 'dama:index' %}">
+          <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="logomarca do Dama" />
+        </a>
       </div>
       <nav class="borda0 header-nav">
         <ul>
-          <li><a id="home">Home</a></li>
-          <li><a href="#main-div2">Quem Somos</a></li>
-          <li><a href="#main-div3">Conheça seus direitos</a></li>
-          <li><a href="#redes">Rede de apoio</a></li>
+          <li><a href="{% url 'dama:index' %}">Home</a></li>
+          <li><a href="#">Quem Somos</a></li>
+          <li><a href="#">Conheça seus direitos</a></li>
+          <li><a href="#">Rede de apoio</a></li>
+          <li><a href="{% url 'dama:denuncia' %}">Denunciar</a></li>
         </ul>
       </nav>
-      <div id="button-header" class="borda0 header-div-right">
-        <button id="bttdenuncia" class="button-header" >Denunciar</button>
-        <button id="header-login" class="button-header" >Entrar</button>
+      <div class="borda0 header-div-right">
+        <button id="header-login" class="button-header">
+          <a href="{% url 'dama:login' %}">Login</a>
+        </button>
+        <button id="header-conta" class="button-header">
+          <a href="{% url 'dama:cadastro' %}">Criar Conta</a>
+        </button>
       </div>
     </header>
 
@@ -59,7 +69,7 @@
                   </div>
                   <div class="borda0 div-usuario">
                     <div class="borda0 div-profile">
-                      <img src="/images/profile.png" alt="icone de usuario">
+                      <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                     </div>
                     <div class="borda0 div-nome">
                       <p>anonimo12345</p>
@@ -75,7 +85,7 @@
                   </div>
                   <div class="borda0 div-usuario">
                     <div class="borda0 div-profile">
-                      <img src="/images/profile.png" alt="icone de usuario">
+                      <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                     </div>
                     <div class="borda0 div-nome">
                       <p>anonimo12345</p>
@@ -91,7 +101,7 @@
                   </div>
                   <div class="borda0 div-usuario">
                     <div class="borda0 div-profile">
-                      <img src="/images/profile.png" alt="icone de usuario">
+                      <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                     </div>
                     <div class="borda0 div-nome">
                       <p>anonimo12345</p>
@@ -107,7 +117,7 @@
                   </div>
                   <div class="borda0 div-usuario">
                     <div class="borda0 div-profile">
-                      <img src="/images/profile.png" alt="icone de usuario">
+                      <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                     </div>
                     <div class="borda0 div-nome">
                       <p>anonimo12345</p>
@@ -123,7 +133,7 @@
                   </div>
                   <div class="borda0 div-usuario">
                     <div class="borda0 div-profile">
-                      <img src="/images/profile.png" alt="icone de usuario">
+                      <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                     </div>
                     <div class="borda0 div-nome">
                       <p>anonimo12345</p>
@@ -142,7 +152,7 @@
                 </div>
                 <div class="borda0 div-usuario">
                   <div class="borda0 div-profile">
-                    <img src="/images/profile.png" alt="icone de usuario">
+                    <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                   </div>
                   <div class="borda0 div-nome">
                     <p>anonimo12345</p>
@@ -158,7 +168,7 @@
                 </div>
                 <div class="borda0 div-usuario">
                   <div class="borda0 div-profile">
-                    <img src="/images/profile.png" alt="icone de usuario">
+                    <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                   </div>
                   <div class="borda0 div-nome">
                     <p>anonimo12345</p>
@@ -174,7 +184,7 @@
                 </div>
                 <div class="borda0 div-usuario">
                   <div class="borda0 div-profile">
-                    <img src="/images/profile.png" alt="icone de usuario">
+                    <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                   </div>
                   <div class="borda0 div-nome">
                     <p>anonimo12345</p>
@@ -190,7 +200,7 @@
                 </div>
                 <div class="borda0 div-usuario">
                   <div class="borda0 div-profile">
-                    <img src="/images/profile.png" alt="icone de usuario">
+                    <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                   </div>
                   <div class="borda0 div-nome">
                     <p>anonimo12345</p>
@@ -206,7 +216,7 @@
                 </div>
                 <div class="borda0 div-usuario">
                   <div class="borda0 div-profile">
-                    <img src="/images/profile.png" alt="icone de usuario">
+                    <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                   </div>
                   <div class="borda0 div-nome">
                     <p>anonimo12345</p>
@@ -225,7 +235,7 @@
                   </div>
                   <div class="borda0 div-usuario">
                     <div class="borda0 div-profile">
-                      <img src="/images/profile.png" alt="icone de usuario">
+                      <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                     </div>
                     <div class="borda0 div-nome">
                       <p>anonimo12345</p>
@@ -241,7 +251,7 @@
                   </div>
                   <div class="borda0 div-usuario">
                     <div class="borda0 div-profile">
-                      <img src="/images/profile.png" alt="icone de usuario">
+                      <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                     </div>
                     <div class="borda0 div-nome">
                       <p>anonimo12345</p>
@@ -257,7 +267,7 @@
                   </div>
                   <div class="borda0 div-usuario">
                     <div class="borda0 div-profile">
-                      <img src="/images/profile.png" alt="icone de usuario">
+                      <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                     </div>
                     <div class="borda0 div-nome">
                       <p>anonimo12345</p>
@@ -273,7 +283,7 @@
                   </div>
                   <div class="borda0 div-usuario">
                     <div class="borda0 div-profile">
-                      <img src="/images/profile.png" alt="icone de usuario">
+                      <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                     </div>
                     <div class="borda0 div-nome">
                       <p>anonimo12345</p>
@@ -289,7 +299,7 @@
                   </div>
                   <div class="borda0 div-usuario">
                     <div class="borda0 div-profile">
-                      <img src="/images/profile.png" alt="icone de usuario">
+                      <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                     </div>
                     <div class="borda0 div-nome">
                       <p>anonimo12345</p>
@@ -308,7 +318,7 @@
                 </div>
                 <div class="borda0 div-usuario">
                   <div class="borda0 div-profile">
-                    <img src="/images/profile.png" alt="icone de usuario">
+                    <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                   </div>
                   <div class="borda0 div-nome">
                     <p>anonimo12345</p>
@@ -324,7 +334,7 @@
                 </div>
                 <div class="borda0 div-usuario">
                   <div class="borda0 div-profile">
-                    <img src="/images/profile.png" alt="icone de usuario">
+                    <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                   </div>
                   <div class="borda0 div-nome">
                     <p>anonimo12345</p>
@@ -340,7 +350,7 @@
                 </div>
                 <div class="borda0 div-usuario">
                   <div class="borda0 div-profile">
-                    <img src="/images/profile.png" alt="icone de usuario">
+                    <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                   </div>
                   <div class="borda0 div-nome">
                     <p>anonimo12345</p>
@@ -356,7 +366,7 @@
                 </div>
                 <div class="borda0 div-usuario">
                   <div class="borda0 div-profile">
-                    <img src="/images/profile.png" alt="icone de usuario">
+                    <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                   </div>
                   <div class="borda0 div-nome">
                     <p>anonimo12345</p>
@@ -372,7 +382,7 @@
                 </div>
                 <div class="borda0 div-usuario">
                   <div class="borda0 div-profile">
-                    <img src="/images/profile.png" alt="icone de usuario">
+                    <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
                   </div>
                   <div class="borda0 div-nome">
                     <p>anonimo12345</p>
@@ -395,12 +405,12 @@
     <div id="relato-modal" class="oculto">
 
       <div id="relato" class="relato borda0">
-        <div class="relato-header borda1">
-          <img id="fechar-modal" src="\images\dustbin_120823.svg" alt="icone de fechamento dos comentarios">
+        <div class="relato-header borda0">
+          <img id="fechar-modal" src="{% static 'img/dustbin_120823.svg' %}" alt="icone de fechamento dos comentarios">
         </div>
         <section>
-          <div class="usuario-id borda1">
-            <img src="/images/profile.png" alt="icone de usuario">
+          <div class="usuario-id borda0">
+            <img src="{% static 'img/profile.png' %}" alt="icone de usuario">
             <p>anonimo12345</p>
           </div>
           <div class="relato-texto">
@@ -421,7 +431,7 @@
       <!-- Campo de Entrada para Novo Comentário -->
       <div id="input-comentario" class="borda0">
         <textarea name="comentario" id="comentario-input" placeholder="Escreva um comentário..." maxlength="190"></textarea>
-        <img id="submit-comentario" src="\images\redo-arrow-1_icon-icons.com_56892.svg" alt="enviar comentario" onclick="novoComentario()" >
+        <img id="submit-comentario" src="{% static 'img/redo-arrow-1_icon-icons.com_56892.svg' %}" alt="enviar comentario" onclick="novoComentario()" >
       </div>
 
     </div>
@@ -444,10 +454,10 @@
           </div>
         </div>
         <div class="footer-div footer-div-right borda0">
-          <img src="images/logo_rn.png" alt="">
+          <img src="{% static 'img/logo_rn.png' %}" alt="">
         </div>
     </footer>
 
-    <script src="js/mural.js"></script>
+    <script src="{% static 'js/mural.js' %}"></script>
   </body>
 </html>

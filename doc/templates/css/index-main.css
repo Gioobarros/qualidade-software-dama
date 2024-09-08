@@ -7,26 +7,28 @@ span{
 /*  DIV1    */
 .main-div{
     width: 100%;
+    max-width: 1366px;
+    height: 33%; 
+    max-height: 400px;
+    min-height: 400px;
     display: flex;
     background-color: rgba(240, 229, 223,0.5);
 }
 
-.main-div1{
-    background-image: url("../images/index.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-	flex-direction: column;
-	height: 60%;
-	width: 100%;
-	align-items: flex-end;
-	padding: 70px 25px;
+
+.main-div1-left{
+    width: 100%;
+    max-width: 660px;
+    height: 100%; 
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
 }
-
-
 
 
 .main-div1-right{
     width: 100%;
+    max-width: 700px;
     height: 100%;
     padding: 5px;
     justify-content: space-between;
@@ -34,10 +36,10 @@ span{
 
 .main-div1-right-top{
     width: 100%;
-    height: 20%;
+    height: 50%;
     display: flex;
     text-align: right;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
 }
 
@@ -53,17 +55,16 @@ span{
 .main-div1-right-bottom{
     display: flex;
     width: 100%;
-    height: 90%;
-    padding: 75px;
-    justify-content: right;
+    height: 50%;
+    justify-content: center;
     align-items: center;
 }
 
 
 .button-main {
-    background-color: rgba(212, 78, 90);
+    background-color: rgba(255, 70, 70, 1);
     border: none;
-    padding: 15px 5px;
+    padding: 10px 5px;
     margin: 5px 5px;
     width: 280px;
 
@@ -142,9 +143,9 @@ span{
     height: 50%;
     display: flex;
     text-align: right;
-    justify-content:right;
+    justify-content: center;
     align-items: center;
-    padding-right: 25px;
+    padding-right: 35px;
 }
 
 .main-div2-right-top p{
@@ -155,8 +156,7 @@ span{
     width: 100%;
     height: 50%;
     display: flex;
-    justify-content: right;
-    padding: 100px;
+    justify-content: center;
     align-items: center;
 }
 
@@ -177,11 +177,12 @@ span{
 
 
 .button-main-div2 {
-    background-color:  rgba(212, 78, 90);
+    background-color: rgba(255, 70, 70, 1);
     border: none;
-    padding: 15px 5px;
+    padding: 10px 5px;
     
     width: 280px;
+    height: 53px;
     
 
     display: inline-block;
@@ -348,15 +349,14 @@ span{
     left: 170px;
 }
 
-.footer{
-    background-color: rgba(242, 212, 203, 0.6);
-	width: 100%;
-	padding: 80px;
-}
 
 
 /*  DIV3    */
 
-
+.button-header a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 
 

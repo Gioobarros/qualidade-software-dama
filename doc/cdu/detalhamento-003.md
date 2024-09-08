@@ -1,4 +1,4 @@
-# CDU003 - Manter Rede de Socorro *
+# CDU003 - Manter Rede de Socorro
 
 - **Ator principal**: Usuários logados
 - **Resumo**: Adicionar ou remover pessoas de dentro da lista pessoal da rede de socorro

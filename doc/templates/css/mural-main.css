@@ -8,28 +8,6 @@
     overflow-x: none;
 }
 
-.button-main {
-    background-color: rgba(255, 70, 70, 1);
-    border: none;
-    padding: 10px 5px;
-    margin: 5px 5px;
-    width: 280px;
-
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 60px; /* Completely round edges */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, box-shadow 0.3s;
-    background-color: none;
-
-    color: white;
-    font-size: 25px;
-    text-align: center;
-    text-decoration: none;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
 
 table{
     width: 100%;

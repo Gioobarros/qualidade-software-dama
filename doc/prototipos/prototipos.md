@@ -1,47 +1,48 @@
 # Protótipos de Interface com o Usuário
 
+<a href="https://www.figma.com/design/W62QlLFRQpgCdGsHthlvkm/DAMA---PDS-Projeto-2024.1?node-id=93-716&t=dI5VovFqnU586P0P-1"> Link para o Figma </a>
+
 ## Mapa do Site
 
-![Mapa do Site](https://imgur.com/yxFVfH6.png)
-
-## [DAMA - PDS Projeto 2024.1 (Figma) ](https://www.figma.com/design/5FUHvEBD4tUj3CeFi8oboz/DAMA---Mapa-do-Site?node-id=76-1799&t=90b8QJ5Lua7oezBq-1)
+<img src="https://imgur.com/kKfT2PZ.png">
 
 ## A. Tela 1: Index
 
-![A. Tela 1: Index](https://imgur.com/Q2OJw6p.png)
+<img src="imagens/Index.png">
 
 ## B. Tela 2: Login
 
-![B. Tela 2: Login](https://imgur.com/iXntqXx.png)
+<img src="imagens/Login.png">
 
 ## C. Tela 3: Cadastro
 
-![B. Tela 3: Cadastro ]( https://imgur.com/kbH7hov.png )
+<img src="imagens/Cadastro.I.png">
 
-## D. Tela 4: Denuncia
+## D. Tela 4: Cadastro Denúncia
 
-![B. Tela 4: Denuncia ]( https://imgur.com/NFEyXBk.png )
+<img src="imagens/Denuncia.png">
 
-## E. Tela 5: Denuncias
+## E. Tela 5: Exposição Denúncias
 
-![B. Tela 5: Denuncias ]( https://imgur.com/F2LYkSI.png )
+<img src="imagens/DenunciasExpo.png">
 
-## F. Tela 6: Relato
+## F. Tela 6: Cadastro Relato
 
-![B. Tela 6: Relato ]( https://imgur.com/VlLDTwH.png )
+<img src="imagens/Relato.png">
 
-## G. Tela 7: Mural de Força 
+## G. Tela 7: Exposição Relatos
 
-![B. Tela 7: ]( https://imgur.com/AwXuRcB.png )
+<img src="imagens/RelatosExpo.png">
 
-## H. Tela 8: Material Educativo
 
-![B. Tela 8: ]( https://imgur.com/QV6kD65.png )
+## H. Tela 8: Materiais educativos
 
-## I. Tela 9: Exemplificação de Material Educativo
+<img src="imagens/Material.png">
 
-![B. Tela 9: Exemplificação de Material Educativo ]( https://imgur.com/BoLHdb1.png )
 
-## J. Tela 10: Rede de Apoio
+## I. Tela 9: Material educativo detalhado
 
-![B. Tela 10: ]( https://imgur.com/6MiMafV.png )
+<img src="imagens/MaterialDetalhe.png">
+
+
+

@@ -1,11 +1,12 @@
-
-
 .div-form {
     height: 500px; /* A div-form agora ocupa 100% da altura do main */
     width: 40%;
     border: 2px solid rgb(239, 210, 214);
     border-radius: 40px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    align-items: center;
+    display: block;
+    z-index: 9999999;
 }
 
 form {
@@ -21,15 +22,9 @@ form h1{
     text-align: center;
 }
 
-select{
-    width: 100%;
-    height: 25px;
-    margin-bottom: 5px;
-}
 
 form label[id='nome'], 
-label[id='senha'], 
-label[id='conf-senha']{
+label[id='senha']{
     display: block;
     text-align: left;
     margin-top: 5px;
@@ -68,19 +63,6 @@ input[type='tel']{
 }
 
 
-#fieldset-left{
-    align-items: flex-start;
-    text-align: left;
-    width: 100%;
-    height: 100%;
-}
-#fieldset-right{
-    align-items: flex-start;
-    text-align: left;
-    width: 100%;
-    height: 100%;
-}
-
 form div span {
     cursor: pointer;
     user-select: none;
@@ -93,7 +75,6 @@ form div span {
     border: none;
     color: black;
 }
-
 
 span{
     font-weight: bolder;
@@ -109,7 +90,7 @@ span{
 }
 
 form div {
-    position: relative; /* posição do olho */
+    position: relative;
 }
 
 #submeter{

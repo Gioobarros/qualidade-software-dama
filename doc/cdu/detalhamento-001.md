@@ -48,8 +48,7 @@
 | | o usuário é direcionado para o passo 4 |
 | | |
 
-## Imagem Representativa do Caso de Uso
-![Comentar Relato](../imagens/Comentar%20relato.png)
+
 
 > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 

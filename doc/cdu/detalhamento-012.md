@@ -30,9 +30,6 @@
 | | 2.2 - O sistema exibe uma mensagem que é preciso escolher uma opção para a denúncia. |  
 | | 2.3 - O usuário é direcionado para o passo 4. | 
 
-## Imagem Representativa do Caso de Uso
-![Nome do Caso de Uso](caminho\imagem.png)
-
 > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 
 ## Diagrama de Interação (Sequência ou Comunicação)

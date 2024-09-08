@@ -84,7 +84,8 @@ h1, span {
 }
 /* separação visual */
 
-a{
-    user-select: none;
-    cursor: pointer;
+.button-header a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }

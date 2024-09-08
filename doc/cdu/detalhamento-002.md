@@ -1,4 +1,4 @@
-# CDU002 - Publicar Material Educativo *
+# CDU002 - Publicar Material Educativo
 
 - **Ator principal**: Usuários do tipo ONG ou Profissionais
 - **Resumo**: Profissional ou ONG publica um material educativo no sistema
