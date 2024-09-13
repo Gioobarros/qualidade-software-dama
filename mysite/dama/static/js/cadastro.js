@@ -75,53 +75,53 @@ function mostrarCampos(value){
 
 // Adiciona um event listener para o evento de clique no documento
 // Manipulação do evento de clique no documento
-document.addEventListener('click', function(event) {
-    if (event.target.id === 'confirmar-button') {
-        // Prevenir a submissão imediata do formulário
-        event.preventDefault();
+// document.addEventListener('click', function(event) {
+//     if (event.target.id === 'confirmar-button') {
+//         // Prevenir a submissão imediata do formulário
+//         event.preventDefault();
 
-        // Exibir a janela de confirmação após 1s
-        setTimeout(function(){
-            var janela = document.getElementById('cadastrado');
-            if (janela.classList.contains('oculto')) {
-                janela.classList.remove('oculto');
-                janela.classList.add('cadastrado');
-                var main = document.getElementById('main');
-                main.classList.add('embassado');
-            }
+//         // Exibir a janela de confirmação após 1s
+//         setTimeout(function(){
+//             var janela = document.getElementById('cadastrado');
+//             if (janela.classList.contains('oculto')) {
+//                 janela.classList.remove('oculto');
+//                 janela.classList.add('cadastrado');
+//                 var main = document.getElementById('main');
+//                 main.classList.add('embassado');
+//             }
     
-        },1000)
+//         },1000)
 
-        // Submeter o formulário após 7s
-        setTimeout(function() {
-            event.target.closest('form').submit();
-        }, 7000); 
-    } 
-    else if(event.target.id === 'denuncia' || event.target.id === 'bttdenuncia'){
-        window.location.href = "denuncia.html"
-    }
-    else if(event.target.id === 'login'){
-        window.location.href = "login.html"
-    }
-    else if(event.target.id === 'home'){
-        window.location.href = "index.html"
-    }
-    else if(event.target.id === 'mural-forca'){
-        window.location.href = "mural.html"
-    }
-    else if (event.target.id === 'logo-img')
-        window.location.href = 'index.html'
-    else {
-        // Fechar a janela de confirmação se clicar fora dela
-        var janela = document.getElementById('cadastrado');
-        if (janela.classList.contains('cadastrado')) {
-            janela.classList.remove('cadastrado');
-            janela.classList.add('oculto');
-            var main = document.getElementById('main');
-            main.classList.remove('embassado');
-        }
-    }
-});
+//         // Submeter o formulário após 7s
+//         setTimeout(function() {
+//             event.target.closest('form').submit();
+//         }, 7000); 
+//     } 
+//     else if(event.target.id === 'denuncia' || event.target.id === 'bttdenuncia'){
+//         window.location.href = "denuncia.html"
+//     }
+//     else if(event.target.id === 'login'){
+//         window.location.href = "login.html"
+//     }
+//     else if(event.target.id === 'home'){
+//         window.location.href = "index.html"
+//     }
+//     else if(event.target.id === 'mural-forca'){
+//         window.location.href = "mural.html"
+//     }
+//     else if (event.target.id === 'logo-img')
+//         window.location.href = 'index.html'
+//     else {
+//         // Fechar a janela de confirmação se clicar fora dela
+//         var janela = document.getElementById('cadastrado');
+//         if (janela.classList.contains('cadastrado')) {
+//             janela.classList.remove('cadastrado');
+//             janela.classList.add('oculto');
+//             var main = document.getElementById('main');
+//             main.classList.remove('embassado');
+//         }
+//     }
+// });
 
 
 

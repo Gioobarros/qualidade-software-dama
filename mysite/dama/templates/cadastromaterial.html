@@ -1,0 +1,155 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/material.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+
+    <title>Material</title>
+
+    <style>
+      main {
+        min-height: 520px;
+        padding: 5px;
+
+        background-color: rgba(240, 229, 223, 0.8);
+        background-image: url("{% static 'img/bg-cadastro.png' %}");
+        background-size: auto;
+        background-repeat: no-repeat;
+        background-blend-mode: hard-light;
+        background-position: bottom left;
+        
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-size: 15px;  
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <header class="borda0 header">
+
+      <div class="borda0 header-div header-div-left">
+                <a href="{% url 'dama:index' %}">
+          <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="logomarca do Dama" />
+        </a>
+      </div>
+
+      <nav class="borda0 header-nav">
+        <ul>
+          <li><a href="{% url 'dama:index' %}">Home</a></li>
+          <li><a href="#">Quem Somos</a></li>
+          <li><a href="#">Rede de apoio</a></li>
+          <li><a href="{% url 'dama:mural' %}">Mural de Força</a></li>
+        </ul>
+      </nav>
+
+      <div class="borda0 header-div-right">
+
+        {% if request.user.is_authenticated %}
+
+        <div id="usuario-logado" class="borda0">
+          <a href="{% url 'dama:perfil' %}">{{ request.user.username }}!</a>
+        </div>
+
+        
+        <div id="logout" class="borda0">
+
+          <form method="post" action="{% url 'dama:logout' %}" style="display: inline;">
+            {% csrf_token %}
+            <button class="button-header" type="submit">Sair</button>
+          </form>
+
+        </div>
+        
+        {% endif %}
+
+      </div>
+
+    </header>
+
+    <main id="main" class="borda0">
+
+      <div class="div-form borda0">
+
+        <form class="borda0"  action="{% url 'dama:material' %}" method="post" enctype=multipart/form-data>
+
+          {% csrf_token %}
+
+          <h1>Material Educativo</h1>
+          
+          <div id="div-conteudo" class="borda0">
+
+              <textarea name="conteudo" cols="50" rows="13" style=" width: 100%; border: 3px solid; border-radius: 20px; text-align: left; padding: 10px;">
+
+              </textarea>
+
+              <label for="arquivo-anexo">Anexar Arquivo</label>
+              <input type="file" name="arquivo" id="arquivo-anexo"> 
+
+          </div>
+
+          <div class="borda0">
+              <br>
+              <h3>Termos e Condições do site </h3>
+
+              <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nulla 
+                  doloremque quibusdam iure fugit? Debitis repellendus. Iusto, eum laudantium!
+              </p>
+              <br>
+
+              <input type="checkbox" name="checa" id="aceita"> Aceito os termos do site
+
+          </div>
+
+          <div>
+              <br>
+              <button type="submit" class="button-header">
+                  Publicar o Material
+              </button>
+          </div>
+
+      </form> 
+
+      </div>
+
+    </main>
+
+    <footer class="borda0">
+      <div class="footer-div footer-div-left borda0">
+          <p>emergencia?</p>
+          <h1><span>ligue 180</span></h1>
+      </div>
+      <div class="footer-div footer-div-center borda0">
+        <div class="footer-div-center-top borda0" >
+            <h1>Ajuda</h1>
+        </div>
+
+        <div class="footer-div-center-bottom borda0">
+          <p><a href="#">Sobre nós</a></p>
+          <p><a href="#">Seja apoiador</a></p>
+          <p><a href="#">Seja voluntário</a></p>
+          <p><a href="{% url 'dama:materiais' %}">Conheça seus direitos</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-div footer-div-right borda0">
+        <img src="{% static 'img/logo_rn.png' %}" alt="">
+      </div>
+  </footer>
+
+    <!-- <script src="{% static 'js/muda_janela.js' %}"></script>
+    <script src="{% static 'js/cadastro.js' %}"></script> -->
+  </body>
+</html>

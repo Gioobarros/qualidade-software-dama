@@ -50,11 +50,11 @@ function mostraModal(relato) {
     var coluna = relato.dataset.column;
     var modal = document.getElementById('relato-modal');
     modal.classList.remove('oculto');
-    modal.className = 'janela-modal borda2'
+    modal.className = 'janela-modal borda0'
 
     var relato_div = document.getElementById('relato')
     relato_div.dataset.column = coluna
-    relato_div.className = `relato borda1 coluna-${coluna}`;
+    relato_div.className = `relato borda0 coluna-${coluna}`;
 
     var main = document.getElementById('main');
     main.classList.add('embassado');
@@ -65,12 +65,12 @@ function novoComentario(){
     nome_usuario.textContent = "anonimo12345"
 
     var imagem_usuario = document.createElement('img')
-    imagem_usuario.src = "../images/profile.png"
+    imagem_usuario.src = "{% static 'img/profile.png' %}"
     imagem_usuario.alt = "icone de usuario"
 
     var div_usuario = document.createElement('div')
     div_usuario.classList.add('usuario-id')
-    div_usuario.classList.add('borda1')
+    div_usuario.classList.add('borda0')
     div_usuario.appendChild(imagem_usuario)
     div_usuario.appendChild(nome_usuario)
 
@@ -90,9 +90,9 @@ function novoComentario(){
     var relato_cor = document.getElementById('relato')
 
     var comentario = document.createElement('div')
-    comentario.classList.add('borda2')
+    comentario.classList.add('borda0')
     comentario.classList.add('comentario')
-    comentario.className = `borda2 comentario coluna-${relato_cor.dataset.column}`
+    comentario.className = `borda0 comentario coluna-${relato_cor.dataset.column}`
     comentario.appendChild(secao)
 
     var comentarios = document.getElementById('comentarios')

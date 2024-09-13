@@ -353,6 +353,10 @@ span{
 
 /*  DIV3    */
 
-
+.button-header a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 
 

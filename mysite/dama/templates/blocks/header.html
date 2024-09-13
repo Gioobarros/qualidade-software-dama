@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block header %}
+
+    <div class="borda0 header-div header-div-left">
+    <a href="{% url 'dama:index' %}">
+        <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="logomarca do Dama" />
+    </a>
+    </div>
+    <nav class="borda0 header-nav">
+    <ul>
+        <li><a href="{% url 'dama:index' %}">Home</a></li>
+        <li><a href="#main-div2">Quem Somos</a></li>
+        <li><a href="{% url 'dama:materiais' %}">Conheça seus direitos</a></li>
+        <li><a href="#redes">Rede de apoio</a></li>
+    </ul>
+    </nav>
+    <div class="borda0 header-div-right">
+
+    {% if request.user.is_authenticated %}
+
+    <div id="usuario-logado" class="borda2">
+        <p>{{ request.user.username }}!</p>
+    </div>
+    
+    <div id="logout" class="borda2">
+        <form method="post" action="{% url 'logout' %}" style="display: inline;">
+        <button class="button-header" type="submit">Sair</button>
+        </form>
+    </div>
+
+    {% else %}
+
+    <button id="header-login" class="button-header">
+        <a href="{% url 'dama:login' %}">Login</a>
+    </button>
+    <button id="header-conta" class="button-header">
+        <a href="{% url 'dama:cadastro' %}">Criar Conta</a>
+    </button>
+
+    {% endif %}
+    </div>
+
+{% endblock %}
+
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block header %}
+
+    <div class="borda0 header-div header-div-left">
+    <a href="{% url 'dama:index' %}">
+        <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="logomarca do Dama" />
+    </a>
+    </div>
+    <nav class="borda0 header-nav">
+    <ul>
+        <li><a href="{% url 'dama:index' %}">Home</a></li>
+        <li><a href="#main-div2">Quem Somos</a></li>
+        <li><a href="{% url 'dama:materiais' %}">Conheça seus direitos</a></li>
+        <li><a href="#redes">Rede de apoio</a></li>
+    </ul>
+    </nav>
+    <div class="borda0 header-div-right">
+
+    {% if request.user.is_authenticated %}
+
+    <div id="usuario-logado" class="borda2">
+        <p>{{ request.user.username }}!</p>
+    </div>
+    
+    <div id="logout" class="borda2">
+        <form method="post" action="{% url 'logout' %}" style="display: inline;">
+        <button class="button-header" type="submit">Sair</button>
+        </form>
+    </div>
+
+    {% else %}
+
+    <button id="header-login" class="button-header">
+        <a href="{% url 'dama:login' %}">Entrar</a>
+    </button>
+    <button id="header-conta" class="button-header">
+        <a href="{% url 'dama:cadastro' %}">Criar Conta</a>
+    </button>
+
+    {% endif %}
+    </div>
+
+{% endblock %}
+
+
+

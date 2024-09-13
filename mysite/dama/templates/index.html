@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -10,45 +11,64 @@
     <link rel="stylesheet" href="{% static 'css/index-main.css' %}" />
     <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
 
-    <!-- GOOGLE FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-      rel="stylesheet"
-    />
-    <!-- GOOGLE FONT -->
-
-    <title>Index</title>
-
+    <title>DAMA - Denúncia Anônima de Mulheres Agredidas</title>
     <style>
-      .main-div1{
-        background-image: url("{% static 'img/banner-dama.png' %}");
-        background-position: left;
-        background-repeat: no-repeat;
-        background-size: contain;
-        padding: 5px;
-      }
+    .main-div1{
+    background-image: url("{% static 'img/banner-dama.png' %}");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    flex-direction: column;
+    height: 60%;
+    width: 100%;
+    align-items: flex-end;
+    padding: 70px 25px;
+  }
     </style>
-    
   </head>
 
   <body>
+
     <header id="cabecalho" class="borda0">
       <div class="borda0 header-div header-div-left">
-        <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="logomarca do Dama" />
+        <a href="{% url 'dama:index' %}">
+          <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="Marca grafica do Dama" />
+        </a>
       </div>
       <nav class="borda0 header-nav">
         <ul>
-          <li><a href="#cabecalho">Home</a></li>
-          <li><a href="#main-div2">Quem Somos</a></li>
-          <li><a href="#main-div3">Conheça seus direitos</a></li>
-          <li><a href="#redes">Rede de apoio</a></li>
+          <li><a href="#">Quem Somos</a></li>
+          <li><a href="{% url 'dama:materiais' %}">Conheça seus direitos</a></li>
+          <li><a href="#">Rede de apoio</a></li>
+          <li><a href="{% url 'dama:mural' %}">Mural de Força</a></li>
         </ul>
       </nav>
+      <a href="{% url 'dama:denuncia' %}">
+        <button id="bttdenuncia" class="button-header">
+          Denunciar
+        </button>
+      </a>
       <div class="borda0 header-div-right">
-        <button id="header-login" class="button-header" onclick="Login()">Login</button>
-        <button id="header-conta" class="button-header" onclick="criarConta()">Criar Conta</button>
+
+        {% if request.user.is_authenticated %}
+        
+            <div id="usuario-logado" class="borda2">
+                <a href="{% url 'dama:perfil' %}">{{ request.user.username }}!</a>
+            </div>
+            
+            <div id="logout" class="borda2">
+                <form method="post" action="{% url 'dama:logout' %}" style="display: inline;">
+                  {% csrf_token %}
+                <button class="button-header" type="submit">Sair</button>
+                </form>
+            </div>
+        
+            {% else %}
+
+        <button id="header-login" class="button-header">
+          <a href="{% url 'dama:login' %}">Entrar</a>
+        </button>
+
+        {% endif %}
       </div>
     </header>
 
@@ -66,7 +86,10 @@
             </p>
           </div>
           <div class="borda0 main-div1-right-bottom">
-            <button id="denuncia-banner" class="button-main">Faça sua Denúncia</button>
+            <a href="{% url 'dama:denuncia' %}"><button id="denuncia-banner" class="button-main">
+              
+                Faça sua Denúncia
+            </button></a>
           </div>
         </div>
       </div>
@@ -85,7 +108,11 @@
             </p>
           </div>
           <div class="main-div2-right-bottom borda0">
-            <button id="mural" class="button-main-div2">Mural de Força</button>
+            <a style="text-decoration: none; color: inherit;display: block;" href="{% url 'dama:mural' %}">
+            <button id="mural" class="button-main-div2">
+                Mural de Força
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -130,33 +157,32 @@
         </div>
 
       </div> 
+    <footer class="footer">
+          <div class="footer-div footer-div-left borda0">
+              <p>emergencia?</p>
+              <h1><span>ligue 180</span></h1>
+          </div>
+          <div class="footer-div footer-div-center borda0">
+            <div class="footer-div-center-top borda0" >
+                <h1>Ajuda</h1>
+            </div>
 
+            <div class="footer-div-center-bottom borda0">
+              <p><a href="#">Sobre nós</a></p>
+              <p><a href="#">Seja apoiador</a></p>
+              <p><a href="#">Seja voluntário</a></p>
+              <p><a href="{% url 'dama:materiais' %}">Conheça seus direitos</a></p>
+            </div>
+
+          </div>
+
+          <div class="footer-div footer-div-right borda0">
+            <img src="{% static 'img/logo_rn.png' %}" alt="">
+          </div>
+      </footer>
     </main>
 
-    <footer class="borda0">
-        <div class="footer-div footer-div-left borda0">
-            <p>emergencia?</p>
-            <h1><span>ligue 180</span></h1>
-        </div>
-        <div class="footer-div footer-div-center borda0">
-          <div class="footer-div-center-top borda0" >
-              <h1>Ajuda</h1>
-          </div>
+    
 
-          <div class="footer-div-center-bottom borda0">
-            <p><a href="#">Sobre nós</a></p>
-            <p><a href="#">Seja apoiador</a></p>
-            <p><a href="#">Seja voluntário</a></p>
-            <p><a href="#">Conheça seus direitos</a></p>
-          </div>
-
-        </div>
-
-        <div class="footer-div footer-div-right borda0">
-          <img src="{% static 'img/logo_rn.png' %}" alt="logo_rn">
-        </div>
-    </footer>
-
-    <script src="{% static 'js/index.js' %}"></script>
   </body>
 </html>

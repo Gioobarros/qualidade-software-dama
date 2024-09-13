@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block footer %}
+
+  <div class="footer-div footer-div-left borda0">
+      <p>emergencia?</p>
+      <h1><span>ligue 180</span></h1>
+  </div>
+  <div class="footer-div footer-div-center borda0">
+    <div class="footer-div-center-top borda0" >
+        <h1>Ajuda</h1>
+    </div>
+
+    <div class="footer-div-center-bottom borda0">
+      <p><a href="#">Sobre nós</a></p>
+      <p><a href="#">Seja apoiador</a></p>
+      <p><a href="#">Seja voluntário</a></p>
+      <p><a href="{% url 'dama:materiais' %}">Conheça seus direitos</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer-div footer-div-right borda0">
+    <img src="{% static 'img/logo_rn.png' %}" alt="logo_rn">
+  </div>
+
+
+{% endblock %}
+

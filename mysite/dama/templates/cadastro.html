@@ -11,25 +11,54 @@
     <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
 
     <title>Cadastro</title>
+
+    <style>
+      main {
+    min-height: 520px;
+    padding: 5px;
+
+    background-color: rgba(240, 229, 223, 0.8);
+    background-image: url("{% static 'img/bg-cadastro.png' %}");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-blend-mode: hard-light;
+    background-position: bottom left;
+    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 18px;
+     
+}
+    </style>
+
   </head>
 
   <body>
     <header class="borda0 header">
       <div class="borda0 header-div header-div-left">
-        <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="logomarca do Dama" />
+                <a href="{% url 'dama:index' %}">
+          <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="logomarca do Dama" />
+        </a>
       </div>
       <nav class="borda0 header-nav">
         <ul>
-          <li><a id="home">Home</a></li>
-          <li><a href="#main-div2">Quem Somos</a></li>
-          <li><a href="#main-div3">Conheça seus direitos</a></li>
-          <li><a href="#redes">Rede de apoio</a></li>
-          <li><a id="mural-forca">Mural de Força</a></li>
+          <li><a href="{% url 'dama:index' %}">Home</a></li>
+          <li><a href="#">Quem Somos</a></li>
+          <li><a href="{% url 'dama:materiais' %}">Conheça seus direitos</a></li>
+          <li><a href="#">Rede de apoio</a></li>
+          <li><a href="{% url 'dama:mural' %}">Mural de Força</a></li>
         </ul>
       </nav>
+      <button id="bttdenuncia" class="button-header">
+        <a href="{% url 'dama:denuncia' %}">Denunciar</a>
+      </button>
       <div class="borda0 header-div-right">
-        <button id="login" class="button-header" >Login</button>
-        <button id="bttdenuncia" class="button-header" >Denunciar</button>
+        <button id="header-login" class="button-header">
+          <a href="{% url 'dama:login' %}">Entrar</a>
+        </button>
+
+        
       </div>
     </header>
 
@@ -39,20 +68,15 @@
           {% csrf_token %}
 
           <h1>Cadastro</h1>
-          <label for="nome" >Nome de Login</label>
-          <input type="text" id="nome" name="nome" placeholder="Login de acesso ao DAMA" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+          <label for="nome_login" >Nome de Login</label>
+          <input type="text" id="nome" name="nome_login" placeholder="Login de acesso ao DAMA" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
           
           <label for="senha">Senha</label>
           <div>
             <input type="password" id="senha" name="senha" placeholder="Digite sua senha"  onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
             <span class="visibilidade-senha" onclick="visibilidadeSenha('senha')">👁️</span>
           </div>
-          
-          <label for="conf-senha">Confirme a Senha</label>
-          <div>
-            <input type="password" id="conf-senha" name="conf-senha" placeholder="Confirme sua senha" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)" pattern="[A-Za-z0-9].{8,}"/>
-            <span class="visibilidade-senha" onclick="visibilidadeSenha('conf-senha')">👁️</span>
-          </div>
+        
 
           <label for="usuario">Tipo de Usuário</label>
           <select id="usuario" name="usuario" form="cadastro" onchange="mostrarCampos(this.value)">
@@ -87,7 +111,7 @@
               <button id="confirmar-button" class="button-form" type="submit" >Cadastrar</button>
             </div>
           </div>
-          
+          <input type="hidden" name="next" value="{{ request.GET.next }}">
         </form>
       </div>
     </main>
@@ -119,7 +143,7 @@
           <p><a href="#">Sobre nós</a></p>
           <p><a href="#">Seja apoiador</a></p>
           <p><a href="#">Seja voluntário</a></p>
-          <p><a href="#">Conheça seus direitos</a></p>
+          <p><a href="{% url 'dama:materiais' %}">Conheça seus direitos</a></p>
         </div>
 
       </div>

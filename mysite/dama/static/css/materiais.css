@@ -1,0 +1,80 @@
+/* Estilo do container principal dos materiais */
+.materiais-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #efe5df;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+.materiais-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Grid de materiais */
+.materiais-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Estilo dos cards individuais */
+.material-card {
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    word-wrap: break-word; /* Quebra de linha automática para textos grandes */
+}
+
+/* Estilo do link para a página do material */
+.material-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+/* Efeito de hover nos cards */
+.material-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo do título dentro do card */
+.material-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+/* Estilo da data de publicação */
+.data-publicacao {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+/* Estilo do conteúdo do material (limite de caracteres e quebra de linha automática) */
+.material-conteudo {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    white-space: normal;
+    word-wrap: break-word; /* Quebra de linha automática */
+    overflow: hidden; /* Para garantir que o conteúdo longo seja cortado */
+    text-overflow: ellipsis;
+    max-height: 100px; /* Altura máxima para limitar o conteúdo exibido */
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Limita o número de linhas visíveis */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
