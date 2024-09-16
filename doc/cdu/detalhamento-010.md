@@ -9,18 +9,10 @@
 ## Fluxo Principal
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: | 
-| 1 - O usuário clica em "Eduque-se" e "Cuide-se" na página inicial. | |  
+| 1 - O usuário clica em "Conheça seus direitos" na página inicial. | |  
 | | 2 - O sistema mostra uma página com um resumo de informações legais e materiais publicados por profissionais cadastrados na plataforma.| 
 | 3 - O usuário clica em Saber Mais um desses materiais. | |
-| | 4 - O sistema mostra uma página com o conteúdo do material referente e um botão para fazer cadastro.| 
-
-## Fluxo Alternativo I - Passo 1. 
-| Ações do ator | Ações do sistema |
-| :-----------------: |:-----------------: | 
-| 1.1 - O usuário clica em Seja Parte do DAMA para realizar seu cadastro na página inicial.| |  
-| | 1.2 - O sistema mostra o formulário referente ao cadastro e um botão "Deseja se informar sobre o tema?" |
-| 1.3 - O usuário clica no botão.| |
-| | 1.2 - O usuário é direcionado para o passo 2. |
+| | 4 - O sistema mostra uma página com o conteúdo do material referente.| |
 
 
 ## Imagem Representativa do Caso de Uso
@@ -30,7 +22,7 @@
 
 ## Diagrama de Interação (Sequência ou Comunicação)
 
-> Substituir pela imagem correspondente...
+![Diagrama de interação](https://imgur.com/AG94QxD.png)
 
 ## Diagrama de Classes de Projeto
 
