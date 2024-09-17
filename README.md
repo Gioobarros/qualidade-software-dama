@@ -36,35 +36,29 @@ Para rodar o projeto, siga os passos abaixo:
 
 ### Passos para executar o projeto
 1. Clone o repositório do projeto:
-<br>
 ` git clone https://github.com/tads-cnat/dama.git `
 <br>
 
 2. Acesse o diretório:
-<br>
 `cd dama `
 `cd mysite`
 <br>
 
 3. Ative o ambiente virtual (venv):
-<br>
 `python -m venv venv`
 `.\venv\Scripts\activate`
 <br>
 
 4. Instale o Django:
-<br>
 ` pip install django`
 <br>
 
 5. Execute as migrações:
-<br>
 `python manage.py makemigrations`
 `python manage.py migrate`
 <br>
 
 6. Inicie o servidor do Django:
-<br>
 `python manage.py runserver`
 <br>
 
