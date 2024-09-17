@@ -37,14 +37,14 @@
 | | 3.3 - O usuário é devoldido para o passo 4. | 
 
 ## Imagem Representativa do Caso de Uso
-![Nome do Caso de Uso](https://imgur.com/lMUB8qS.png)
+![Caso de uso Relato](https://imgur.com/lMUB8qS.png)
 
 > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 
 ## Diagrama de Interação (Sequência ou Comunicação)
 
-> Substituir pela imagem correspondente...
+![Caso de uso Relato](https://imgur.com/49rpdx7.png)
 
 ## Diagrama de Classes de Projeto
 
-> Substituir pela imagem contendo as classes (modelo, visão e templates) que implementam o respectivo CDU...
+![Caso de uso Relato](https://imgur.com/gmKMUVW.png)
