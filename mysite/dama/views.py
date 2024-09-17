@@ -333,9 +333,9 @@ class EditarPerfilView(View):
                     'mensagem_erro': 'dados obrigatorios não foram passados'
                     }
         
-            return render(request, "editar.html", context=contexto) # usar o contexto para alterar
+            return render(request, "editar.html", context=contexto) #usar o contexto para alterar
         
-        else: # usuario nao autenticado
+        else: #usuario nao autenticado
             contexto = {
                     'mensagem_erro': 'ususario não foi autenticado'
                 }
