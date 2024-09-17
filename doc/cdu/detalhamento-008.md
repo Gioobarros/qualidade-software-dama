@@ -33,8 +33,8 @@
 
 ## Diagrama de Interação (Sequência ou Comunicação)
 
-> Substituir pela imagem correspondente...
+![Realizar Denúncia](https://imgur.com/bR5gSB6.png)
 
 ## Diagrama de Classes de Projeto
 
-> Substituir pela imagem contendo as classes (modelo, visão e templates) que implementam o respectivo CDU...
+![Realizar Denúncia](https://imgur.com/lFrYUQS.png)
