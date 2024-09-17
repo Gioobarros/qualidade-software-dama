@@ -1,31 +1,31 @@
-# CDU004 - Denunciar Relato
+# CDU004 Fazer Cadastro
 
-- **Ator principal**: Membros inscritos
-- **Atores secundários**: Moderadores	 
-- **Resumo**: O membro denuncia um relato. 
-- **Pré-condição**: Existir um relato a ser denunciado.
-- **Pós-Condição**: A denúncia é submetida a um moderador da plataforma.
+- **Ator principal**: Usuários do site
+- **Atores secundários**: ...	 
+- **Resumo**: Usuários do site fazem cadastro
+- **Pré-condição**: ...
+- **Pós-Condição**: Se torna um membro inscrito
 
 ## Fluxo Principal
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: | 
-| 1 - O membro clica em um relato. | |  
-| | 2 - O sistema mostra um botão "Denunciar". | 
-| 3 - O usuário clica no botão. | |  
-| | 4 - O sistema exibe uma caixa de pequena de texto para explicar o motivo da denúncia. | 
-| 5 - O usuário insere seu comentário e clica em "Submeter Denúncia". | |  
-| | 6 - O sistema exibe uma mensagem informando que a denúncia foi submetida a um moderador da plataforma e o sistema redireciona o usuário para o "Mural de Força". | 
+| 1 - Acessa o site | |  
+| 2 - Clica em " ENTRAR "  | 2 - Sistema mostra tela de LOGIN com opção de se cadastrar caso não tenha conta. | 
+| 3 - Clica em " CADASTRE-SE "  | 3 - Mostra os dados necessarios a serem preenchidos para efetuar o cadastro. | 
+| 4 - Preenche os dados e clica em "CRIAR"  | 4 - Sistema mostra mensagem de confirmação de que foi criada a conta.| 
 
-## Fluxo Alternativo I - Passo 5. 
+
+## Fluxo Alternativo I - Fazendo cadastro após tentar fazer relato
 | Ações do ator | Ações do sistema |
 | :-----------------: |:-----------------: | 
-| 1.1 - O usuário não insere um comentário e clica em "Submeter Denúncia" | |  
-| | 1.2 - O sistema mostra uma mensagem pedindo para que algum comentário seja digitado. |
-| | 1.3 - O usuário é direcionado para o passo 4. |
- 
+| 1.1 - Acessa o site e clica em MURAL DE FORÇA | |  
+| 1.2 - Usuario clica em " Compartilhe sua História "  | 1.2 - Sistema mostra tela de Login |
+| 1.3 - Clica em " CADASTRE-SE "  | 1.3 - Mostra os dados necessarios a serem preenchidos para efetuar o cadastro. | 
+| 1.4 - Preenche os dados e clica em "CRIAR"  | 1.4 - Sistema mostra mensagem de confirmação de que foi criada a conta.| 
+
 
 ## Imagem Representativa do Caso de Uso
-![Nome do Caso de Uso](.png)
+![Fazer Cadastro](https://imgur.com/fiTR6BE.png)
 
 > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 

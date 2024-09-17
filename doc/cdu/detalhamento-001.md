@@ -1,54 +1,43 @@
-# CDU001. - Comentar Relato  
+# CDU001 - Publicar Material Educativo
 
-- **Ator principal**: Membros inscritos
-- **Atores secundários**: 
-- **Resumo**: Usuário logado comenta em um relato
-- **Pré-condição**: Existir o relato a ser comentado
-- **Pós-Condição**: 
+- **Ator principal**: Usuários do tipo ONG ou Profissionais
+- **Resumo**: Profissional ou ONG publica um material educativo no sistema
+- **Pré-condição**: Usuário estar logado e ser um profissional ou uma ONG
 
 ## Fluxo Principal
-
 | Ações do ator | Ações do sistema |
-| :-----------------: |:-----------------: | 
-| 1 O membro clica em Mural de Força na página de usuário logado | |  
-| | 2 O sistema mostra uma página com várias publicações |
-| 3 O usuário escolhe uma publicação | |
-| | 4 O sistema exibe um chat com os comentários feitos no relato |
-| 5 O usuário insere seu comentário e clica em Comentar | |
-| | 6 O sistema publica o comentário junto a publicação |
-| | | 
+| :-----------------: | :-----------------: | 
+| 1 - O usuário clica em Publicar Material na página de usuário logado | |  
+| | 2 - O sistema mostra uma página com uma caixa de texto e os botões Aceitar os Termos da Plataforma e Submeter Conteúdo | 
+| 3 - O usuário digita o conteúdo a ser publicado  e clica nos dois botões | |
+| | 4 -O sistema exibe uma mensagem que o conteúdo submetido irá passar po análise antes de ser publicado e um botão Confirmar |
+| 5- O usuário clica no botão | |
+| | 6- O Sistema direciona para a página de usuário logado |
+| | |
 
 
 ## Fluxo Alternativo I - Passo 1
 | Ações do ator | Ações do sistema |
-| :-----------------: | :-----------------: | 
-| 1.1 - O usuário clica em Mural de Força na página Fazer Denúncia | |  
-| | 1.2 - O usuário é direcionado para o passo 2 |  
-| | | 
-
-## Fluxo Alternativo II - Passo 1
-| Ações do ator | Ações do sistema |
-| :-----------------: | :-----------------: | 
-| O usuário clica em Mural de Força na página Eduque-se e Cuide| |
-| | O usuário é direcionado para o passo 2 |
+| :-----------------: |:-----------------: | 
+| 1.1 - O usuário clica em Publicar Material na página de exibição de materiais educativos | |  
+| | 1.2 - O usuário é direcionado ao passo 2 |
 | | |
 
-## Fluxo Alternativo III - Passo 1
+## Fluxo de Exceção I - passo 3
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: | 
-| O usuário clica em Mural de Força na página Rede de Apoio | |
-| | O usuário é direcionado para o passo 2 |
+| 2.1 - O usuário não digita o conteúdo a ser publicado e clica nos dois botões | |  
+| | 2.2 - O sistema exibe uma mensagem pedindo que o usuário digite o conteudo do relato |  
+| | 2.3 O usuário é direcionado ao passo 3 |
 | | |
 
-## Fluxo De Exceção I - Passo 5
+## Fluxo de Exceção II - passo 3
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: | 
-| O usuário não insere um comentário e clica em Comentar | |
-| | O sistema mostra uma mensagem pedindo para que algum comentário seja digitado |
-| | o usuário é direcionado para o passo 4 |
+| 3.1 O usuário digita o conteúdo a ser publicado e clica apenas em Submeter Conteúdo | |
+| | 3.2  O sistema exibe uma mensagem pedindo que o usuário aceite os termos da plataforma |
+| | 3.3 o usuário é direcionado ao passo 3 |
 | | |
-
-
 
 > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 

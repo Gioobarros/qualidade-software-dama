@@ -1,33 +1,40 @@
-# CDU005 - Manter Perfil
+# CDU005 - Realizar Denúncia
 
-- **Ator principal**: Membros inscritos
-- **Atores secundários**: 	 
-- **Resumo**: O membro atualiza suas informações de perfil.
-- **Pré-condição**: O membro deve estar logado.
-- **Pós-Condição**: Os dados atualizados são salvos no perfil.
+- **Ator principal**: Usuário Anônimo
+- **Atores secundários**: ...	 
+- **Resumo**: Usuario realiza uma denúncia no site
+- **Pré-condição**: ...
+- **Pós-Condição**: ...
 
 ## Fluxo Principal
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: | 
-| 1 - O membro clica em "Manter Perfil" na página de usuário logado. | |  
-| | 2 - O sistema mostra os dados do usuário e um botão "Salvar Alterações". | 
-| 3 - O usuário escolhe um ou mais dados e o(s) altera, depois clica em "confirmar". | |  
-| | 4 - O sistema exibe uma mensagem informando que os dados foram salvos. | 
+| 1 - Acessa o site e clica em " Faça sua denúncia "  | |  
+| 2 - Usúario descreve sua denúncia e clica em " Denunciar " | 2 - Sistema confirma que a denúncia foi enviada| 
 
-## Fluxo Alternativo I - Passo 3. 
+## Fluxo Alternativo I - Usuario realiza uma denúncia após ver a pagina de Denúncias
 | Ações do ator | Ações do sistema |
 | :-----------------: |:-----------------: | 
-| 1.1 - O usuário deixa um ou mais dados em branco e tenta salvar. | |  
-| | 1.2 - O sistema mostra uma mensagem pedindo para os dados sejam preenchidos.  |
-| | 1.3 - O usuário é direcionado para o passo 2.  |
+| 1.1 - Acessa o site e clica em " denúncias " | |  
+| 1.2 - Usuario clica em " Denuncie " |  |
+| 1.3 - Usúario descreve sua denúncia e clica em " Denunciar " | 1.3 - Sistema confirma que a denúncia foi enviada| 
 
+## Fluxo Alternativo II - Usuario realiza uma denúncia após ver a pagina do Mural de Força
+| Ações do ator | Ações do sistema |
+| :-----------------: |:-----------------: | 
+| 2.1 - Acessa o site e clica em " Mural de Força " | |  
+| 2.2 - Usuario clica em " Denuncie " |  |
+| 2.3 - Usúario descreve sua denúncia e clica em " Denunciar " | 2.3 - Sistema confirma que a denúncia foi enviada| 
+
+## Imagem Representativa do Caso de Uso
+![Realizar Denúncia](https://imgur.com/QsUvZRq.png)
 
 > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 
-## Diagrama de Interação (https://imgur.com/8Qgk5LE.png)
+## Diagrama de Interação (Sequência ou Comunicação)
 
-> Substituir pela imagem correspondente...
+![Realizar Denúncia](https://imgur.com/bR5gSB6.png)
 
-## Diagrama de Classes de Projeto (https://imgur.com/depV7hH.png)
+## Diagrama de Classes de Projeto
 
-> Substituir pela imagem contendo as classes (modelo, visão e templates) que implementam o respectivo CDU...
+![Realizar Denúncia](https://imgur.com/lFrYUQS.png)

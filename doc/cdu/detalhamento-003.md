@@ -1,69 +1,43 @@
-# CDU003 - Manter Rede de Socorro
+# CDU003 - Publicar Relato
 
-- **Ator principal**: Usuários logados
-- **Resumo**: Adicionar ou remover pessoas de dentro da lista pessoal da rede de socorro
-- **Pré-condição**: Estar logado 
+- **Ator principal**: Membros inscritos
+- **Atores secundários**: 	 
+- **Resumo**: O membro publica um relato.
+- **Pré-condição**: O membro deve estar logado no sistema.
+- **Pós-Condição**: O relato do membro é publicado no "Mural de Força".
 
 ## Fluxo Principal
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: | 
-| 1 - O usuário clica em Rede de Socorro  | |  
-| | 2 - O sistema mostra uma página, com as pessoas que já estão cadastradas e os botões Adicionar Nova Pessoa, Atualizar Pessoa, Remover Pessoa | 
-| 3 - O usuário clica em Adicionar Nova Pessoa |  |
-|  |4 - O sistema mostra um formulário requisitando o nome, grau de parentesco e telefone da pessoa |
-| 5 - O usuário preenche os dados |  |
-|  | 6 - O sistema mostra os dados preenchidos e pede confirmação ao usuário |
-| 7 - O usuário confirma os dados |  |
-|  | 8 - O sistema exibe uma mensagem que a pessoa foi adicionada |
-| | |
+| 1 - O membro clica em "Publicar Relato" na página do usuário logado. | |  
+| | 2 - O sistema mostra uma página com uma caixa de texto.  | 
+| 3 - O usuário digita seu relato e clica em "Publicar". | |  
+| | 4 - O sistema pede para o usuário verificar o relato, informa que as informações passadas devem ser fidedignas e pede que ele aceite os Termos de Uso da plataforma.| 
+| 5 - O usuário verifica, aceita os termos clica em "Confirmar". | |  
+| | 6 - O sistema mostra uma mensagem de confirmação que o relato foi publicado e o membro é redirecionado para o "Mural de Força". | 
 
-## Fluxo de Exceção I - Passo 5 - Adicionar Pessoa
+## Fluxo Alternativo I - Passo 1.
 | Ações do ator | Ações do sistema |
 | :-----------------: |:-----------------: | 
-| 1.1 - O usuário não preenche, ou apenas parcialmente, os dados requisitados | |  
-| | 1.2 - O sistema exibe uma mensagem de erro |
-| | O usuário é redirecionado ao passo 4 |
-| | |
+| 1.1 - O membro clica em "Publicar Relato" na página "Mural de Força". | |  
+| | 1.2 - O usuário é devolvido para o passo 2. |
 
-## Fluxo Principal - Atualizar Pessoa
+## Fluxo Alternativo II - Passo 2.
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: | 
-| 1 - O usuário clica em Rede de Socorro | |  
-| | 2 -  O sistema mostra uma página, com as pessoas que já estão cadastradas e os botões Adicionar Nova Pessoa, Atualizar Pessoa, Remover Pessoa |  
-| 3 - O usuário clica em Atualizar Pessoa | |
-| | 4 - O sistema mostra um formulário requisitando o nome, grau de parentesco e telefone da pessoa |
-| 5 - O usuário preenche os dados | |
-| | 6 - O sistema mostra os dados preenchidos e pede confirmação ao usuário |
-| 7 - O usuário confirma os dados | |
-| | 8 - O sistema exibe uma mensagem que a pessoa foi alterada |
-| | |
+| 2.1 - O usuário não digita o relato e clica em "Publicar". | |  
+| | 2.2 - O sistema exibe uma mensagem de erro pedindo que o usário digite seu relato. |  
+| | 2.3 - O usuário é devolvido para o passo 2. | 
 
-## Fluxo de Exceção I - Passo 5 - Atualizar Pessoa
-| Ações do ator | Ações do sistema |
-| :-----------------: |:-----------------: | 
-| 1.1 - O usuário não preenche, ou apenas parcialmente, os dados requisitados | |  
-| | 1.2 - O sistema exibe uma mensagem de erro |
-| | O usuário é redirecionado ao passo 4 |
-| | |
-
-## Fluxo Principal - Remover Pessoa
+## Fluxo Alternativo II - Passo 4.
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: | 
-| 1 - O usuário clica em Rede de Socorro | |  
-| | 2 - O sistema mostra uma página, com as pessoas que já estão cadastradas e os botões Adicionar Nova Pessoa, Adicionar Pessoa, Remover Pessoa |  
-| 3- O usuário clica em Remover Pessoa |  |
-|  | 4 - O sistema lista todas as pessoas cadastradas na rede  |
-| 5 - O usuário seleciona a(s) pessoa(s) e clica em Remover |  |
-|  | 6 - O sistema mostra a(s) pessoa(s) selecionadas e pede confirmação ao usuário |
-| 7 - O usuário clica em remover |  |
-|  | 8 - O sistema exibe uma mensagem que a(s) pessoa(s) foi/foram removidas |
-|  |  | 
+| 3.1 - O usuário não  clica em "Aceitar os Termos da Plataforma" e clica em "Publicar". | |  
+| | 3.2 - O sistema exibe uma mensagem de erro pedindo que o usário aceite os termos. |  
+| | 3.3 - O usuário é devoldido para o passo 4. | 
 
-## Fluxo Principal - Listar Pessoas
-| Ações do ator | Ações do sistema |
-| :-----------------: | :-----------------: | 
-| 1 - O usuário clica em Rede de Socorro | |  
-| | 2 - O sistema mostra uma página, com as pessoas que já estão cadastradas e os botões Adicionar Nova Pessoa, Adicionar Pessoa, Remover Pessoa |  
+## Imagem Representativa do Caso de Uso
+![Nome do Caso de Uso](https://imgur.com/lMUB8qS.png)
 
 > Obs. as seções a seguir apenas serão utilizadas na segunda unidade do PDSWeb (segundo orientações do gerente do projeto).
 
