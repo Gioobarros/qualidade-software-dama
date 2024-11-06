@@ -1,5 +1,5 @@
 from rest_framework.routers import DefaultRouter
-from api.views.ong import ONGViewSet
+from api.view.ong import OngViewSet
 
 ong_router = DefaultRouter()
-ong_router.register("ong", ONGViewSet, basename="ong")
+ong_router.register("ong", OngViewSet, basename="ong")

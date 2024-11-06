@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from api.models import ONG
+from api.models.ong import Ong
 
-class ONGSerializer(serializers.ModelSerializer):
-    class meta:
-        model = ONG
+class OngSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ong
         fields = "__all__"
         

@@ -1,8 +1,8 @@
+from api.models.relato import Relato
 from rest_framework import serializers
-from api.models import Relato
 
 class RelatoSerializer(serializers.ModelSerializer):
-    class meta:
+    class Meta:
         model = Relato
         fields = "__all__"
         
