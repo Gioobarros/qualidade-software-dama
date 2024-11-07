@@ -1,7 +1,6 @@
 # Listagem de riscos do projeto 
 
 ## Riscos do projeto 
-
 | ID | Tipo | Título | Descrição | Indicador | Estratégia Mitigação | Plano de Contingência |
 | --- | --- | --- | --- | --- | --- | --- |
 | RI01 | Gestão de pessoas | Desligamento de integrantes | Algum dos integrantes do grupo pode ser desligado ou sair do grupo. | Pouca contribuição | Melhorar a integração da equipe | Remanejar tarefas |
@@ -13,7 +12,6 @@
 | RI08 | Acadêmico | Calendário  | Períodos de recesso podem atrasar o andamento do projeto. | Falta de ritmo pós-recesso | Planejar pequenas tarefas durante o recesso | Retomar atividades com tarefas mais simples |
 | RI09 | Acadêmico | Período de provas  | Período de provas pode tirar o foco do projeto para poder estudar para as determinadas provas. | Atraso de entrega | Planejar maiores entregas antes deste período | Realização de entregas por prioridade |
 | RI10 | Acadêmico | Ferramentas não lecionadas | Demanda de projeto requisitam conhecimentos ainda não lecionados. | Dificuldade de inicialização de projeto | Estudar as ferramentas em contra turno | Alterar ferramenta |
- 
 
 
 
