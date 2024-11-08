@@ -6,10 +6,10 @@ from .relato import relato_router
 from .user import user_router
 
 urlpatterns = [
-    path('admin', include(admin_router.urls)),
-    path('ong', include(ong_router.urls)),
-    path('profissional', include(profissional_router.urls)),
-    path('relato', include(relato_router.urls)),
-    path('user', include(user_router.urls)),
+    path('', include(admin_router.urls)),
+    path('', include(ong_router.urls)),
+    path('', include(profissional_router.urls)),
+    path('', include(relato_router.urls)),
+    path('', include(user_router.urls)),
 ]
 
