@@ -5,23 +5,14 @@ from django.contrib.auth.models import User
 
 class Profissional(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-
     nome_completo = models.CharField(unique=True, max_length=100)
-
     cpf = models.CharField(unique=True, max_length=11)
-
     login = models.CharField(unique=True, max_length=100)
-
     senha = models.CharField(unique=True, max_length=20)
-
     conselho = models.CharField(unique=True, max_length=20)
-    
     contato = models.CharField(unique=True, max_length=20)
-
     email = models.EmailField(unique=True, max_length=40)
-
     bio = models.TextField()
-
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
