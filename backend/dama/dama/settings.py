@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dama',
+    'api',
     'rest_framework',
     'corsheaders',
 ]
@@ -62,8 +63,12 @@ WSGI_APPLICATION = 'dama.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dama',
+        'USER': 'dama',
+        'PASSWORD': 'dama',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
