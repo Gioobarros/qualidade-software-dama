@@ -20,8 +20,6 @@ class Ong(models.Model):
 
     bio = models.TextField()
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
 
     def __str__(self):
         return f"Razão Social: {self.razao_social}   CNPJ: {self.cnpj}\nEmail: {self.email} Contato: {self.contato}"
