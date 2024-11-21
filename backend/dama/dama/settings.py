@@ -19,7 +19,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'dama',
     'api',
     'rest_framework',
     'corsheaders',
@@ -67,24 +66,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'dama',
-#         'USER': 'dama',
-#         'PASSWORD': 'dama',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
