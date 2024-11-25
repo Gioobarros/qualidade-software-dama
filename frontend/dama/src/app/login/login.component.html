@@ -1,1 +1,29 @@
-<p>login works!</p>
+<main>
+    <div class="div-form">
+        <form class="borda0 form" action="/login" method="post" name="login">
+            <h1>Login</h1>
+            <div id="nome-form" class="div-form-div">
+                <label for="nome">Nome do Usuario</label>
+                <input type="text" id="nome" name="nome_login" placeholder="Nome de usuário no DAMA" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+            </div>
+            <div id="senha-form" class="div-form-div">
+                <label for="senha">Senha</label>
+                <div>
+                    <input type="password" id="senha" name="senha_usuario" placeholder="Digite sua senha" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+                    <span id="olho" class="visibilidade-senha" onclick="visibilidadeSenha('senha')">👁️</span>
+                </div>
+            </div>
+
+            <div id="sem-conta" class="div-form-div">
+                <a href="/cadastro">Não tem conta no DAMA? Crie uma aqui!</a>
+            </div>
+
+            <div id="submeter">
+                <div id="cancelar"></div>
+                <div id="criar">
+                    <button id="entrar" type="submit" class="button-form">Entrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
