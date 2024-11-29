@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProfissionalService, Profissional } from '../services/profissional.service';
 import { FormsModule } from '@angular/forms'; // Importar FormsModule
 
+
 @Component({
   selector: 'app-cadastro',
   standalone: true,
