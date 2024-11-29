@@ -13,7 +13,6 @@ class Ong(models.Model):
     email = models.EmailField(unique=True, max_length=40)
     bio = models.TextField()
 
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
     def __str__(self):
