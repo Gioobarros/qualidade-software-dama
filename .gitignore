@@ -1,0 +1,4 @@
+venv/
+pdsweb/
+__pycache__/
+backend/dama/db.sqlite3
