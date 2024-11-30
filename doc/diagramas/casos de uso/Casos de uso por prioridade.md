@@ -4,8 +4,8 @@
 
 | Ator | Caso | Descrição | Prioridade |
 | --- | --- | --- | --- |
-| Profissional ou ONG | Publicar informe | O usuário publica/submete algum informe de ação em apoio e defesa da mulher | Alta |
 | Profissional ou ONG | Publicar relato | O usuário compartilha histórias de apoio, superação e empoderamento visando inspirar as mulheres vítimas, ou não, de agressões. | Alta |
+| Profissional ou ONG | Publicar informe | O usuário publica/submete algum informe de ação em apoio e defesa da mulher | Alta |
 | Visitante | Buscar relato | O usuário busca histórias de apoio, superação e empoderamento visando inspirar as mulheres vítimas, ou não, de agressões. | Alta |
 | Visitante | Acessar relato | O usuário acessa histórias de apoio, superação e empoderamento visando inspirar as mulheres vítimas, ou não, de agressões. | Alta |
 | Visitante | Buscar informe | O usuário busca por informe de ação em apoio e defesa da mulher. | Alta |
