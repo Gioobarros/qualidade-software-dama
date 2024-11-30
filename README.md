@@ -25,11 +25,19 @@ O projeto DAMA (Defesa e Apoio às Mulheres Agredidas) é uma ferramenta digital
 
 # Documentação
 
-[Link para os documentos do projeto](doc)
+[Link para os documentos do projeto](doc/README.md)
 
 # Manual da Desenvolvedor
 
 [Orientações para os desenvolvedores do projeto](doc)
+
+# Documentação do Back-End
+
+[Link para a documentação](backend/README.md)
+
+# Documentação Front-End
+
+[Link para a documentação](frontend/README.md)
 
 <!-- # Execução do projeto
 Para rodar o projeto, siga os passos abaixo: 
