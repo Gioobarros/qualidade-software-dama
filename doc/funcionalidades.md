@@ -1,13 +1,19 @@
-# DAMA - Defesa e Apoio às Mulheres Agredidas
+O software DAMA - Defesa e Apoio às Mulheres Agredidas, projetado para auxiliar o combate à violência doméstica, deve ter funcionalidades abrangentes e sensíveis às necessidades das vítimas, como:
+ 
+1. *Educação e Conscientização:*
+   - Recursos educativos para conscientizar as vítimas sobre seus direitos, opções de assistência e informações sobre as leis, seus direitos e deveres, publicados por profissionais. 
+   
+2. *Registro de Casos e Histórico:*
+   - Armazenamento seguro e organizado de informações sobre casos, permitindo uma gestão eficiente e a análise de padrões de violência.
 
-O projeto DAMA (Defesa e Apoio às Mulheres Agredidas) é uma ferramenta digital dedicada ao apoio, orientação e defesa das mulheres vítimas de qualquer tipo de violência. O site oferece recursos educacionais, visando fornecer suporte seguro para as usuárias.
+3. *Acompanhamento Jurídico:*
+   - Ferramentas para acompanhar processos judiciais relacionados à violência doméstica, incluindo atualizações sobre audiências e decisões judiciais.
 
-# Funcionalidades 
-| Funcionalidade         | Descrição                                                                 | Objetivo                                                                 |
-|------------------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------|
-| **Consultar e visualizar órgãos e profissionais de apoio**   | Permite que os usuários consultem e visualizem as informações referentes aos órgãos e profissionais de apoio que estão disponíveis para ajudar. | Facilitar o acesso dos usuários à rede de apoio, promovendo uma resposta mais eficaz para as vítimas. |
-| **Gerenciar profissionais de apoio** | Permite que os administradores do sistema gerenciem os dados dos profissionais de apoio cadastrados no sistema que desejam ajudar os usuários do sistema e/ou vítimas de violência. | Facilitar a gestão e organização dos profissionais de apoio cadastrados no sistema, garantindo uma ajuda qualificada.           |
-| **Publicar material educativo**      | Permite que os profissionais de apoio publiquem materiais educativos que serão disponibilizados para todos os leitores do sistema, incluindo informações de como buscar ajuda, prevenção de violência e direitos das mulheres. | Informar, educar e conscientizar a comunidade sobre violência contra a mulher.  |
-| **Apresentar estatísticas de casos** | Apresenta dados estatísticos sobre ocorrências de denúncias registrados no sistema, permitindo que seja desenvolvido estratégias de prevenção. | Fornecer informações para que haja ações de preveção contra a violência contra a  mulher. |
-| **Gerenciar membros do sistema** | Permite o gerenciamento dos dados dos usuários cadastrados no sistema. | Garantir que os usuários cadastrados possuam a conta devidamente gerenciada e protegida, com o acesso controlado às funcionalidades, conforme o tipo de usuário. |
-| **Publicar trabalhos voluntários** | Permite que os profissionais publiquem seus trabalhos voluntários oferecidos às vítimas de violência. | Facilitar o acesso das vítimas a serviços de apoio voluntários e gratuitos, ajudando no reestabelecimento das suas vidas. |
+4. *Informação sobre Serviços de Apoio:*
+   - Informações sobre recursos e serviços de apoio, como abrigos, centros de assistência e aconselhamento psicológico.
+
+5. *Conexão de Apoio:*
+   - Um sistema para os profissionais de apoio se conectarem com a comunidade.
+ 
+6. *Feedback da Comunidade:*
+    - Ferramentas para que a comunidade avalie a plataforma e os serviços oferecidos, ajudando a melhorar a interface e a usabilidade.
