@@ -35,7 +35,7 @@ span{
     align-items: flex-end;
     flex-direction: column;
     background-repeat: no-repeat;
-    background-image: url("/images/banner-dama.png");
+    background-image: url("/images/homebanner.jpg");
     background-color: rgba(240, 229, 223,0.5);
   }
 
