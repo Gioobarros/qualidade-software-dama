@@ -10,10 +10,10 @@ import { FooterComponent } from "./components/footer/footer.component";
   standalone: true,
   imports: [CadastroComponent, RouterOutlet, HeaderComponent, ListComponent, FooterComponent],
   template: `
-  <app-header></app-header>
-  <router-outlet></router-outlet>
-  <app-footer></app-footer>
-  
+    
+    
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
   `
 })
 export class AppComponent {
