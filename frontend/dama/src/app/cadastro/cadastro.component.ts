@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { ProfissionalService, Profissional } from '../services/profissional.service';
 import { FormsModule } from '@angular/forms'; // Importar FormsModule
+import { HeaderComponent } from '../components/header/header.component';
 
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [FormsModule], // Adicione FormsModule aqui
+  imports: [FormsModule, HeaderComponent], // Adicione FormsModule aqui
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.css']
 })

@@ -26,18 +26,18 @@ span{
 /*  DIV1    */
 
 .main-div1{
-    height: 33%;
-    width: 100%;
+    height: 100vh;
     display: flex;
     min-height: 600px;
     position: relative;
-    background-size: 100%;
-    align-items: flex-end;
+    background-size: cover;
     flex-direction: column;
     background-repeat: no-repeat;
-    background-image: url("/images/banner-dama.png");
-    background-color: rgba(240, 229, 223,0.5);
   }
+
+.banner {
+    background-image: url("/images/bannerhome.png");
+}
 
 .main-div1-left{
     width: 100%;

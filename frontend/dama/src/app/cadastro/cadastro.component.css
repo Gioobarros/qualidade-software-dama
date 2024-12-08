@@ -3,18 +3,6 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    scroll-behavior: smooth;
-    background-color: rgba(240, 229, 223, 1);
-}
-
-body {
-    display: flex;
-    justify-content: center; /* Centraliza o conteúdo */
-    align-items: center;
-}
-
 label {
     user-select: none;
 }
