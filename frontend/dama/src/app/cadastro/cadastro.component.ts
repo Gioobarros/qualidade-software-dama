@@ -61,14 +61,14 @@ export class CadastroComponent {
 
     this.profissionalService.registerProfissional(this.profissional).subscribe({
       next: (response) => {
-        console.log('Deu serto');
+        //console.log('Deu serto');
         console.log('Profissional cadastrado:', response);
         this.mensagem = 'Cadastro realizado com sucesso!';
         this.resetForm();
         this.exibirMensagemTemporaria();
       },
       error: (error) => {
-        console.log('Deu nao serto', error);
+        //console.log('Deu nao serto', error);
         this.mensagem = 'Erro ao cadastrar profissional.';
         this.exibirMensagemTemporaria();
       }

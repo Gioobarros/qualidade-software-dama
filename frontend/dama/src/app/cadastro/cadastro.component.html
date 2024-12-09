@@ -1,6 +1,11 @@
 <app-header></app-header>
 <div class="content-wrapper">
 <main>
+  
+  <div *ngIf="mensagem" class="alert" [ngClass]="{'alert-success': mensagem.includes('sucesso'), 'alert-danger': mensagem.includes('Erro')}">
+    {{ mensagem }}
+  </div>
+  
   <div class="div-form">
     <form (ngSubmit)="onSubmit()" name="cadastro" #cadastroForm="ngForm">
       <h1>Cadastro</h1>
