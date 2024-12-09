@@ -1,8 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild, ElementRef} from '@angular/core';
+import { Component} from '@angular/core';
 import { RelatosService} from '../services/relatos.service';
-import { Relato} from '../services/relato.service';
 import { HeaderComponent } from '../components/header/header.component';
 
 @Component({
@@ -14,10 +13,13 @@ import { HeaderComponent } from '../components/header/header.component';
     HeaderComponent 
   ],
   templateUrl: './relatos.component.html',
-  styleUrl: './relatos.component.css'
+  styleUrls: ['./relatos.component.css']
 })
 
 
 export class RelatosComponent {
 
+  listarRelatos(){
+    
+  }
 }

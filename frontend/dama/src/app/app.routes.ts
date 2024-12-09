@@ -26,7 +26,7 @@ export const routes: Routes = [
     },
     {
       path: 'relatos',
-      loadComponent: () => import('./relatos/relatos.component').then(r => r.RelatosComponent)
+      loadComponent: () => import('./relatos/relatos.component').then(s => s.RelatosComponent)
     }
 
   ];

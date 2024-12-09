@@ -1,5 +1,6 @@
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { Component, ViewChild, ElementRef} from '@angular/core';
 import { RelatoService, Relato } from '../services/relato.service';
 import { HeaderComponent } from '../components/header/header.component';
@@ -8,9 +9,7 @@ import { HeaderComponent } from '../components/header/header.component';
   selector: 'app-relato',
   standalone: true,
   imports: [
-    CommonModule,
-    FormsModule, 
-    HeaderComponent 
+    CommonModule, FormsModule, HeaderComponent, RouterLink, RouterOutlet 
   ],
   templateUrl: './relato.component.html',
   styleUrls: ['./relato.component.css']
