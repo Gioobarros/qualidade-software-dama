@@ -2,14 +2,15 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Component, ViewChild, ElementRef} from '@angular/core';
 import { RelatoService, Relato } from '../services/relato.service';
-
+import { HeaderComponent } from '../components/header/header.component';
 
 @Component({
   selector: 'app-relato',
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule 
+    FormsModule, 
+    HeaderComponent 
   ],
   templateUrl: './relato.component.html',
   styleUrls: ['./relato.component.css']
