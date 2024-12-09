@@ -23,6 +23,10 @@ export const routes: Routes = [
     {
       path: 'relato',
       loadComponent: () => import('./relato/relato.component').then(r => r.RelatoComponent)
+    },
+    {
+      path: 'relatos',
+      loadComponent: () => import('./relatos/relatos.component').then(r => r.RelatosComponent)
     }
 
   ];
