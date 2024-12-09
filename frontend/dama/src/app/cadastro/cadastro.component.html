@@ -1,43 +1,54 @@
 <app-header></app-header>
 <div class="content-wrapper">
 <main>
+  
+  <div *ngIf="mensagem" class="alert" [ngClass]="{'alert-success': mensagem.includes('sucesso'), 'alert-danger': mensagem.includes('Erro')}">
+    {{ mensagem }}
+  </div>
+  
   <div class="div-form">
-    <form (ngSubmit)="onSubmit()" name="cadastro">
+    <form (ngSubmit)="onSubmit()" name="cadastro" #cadastroForm="ngForm">
       <h1>Cadastro</h1>
 
-      <label for="nome_completo">Nome Completo:</label>
-      <input type="text" id="nome_completo" [(ngModel)]="profissional.nome_completo" name="nome_completo" required placeholder="Digite seu nome completo" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+    <label for="nome_completo">Nome Completo:</label>
+    <input type="text" id="nome_completo" [(ngModel)]="profissional.nome_completo" name="nome_completo" required placeholder="Digite seu nome completo">
 
-      <label for="cpf">CPF:</label>
-      <input type="text" id="cpf" [(ngModel)]="profissional.cpf" name="cpf" required placeholder="Digite seu CPF" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+    <label for="cpf">CPF:</label>
+    <input type="text" id="cpf" [(ngModel)]="profissional.cpf" name="cpf" required placeholder="Digite seu CPF">
 
-      <label for="login">Login:</label>
-      <input type="text" id="login" [(ngModel)]="profissional.login" name="login" required placeholder="Digite seu login" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+    <label for="login">Login:</label>
+    <input type="text" id="login" [(ngModel)]="profissional.login" name="login" required placeholder="Digite seu login">
 
-      <label for="senha">Senha:</label>
-      <div>
-        <input type="password" id="senha" [(ngModel)]="profissional.senha" name="senha" required placeholder="Digite sua senha" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
-        
-      </div>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" [(ngModel)]="profissional.senha" name="senha" required placeholder="Digite sua senha">
 
-      <label for="conselho">Conselho:</label>
-      <input type="text" id="conselho" [(ngModel)]="profissional.conselho" name="conselho" required placeholder="Digite seu conselho" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+    <label for="senhaRepetida">Repita a Senha:</label>
+    <input type="password" id="senhaRepetida" [(ngModel)]="senhaRepetida" name="senhaRepetida" required placeholder="Repita sua senha">
 
-      <label for="contato">Contato:</label>
-      <input type="tel" id="contato" [(ngModel)]="profissional.contato" name="contato" required placeholder="Digite seu contato" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+    <label for="conselho">Conselho:</label>
+    <input type="text" id="conselho" [(ngModel)]="profissional.conselho" name="conselho" required placeholder="Digite seu conselho">
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" [(ngModel)]="profissional.email" name="email" required placeholder="exemplo@email.com" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+    <label for="contato">Contato:</label>
+    <input type="tel" id="contato" [(ngModel)]="profissional.contato" name="contato" required placeholder="Digite seu contato">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="profissional.email" name="email" required placeholder="exemplo@email.com">
 
       <!-- <label for="bio">Bio:</label>
       <textarea id="bio" [(ngModel)]="profissional.bio" name="bio" placeholder="Conte um pouco sobre você" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)"></textarea> -->
 
       <div id="submeter" >
         <div id="cancelar" >
-          <button type="button" class="button-form">Cancelar</button>
+          <button type="button" class="button-form" (click)="voltarParaIndex()">Cancelar</button>
         </div>
         <div id="criar" >
-          <button id="confirmar-button" class="button-form" type="submit">Cadastrar</button>
+          <button 
+          id="confirmar-button" 
+          class="button-form" 
+          type="submit" 
+          [disabled]="!cadastroForm.valid" 
+          [ngClass]="{ 'button-disabled': !cadastroForm.valid }"
+        > Cadastrar </button>
         </div>
       </div>
     </form>
