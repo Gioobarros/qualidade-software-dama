@@ -1,49 +1,56 @@
-* {
+body, html {
     margin: 0;
-    box-sizing: border-box;
-  }
-  
-  html, body {
+    padding: 0;
     height: 100%;
-    scroll-behavior: smooth;
-    background-color: rgba(240, 229, 223, 1);
   }
   
-  body {
+  .content-wrapper {
     display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-  }
-  
-  label {
-    user-select: none;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 40px;
   }
   
   main {
-    width: 100%;
-    max-width: 1366px;
+    width: 30%;
     text-align: center;
+    background: linear-gradient(to bottom, white, transparent);
+    border-radius: 30px;
+    position: relative;
+  }
+  
+  main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 30px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
   }
   
   .div-form {
-    height: auto; /* Ajusta a altura conforme o conteúdo */
-    width: 50%;
-    border: 2px solid rgb(239, 210, 214);
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-    background-color: #fff;
-    padding: 20px;
-    margin: auto;
+    height: auto;
+    width: auto;
+    border-radius: 28px; /* Ligeiramente menor que o main para evitar sobreposição */
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.15);
   }
   
-  form {
+
+
+form {
     width: 100%;
-    padding: 15px 30px;
-    text-align: left;
-  }
-  
-  form h1 {
-    margin-bottom: 15px;
+    height: 100%;
+    padding: 15px 70px;  
+    text-align: left;   
+    box-sizing: border-box;
+}
+
+form h1 {
+    margin-bottom: 5px;
     text-align: center;
   }
   
