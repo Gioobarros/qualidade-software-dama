@@ -2,7 +2,7 @@
 <div class="content-wrapper">
 <main>
   <div class="div-form">
-    <form (ngSubmit)="onSubmit()" name="cadastro">
+    <form (ngSubmit)="onSubmit()" name="cadastro" #cadastroForm="ngForm">
       <h1>Cadastro</h1>
 
     <label for="nome_completo">Nome Completo:</label>
@@ -34,10 +34,16 @@
 
       <div id="submeter" >
         <div id="cancelar" >
-          <button type="button" class="button-form">Cancelar</button>
+          <button type="button" class="button-form" (click)="voltarParaIndex()">Cancelar</button>
         </div>
         <div id="criar" >
-          <button id="confirmar-button" class="button-form" type="submit">Cadastrar</button>
+          <button 
+          id="confirmar-button" 
+          class="button-form" 
+          type="submit" 
+          [disabled]="!cadastroForm.valid" 
+          [ngClass]="{ 'button-disabled': !cadastroForm.valid }"
+        > Cadastrar </button>
         </div>
       </div>
     </form>

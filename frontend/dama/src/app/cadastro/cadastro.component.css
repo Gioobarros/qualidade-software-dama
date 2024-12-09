@@ -49,6 +49,14 @@ form {
     box-sizing: border-box;
 }
 
+.button-disabled {
+    background-color: #d3d3d3; /* Cor cinza */
+    cursor: not-allowed; /* Indica que o botão não pode ser clicado */
+    color: #a0a0a0; /* Texto mais claro */
+    box-shadow: none;
+  }
+  
+
 form h1 {
     margin-bottom: 5px;
     text-align: center;

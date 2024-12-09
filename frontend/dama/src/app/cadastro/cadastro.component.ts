@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProfissionalService, Profissional } from '../services/profissional.service';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Importar FormsModule
 import { HeaderComponent } from '../components/header/header.component';
 
@@ -7,7 +8,7 @@ import { HeaderComponent } from '../components/header/header.component';
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [FormsModule, HeaderComponent], // Adicione FormsModule aqui
+  imports: [FormsModule, HeaderComponent, CommonModule],
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.css']
 })
@@ -20,7 +21,7 @@ export class CadastroComponent {
     conselho: '',
     contato: '',
     email: '',
-    bio: ''
+    bio: 'teste'
   };
 
   senhaRepetida: string = '';
@@ -47,6 +48,7 @@ export class CadastroComponent {
    * Envia o formulário, realiza validações e exibe mensagens de sucesso ou erro.
    */
   onSubmit() {
+    console.log('Método onSubmit chamado!');
     if (!this.senhaValida()) {
       alert('A senha deve ter no mínimo 8 caracteres, incluindo letras e números.');
       return;
@@ -59,13 +61,14 @@ export class CadastroComponent {
 
     this.profissionalService.registerProfissional(this.profissional).subscribe({
       next: (response) => {
+        console.log('Deu serto');
         console.log('Profissional cadastrado:', response);
         this.mensagem = 'Cadastro realizado com sucesso!';
         this.resetForm();
         this.exibirMensagemTemporaria();
       },
       error: (error) => {
-        console.error('Erro ao cadastrar profissional:', error);
+        console.log('Deu nao serto', error);
         this.mensagem = 'Erro ao cadastrar profissional.';
         this.exibirMensagemTemporaria();
       }
@@ -84,7 +87,7 @@ export class CadastroComponent {
       conselho: '',
       contato: '',
       email: '',
-      bio: ''
+      bio: 'teste'
     };
     this.senhaRepetida = '';
   }
@@ -95,4 +98,9 @@ export class CadastroComponent {
   exibirMensagemTemporaria() {
     setTimeout(() => this.mensagem = null, 5000);
   }
+
+  voltarParaIndex() {
+    window.location.href = '/index';
+  }
+  
 }
