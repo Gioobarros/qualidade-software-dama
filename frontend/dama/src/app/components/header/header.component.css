@@ -70,11 +70,11 @@ header{
     justify-content: center;
     display: flex;
     align-items: center;
-    margin: 0 0 0 165px ;
+    margin: 0 0 0 35px ;
 }
 
 .header-div-right {
-    margin: 0 180px 0 20px;
+    margin: 0 40px 0 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
