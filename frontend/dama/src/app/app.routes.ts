@@ -26,12 +26,11 @@ export const routes: Routes = [
     },
     {
       path: 'relatos',
-      loadComponent: () => import('./relatos/relatos.component').then(s => s.RelatosComponent
+      loadComponent: () => import('./relatos/relatos.component').then(s => s.RelatosComponent)
     },
+    {
       path: 'material',
       loadComponent: () => import('./material/material.component').then(r => r.MaterialComponent)
     }
-
-
   ];
   
