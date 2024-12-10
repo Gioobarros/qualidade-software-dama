@@ -77,16 +77,18 @@ form{
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid #ccc;
     padding: 1em 2em;
     background-color: #fff; 
-    text-align: center;
+    text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     border-radius: 8px;
-    width: 80%;
-    height: 30%;
+    width: 40%;
+    height: auto;
     z-index: 9999; 
-    display: block;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
 }
 
 #relatoButton {

@@ -6,7 +6,7 @@
     <section class="">
 
         <div>
-            <header class="">
+            <header class="title">
                 <h1>Mural de Força</h1>
             </header>
         </div>
@@ -16,12 +16,22 @@
         </div>
 
         <div id="relatos" class="">
-    
-            <div class="card-relato fora" *ngFor="let relato of relatos">
-                     <p>"{{ relato.conteudo | truncate:4}}"</p>
-            </div>
-    
-        </div>
+            <ng-container *ngIf="relatos && relatos.length > 0; else semRelatos">
+              <div class="grid-relatos">
+                <div class="card-relato fora" *ngFor="let relato of relatos">
+                  <p>"{{ relato.conteudo | truncate:250 }}"</p>
+                </div>
+              </div>
+            </ng-container>
+            
+            <ng-template #semRelatos>
+              <div class="bodycard">
+                <div class="sem-relatos">
+                  <p>Nenhum relato publicado ainda.</p>
+                </div>
+              </div>
+            </ng-template>
+          </div>
 
     </section>
 

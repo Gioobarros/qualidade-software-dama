@@ -1,27 +1,57 @@
-.borda1{
+.borda1 {
     border: 1px solid #000;
 }
-.borda3{
+
+.borda3 {
     border: 5px solid #000;
 }
 
-.borda2{
+.borda2 {
     border: 5px solid #fd0505;
 }
 
+#main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-header{
+#relatos {
+    height: 100%;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.bodycard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sem-relatos {
+    color: #000;
+    font-size: 27.65px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    opacity: 40%;
+
+}
+
+header {
     text-align: center;
     padding: 0.5em;
-
 }
 
-#buscar{
+#buscar {
     display: flex;
     justify-content: flex-start;
-    padding: 10px 10px 10px 5em;
+    padding: 10px 10px 10px 194px;
 }
-
 
 button {
     background-color: rgba(255, 90, 90, 0.8);
@@ -38,7 +68,6 @@ button {
     border-radius: 10px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, box-shadow 0.3s;
-    background-color: none;
 }
 
 button:hover {
@@ -51,33 +80,36 @@ button:active {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-
-#relatos{
-    height: 100%;
-    padding: 1em;
+.grid-relatos {
     display: grid;
-    flex-direction: row;
-    justify-content: space-evenly;
-    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-columns: repeat(auto-fit, 287px);
+    gap: 20px;
+    width: 100%;
+    max-width: 1515px; /* Ajuste este valor conforme necessário */
+    margin-top: 20px;
+}
+.title{
+    text-align: center;
+    font-size: 33.18px;
+    margin-top: 10px;
+    color: #FF6E6E;
 }
 
-.card-relato{
+.card-relato {
     padding: 15px;
     cursor: pointer;
-    margin-top: 20px;
     user-select: none;
     border-radius: 5px;
     background-color: bisque;
     border: 1px solid rgb(189, 189, 189);
 }
 
-.card-relato:hover{
+.card-relato:hover {
     transition: box-shadow 0.5s ease;
     box-shadow: 0 0 10px rgb(71, 66, 66);
-    
 }
 
-.card-relato-usuario{
+.card-relato-usuario {
     display: flex;
     justify-content: flex-start;
 }
