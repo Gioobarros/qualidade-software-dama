@@ -6,7 +6,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 export interface Relato {
   id?: string;
   conteudo: string;
-  // data_criacao: date
+  data_criacao: Date;
 }
 
 @Injectable({
@@ -19,7 +19,17 @@ export class RelatosService {
 
   constructor(private http: HttpClient) { }
 
-  // registerRelato(relato: Relato): Observable<HttpResponse<any>> {
-  //   return this.http.get<any>(this.apiUrl, relato, {observe: 'response'});
+  retrieveRelato(): Observable<HttpResponse<Relato[]>> {
+    return this.http.get<Relato[]>(this.apiUrl, {observe: 'response' });
+  }
+
+  // retrieveRelato(params?: any): Observable<Relato[]> {
+  //   return this.http.get<Relato[]>(this.apiUrl, { params });
   // }
+  
+  // // Exemplo de uso
+  // this.relatosService.retrieveRelato({ search: 'termo' }).subscribe(relatos => {
+  //   console.log(relatos);
+  // });
+  
 }

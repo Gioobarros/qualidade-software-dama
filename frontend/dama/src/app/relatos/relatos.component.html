@@ -3,22 +3,23 @@
 
 <main id="main">
 
-    <section class="borda2">
+    <section class="">
 
         <div>
-            <header class="borda1">
+            <header class="">
                 <h1>Mural de Força</h1>
             </header>
         </div>
 
         <div id="buscar">
-            <button>Buscar</button>
+            <button>Publicar um Relato</button>
         </div>
 
-        <div id="main-div" class="borda0">
+        <div id="relatos" class="">
     
-          <table class="borda0">
-          </table>
+            <div class="card-relato fora" *ngFor="let relato of relatos">
+                     <p>"{{ relato.conteudo | truncate:4}}"</p>
+            </div>
     
         </div>
 

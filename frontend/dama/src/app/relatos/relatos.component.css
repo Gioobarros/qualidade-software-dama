@@ -1,6 +1,9 @@
 .borda1{
     border: 1px solid #000;
 }
+.borda3{
+    border: 5px solid #000;
+}
 
 .borda2{
     border: 5px solid #fd0505;
@@ -15,8 +18,8 @@ header{
 
 #buscar{
     display: flex;
-    justify-content: flex-end;
-    padding: 0.5em;
+    justify-content: flex-start;
+    padding: 10px 10px 10px 5em;
 }
 
 
@@ -47,3 +50,35 @@ button:active {
     background-color: rgba(255, 100, 110, 0.2);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
+
+#relatos{
+    height: 100%;
+    padding: 1em;
+    display: grid;
+    flex-direction: row;
+    justify-content: space-evenly;
+    grid-template-columns: 20% 20% 20% 20%;
+}
+
+.card-relato{
+    padding: 15px;
+    cursor: pointer;
+    margin-top: 20px;
+    user-select: none;
+    border-radius: 5px;
+    background-color: bisque;
+    border: 1px solid rgb(189, 189, 189);
+}
+
+.card-relato:hover{
+    transition: box-shadow 0.5s ease;
+    box-shadow: 0 0 10px rgb(71, 66, 66);
+    
+}
+
+.card-relato-usuario{
+    display: flex;
+    justify-content: flex-start;
+}
+
