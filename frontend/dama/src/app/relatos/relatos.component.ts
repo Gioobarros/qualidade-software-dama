@@ -4,11 +4,12 @@ import { TruncatePipe } from '../truncate.pipe';
 import { Component, OnInit} from '@angular/core';
 import { RelatosService, Relato } from '../services/relatos.service';
 import { HeaderComponent } from '../components/header/header.component';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-relatos',
   standalone: true,
-  imports: [CommonModule, FormsModule, HeaderComponent, TruncatePipe ],
+  imports: [CommonModule, FormsModule, HeaderComponent, TruncatePipe, RouterModule, RouterLink ],
   templateUrl: './relatos.component.html',
   styleUrls: ['./relatos.component.css']
 })
