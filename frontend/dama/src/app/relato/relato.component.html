@@ -1,32 +1,40 @@
-<main id="main" class="borda0" >
 
-    <div id="main-div" class="borda0" [ngClass]="{'embassado': mostraConfirmacao}">
+<app-header></app-header>
 
-      <table class="borda0">
+<main class="borda0">
 
-          <thead id="thead">
-              <tr id="thead" class="borda0">
-                  <th id="mural" class="borda0" colspan="5">Envie seu relato</th>
-              </tr>
-              
-          </thead>
+    <section class="borda0" [ngClass]="{'embassado': mostraConfirmacao}">
 
-          <tbody class="borda0">
+      <header  class="borda0"> 
+        <h1 class="borda0">Nos envie seu Relato</h1>
+      </header>
 
-            <tr>
-              <td colspan="5" class="borda0">
-                <form >
-                  <textarea #relatoText type="text" id="relato" name="text" [(ngModel)]="relato.conteudo" required placeholder="Escreva seu relato" ></textarea>
-                  <button type="button" id="relatoButton" (click)="relatoConfirmacao()">Publicar</button>
-                </form>
-              </td>
-            </tr>
+      <form class="borda0">
 
-          </tbody>
-          
-      </table>
+        <div class="form-grupo borda0">
 
-      
+          <textarea #relatoText 
+          type="text" 
+          id="relato" 
+          name="text" 
+          [(ngModel)]="relato.conteudo" 
+          required 
+          placeholder="Escreva aqui seu relato" ></textarea>
+
+        </div>
+
+        <div class="form-grupo borda0">
+          <button type="button" id="relatoButton" (click)="relatoConfirmacao()">Publicar</button>
+        </div>
+
+      </form>
+
+    </section>
+    <div id="main-div" class="borda" [ngClass]="{'embassado': mostraConfirmacao}">
+
+
+
+
     </div>
     
     <div *ngIf="mostraConfirmacao" class="confirmation-div">
