@@ -23,7 +23,14 @@ export const routes: Routes = [
     {
       path: 'relato',
       loadComponent: () => import('./relato/relato.component').then(r => r.RelatoComponent)
+    },
+    {
+      path: 'muraldeforca',
+      loadComponent: () => import('./relatos/relatos.component').then(s => s.RelatosComponent)
+    },
+    {
+      path: 'material',
+      loadComponent: () => import('./material/material.component').then(r => r.MaterialComponent)
     }
-
   ];
   
