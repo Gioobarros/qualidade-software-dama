@@ -13,7 +13,7 @@
 
 ## 1. Objetivo do projeto
 
-O projeto DAMA - Defesa e Apoio às Mulheres Agredidas é uma ferramenta digital focada em oferecer apoio e orientações para mulheres vítimas de qualquer tipo de violência. O projeto tem como objetivod criar um espaço educativo e informativo que eduque e empondere as mulheres, promovendo conscientização para prevenção de violência contra as mulheres. 
+O projeto DAMA - Defesa e Apoio às Mulheres Agredidas é uma ferramenta digital focada em oferecer apoio e orientações para mulheres vítimas de qualquer tipo de violência. O projeto tem como objetivo criar um espaço educativo e informativo que eduque e empondere as mulheres, promovendo conscientização para prevenção de violência contra as mulheres. 
 
 
 ## 2. Descrição do problema
@@ -49,7 +49,7 @@ Uma solução para esse problema poderia ser a criação de uma aplicação web 
 ## 5. Principais necessidades dos usuários
 
 1. Segurança e confidencialidade
-  -  As usuárias precisam se sentir seguros ao relatar casos de violência, com garantia de anonimato e proteção da identidade. A plataforma deve assegurar que todas as informações compartilhadas sejam tratadas de forma confidencial.
+  -  As usuárias precisam se sentir seguras ao relatar casos de violência, com garantia de anonimato e proteção da identidade. A plataforma deve assegurar que todas as informações compartilhadas sejam tratadas de forma confidencial.
 
 2. Acesso fácil e intuitivo
   - A interface do aplicativo deve ser simples e acessível, garantindo que todas as mulheres de diferentes níveis de habilidade técnica possam ter acesso aos relatos de forma rapida e sem obstáculos.
