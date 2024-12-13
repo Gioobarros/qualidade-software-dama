@@ -9,10 +9,12 @@
 | 21/03 | 1.1 | Segunda apresentação - correção de erros (atual) | Igor Gabriel |
 | 22/03 | 1.2 | Ajuste nas seções: descrição do problema, usuário, visão geral do produto e requisitos funcionais. | Alessandro Souza |
 | 28/10 | 2.0 | Ajuste nas seções: Descrição dos usuários, descrição do ambiente dos usuários, alternativas concorrentes, visão geral do produto, requisitos funcionais e requisitos não-funcionais. | Leandro Sizilio |
+| 13/12 | 2.1 | Ajuste nas seções: Objetivo do projeto, descrição dos usuários, descrição do ambiente dos usuários. | Giovana Barros |
 
 ## 1. Objetivo do projeto
 
-O objetivo do projeto DAMA - Defesa e Apoio às Mulheres Agredidas vai além da mera funcionalidade de relatar casos de violência contra a mulher. Ele busca fornecer uma plataforma educativa e informativa que empodere as mulheres, promovendo a conscientização e estimulando a prevenção da violência de gênero.
+O projeto DAMA - Defesa e Apoio às Mulheres Agredidas é uma ferramenta digital focada em oferecer apoio e orientações para mulheres vítimas de qualquer tipo de violência. O projeto tem como objetivod criar um espaço educativo e informativo que eduque e empondere as mulheres, promovendo conscientização para prevenção de violência contra as mulheres. 
+
 
 ## 2. Descrição do problema
 
@@ -28,13 +30,13 @@ Uma solução para esse problema poderia ser a criação de uma aplicação web 
 
 | Nome | Descrição | Responsabilidade |
 | --- | --- | --- |
-| Usuários | Pessoas que participam da comunidade e estão cadastrados no site |     Participar da comunidade DAMA, aproveitando os recursos educativos e de apoio do aplicativo para entender seus direitos, buscar ajuda e se proteger. |
+| Participantes | Pessoas que participam da comunidade e estão cadastrados no site |     Participar da comunidade DAMA, aproveitando os recursos educativos e de apoio do aplicativo para entender seus direitos, buscar ajuda e se proteger. |
 | Profissionais | Profissionais que trabalham diretamente com vítimas de violência de gênero. |     Oferecer suporte e orientação para as mulheres que relatam casos de violência.  Colaborar com a publicação de materiais educativos de apoio a causa. |
 | Administradores |  Responsáveis pela manutenção, atualização e melhoria contínua do DAMA. |        Manter e atualizar regularmente o aplicativo, corrigindo bugs e implementando novos recursos com base no feedback dos usuários. Garantir a segurança e a privacidade dos dados dos usuários, implementando medidas de segurança e conformidade com a LGPD. |
 
 ## 4. Descrição do ambiente dos usuários
 1. Usuário Principal:
-        Para se ter acesso a informações sobre como agir apóssofrer alguma violência, a usuária acessa o aplicativo e navega até a seção de materiais educativos e de apoio disponível no aplicativo para entender seus direitos, buscar ajuda e se proteger.
+        Para se ter acesso a informações sobre como agir após sofrer alguma violência, a usuária acessa o aplicativo e navega até a seção de materiais educativos e de apoio disponível no aplicativo para entender seus direitos, buscar ajuda e se proteger.
 <br>
 2. Profissionais:
         Profissionais interagem com o sistema e podem publicar materiais educativos e de apoio, além de poderem publicar em seus respectivos perfis oferecendo suporte e orientação para as vítimas.
@@ -46,18 +48,20 @@ Uma solução para esse problema poderia ser a criação de uma aplicação web 
 
 ## 5. Principais necessidades dos usuários
 
-- Segurança e confidencialidade
-  -  Os usuários precisam sentir-se seguros ao relatar casos de violência contra a mulher, com garantia de anonimato e proteção de sua identidade.
-- Acesso fácil e intuitivo
-  - A interface do aplicativo deve ser simples e fácil de usar, garantindo que todas as mulheres, independentemente de sua habilidade técnica, possam fazer relatos rapidamente.
-- Suporte e orientação
-  -  As usuárias necessitam de acesso a recursos de apoio, como informações sobre direitos, serviços de aconselhamento e redes de apoio, para lidar com o trauma da violência e buscar justiça.
-- Comunidade e empoderamento
-  -  O aplicativo deve criar uma comunidade solidária onde as mulheres possam compartilhar experiências, aprender umas com as outras e enfrentar a violência contra a mulher coletivamente.
-- Conscientização e prevenção
-  - As usuárias precisam de informações educativas e recursos para reconhecer sinais de violência, entender direitos e aprender estratégias de prevenção.
-- Resposta rápida e eficaz
-  -  É essencial garantir uma resposta rápida e eficaz aos relatos de violência, com suporte imediato, encaminhamento para serviços de emergência e acompanhamento contínuo.
+1. Segurança e confidencialidade
+  -  As usuárias precisam se sentir seguros ao relatar casos de violência, com garantia de anonimato e proteção da identidade. A plataforma deve assegurar que todas as informações compartilhadas sejam tratadas de forma confidencial.
+
+2. Acesso fácil e intuitivo
+  - A interface do aplicativo deve ser simples e acessível, garantindo que todas as mulheres de diferentes níveis de habilidade técnica possam ter acesso aos relatos de forma rapida e sem obstáculos.
+
+3. Suporte e orientação
+  -  As usuárias necessitam de acesso a recursos de apoio, como informações sobre direitos, serviços de aconselhamento e redes de apoio, para lidar com o trauma da violência e buscar justiça de maneira adequada.
+
+4. Comunidade e empoderamento
+  -  O aplicativo deve fomentar uma comunidade solidária onde as mulheres possam aprender umas com as outras e enfrentar a violência contra a mulher de forma coletiva, fortalecendo o emponderamento feminino.
+
+5. Conscientização e prevenção
+  - As usuárias precisam de recursos educativos para reconhecer sinais de violência, entendendo seus direitos e aprendendo a adotar estratégias de prevenção, contribuindo para a proteção de outras mulheres. 
 
 ## 6. Alternativas concorrentes
 
