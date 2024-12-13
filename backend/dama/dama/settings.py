@@ -7,6 +7,10 @@ SECRET_KEY = 'django-insecure-i$n+&t-0mb3+oz!zucqv9lx8w48%f-0^ebnf#@g#24k6y!-f-i
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",  # URL do frontend
+]
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -17,9 +21,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'rest_framework',
+    # 'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,6 +54,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'dama.wsgi.application'
+
+
+# Database
+# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
