@@ -1,0 +1,55 @@
+.body{
+    background-color: #fca3a3;
+    color: white;
+    padding: 20px;
+    justify-content: center;
+
+}
+
+.material-body{
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.bloco{
+    display: flex;
+    justify-self: center;
+    font-size: 33.18px;    
+    font-weight: bold !important;
+}
+
+.material{
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #FF6E6E;
+    border: 5px solid white;
+    margin: 20px;
+}
+
+img{
+    display: flex;
+    justify-self: center;
+}
+.title{
+    text-align: center;
+    font-size: 19.2px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-self: center;
+}
+.subtitle{
+    text-align: left;
+    font-size: 13.33px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-self: left;
+}
+.list{
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 10px;
+}

@@ -7,6 +7,7 @@
 
 
 
+
 ## Fluxo Principal
 | Ações do ator | Ações do sistema |
 | :-----------------: | :-----------------: | 
@@ -33,6 +34,7 @@
 | 1.1 - O usuário tenta enviar o relato, mas a conexão é interrompida antes da conclusão.  | |  
 | | 1.2 - O sistema exibe uma mensagem de erro.  |
 | | 1.3 - O sistema retorna a página de "Mural de força" após ter a conexão reestabelecida.  |
+
 
 
 ## Diagrama de Interação (Sequência ou Comunicação)

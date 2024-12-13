@@ -1,0 +1,47 @@
+
+<app-header></app-header>
+
+<main class="borda0">
+
+    <section class="borda0" [ngClass]="{'embassado': mostraConfirmacao}">
+
+      <header  class="borda0"> 
+        <h1 class="borda0">Nos envie seu Relato</h1>
+      </header>
+
+      <form class="borda0">
+
+        <div class="form-grupo borda0">
+
+          <textarea #relatoText 
+          type="text" 
+          id="relato" 
+          name="text" 
+          [(ngModel)]="relato.conteudo" 
+          required 
+          placeholder="Escreva aqui seu relato" ></textarea>
+
+        </div>
+
+        <div class="form-grupo borda0">
+          <button type="button" id="relatoButton" (click)="relatoConfirmacao()">Publicar</button>
+        </div>
+
+      </form>
+
+    </section>
+    <div id="main-div" class="borda" [ngClass]="{'embassado': mostraConfirmacao}">
+
+
+
+
+    </div>
+    
+    <div *ngIf="mostraConfirmacao" class="confirmation-div">
+      <p>{{ mensagem }}</p>
+      <button type="button" id="relatoButton" [innerText]="textoBotao" (click)="eventoBotao()"></button>
+    </div>
+
+</main>
+
+<!--   -->
