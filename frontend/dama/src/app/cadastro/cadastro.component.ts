@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { ProfissionalService, Profissional } from '../services/profissional.service';
+import { CadastroService, Profissional, Ong } from '../services/cadastro.service';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // Importar FormsModule
+import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../components/header/header.component';
-
 
 @Component({
   selector: 'app-cadastro',
@@ -13,6 +12,8 @@ import { HeaderComponent } from '../components/header/header.component';
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent {
+  tipoCadastro: 'profissional' | 'ong' = 'profissional';
+
   profissional: Profissional = {
     nome_completo: '',
     cpf: '',
@@ -21,34 +22,75 @@ export class CadastroComponent {
     conselho: '',
     contato: '',
     email: '',
-    bio: 'teste'
+    bio: ''
+  };
+
+  ong: Ong = {
+    razao_social: '',
+    cnpj: '',
+    login: '',
+    senha: '',
+    contato: '',
+    email: '',
+    bio: ''
   };
 
   senhaRepetida: string = '';
   mensagem: string | null = null;
 
-  constructor(private profissionalService: ProfissionalService) { }
+  constructor(private cadastroService: CadastroService) { }
 
-  /**
-   * Verifica se a senha é válida (mínimo de 8 caracteres, contendo letras e números).
-   */
+  updateLogin(value: string) {
+    if (this.tipoCadastro === 'profissional') {
+      this.profissional.login = value;
+    } else {
+      this.ong.login = value;
+    }
+  }
+
+  updateSenha(value: string) {
+    if (this.tipoCadastro === 'profissional') {
+      this.profissional.senha = value;
+    } else {
+      this.ong.senha = value;
+    }
+  }
+
+  updateContato(value: string) {
+    if (this.tipoCadastro === 'profissional') {
+      this.profissional.contato = value;
+    } else {
+      this.ong.contato = value;
+    }
+  }
+
+  updateEmail(value: string) {
+    if (this.tipoCadastro === 'profissional') {
+      this.profissional.email = value;
+    } else {
+      this.ong.email = value;
+    }
+  }
+
+  updateBio(value: string) {
+    if (this.tipoCadastro === 'profissional') {
+      this.profissional.bio = value;
+    } else {
+      this.ong.bio = value;
+    }
+  }
+
   senhaValida(): boolean {
-    const senha = this.profissional.senha;
+    const senha = this.tipoCadastro === 'profissional' ? this.profissional.senha : this.ong.senha;
     return senha.length >= 8 && /\d/.test(senha) && /[A-Za-z]/.test(senha);
   }
 
-  /**
-   * Verifica se as senhas digitadas coincidem.
-   */
   senhasIguais(): boolean {
-    return this.profissional.senha === this.senhaRepetida;
+    const senha = this.tipoCadastro === 'profissional' ? this.profissional.senha : this.ong.senha;
+    return senha === this.senhaRepetida;
   }
 
-  /**
-   * Envia o formulário, realiza validações e exibe mensagens de sucesso ou erro.
-   */
   onSubmit() {
-    console.log('Método onSubmit chamado!');
     if (!this.senhaValida()) {
       alert('A senha deve ter no mínimo 8 caracteres, incluindo letras e números.');
       return;
@@ -59,42 +101,61 @@ export class CadastroComponent {
       return;
     }
 
-    this.profissionalService.registerProfissional(this.profissional).subscribe({
-      next: (response) => {
-        //console.log('Deu serto');
-        console.log('Profissional cadastrado:', response);
-        this.mensagem = 'Cadastro realizado com sucesso!';
-        this.resetForm();
-        this.exibirMensagemTemporaria();
-      },
-      error: (error) => {
-        //console.log('Deu nao serto', error);
-        this.mensagem = 'Erro ao cadastrar profissional.';
-        this.exibirMensagemTemporaria();
-      }
-    });
+    if (this.tipoCadastro === 'profissional') {
+      this.cadastroService.registerProfissional(this.profissional).subscribe({
+        next: (response) => {
+          console.log('Profissional cadastrado:', response);
+          this.mensagem = 'Cadastro de profissional realizado com sucesso!';
+          this.resetForm();
+          this.exibirMensagemTemporaria();
+        },
+        error: (error) => {
+          this.mensagem = 'Erro ao cadastrar profissional.';
+          this.exibirMensagemTemporaria();
+        }
+      });
+    } else {
+      this.cadastroService.registerOng(this.ong).subscribe({
+        next: (response) => {
+          console.log('ONG cadastrada:', response);
+          this.mensagem = 'Cadastro de ONG realizado com sucesso!';
+          this.resetForm();
+          this.exibirMensagemTemporaria();
+        },
+        error: (error) => {
+          this.mensagem = 'Erro ao cadastrar ONG.';
+          this.exibirMensagemTemporaria();
+        }
+      });
+    }
   }
 
-  /**
-   * Reseta os campos do formulário.
-   */
   resetForm() {
-    this.profissional = {
-      nome_completo: '',
-      cpf: '',
-      login: '',
-      senha: '',
-      conselho: '',
-      contato: '',
-      email: '',
-      bio: 'teste'
-    };
+    if (this.tipoCadastro === 'profissional') {
+      this.profissional = {
+        nome_completo: '',
+        cpf: '',
+        login: '',
+        senha: '',
+        conselho: '',
+        contato: '',
+        email: '',
+        bio: ''
+      };
+    } else {
+      this.ong = {
+        razao_social: '',
+        cnpj: '',
+        login: '',
+        senha: '',
+        contato: '',
+        email: '',
+        bio: ''
+      };
+    }
     this.senhaRepetida = '';
   }
 
-  /**
-   * Exibe a mensagem de sucesso ou erro por um tempo limitado.
-   */
   exibirMensagemTemporaria() {
     setTimeout(() => this.mensagem = null, 5000);
   }
@@ -102,5 +163,4 @@ export class CadastroComponent {
   voltarParaIndex() {
     window.location.href = '/index';
   }
-  
 }

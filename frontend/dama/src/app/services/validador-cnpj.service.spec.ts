@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ProfissionalService } from './profissional.service';
+import { ValidadorCnpjService } from './validador-cnpj.service';
 
-describe('ProfissionalService', () => {
-  let service: ProfissionalService;
+describe('ValidadorCnpjService', () => {
+  let service: ValidadorCnpjService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ProfissionalService);
+    service = TestBed.inject(ValidadorCnpjService);
   });
 
   it('should be created', () => {
