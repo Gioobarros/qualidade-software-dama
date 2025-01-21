@@ -15,7 +15,7 @@ from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 
 
-class LoginView(ObtainAuthToken):
+class LoginViewSet(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
         username = request.data.get('username')
         password = request.data.get('password')
@@ -40,7 +40,7 @@ class LoginView(ObtainAuthToken):
             return Response({'mensagem': 'Login ou Senha invalido'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-class LogoutView(APIView):
+class LogoutViewSet(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
