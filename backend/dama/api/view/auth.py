@@ -1,21 +1,14 @@
 from rest_framework import status
-from django.shortcuts import render
-from rest_framework import viewsets
 from rest_framework.views import APIView
-from django.contrib.auth.models import User
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from django.shortcuts import get_object_or_404
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate, login
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.authentication import BasicAuthentication
 from rest_framework.decorators import authentication_classes, permission_classes
-from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 
 
-class LoginViewSet(ObtainAuthToken):
+class LoginView(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
         username = request.data.get('username')
         password = request.data.get('password')
@@ -40,7 +33,7 @@ class LoginViewSet(ObtainAuthToken):
             return Response({'mensagem': 'Login ou Senha invalido'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-class LogoutViewSet(APIView):
+class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):

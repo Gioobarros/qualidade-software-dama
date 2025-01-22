@@ -1,22 +1,10 @@
-from api.models.ong import Ong
 from rest_framework import status
-from rest_framework import viewsets
-from django.shortcuts import render
 from rest_framework.views import APIView
-from django.contrib.auth.models import User
-from api.serializer.ong import OngSerializer
 from rest_framework.response import Response
-from django.shortcuts import get_object_or_404
-from rest_framework.decorators import api_view
-from rest_framework.authtoken.models import Token
-from django.contrib.auth import authenticate, login
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.decorators import authentication_classes, permission_classes
-from rest_framework.authentication import BasicAuthentication, TokenAuthentication, SessionAuthentication
+from api.serializer.ong import OngSerializer, Ong
 
 
-class OngViewSet(APIView):
+class OngView(APIView):
     def post(self, request):
         serializer = OngSerializer(data=request.data)
         if serializer.is_valid():

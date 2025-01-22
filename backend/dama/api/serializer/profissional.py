@@ -10,7 +10,3 @@ class ProfissionalSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         profissional = Profissional.objects.create_user(**validated_data)
         return profissional
-    
-    # atualização ocorre com autenticação
-    # def update(self, instance, validated_data):
-    #     return None
