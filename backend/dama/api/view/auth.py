@@ -5,6 +5,9 @@ from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate, login
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.views import ObtainAuthToken
+from api.serializer.ong import OngSerializer
+from api.serializer.profissional import ProfissionalSerializer
+from api.serializer.administrador import AdministradorSerializer
 from rest_framework.decorators import authentication_classes, permission_classes
 
 
@@ -23,11 +26,34 @@ class LoginView(ObtainAuthToken):
                 token.delete()
                 token = Token.objects.create(user=usuario)
             
-            return Response({
-                'username': usuario.username,
-                'email': usuario.email,
+            response_data = {
                 'token': token.key,
-            })
+                'username': usuario.username,
+                'perfil': usuario.perfil,
+            }
+
+            if usuario.perfil == 'ong':
+                usuario_data = usuario.ong
+
+                if usuario_data is not None:
+                    usuario_response = OngSerializer(usuario_data).data
+                    response_data['dados_usuario'] = usuario_data
+
+            if usuario.perfil == 'pro':
+                usuario_data = usuario.profissional
+
+                if usuario_data is not None:
+                    usuario_response = ProfissionalSerializer(usuario_data).data
+                    response_data['dados_usuario'] = usuario_data
+
+            if usuario.perfil == 'admin':
+                usuario_data = usuario.admin
+
+                if usuario_data is not None:
+                    usuario_response = AdministradorSerializer(usuario_data).data
+                    response_data['dados_usuario'] = usuario_data
+
+            return Response(response_data)
 
         else:
             return Response({'mensagem': 'Login ou Senha invalido'}, status=status.HTTP_401_UNAUTHORIZED)
@@ -37,7 +63,7 @@ class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        header = request.headers
+        header = request.headers # para fim de debugar
         token_key = request.auth.key
         token = Token.objects.get(key=token_key)
         token.delete()

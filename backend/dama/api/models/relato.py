@@ -1,6 +1,6 @@
 import uuid
 from django.db import models
-from profissional import Profissional
+from api.models.profissional import Profissional
 
 
 class Relato(models.Model):

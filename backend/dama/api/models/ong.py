@@ -1,5 +1,7 @@
 import uuid
-from api.models.usuario import Usuario, models
+from backend.dama.api.models import Usuario
+from django.db import models
+
 
 
 class Ong(models.Model):

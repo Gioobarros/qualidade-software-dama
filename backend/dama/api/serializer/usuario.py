@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models.usuario import Usuario
+from backend.dama.api.models.usuario import Usuario
 
 
 class UsuarioSerializer(serializers.ModelSerializer):
