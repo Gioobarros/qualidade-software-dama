@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from api.serializer.usuario import UsuarioSerializer
 from api.models.profissional import Profissional
 
 class ProfissionalSerializer(serializers.ModelSerializer):
@@ -8,5 +9,12 @@ class ProfissionalSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password' : {'write_only': True}}
         
     def create(self, validated_data):
-        profissional = Profissional.objects.create_user(**validated_data)
-        return profissional
+        usuario_data = validated_data.pop('user')
+        usuario_serializer = UsuarioSerializer(data=usuario_data)
+
+        if usuario_serializer.is_valid():
+            novo_usuario = usuario_serializer.save()
+            profissional = Profissional.objects.create(user=novo_usuario, **validated_data)
+            return profissional
+
+        return None

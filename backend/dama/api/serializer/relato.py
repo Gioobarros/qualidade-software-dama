@@ -7,6 +7,6 @@ class RelatoSerializer(serializers.ModelSerializer):
         fields = ['conteudo', 'publicador', 'data_criacao']
 
     def create(self, validated_data):
-        relato = Relato.objects.create_user(**validated_data)
+        relato = Relato.objects.create(**validated_data)
         return relato
         

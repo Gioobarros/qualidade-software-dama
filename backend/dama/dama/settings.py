@@ -8,7 +8,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'api.Usuario'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -21,7 +20,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -32,8 +30,9 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'rest_framework.authtoken',
-    'rest_framework_simplejwt',
 ]
+
+AUTH_USER_MODEL = 'api.Usuario'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',

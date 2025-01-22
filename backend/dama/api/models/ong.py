@@ -1,14 +1,13 @@
 import uuid
-from django.db import models
-from django.contrib.auth.models import AbstractUser
+from api.models.usuario import Usuario, models
 
 
-class Ong(AbstractUser):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+class Ong(models.Model):
     razao_social = models.CharField(unique=True, max_length=100)
     cnpj = models.CharField(unique=True, max_length=14)
     contato = models.CharField(unique=True, max_length=20)
     bio = models.TextField(default=None)
+    user = models.OneToOneField(Usuario, on_delete=models.CASCADE, blank=True, null=True, related_name='ong')
 
     def __str__(self):
         return f"Razão Social: {self.razao_social}   CNPJ: {self.cnpj}"
