@@ -1,6 +1,6 @@
 import uuid
 from django.db import models
-from backend.dama.api.models import Usuario
+from api.models.usuario import Usuario
 
 
 class Administrador(models.Model):

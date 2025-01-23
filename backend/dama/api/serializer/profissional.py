@@ -5,7 +5,7 @@ from api.models.profissional import Profissional
 class ProfissionalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profissional
-        fields = ['username', 'password', 'email', 'nome_completo', 'conselho', 'cpf', 'contato']
+        fields = ['nome_completo', 'conselho', 'cpf', 'contato', 'user']
         extra_kwargs = {'password' : {'write_only': True}}
         
     def create(self, validated_data):

@@ -7,14 +7,10 @@ from rest_framework.routers import DefaultRouter
 from api.view.profissional import ProfissionalView
 from api.view.administrador import AdministradorView
 
-
+app_name = 'api'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/ong/', OngView.as_view(), name='ong'),
-    path('api/profissional/', ProfissionalView.as_view(), name='profissional'),
-    path('api/relato/', RelatoView.as_view(), name='relato'),
-    path('api/administrador/', AdministradorView.as_view(), name='administrador'),
-    path('api/login/', LoginView.as_view(), name='login'),
-    path('api/logout/', LogoutView.as_view(), name='logout'),
+    path('api/', include('api.urls'))
+
 ]
