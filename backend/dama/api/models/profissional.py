@@ -1,5 +1,5 @@
 import uuid
-from backend.dama.api.models import Usuario
+from api.models.usuario import Usuario
 from django.db import models
 
 
