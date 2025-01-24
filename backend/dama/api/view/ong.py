@@ -5,6 +5,7 @@ from api.serializer.ong import OngSerializer, Ong
 
 
 class OngView(APIView):
+    
     def post(self, request):
         serializer = OngSerializer(data=request.data)
         if serializer.is_valid():

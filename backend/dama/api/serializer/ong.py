@@ -3,18 +3,17 @@ from api.serializer.usuario import UsuarioSerializer
 from rest_framework import serializers
 
 class OngSerializer(serializers.ModelSerializer):
+    user = UsuarioSerializer()
     class Meta:
         model = Ong
-        fields = ['username', 'password', 'email', 'razao_social', 'cnpj', 'contato']
+        fields = ['user', 'razao_social', 'cnpj', 'contato']
         extra_kwargs = {'password' : {'write_only': True}}
         
     def create(self, validated_data):
         usuario_data = validated_data.pop('user')
         usuario_serializer = UsuarioSerializer(data=usuario_data)
+        usuario_serializer.is_valid(raise_exception=True)
+        novo_usuario = usuario_serializer.save()
 
-        if usuario_serializer.is_valid():
-            novo_usuario = usuario_serializer.save()
-            ong = Ong.objects.create(user=novo_usuario, **validated_data)
-            return ong
-
-        return None
+        ong = Ong.objects.create(user=novo_usuario, **validated_data)
+        return ong

@@ -37,21 +37,21 @@ class LoginView(ObtainAuthToken):
 
                 if usuario_data is not None:
                     usuario_response = OngSerializer(usuario_data).data
-                    response_data['dados_usuario'] = usuario_data
+                    response_data['dados_usuario'] = usuario_response
 
             if usuario.perfil == 'pro':
                 usuario_data = usuario.profissional
 
                 if usuario_data is not None:
                     usuario_response = ProfissionalSerializer(usuario_data).data
-                    response_data['dados_usuario'] = usuario_data
+                    response_data['dados_usuario'] = usuario_response
 
-            if usuario.perfil == 'admin':
-                usuario_data = usuario.admin
+            # if usuario.perfil == 'admin':
+            #     usuario_data = usuario.admin
 
-                if usuario_data is not None:
-                    usuario_response = AdministradorSerializer(usuario_data).data
-                    response_data['dados_usuario'] = usuario_data
+            #     if usuario_data is not None:
+            #         usuario_response = AdministradorSerializer(usuario_data).data
+            #         response_data['dados_usuario'] = usuario_response
 
             return Response(response_data)
 

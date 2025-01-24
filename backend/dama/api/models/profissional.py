@@ -8,7 +8,7 @@ class Profissional(models.Model):
     cpf = models.CharField(unique=True, max_length=11)
     conselho = models.CharField(unique=True, max_length=20)
     contato = models.CharField(unique=True, max_length=20)
-    bio = models.TextField(default=None)
+    bio = models.TextField(blank=True, null=True, default=None)
     user = models.OneToOneField(Usuario, on_delete=models.CASCADE, blank=True, null=True, related_name='profissional')
 
 

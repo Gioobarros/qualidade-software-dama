@@ -8,7 +8,7 @@ class Ong(models.Model):
     razao_social = models.CharField(unique=True, max_length=100)
     cnpj = models.CharField(unique=True, max_length=14)
     contato = models.CharField(unique=True, max_length=20)
-    bio = models.TextField(default=None)
+    bio = models.TextField(blank=True, null=True, default=None)
     user = models.OneToOneField(Usuario, on_delete=models.CASCADE, blank=True, null=True, related_name='ong')
 
     def __str__(self):

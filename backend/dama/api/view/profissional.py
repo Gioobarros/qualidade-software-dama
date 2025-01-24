@@ -6,7 +6,7 @@ from api.serializer.profissional import ProfissionalSerializer, Profissional
 
 
 class ProfissionalView(APIView):
-    permission_classes = [AllowAny]
+    
     def post(self, request):
         serializer = ProfissionalSerializer(data=request.data)
         if serializer.is_valid():
