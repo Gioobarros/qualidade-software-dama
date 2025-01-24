@@ -14,5 +14,3 @@ class Profissional(models.Model):
 
     def __str__(self):
         return f"Nome completo: {self.nome_completo}   Conselho: {self.conselho}\nEmail: {self.email} Contato: {self.contato}"
-
-

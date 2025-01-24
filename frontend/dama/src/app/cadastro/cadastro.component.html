@@ -10,38 +10,56 @@
     <form (ngSubmit)="onSubmit()" name="cadastro" #cadastroForm="ngForm">
       <h1>Cadastro</h1>
 
-    <label for="nome_completo">Nome Completo:</label>
-    <input type="text" id="nome_completo" [(ngModel)]="profissional.nome_completo" name="nome_completo" required placeholder="Digite seu nome completo">
+      <div>
+        <label for="tipoCadastro">Tipo de Cadastro:</label>
+        <select id="tipoCadastro" [(ngModel)]="tipoCadastro" name="tipoCadastro">
+          <option value="profissional">Profissional</option>
+          <option value="ong">ONG</option>
+        </select>
+      </div>
 
-    <label for="cpf">CPF:</label>
-    <input type="text" id="cpf" [(ngModel)]="profissional.cpf" name="cpf" required placeholder="Digite seu CPF">
+      <ng-container *ngIf="tipoCadastro === 'profissional'">
+        <label for="nome_completo">Nome Completo:</label>
+        <input type="text" id="nome_completo" [(ngModel)]="profissional.nome_completo" name="nome_completo" required placeholder="Digite seu nome completo">
 
-    <label for="login">Login:</label>
-    <input type="text" id="login" [(ngModel)]="profissional.login" name="login" required placeholder="Digite seu login">
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" [(ngModel)]="profissional.cpf" name="cpf" required placeholder="Digite seu CPF">
 
-    <label for="senha">Senha:</label>
-    <input type="password" id="senha" [(ngModel)]="profissional.senha" name="senha" required placeholder="Digite sua senha">
+        <label for="conselho">Conselho:</label>
+        <input type="text" id="conselho" [(ngModel)]="profissional.conselho" name="conselho" required placeholder="Digite seu conselho">
+      </ng-container>
 
-    <label for="senhaRepetida">Repita a Senha:</label>
-    <input type="password" id="senhaRepetida" [(ngModel)]="senhaRepetida" name="senhaRepetida" required placeholder="Repita sua senha">
+      <ng-container *ngIf="tipoCadastro === 'ong'">
+        <label for="razao_social">Razão Social:</label>
+        <input type="text" id="razao_social" [(ngModel)]="ong.razao_social" name="razao_social" required placeholder="Digite a razão social">
 
-    <label for="conselho">Conselho:</label>
-    <input type="text" id="conselho" [(ngModel)]="profissional.conselho" name="conselho" required placeholder="Digite seu conselho">
+        <label for="cnpj">CNPJ:</label>
+        <input type="text" id="cnpj" [(ngModel)]="ong.cnpj" name="cnpj" required placeholder="Digite o CNPJ">
+      </ng-container>
 
-    <label for="contato">Contato:</label>
-    <input type="tel" id="contato" [(ngModel)]="profissional.contato" name="contato" required placeholder="Digite seu contato">
+      <label for="login">Login:</label>
+      <input type="text" id="login" [ngModel]="tipoCadastro === 'profissional' ? profissional.login : ong.login" (ngModelChange)="updateLogin($event)" name="login" required placeholder="Digite seu login">
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" [(ngModel)]="profissional.email" name="email" required placeholder="exemplo@email.com">
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" [ngModel]="tipoCadastro === 'profissional' ? profissional.senha : ong.senha" (ngModelChange)="updateSenha($event)" name="senha" required placeholder="Digite sua senha">
 
-      <!-- <label for="bio">Bio:</label>
-      <textarea id="bio" [(ngModel)]="profissional.bio" name="bio" placeholder="Conte um pouco sobre você" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)"></textarea> -->
+      <label for="senhaRepetida">Confirmar Senha:</label>
+      <input type="password" id="senhaRepetida" [(ngModel)]="senhaRepetida" name="senhaRepetida" required placeholder="Repita sua senha">
 
-      <div id="submeter" >
-        <div id="cancelar" >
+      <label for="contato">Contato:</label>
+      <input type="tel" id="contato" [ngModel]="tipoCadastro === 'profissional' ? profissional.contato : ong.contato" (ngModelChange)="updateContato($event)" name="contato" required placeholder="Digite seu contato">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" [ngModel]="tipoCadastro === 'profissional' ? profissional.email : ong.email" (ngModelChange)="updateEmail($event)" name="email" required placeholder="exemplo@email.com">
+
+      <label for="bio">Bio</label>
+      <input type="bio" id="bio" [ngModel]="tipoCadastro === 'profissional' ? profissional.bio : ong.bio" (ngModelChange)="updateBio($event)" name="bio" required placeholder="Fale sobre você.">
+
+      <div id="submeter">
+        <div id="cancelar">
           <button type="button" class="button-form" (click)="voltarParaIndex()">Cancelar</button>
         </div>
-        <div id="criar" >
+        <div id="criar">
           <button 
           id="confirmar-button" 
           class="button-form" 
