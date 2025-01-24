@@ -1,5 +1,5 @@
 import { Component, Injectable } from "@angular/core"
-import { CadastroService, Profissional, Ong } from "../services/cadastro.service"
+import { CadastroService, type Profissional, type Ong, User } from "../services/cadastro.service"
 import { ValidadorCnpjService } from "../services/validador-cnpj.service"
 import { CommonModule } from "@angular/common"
 import { FormsModule } from "@angular/forms"
@@ -21,21 +21,27 @@ export class CadastroComponent {
   profissional: Profissional = {
     nome_completo: "",
     cpf: "",
-    login: "",
-    senha: "",
     conselho: "",
     contato: "",
-    email: "",
+    user: {
+      password: "",
+      username: "",
+      email: "",
+      perfil: "pro",
+    },
     bio: "",
   }
 
   ong: Ong = {
     razao_social: "",
     cnpj: "",
-    login: "",
-    senha: "",
     contato: "",
-    email: "",
+    user: {
+      password: "",
+      username: "",
+      email: "",
+      perfil: "ong",
+    },
     bio: "",
   }
 
@@ -49,17 +55,17 @@ export class CadastroComponent {
 
   updateLogin(value: string) {
     if (this.tipoCadastro === "profissional") {
-      this.profissional.login = value
+      this.profissional.user.username = value
     } else {
-      this.ong.login = value
+      this.ong.user.username = value
     }
   }
 
   updateSenha(value: string) {
     if (this.tipoCadastro === "profissional") {
-      this.profissional.senha = value
+      this.profissional.user.password = value
     } else {
-      this.ong.senha = value
+      this.ong.user.password = value
     }
   }
 
@@ -73,9 +79,9 @@ export class CadastroComponent {
 
   updateEmail(value: string) {
     if (this.tipoCadastro === "profissional") {
-      this.profissional.email = value
+      this.profissional.user.email = value
     } else {
-      this.ong.email = value
+      this.ong.user.email = value
     }
   }
 
@@ -88,12 +94,12 @@ export class CadastroComponent {
   }
 
   senhaValida(): boolean {
-    const senha = this.tipoCadastro === "profissional" ? this.profissional.senha : this.ong.senha
+    const senha = this.tipoCadastro === "profissional" ? this.profissional.user.password : this.ong.user.password
     return senha.length >= 8 && /\d/.test(senha) && /[A-Za-z]/.test(senha)
   }
 
   senhasIguais(): boolean {
-    const senha = this.tipoCadastro === "profissional" ? this.profissional.senha : this.ong.senha
+    const senha = this.tipoCadastro === "profissional" ? this.profissional.user.password : this.ong.user.password
     return senha === this.senhaRepetida
   }
 
@@ -120,7 +126,7 @@ export class CadastroComponent {
       next: (response) => {
         console.log("Profissional cadastrado:", response)
         this.mensagem = "Cadastro de profissional realizado com sucesso!"
-        this.resetForm()
+        this.voltarParaIndex()
         this.exibirMensagemTemporaria()
       },
       error: (error) => {
@@ -152,7 +158,7 @@ export class CadastroComponent {
       next: (response) => {
         console.log("ONG cadastrada:", response)
         this.mensagem = "Cadastro de ONG realizado com sucesso!"
-        this.resetForm()
+        this.voltarParaIndex()
         this.exibirMensagemTemporaria()
       },
       error: (error) => {
@@ -160,32 +166,6 @@ export class CadastroComponent {
         this.exibirMensagemTemporaria()
       },
     })
-  }
-
-  resetForm() {
-    if (this.tipoCadastro === "profissional") {
-      this.profissional = {
-        nome_completo: "",
-        cpf: "",
-        login: "",
-        senha: "",
-        conselho: "",
-        contato: "",
-        email: "",
-        bio: "",
-      }
-    } else {
-      this.ong = {
-        razao_social: "",
-        cnpj: "",
-        login: "",
-        senha: "",
-        contato: "",
-        email: "",
-        bio: "",
-      }
-    }
-    this.senhaRepetida = ""
   }
 
   exibirMensagemTemporaria() {

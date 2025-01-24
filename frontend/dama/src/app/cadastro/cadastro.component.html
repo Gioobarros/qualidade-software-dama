@@ -38,10 +38,10 @@
       </ng-container>
 
       <label for="login">Login:</label>
-      <input type="text" id="login" [ngModel]="tipoCadastro === 'profissional' ? profissional.login : ong.login" (ngModelChange)="updateLogin($event)" name="login" required placeholder="Digite seu login">
+      <input type="text" id="login" [ngModel]="tipoCadastro === 'profissional' ? profissional.user.username : ong.user.username" (ngModelChange)="updateLogin($event)" name="login" required placeholder="Digite seu login">
 
       <label for="senha">Senha:</label>
-      <input type="password" id="senha" [ngModel]="tipoCadastro === 'profissional' ? profissional.senha : ong.senha" (ngModelChange)="updateSenha($event)" name="senha" required placeholder="Digite sua senha">
+      <input type="password" id="senha" [ngModel]="tipoCadastro === 'profissional' ? profissional.user.password : ong.user.password" (ngModelChange)="updateSenha($event)" name="senha" required placeholder="Digite sua senha">
 
       <label for="senhaRepetida">Confirmar Senha:</label>
       <input type="password" id="senhaRepetida" [(ngModel)]="senhaRepetida" name="senhaRepetida" required placeholder="Repita sua senha">
@@ -50,7 +50,7 @@
       <input type="tel" id="contato" [ngModel]="tipoCadastro === 'profissional' ? profissional.contato : ong.contato" (ngModelChange)="updateContato($event)" name="contato" required placeholder="Digite seu contato">
 
       <label for="email">Email:</label>
-      <input type="email" id="email" [ngModel]="tipoCadastro === 'profissional' ? profissional.email : ong.email" (ngModelChange)="updateEmail($event)" name="email" required placeholder="exemplo@email.com">
+      <input type="email" id="email" [ngModel]="tipoCadastro === 'profissional' ? profissional.user.email : ong.user.email" (ngModelChange)="updateEmail($event)" name="email" required placeholder="exemplo@email.com">
 
       <label for="bio">Bio</label>
       <input type="bio" id="bio" [ngModel]="tipoCadastro === 'profissional' ? profissional.bio : ong.bio" (ngModelChange)="updateBio($event)" name="bio" required placeholder="Fale sobre você.">
@@ -73,3 +73,4 @@
   </div>
 </main>
 </div>
+
