@@ -1,18 +1,16 @@
+from api.view.ong import OngView
 from django.contrib import admin
-from api.view.ong import OngViewSet
 from django.urls import path, include
-from api.view.relato import RelatoViewSet
+from api.view.relato import RelatoView
+from api.view.auth import LoginView, LogoutView
 from rest_framework.routers import DefaultRouter
-from api.view.profissional import ProfissionalViewSet
-from api.view.administrador import AdministradorViewSet 
+from api.view.profissional import ProfissionalView
+from api.view.administrador import AdministradorView
 
-router = DefaultRouter()
-router.register(r'profissional', ProfissionalViewSet)
-router.register(r'ong', OngViewSet)
-router.register(r'relato', RelatoViewSet)
-router.register(r'administrador', AdministradorViewSet)
+app_name = 'api'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('api/', include('api.urls'))
+
 ]
