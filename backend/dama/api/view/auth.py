@@ -12,6 +12,7 @@ from rest_framework.decorators import authentication_classes, permission_classes
 
 
 class LoginView(ObtainAuthToken):
+    
     def post(self, request, *args, **kwargs):
         username = request.data.get('username')
         password = request.data.get('password')
