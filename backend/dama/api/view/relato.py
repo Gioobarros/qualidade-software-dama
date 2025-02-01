@@ -72,37 +72,39 @@ class RelatoView(APIView):
 
     def get(self, request, id=None):
         try:
-            if 'data_inicio'in request.GET and 'data_fim' in request.GET and 'palavra_chave' in request.GET:
+            if 'data_inicio' in request.GET and 'data_fim' in request.GET and 'palavra_chave' in request.GET:
 
                 relatos_filtrados = None
-
-                if request.GET.get('data_inicio') and request.GET.get('data_fim'):
-
-                    relatos_filtrados = self.relato_por_data(
-                        request.GET.get('data_inicio'),
-                        request.GET.get('data_fim'),
-
-                        )
-
-                if request.GET.get('palavra_chave'):
-
-                    trecho = request.GET.get('palavra_chave')
-
-                    relatos_filtrados = self.relato_por_trecho(trecho, relatos_filtrados)  
-                    
-                serializer = RelatoSerializer(relatos_filtrados, many=True)
-
-                return Response(serializer.data, status=status.HTTP_200_OK)
-            
-            else:
-                relato = Relato.objects.all()
-
-                if not relato.exists():
-                    return Response({'messagem': 'Nenhum relato publicado'}, status=status.HTTP_404_NOT_FOUND)
                 
-                serializer = RelatoSerializer(relato, many=True)
+                if request.GET.get('data_inicio') != '' and request.GET.get('data_fim') != '' and request.GET.get('palavra-chave'):
 
-                return Response(serializer.data, status=status.HTTP_200_OK)
+                    if request.GET.get('data_inicio') and request.GET.get('data_fim'):
+
+                        relatos_filtrados = self.relato_por_data(
+                            request.GET.get('data_inicio'),
+                            request.GET.get('data_fim'),
+
+                            )
+
+                    if request.GET.get('palavra_chave'):
+
+                        trecho = request.GET.get('palavra_chave')
+
+                        relatos_filtrados = self.relato_por_trecho(trecho, relatos_filtrados)  
+                        
+                    serializer = RelatoSerializer(relatos_filtrados, many=True)
+
+                    return Response(serializer.data, status=status.HTTP_200_OK)
+
+                else:
+                    relato = Relato.objects.all()
+
+                    if not relato.exists():
+                        return Response({'messagem': 'Nenhum relato publicado'}, status=status.HTTP_404_NOT_FOUND)
+                    
+                    serializer = RelatoSerializer(relato, many=True)
+
+                    return Response(serializer.data, status=status.HTTP_200_OK)
         
         except ValueError:
             return Response({"erro": "formato de data inválido"}, status=status.HTTP_400_BAD_REQUEST)
@@ -134,22 +136,20 @@ class RelatoView(APIView):
         self.check_permissions(request)
 
         try:
-            if 'id' in request.GET and request.GET.get('id') is not None:
+            if 'id' in request.data and 'novo_conteudo' in request.data:
 
-                id = request.GET.get('id')
+                if request.data.get('id') != '' and request.data.get('novo_conteudo') != '':
 
-                if 'conteudo' not in request.data or request.data.get('novo_conteudo') == '':
-                    return Response({"erro": "conteudo passado vazio"}, status=status.HTTP_400_BAD_REQUEST)
+                    id = request.data.get('id')
 
-                relato = Relato.objects.get(id=id)
+                    relato = Relato.objects.get(id=id)
 
-                serializer = RelatoSerializer(relato, data=request.data, partial=True)
+                    relato.conteudo = request.data.get('novo_conteudo')
 
-                if serializer.is_valid():
-                    serializer.save()
-
+                    relato.save()
+                    
                     return Response({"message": "Relato atualizado com sucesso!"}, status=status.HTTP_200_OK)
-            else:
+
                 return Response({"erro": "id vazio ou não passado"}, status=status.HTTP_400_BAD_REQUEST)
                 
         except Relato.DoesNotExist:
