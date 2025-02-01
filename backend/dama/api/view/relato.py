@@ -10,7 +10,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import authentication_classes, permission_classes
 
 
-class CriarRelatoView(APIView):
+class RelatoView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
@@ -142,22 +142,28 @@ class CriarRelatoView(APIView):
             return Response({'erro': 'problema na api'}, status=status.HTTP_404_NOT_FOUND)
     
 
-    def patch(self, request, id):
+    def patch(self, request):
         self.check_permissions(request)
 
         try:
-            if 'conteudo' not in request.data or request.data.get('novo_conteudo') == '':
-                return Response({"erro": "conteudo passado vazio"}, status=status.HTTP_400_BAD_REQUEST)
+            if 'id' in request.GET and request.GET.get('id') is not None:
 
-            relato = Relato.objects.get(id=id)
+                id = request.GET.get('id')
 
-            serializer = RelatoSerializer(relato, data=request.data, partial=True)
+                if 'conteudo' not in request.data or request.data.get('novo_conteudo') == '':
+                    return Response({"erro": "conteudo passado vazio"}, status=status.HTTP_400_BAD_REQUEST)
 
-            if serializer.is_valid():
-                serializer.save()
+                relato = Relato.objects.get(id=id)
 
-                return Response({"message": "Relato atualizado com sucesso!"}, status=status.HTTP_200_OK)
-            
+                serializer = RelatoSerializer(relato, data=request.data, partial=True)
+
+                if serializer.is_valid():
+                    serializer.save()
+
+                    return Response({"message": "Relato atualizado com sucesso!"}, status=status.HTTP_200_OK)
+            else:
+                return Response({"erro": "id vazio ou não passado"}, status=status.HTTP_400_BAD_REQUEST)
+                
         except Relato.DoesNotExist:
             return Response({"erro": "relato não existe."}, status=status.HTTP_404_NOT_FOUND)
             
