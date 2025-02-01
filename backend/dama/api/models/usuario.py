@@ -17,3 +17,6 @@ class Usuario(AbstractUser):
     perfil = models.CharField(max_length=13, choices=PERFIL)
 
     status = models.CharField(max_length=8, choices=STATUS, default='sub')
+
+    def __str__(self):
+        return self.username + ' ' + self.perfil + ' ' + self.status

@@ -82,6 +82,14 @@ class ProfissionalView(APIView):
     
         except Exception:
             return Response({'erro': 'problema na api'}, status=status.HTTP_404_NOT_FOUND)
+        
+    
+    def filtro_data(self, request):
+        # from datetime import datetime
+
+        # data_str = "2025-01-31"
+        # data_obj = datetime.strptime(data_str, "%Y-%m-%d")
+        pass
 
 
 

@@ -31,6 +31,7 @@ class AdministradorView(APIView):
         except Exception as e:
             return Response({"erro": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
+
     def patch(self, request):
         self.permission_classes = [IsAuthenticated]  
         self.check_permissions(request)  
@@ -81,3 +82,13 @@ class AdministradorView(APIView):
         except Exception:
             return Response({'erro': 'problema na api'}, status=status.HTTP_404_NOT_FOUND)
     
+
+    def aprovar_submissao(self, request):
+        self.permission_classes = [IsAuthenticated]  
+        self.check_permissions(request)  
+
+        try:
+            return Response({'Sucesso': 'endpoint acessado!'}, status=status.HTTP_200_OK)
+        
+        except Exception as e:
+            return "erro"
