@@ -3,6 +3,7 @@ from django.http import Http404
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.utils.timezone import make_aware
 from django.shortcuts import get_object_or_404
 from api.serializer.relato import RelatoSerializer, Relato
 from api.serializer.usuario import Usuario
@@ -11,93 +12,77 @@ from rest_framework.decorators import authentication_classes, permission_classes
 
 
 class RelatoView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def post(self, request):
+        self.permission_classes = [IsAuthenticated]
         self.check_permissions(request)  
 
         try:
-            if 'user' in request.data:
+            if 'publicador' in request.data and request.data.get('publicador') != '':
 
-                if request.data.get('user') and 'username' in request.data.get('user'):
+                publicador = request.data.get('publicador')
 
-                    user = request.data.get('user')
+                usuario = get_object_or_404(Usuario, username=publicador)
 
-                    username = user['username']
+                if usuario.perfil != 'admin':
 
-                    usuario = get_object_or_404(Usuario, username=username)
+                    serializer = RelatoSerializer(data=request.data)
 
-                    if usuario.perfil != 'admin':
+                    if serializer.is_valid():
+                        serializer.save()
+                        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-                        del user['user']
+                    return Response({"error": "serializer invalido"}, status=status.HTTP_400_BAD_REQUEST)
 
-                        relato = user
-
-                        serializer = RelatoSerializer(data=request.data, publicador=usuario)
-
-                        if serializer.is_valid():
-                            serializer.save()
-                            return Response(serializer.data, status=status.HTTP_201_CREATED)
-                    else:
-                        return Response({"error": "Usuário com perfil 'admin' não pode criar relato."}, status=status.HTTP_400_BAD_REQUEST)
                 else:
-                    return Response({"error": "'username' não encontrado no campo 'user'."}, status=status.HTTP_400_BAD_REQUEST)
+                    return Response({"error": "Usuário com perfil 'admin' não pode criar relato."}, status=status.HTTP_400_BAD_REQUEST)
             else:
-                return Response({"error": "'user' não encontrado nos dados da requisição."}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({"error": "'username' não encontrado no campo 'user'."}, status=status.HTTP_400_BAD_REQUEST)
 
         except Usuario.DoesNotExist:
-            return Response({'erro': f'usuário {username} não encontrado no sistema'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'erro': f'usuário não encontrado no sistema'}, status=status.HTTP_404_NOT_FOUND)
 
         except Exception as e:
             return Response({"error": f"Ocorreu um erro: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
     
-    def relato_por_data(request):
+    def relato_por_data(self, data_inicio, data_fim):
 
-        data_inicio = request.GET.get('data_inicio')
+        inicio = make_aware(datetime.strptime(data_inicio, "%Y-%m-%d"))
 
-        data_fim = request.GET.get('data_fim')
-
-        inicio = datetime.strptime(data_inicio, "%y-%m-%d").date()
-
-        fim = datetime.strptime(data_fim, "%y-%m-%d").date()
+        fim = make_aware(datetime.strptime(data_fim, "%Y-%m-%d"))
 
         relatos_filtrados = Relato.objects.filter(
             data_criacao__gte=inicio, 
             data_criacao__lte=fim
             ).order_by('data_criacao')
 
-        if not relatos_filtrados.exists():
-            return Response({'erro': 'não há relatos publicados neste intervalo de tempo'}, status=status.HTTP_404_NOT_FOUND)
-
         return relatos_filtrados
     
 
-    def relato_por_trecho(trecho, relatos_filtrados):
+    def relato_por_trecho(self, trecho, relatos_filtrados):
 
-        if relatos_filtrados is None:
+        if relatos_filtrados is not None:
 
-            relatos_filtrados = Relato.objects.filter(conteudo__icontains=trecho).order_by('data_criacao')
-        
-            if not relatos_filtrados.exists():
-                return Response({'erro': 'não há relatos publicados com este trecho'}, status=status.HTTP_404_NOT_FOUND)
-        else:
-            relatos_filtrados = relatos_filtrados.filter(conteudo__icontains=trecho)
+            relatos_filtrados = relatos_filtrados.filter(conteudo__icontains=trecho).order_by('data_criacao')
 
         return relatos_filtrados
 
 
     def get(self, request, id=None):
-        self.permission_classes = [AllowAny]  
-        
         try:
-            if 'data_inicio'in request.GET and 'data_fim' in request.GET and 'palavra_chave' in request.data:
+            if 'data_inicio'in request.GET and 'data_fim' in request.GET and 'palavra_chave' in request.GET:
 
                 relatos_filtrados = None
 
                 if request.GET.get('data_inicio') and request.GET.get('data_fim'):
 
-                    relatos_filtrados = self.relato_por_data(request)
+                    relatos_filtrados = self.relato_por_data(
+                        request.GET.get('data_inicio'),
+                        request.GET.get('data_fim'),
+
+                        )
 
                 if request.GET.get('palavra_chave'):
 
@@ -108,15 +93,16 @@ class RelatoView(APIView):
                 serializer = RelatoSerializer(relatos_filtrados, many=True)
 
                 return Response(serializer.data, status=status.HTTP_200_OK)
-
-            relato = Relato.objects.all()
-
-            if not relato.exists():
-                return Response({'messagem': 'Nenhum relato publicado'}, status=status.HTTP_404_NOT_FOUND)
             
-            serializer = RelatoSerializer(relato, many=True)
+            else:
+                relato = Relato.objects.all()
 
-            return Response(serializer.data, status=status.HTTP_200_OK)
+                if not relato.exists():
+                    return Response({'messagem': 'Nenhum relato publicado'}, status=status.HTTP_404_NOT_FOUND)
+                
+                serializer = RelatoSerializer(relato, many=True)
+
+                return Response(serializer.data, status=status.HTTP_200_OK)
         
         except ValueError:
             return Response({"erro": "formato de data inválido"}, status=status.HTTP_400_BAD_REQUEST)
@@ -126,6 +112,7 @@ class RelatoView(APIView):
 
 
     def delete(self, request, id):
+        self.permission_classes = [IsAuthenticated]
         self.check_permissions(request)  
 
         try:
@@ -143,6 +130,7 @@ class RelatoView(APIView):
     
 
     def patch(self, request):
+        self.permission_classes = [IsAuthenticated]
         self.check_permissions(request)
 
         try:

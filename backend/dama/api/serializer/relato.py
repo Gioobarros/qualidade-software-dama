@@ -1,19 +1,19 @@
 from api.models.relato import Relato
 from rest_framework import serializers
+from api.serializer.usuario import UsuarioSerializer, Usuario
+from django.shortcuts import get_object_or_404
+
 
 class RelatoSerializer(serializers.ModelSerializer):
+    publicador = serializers.CharField()
     class Meta:
         model = Relato
-        fields = ['id', 'conteudo', 'publicador', 'data_criacao']
+        fields = ['id','conteudo', 'publicador']
 
     def create(self, validated_data):
-        
-        publicador = validated_data.get('publicador')
-
-        if not publicador:
-            raise serializers.ValidationError("O campo 'publicador' é obrigatório.")
-        
-        relato = Relato.objects.create(**validated_data)
+        username = validated_data.pop('publicador')
+        usuario = get_object_or_404(Usuario, username=username)
+        relato = Relato.objects.create(publicador=usuario, **validated_data)
 
         return relato
         

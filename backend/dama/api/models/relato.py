@@ -12,7 +12,7 @@ class Relato(models.Model):
     
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     conteudo = models.TextField()
-    publicador = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='relatos', default=None)
+    publicador = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='relatos')
     data_criacao = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=8, choices=STATUS, default='sub')
 
