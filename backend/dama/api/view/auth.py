@@ -12,6 +12,7 @@ from rest_framework.decorators import authentication_classes, permission_classes
 
 
 class LoginView(ObtainAuthToken):
+    
     def post(self, request, *args, **kwargs):
         username = request.data.get('username')
         password = request.data.get('password')
@@ -37,6 +38,11 @@ class LoginView(ObtainAuthToken):
 
                 if usuario_data is not None:
                     usuario_response = OngSerializer(usuario_data).data
+                    del usuario_response['user']
+
+                    if usuario_response['bio'] is None:
+                        usuario_response['bio'] = "vazio"
+                        
                     response_data['dados_usuario'] = usuario_response
 
             if usuario.perfil == 'pro':
@@ -44,14 +50,11 @@ class LoginView(ObtainAuthToken):
 
                 if usuario_data is not None:
                     usuario_response = ProfissionalSerializer(usuario_data).data
+                    del usuario_response['user']
+
+                    if usuario_response['bio'] is None:
+                        usuario_response['bio'] = "vazio"
                     response_data['dados_usuario'] = usuario_response
-
-            # if usuario.perfil == 'admin':
-            #     usuario_data = usuario.admin
-
-            #     if usuario_data is not None:
-            #         usuario_response = AdministradorSerializer(usuario_data).data
-            #         response_data['dados_usuario'] = usuario_response
 
             return Response(response_data)
 

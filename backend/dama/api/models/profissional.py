@@ -11,6 +11,5 @@ class Profissional(models.Model):
     bio = models.TextField(blank=True, null=True, default=None)
     user = models.OneToOneField(Usuario, on_delete=models.CASCADE, blank=True, null=True, related_name='profissional')
 
-
     def __str__(self):
-        return f"Nome completo: {self.nome_completo}   Conselho: {self.conselho}\nEmail: {self.email} Contato: {self.contato}"
+        return f"Nome completo: {self.nome_completo}   Conselho: {self.conselho}\nEmail: {self.user.email} Contato: {self.contato}"
