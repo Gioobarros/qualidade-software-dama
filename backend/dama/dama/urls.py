@@ -1,16 +1,29 @@
-from api.view.ong import OngView
+from drf_yasg import openapi
 from django.contrib import admin
 from django.urls import path, include
-from api.view.relato import RelatoView
-from api.view.auth import LoginView, LogoutView
-from rest_framework.routers import DefaultRouter
-from api.view.profissional import ProfissionalView
-from api.view.administrador import AdministradorView
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="API Documentation",
+        default_version='v1',
+        description="API documentation with Swagger",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="contact@example.com"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
+
 
 app_name = 'api'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls'))
-
+    path('api/', include('api.urls')),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
