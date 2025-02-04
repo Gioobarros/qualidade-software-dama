@@ -13,9 +13,13 @@ html, body {
 }
 
 main {
-    width: 100%;
-    max-width: 1366px;
+    width: 70%;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 40px;
 }
 
 body {

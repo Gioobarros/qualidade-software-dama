@@ -13,11 +13,7 @@ O projeto DAMA (Defesa e Apoio às Mulheres Agredidas) é uma ferramenta digital
  #
  [Giovana Beatriz Barros Firmino da Silva (Gioobarros)](https://github.com/Gioobarros)
  #
- [Igor Gabriel dos Santos (Igor1208gabriel)](https://github.com/Igor1208gabriel)
- #
  [Leandro Ramos Sizilio (LeandroSizilio)](https://github.com/LeandroSizilio)
-#
-[Luana Gomes Salmito (LuanaSalmito)](https://github.com/LuanaSalmito).
 
 # Horário de Reuniões
 
