@@ -5,6 +5,10 @@ export const routes: Routes = [
       path: '', pathMatch: 'full', redirectTo: 'index'
     },
     {
+      path: 'teste',
+      loadComponent: () => import('./teste/teste.component').then(t => t.TesteComponent)
+    },
+    {
       path: 'index',
       loadComponent: () => import('./index/index.component').then(i => i.IndexComponent)
     },
