@@ -5,8 +5,8 @@ export const routes: Routes = [
       path: '', pathMatch: 'full', redirectTo: 'index'
     },
     {
-      path: 'teste',
-      loadComponent: () => import('./teste/teste.component').then(t => t.TesteComponent)
+      path: 'editor',
+      loadComponent: () => import('./editor/editor.component').then(t => t.EditorComponent)
     },
     {
       path: 'index',

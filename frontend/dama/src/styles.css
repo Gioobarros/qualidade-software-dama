@@ -1,3 +1,5 @@
+
+
 html,body {
   margin: 0; /* Retira espaçamento padrao do angular */
   font-family: Inter, sans-serif; /* Define a font de todo o projeto  */
@@ -13,3 +15,4 @@ footer {
   bottom: 0px;
   width: 100%;
 }
+
