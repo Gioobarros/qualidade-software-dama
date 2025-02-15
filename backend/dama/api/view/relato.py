@@ -76,7 +76,7 @@ class RelatoView(APIView):
 
                 relatos_filtrados = None
                 
-                if request.GET.get('data_inicio') != '' and request.GET.get('data_fim') != '' and request.GET.get('palavra-chave'):
+                if request.GET.get('data_inicio') != '' and request.GET.get('data_fim') != '' or request.GET.get('palavra-chave') != '':
 
                     if request.GET.get('data_inicio') and request.GET.get('data_fim'):
 
