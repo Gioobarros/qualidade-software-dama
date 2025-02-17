@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from api.view.administrador import AdministradorView
 from api.view.profissional import ProfissionalView
 from api.view.relato import RelatoView
@@ -13,7 +13,12 @@ router.register(r'ong', OngView, basename='ong')
 router.register(r'profissional', ProfissionalView, basename='profissional')
 router.register(r'admin', AdministradorView, basename='admin')
 router.register(r'usuario', UsuarioView, basename='usuario')
-router.register(r'login', LoginView, basename='login')
-router.register(r'logout', LogoutView, basename='logout')
+
 
 # http://127.0.0.1:8000/api/relato/?data_inicio=(yyyy-mm-dd)&data_fim=(yyyy-mm-dd)&palavra_chave=&status
+
+urlpatterns = [
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+] 
+urlpatterns += router.urls
