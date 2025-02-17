@@ -4,11 +4,11 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from api.serializer.administrador import AdministradorSerializer, Administrador
+from api.serializer.usuario import UsuarioSerializer, Usuario
 
-class AdministradorView(viewsets.ModelViewSet):
-    queryset = Administrador.objects.all()
-    serializer_class = AdministradorSerializer
+class UsuarioView(viewsets.ModelViewSet):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
 
     def get_permissions(self):
         if self.action in ['partial_update', 'destroy']:
@@ -17,7 +17,7 @@ class AdministradorView(viewsets.ModelViewSet):
         return [AllowAny()]
 
     def create(self, request, *args, **kwargs):
-        serializer = AdministradorSerializer(data=request.data)
+        serializer = UsuarioSerializer(data=request.data)
 
         if serializer.is_valid():
             serializer.save()
@@ -47,7 +47,7 @@ class AdministradorView(viewsets.ModelViewSet):
             itens = self.get_queryset()
 
             if not itens.exists():
-                return Response({'messagem': 'Nenhuma ONG foi achada'}, status=status.HTTP_404_NOT_FOUND)
+                return Response({'messagem': 'Nenhum usuário foi achado'}, status=status.HTTP_404_NOT_FOUND)
             
             serializer = self.get_serializer(itens, many=True)
 
@@ -60,7 +60,7 @@ class AdministradorView(viewsets.ModelViewSet):
     def partial_update(self, request, *args, **kwargs):
         try:
             if 'username' in request.data:
-                item = get_object_or_404(Administrador, user__username=request.data.get("username"))
+                item = get_object_or_404(Usuario, username=request.data.get("username"))
 
                 serializer = self.get_serializer(item, data=request.data, partial=True)
 
@@ -78,15 +78,12 @@ class AdministradorView(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         try:
             if 'username' in request.data:
-                item = get_object_or_404(Administrador, user__username=request.data.get("username"))
+                item = get_object_or_404(Usuario, username=request.data.get("username"))
 
-                if item.user__perfil == 'admin':
-                    item.delete()
+                item.delete()
 
-                    return Response({'mensagem': 'Administrador deletado com sucesso'}, status=status.HTTP_204_NO_CONTENT)
+                return Response({'mensagem': 'Usuario deletado com sucesso'}, status=status.HTTP_204_NO_CONTENT)
                 
-                else:
-                    return Response({'erro': 'Usuário não tem permissão para ser excluído'}, status=status.HTTP_403_FORBIDDEN)
             else:
                 return Response({"erro": "campos obrigatórios ausentes na requisição"}, status=status.HTTP_406_NOT_ACCEPTABLE)
             

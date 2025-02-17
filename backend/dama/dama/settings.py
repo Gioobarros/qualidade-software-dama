@@ -18,6 +18,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',  # Permissão padrão (aberta para todos)
     ],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',  # Filtro de busca
+        'rest_framework.filters.OrderingFilter',  # Filtro de ordenação
+    ],
  
 }
 
@@ -35,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+    'django_filters'
 ]
 
 

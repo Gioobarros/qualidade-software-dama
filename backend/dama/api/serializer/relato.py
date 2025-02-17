@@ -1,6 +1,6 @@
 from api.models.relato import Relato
 from rest_framework import serializers
-from api.serializer.usuario import UsuarioSerializer, Usuario
+from api.serializer.usuario import Usuario
 from django.shortcuts import get_object_or_404
 
 
@@ -8,7 +8,7 @@ class RelatoSerializer(serializers.ModelSerializer):
     publicador = serializers.CharField()
     class Meta:
         model = Relato
-        fields = ['id','conteudo', 'publicador']
+        fields = ['id','conteudo', 'data_criacao', 'status', 'publicador']
 
     def create(self, validated_data):
         username = validated_data.pop('publicador')
