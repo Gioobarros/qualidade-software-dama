@@ -7,7 +7,7 @@ import { tap } from "rxjs/operators"
   providedIn: "root",
 })
 export class AuthService {
-  private apiUrl = "http://127.0.0.1:8000/api/login/" // URL da sua API
+  private apiUrl = "http://127.0.0.1:8000/api/login/" // URL da API
 
   constructor(private http: HttpClient) {}
 
@@ -25,7 +25,6 @@ export class AuthService {
     localStorage.removeItem("token")
     localStorage.removeItem("username")
     localStorage.removeItem("perfil")
-    // Adicione aqui a lógica para chamar o endpoint de logout no backend, se necessário
   }
 
   getToken(): string | null {

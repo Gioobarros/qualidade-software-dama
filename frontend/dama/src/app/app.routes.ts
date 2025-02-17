@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { RelatoComponent } from './relato/relato.component';
+import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
     {
@@ -35,6 +37,9 @@ export const routes: Routes = [
     {
       path: 'material',
       loadComponent: () => import('./material/material.component').then(r => r.MaterialComponent)
-    }
+    },
+    { 
+      path: 'dashboard', component: RelatoComponent, canActivate: [AuthGuard] // ⬅️ Protege esta rota
+    },
   ];
   

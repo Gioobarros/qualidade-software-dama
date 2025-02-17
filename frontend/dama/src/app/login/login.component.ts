@@ -29,7 +29,7 @@ export class LoginComponent {
           localStorage.setItem("token", response.token)
           localStorage.setItem("username", response.username)
           localStorage.setItem("perfil", response.perfil)
-          this.router.navigate(["/dashboard"])
+          this.router.navigate(["/"])
         },
         (error) => {
           console.error("Erro no login:", error)
