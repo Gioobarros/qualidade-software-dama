@@ -1,10 +1,7 @@
 <app-header></app-header>
 
-
 <main id="main">
-
     <section class="">
-
         <div>
             <header class="title">
                 <h1>Mural de Força</h1>
@@ -12,17 +9,22 @@
         </div>
 
         <div id="buscar">
-            <button routerLink="/relato" routerLinkActive="router-link-active" >Publicar um Relato</button>
+            <button routerLink="/relato" routerLinkActive="router-link-active">Publicar um Relato</button>
         </div>
 
         <div id="relatos" class="">
-            <ng-container *ngIf="relatos && relatos.length > 0; else semRelatos">
-              <div class="grid-relatos">
-                <div class="card-relato fora" *ngFor="let relato of relatos">
-                  <p>"{{ relato.conteudo | truncate:250 }}"</p>
-                </div>
+          <ng-container *ngIf="relatos && relatos.length > 0; else semRelatos">
+            <div class="grid-relatos">
+              <div *ngFor="let relato of relatos">
+                <p-card [style]="{ width: '18rem', height:'18rem', overflow: 'hidden', display: 'flex', flexDirection: 'column' }">
+                  <div class="relato-conteudo" [innerHTML]="sanitizeHTML(relato.conteudo | truncate:250)" style="flex-grow: 1;"></div>
+                  <ng-template pTemplate="footer">
+                      <a [routerLink]="['/relato', relato.id]" class="vermais" [style]="{ padding: '0px'}">Ver mais...</a>
+                  </ng-template>
+                </p-card>
               </div>
-            </ng-container>
+            </div>
+          </ng-container>
             
             <ng-template #semRelatos>
               <div class="bodycard">
@@ -31,8 +33,7 @@
                 </div>
               </div>
             </ng-template>
-          </div>
-
+        </div>
     </section>
-
 </main>
+

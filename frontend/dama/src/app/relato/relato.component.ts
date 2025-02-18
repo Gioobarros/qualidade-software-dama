@@ -1,66 +1,92 @@
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { Component, ViewChild, ElementRef} from '@angular/core';
-import { RelatoService, Relato } from '../services/relato.service';
-import { HeaderComponent } from '../components/header/header.component';
+import { FormsModule } from "@angular/forms"
+import { CommonModule } from "@angular/common"
+import { RouterLink, RouterOutlet } from "@angular/router"
+import { Component, OnInit } from "@angular/core"
+import { RelatoService, Relato } from "../services/relato.service"
+import { HeaderComponent } from "../components/header/header.component"
+import { Router } from "@angular/router"
+import { EditorComponent } from "../editor/editor.component"
 
 @Component({
-  selector: 'app-relato',
+  selector: "app-relato",
   standalone: true,
-  imports: [
-    CommonModule, FormsModule, HeaderComponent, RouterLink, RouterOutlet 
-  ],
-  templateUrl: './relato.component.html',
-  styleUrls: ['./relato.component.css']
-  
+  imports: [CommonModule, FormsModule, HeaderComponent, RouterLink, RouterOutlet, EditorComponent],
+  templateUrl: "./relato.component.html",
+  styleUrls: ["./relato.component.css"],
 })
-
-
-export class RelatoComponent /*implements AfterViewInit*/ {
+export class RelatoComponent implements OnInit {
   relato: Relato = {
-    conteudo: ''
-  };
-
-  mostraConfirmacao: boolean = false;
-
-  mostraResposta: boolean = false;
-
-  mensagem: string = 'As informações escritas são de sua inteira responsabilidade vindo a ser monitorada em eventuais denúncias feitas por usuários. Comprovada alguma irregularidade, seu relato será excluído.'; 
-
-  textoBotao: string = 'Entendo e desejo e publicar';
-
-  eventoBotao: () => void =  this.enviaRelato; 
-  
-  // pegar um elemento dentro de um DOM de um jeito mais "anguloso"
-  @ViewChild('relatoText') relatoText!: ElementRef;
-  
-  // construo o serviço
-  constructor(private relatoService: RelatoService){}
-  
-  relatoConfirmacao() : void {
-    this.mostraConfirmacao = true;
+    conteudo: "",
+    publicador: "",
   }
 
-  enviaRelato() : void{
-    this.relatoService.registerRelato(this.relato).subscribe(
-      (response) => {
+  mostraConfirmacao = false
+  mostraResposta = false
+  mensagem =
+    "As informações escritas são de sua inteira responsabilidade vindo a ser monitorada em eventuais denúncias feitas por usuários. Comprovada alguma irregularidade, seu relato será excluído."
+  textoBotao = "Entendo e desejo publicar"
 
-      this.mensagem = response.status === 200 || response.status === 201 ? 
-        'O relato foi registrado com sucesso!' : 'O relato não foi registrado!';
-      this.textoBotao = 'Publicar outro relato'
-      this.eventoBotao = this.retornar
+  constructor(
+    private relatoService: RelatoService,
+    private router: Router,
+  ) {}
 
+  ngOnInit() {
+    this.relato.publicador = localStorage.getItem("username") || ""
+  }
+
+  relatoConfirmacao(): void {
+    // Verifica se há conteúdo real, não apenas espaços em branco ou tags HTML vazias
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = this.relato.conteudo;
+    const textContent = tempDiv.textContent?.trim() || "";
+
+    if (!textContent) {
+      this.mensagem = "O conteúdo do relato não pode estar vazio."
+      this.mostraConfirmacao = true
+      this.textoBotao = "Voltar e editar"
+      this.eventoBotao = () => (this.mostraConfirmacao = false)
+    } else {
+      this.mostraConfirmacao = true
+      this.mensagem =
+        "As informações escritas são de sua inteira responsabilidade vindo a ser monitorada em eventuais denúncias feitas por usuários. Comprovada alguma irregularidade, seu relato será excluído."
+      this.textoBotao = "Entendo e desejo publicar"
+      this.eventoBotao = () => this.enviaRelato()
+    }
+  }
+
+  updateRelatoContent(content: string) {
+    this.relato.conteudo = content;
+    console.log("Conteúdo atualizado:", content); // Para debug
+  }
+
+  enviaRelato(): void {
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = this.relato.conteudo;
+    const textContent = tempDiv.textContent?.trim() || "";
+
+    if (!textContent) {
+      this.mensagem = "O conteúdo do relato não pode estar vazio."
+      return
+    }
+
+    this.relatoService.registerRelato(this.relato).subscribe({
+      next: (response) => {
+        if (response.status === 200 || response.status === 201) {
+          this.mensagem = "O relato foi registrado com sucesso!"
+          setTimeout(() => {
+            this.router.navigate(["/muraldeforca"])
+          }, 1500)
+        } else {
+          this.mensagem = "O relato não foi registrado!"
+        }
       },
-    );  
+      error: (error) => {
+        console.error("Erro ao enviar relato:", error)
+        this.mensagem = "Ocorreu um erro ao enviar o relato."
+      }
+    })
   }
 
-  retornar() : void {
-    this.relatoText.nativeElement.value = ''
-    this.mostraConfirmacao = !this.mostraConfirmacao
-    this.mensagem = 'As informações escritas são de sua inteira responsabilidade vindo a ser monitorada em eventuais denúncias feitas por usuários. Comprovada alguma irregularidade, seu relato será excluído.'
-    this.textoBotao = 'Entendo e desejo e publicar'
-    this.eventoBotao = this.enviaRelato
-
-  }
+  eventoBotao: () => void = () => this.enviaRelato()
 }
