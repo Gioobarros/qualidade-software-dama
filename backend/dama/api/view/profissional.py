@@ -20,7 +20,6 @@ class ProfissionalView(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         try:
             # Valida o perfil do usuário
-            self.usuario_strategy.validar_usuario(request)
 
             # Serializa os dados para criação
             serializer = ProfissionalSerializer(data=request.data)

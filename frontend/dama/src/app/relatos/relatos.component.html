@@ -10,20 +10,12 @@
 
         <div id="buscar">
             <button routerLink="/relato" routerLinkActive="router-link-active">Publicar um Relato</button>
-        </div>
-        
-        <!-- <div id="pesquisar">
+          </div>
+          <!--         
+        <div id="pesquisar">
             <input type="text" [(ngModel)]="pesquisa" placeholder="Pesquisar por relato...">
-        </div>
-
-        <div id="ordenar">
-            <p-dropdown [options]="ordenacoes" [(ngModel)]="ordenacao" placeholder="Ordenar por">
-            </p-dropdown>
         </div> -->
 
-        <div class="card flex justify-center">
-          <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" />
-        </div>
 
         <div id="relatos" class="">
           <ng-container *ngIf="relatos && relatos.length > 0; else semRelatos">

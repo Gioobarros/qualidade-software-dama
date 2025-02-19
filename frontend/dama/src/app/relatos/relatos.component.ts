@@ -24,14 +24,15 @@ import { DatePicker } from 'primeng/datepicker';
     CardModule,
     ButtonModule,
     DatePickerModule,
-    DatePicker
+    DatePicker,
   ],
   templateUrl: "./relatos.component.html",
   styleUrls: ["./relatos.component.css"],
 })
 export class RelatosComponent implements OnInit {
-  mensagem = ""
-  relatos: Relato[] = []
+  mensagem = "";
+  relatos: Relato[] = [];
+  rangeDates: Date[] | undefined;  
 
   constructor(
     private relatosService: RelatosService,
@@ -52,5 +53,7 @@ export class RelatosComponent implements OnInit {
   sanitizeHTML(html: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(html)
   }
+
+  
 }
 
