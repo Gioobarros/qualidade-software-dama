@@ -1,77 +1,62 @@
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #F2D4CB;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    height: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px 20px 0px;
+  background-color: #f2d4cb;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  height: 150px;
+  position: relative;
+  bottom: 0;
 }
 
 .footer-div-left {
-    flex-direction: column;
-    text-align: left;
-    font-size: 16px;
-    margin-left: 165px;
+  flex-direction: column;
+  text-align: left;
+  font-size: 16px;
+  margin-left: 165px;
 }
 
 .footer-div-left span {
-    color: #FF6F6F;
-    font-weight: bold;
+  color: #ff6f6f;
+  font-weight: bold;
 }
 
 .footer-div-center {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: 60%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 60%;
 }
 
 .footer-div-center-top h1 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.footer-div-center-bottom {
-    display: flex;
-    flex-direction: column; /* Muda a direção para coluna */
-    align-items: flex-start; /* Alinha os itens à esquerda */
-    width: 100%;    
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .links {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .links li {
-    margin: 5px 0; /* Espaço entre os links */
+  margin: 5px 0;
 }
 
 .links a {
-    text-decoration: none; /* Remove underline */
-    color: black; /* Cor do link */
+  text-decoration: none;
+  color: black;
 }
 
 .links a:hover {
-    text-decoration: underline; /* Underline ao passar o mouse */
-    cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-p{
-    color: #D36262;
-    font-size: 24px;
-    font-weight: bold;
-    
-}
-
-.footer-div-center-bottom a {
-    text-decoration: none;
-    color: #000;
-    transition: color 0.4s;
-}
-
-.footer-div-center-bottom p a:hover {
-    color: rgba(165, 55, 154, 1)
+p {
+  color: #d36262;
+  font-size: 24px;
+  font-weight: bold;
 }

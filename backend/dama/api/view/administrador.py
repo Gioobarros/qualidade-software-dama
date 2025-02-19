@@ -1,94 +1,91 @@
 from django.http import Http404
-from rest_framework import status
-from rest_framework.views import APIView
+from rest_framework import status, viewsets
 from rest_framework.response import Response
-from api.serializer.administrador import AdministradorSerializer, Administrador
-from api.models.administrador import Usuario
 from django.shortcuts import get_object_or_404
-from rest_framework.permissions import IsAuthenticated, AllowAny
-from api.serializer.profissional import ProfissionalSerializer, Profissional
-from rest_framework.decorators import authentication_classes, permission_classes
+from api.strategies.strategy_permissions import UsuarioPermission
+from api.strategies.strategy_usuario import AdminStrategy
+from api.serializer.administrador import AdministradorSerializer
+from api.models.administrador import Administrador
 
-class AdministradorView(APIView):
+class AdministradorView(viewsets.ModelViewSet):
+    queryset = Administrador.objects.all()
+    serializer_class = AdministradorSerializer
+    permission_strategy = UsuarioPermission()
+    usuario_strategy = AdminStrategy()
 
-    permission_classes = [AllowAny]
+    def get_permissions(self):
+        return self.permission_strategy.get_permissions(self.action)
 
-    def post(self, request):
-        serializer = AdministradorSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-    
-    def get(self, request):
+    def create(self, request, *args, **kwargs):
         try:
-            admin = Administrador.objects.all()
-            if not admin.exists():
-                return Response({'messagem': 'Nenhuma ONG foi achada'}, status=status.HTTP_404_NOT_FOUND)
-            serializer = AdministradorSerializer(admin, many=True)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        except Exception as e:
-            return Response({"erro": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
-
-    def patch(self, request):
-        self.permission_classes = [IsAuthenticated]  
-        self.check_permissions(request)  
-
-        try:
-            username = request.data.get('username')
-
-            usuario = get_object_or_404(Usuario, username=username)
-
-            admin = get_object_or_404(Administrador, user=usuario)
-
-            serializer = AdministradorSerializer(admin, data=request.data, partial=True)
+            self.usuario_strategy.validar_usuario(request)
+            serializer = AdministradorSerializer(data=request.data)
 
             if serializer.is_valid():
                 serializer.save()
-
-                return Response(serializer.data)
-
-        except Usuario.DoesNotExist:
-            return Response({'erro': f'usuário {username} não encontrado no sistema'}, status=status.HTTP_404_NOT_FOUND)
-
-        except Administrador.DoesNotExist:
-            return Response({'erro': f'dados do administrador não encontrados no sistema'}, status=status.HTTP_404_NOT_FOUND)
-    
-        except Exception:
-            return Response({'erro': 'problema na api'}, status=status.HTTP_404_NOT_FOUND)
-    
-
-    def delete(self, request):
-        self.permission_classes = [IsAuthenticated]  
-        self.check_permissions(request)  
-
-        try:
-            username = request.data.get('username')
-
-            usuario = get_object_or_404(Usuario, username=username)
-
-            admin = get_object_or_404(Administrador, user=usuario)
-
-            admin.delete()
-
-        except Usuario.DoesNotExist:
-            return Response({'erro': f'usuário {username} não encontrado no sistema'}, status=status.HTTP_404_NOT_FOUND)
-
-        except Administrador.DoesNotExist:
-            return Response({'erro': f'dados do administrador não encontrados no sistema'}, status=status.HTTP_404_NOT_FOUND)
-    
-        except Exception:
-            return Response({'erro': 'problema na api'}, status=status.HTTP_404_NOT_FOUND)
-    
-
-    def aprovar_submissao(self, request):
-        self.permission_classes = [IsAuthenticated]  
-        self.check_permissions(request)  
-
-        try:
-            return Response({'Sucesso': 'endpoint acessado!'}, status=status.HTTP_200_OK)
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
         except Exception as e:
-            return "erro"
+            return Response({"erro": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def retrieve(self, request, *args, **kwargs):
+        try:
+            self.usuario_strategy.validar_usuario(request)
+            item = self.get_object()
+            serializer = self.get_serializer(item)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        except Http404:
+            return Response({'erro': 'Objeto não encontrado'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({"erro": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def list(self, request, *args, **kwargs):
+        try:
+            self.usuario_strategy.validar_usuario(request)
+            itens = self.get_queryset()
+            
+            if not itens.exists():
+                return Response({'mensagem': 'Nenhum administrador encontrado'}, status=status.HTTP_404_NOT_FOUND)
+            
+            serializer = self.get_serializer(itens, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            return Response({"erro": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def partial_update(self, request, *args, **kwargs):
+        try:
+            self.usuario_strategy.validar_usuario(request)
+
+            if 'username' in request.data:
+                item = get_object_or_404(Administrador, user__username=request.data.get("username"))
+
+                serializer = self.get_serializer(item, data=request.data, partial=True)
+                
+                if serializer.is_valid():
+                    serializer.save()
+                    return Response(serializer.data, status=status.HTTP_200_OK)
+                
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+            return Response({"erro": "Campos obrigatórios ausentes na requisição"}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        except Exception as e:
+            return Response({'erro': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def destroy(self, request, *args, **kwargs):
+        try:
+            self.usuario_strategy.validar_usuario(request)
+
+            if 'username' in request.data:
+                item = get_object_or_404(Administrador, user__username=request.data.get("username"))
+                item.delete()
+                return Response({'mensagem': 'Administrador deletado com sucesso'}, status=status.HTTP_204_NO_CONTENT)
+
+            return Response({"erro": "Campos obrigatórios ausentes na requisição"}, status=status.HTTP_406_NOT_ACCEPTABLE)
+
+        except Exception as e:
+            return Response({'erro': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

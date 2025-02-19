@@ -1,93 +1,84 @@
 from django.http import Http404
-from rest_framework import status
-from api.models.ong import Usuario
-from rest_framework.views import APIView
+from rest_framework import status, viewsets
 from rest_framework.response import Response
-from django.shortcuts import get_object_or_404
-from api.serializer.ong import OngSerializer, Ong
-from rest_framework.permissions import IsAuthenticated, AllowAny
-from rest_framework.decorators import authentication_classes, permission_classes
+from api.models.ong import Ong
+from api.serializer.ong import OngSerializer
+from api.strategies.strategy_usuario import OngStrategy
+from api.strategies.strategy_permissions import UsuarioPermission
 
 
-class OngView(APIView):
+class OngView(viewsets.ModelViewSet):
+    queryset = Ong.objects.all()
+    serializer_class = OngSerializer
+    usuario_strategy = OngStrategy()
+    permission_strategy = UsuarioPermission()
 
-    permission_classes = [AllowAny]
-    
-    def post(self, request):
-        serializer = OngSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-    
-    def get(self, request):
+    def get_permissions(self):
+        # Estratégia de Permissão baseada na ação
+        return self.permission_strategy.get_permissions(self.action)
+
+    def create(self, request, *args, **kwargs):
         try:
-            ongs = Ong.objects.all()
-            if not ongs.exists():
-                return Response({'messagem': 'Nenhuma ONG foi achada'}, status=status.HTTP_404_NOT_FOUND)
-            serializer = OngSerializer(ongs, many=True)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        except Exception as e:
-            return Response({"erro": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
-    
-    def patch(self, request):
-        self.permission_classes = [IsAuthenticated]  
-        self.check_permissions(request)  
-
-        try:
-            username = request.data.get('username')
-
-            usuario = get_object_or_404(Usuario, username=username)
-
-            ong = get_object_or_404(Ong, user=usuario)
-
-            serializer = OngSerializer(ong, data=request.data, partial=True)
-
+            # Validar o usuário via Strategy
+            
+            # Processar a criação
+            serializer = OngSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
-                return Response(serializer.data)
-        
-        except Usuario.DoesNotExist:
-            return Response({'erro': f'usuário {username} não encontrado no sistema'}, status=status.HTTP_404_NOT_FOUND)
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'erro': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        except Ong.DoesNotExist:
-            return Response({'erro': f'dados da ONG não encontrados no sistema'}, status=status.HTTP_404_NOT_FOUND)
-    
-        except Exception:
-            return Response({'erro': 'problema na api'}, status=status.HTTP_404_NOT_FOUND)
-
-
-    def delete(self, request):
-        self.permission_classes = [IsAuthenticated]  
-        self.check_permissions(request)  
-
+    def retrieve(self, request, *args, **kwargs):
         try:
-            username = request.data.get('username')
+            # Validar o usuário via Strategy
+            self.usuario_strategy.validar_usuario(request)
+            
+            # Recuperar o objeto
+            item = self.get_object()
+            serializer = self.get_serializer(item)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Http404:
+            return Response({'erro': 'Objeto não encontrado'}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({'erro': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-            usuario = get_object_or_404(Usuario, username=username)
+    def list(self, request, *args, **kwargs):
+        try:
+            # Validar o usuário via Strategy
+            self.usuario_strategy.validar_usuario(request)
+            
+            # Listar objetos
+            itens = self.get_queryset()
+            if not itens.exists():
+                return Response({'mensagem': 'Nenhuma ONG encontrada'}, status=status.HTTP_404_NOT_FOUND)
+            serializer = self.get_serializer(itens, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'erro': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-            ong = get_object_or_404(Ong, user=usuario)
+    def partial_update(self, request, *args, **kwargs):
+        try:
+            # Validar o usuário via Strategy
+            item = self.usuario_strategy.validar_usuario(request)
+            
+            # Atualizar objeto
+            serializer = self.get_serializer(item, data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'erro': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-            ong.delete()
-
-            return Response({'sucesso': 'o usuário foi deletado'}, status=status.HTTP_204_NO_CONTENT)
-
-        except Usuario.DoesNotExist:
-            return Response({'erro': f'usuário {username} não encontrado no sistema'}, status=status.HTTP_404_NOT_FOUND)
-
-        except Ong.DoesNotExist:
-            return Response({'erro': f'dados da ONG não encontrados no sistema'}, status=status.HTTP_404_NOT_FOUND)
-    
-        except Exception:
-            return Response({'erro': 'problema na api'}, status=status.HTTP_404_NOT_FOUND)
-
-
-
-
-
-
-
-
-    
+    def destroy(self, request, *args, **kwargs):
+        try:
+            # Validar o usuário via Strategy
+            item = self.usuario_strategy.validar_usuario(request)
+            
+            # Deletar o objeto
+            item.delete()
+            return Response({'mensagem': 'ONG deletada com sucesso'}, status=status.HTTP_204_NO_CONTENT)
+        except Exception as e:
+            return Response({'erro': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

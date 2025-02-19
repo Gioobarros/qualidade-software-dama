@@ -39,7 +39,6 @@
     padding: 20px;
     font-weight: bold;
     opacity: 40%;
-
 }
 
 header {
@@ -85,32 +84,70 @@ button:active {
     grid-template-columns: repeat(auto-fit, 287px);
     gap: 20px;
     width: 100%;
-    max-width: 1515px; /* Ajuste este valor conforme necessário */
+    max-width: 1515px;
     margin-top: 20px;
 }
-.title{
+
+.relatos-conteudo {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-height: 100px;
+    overflow: auto;
+    padding: 1rem;
+}
+
+.title {
     text-align: center;
     font-size: 33.18px;
     margin-top: 10px;
     color: #FF6E6E;
 }
 
-.card-relato {
-    padding: 15px;
-    cursor: pointer;
-    user-select: none;
-    border-radius: 5px;
-    background-color: bisque;
-    border: 1px solid rgb(189, 189, 189);
-}
-
-.card-relato:hover {
-    transition: box-shadow 0.5s ease;
-    box-shadow: 0 0 10px rgb(71, 66, 66);
-}
-
-.card-relato-usuario {
+.filter-container {
     display: flex;
-    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 0 1rem 1rem 1rem;
 }
 
+.search-box {
+    flex: 1;
+}
+
+.date-filter {
+    min-width: 250px;
+}
+
+:host ::ng-deep .p-inputtext {
+    width: 100%;
+}
+
+/* PrimeNG Card Styles */
+:host { 
+    --p-surface-0: #575757;
+    --p-card-background: #fff;
+    --p-card-border-radius: var(--p-content-border-radius);
+    --p-card-color: var(--p-content-color);
+    --p-card-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+    --p-card-body-padding: 1.5rem;
+    --p-card-body-gap: 0.75rem;
+    --p-justify-content: space-between;
+    --p-card-display: flex;
+
+    font-family: inherit;
+    font-feature-settings: inherit;
+    font-size: 1rem;
+    color: var(--p-inputtext-color);
+    background: var(--p-inputtext-background);
+    padding-block: var(--p-inputtext-padding-y);
+    padding-inline: var(--p-inputtext-padding-x);
+    border: 1px solid var(--p-inputtext-border-color);
+    transition: background var(--p-inputtext-transition-duration), color var(--p-inputtext-transition-duration), border-color var(--p-inputtext-transition-duration), outline-color var(--p-inputtext-transition-duration), box-shadow var(--p-inputtext-transition-duration);
+    appearance: none;
+    border-radius: var(--p-inputtext-border-radius);
+    outline-color: transparent;
+    box-shadow: var(--p-inputtext-shadow);
+}

@@ -7,7 +7,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.views import ObtainAuthToken
 from api.serializer.ong import OngSerializer
 from api.serializer.profissional import ProfissionalSerializer
-from api.serializer.administrador import AdministradorSerializer
 from rest_framework.decorators import authentication_classes, permission_classes
 
 
