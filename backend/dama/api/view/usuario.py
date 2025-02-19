@@ -4,14 +4,14 @@ from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django_filters.rest_framework import DjangoFilterBackend
-from api.filters.usuario_filter import UsuarioFilter  # Certifique-se de importar o filtro correto
+# from api.filters.usuario_filter import UsuarioFilter  # Certifique-se de importar o filtro correto
 from api.serializer.usuario import UsuarioSerializer, Usuario
 
 class UsuarioView(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_class = UsuarioFilter  # Aplicando o filtro correto
+    # filterset_class = UsuarioFilter  # Aplicando o filtro correto
 
     def get_permissions(self):
         if self.action in ['partial_update', 'destroy']:

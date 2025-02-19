@@ -20,7 +20,6 @@ class OngView(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         try:
             # Validar o usuário via Strategy
-            self.usuario_strategy.validar_usuario(request)
             
             # Processar a criação
             serializer = OngSerializer(data=request.data)
