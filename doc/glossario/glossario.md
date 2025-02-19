@@ -3,5 +3,5 @@
 | Relato             | Registro público feito por uma ONG ou profissional sobre um determinado caso de violência contra a mulher, com o objetivo de informar e sensibilizar participantes da comunidade.            |
 | ONG                | Organização que pode publicar relatos e materiais específicos, voltados para suporte às vítimas e conscientização da comunidade.                                                |
 | Profissional       | Especialista que pode contribuir com o cadastro de  materiais de suporte, e orientações específicas para ajudar a combater a violência contra a mulher.                                       |
-| Material           | Recursos informativos e educacionais que podem ser cadastraddos por ONGs ou profissionaisw, destinados a orientar a comunidade sobre temas relacionados à violência contra a mulher.        |
+| Material           | Recursos informativos e educacionais que podem ser cadastraddos por ONGs ou profissionais, destinados a orientar a comunidade sobre temas relacionados à violência contra a mulher.        |
 | Participante            | Termo geral que identifica qualquer pessoa que interage com o sistema, incluindo aqueles que colaboram adicionando relatos, materiais.                                                         |
