@@ -1,5 +1,5 @@
 import django_filters
-from models.relato import Relato
+from models.usuario import Usuario
 
 
 class UsuarioFilter(django_filters.FilterSet):
@@ -9,5 +9,5 @@ class UsuarioFilter(django_filters.FilterSet):
 
 
     class Meta:
-        model = Relato
+        model = Usuario
         fields = ['username', 'status', 'perfil']

@@ -5,30 +5,37 @@ from api.filters.relato_filter import RelatoFilter
 from api.serializer.relato import RelatoSerializer, Relato
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from api.strategies.strategy_permissions import RelatoPermission
 
 class RelatoView(viewsets.ModelViewSet):
     queryset = Relato.objects.all()
     serializer_class = RelatoSerializer
     filterset_class = RelatoFilter
+    filter_backends = [DjangoFilterBackend]
     search_fields = ['conteudo', 'data_criacao', 'status']
     ordering_fields = ['data_criacao']
+    permission_strategy = RelatoPermission()
 
     def get_permissions(self):
-        if self.action in ['create', 'partial_update', 'destroy']:
-            return [IsAuthenticated()]
-        
-        return [AllowAny()]
+        return self.permission_strategy.get_permissions(self.action)
 
     def create(self, request, *args, **kwargs):
-        serializer = RelatoSerializer(data=request.data)
+        try:
+            self.permission_strategy.validar(request.user)  # Correção
 
-        if serializer.is_valid():
-            serializer.save()
+            serializer = RelatoSerializer(data=request.data)
 
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        except ValueError as e:
+            return Response({"erro": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
 
 
     def retrieve(self, request, *args, **kwargs):
@@ -48,7 +55,7 @@ class RelatoView(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         try:
-            itens = self.get_queryset()
+            itens = self.filter_queryset(self.get_queryset())
 
             if not itens.exists():
                 return Response({'messagem': 'Nenhum relato foi achado'}, status=status.HTTP_404_NOT_FOUND)
