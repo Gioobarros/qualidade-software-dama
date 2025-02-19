@@ -87,7 +87,6 @@ Os principais casos de uso estão destacados em rosa nas imagens abaixo:
 
 ## 7.Detalhamento da Implementação e Ambiente Físico
 ### 7.1. Visão de Implementação
-### 7.2. Diagramas de Componente – C4
-### 7.3. Persistência
-### 7.4. Interface de Usuário
+![Texto alternativo](https://imgur.com/KhAiEkR.jpg)
+
 
