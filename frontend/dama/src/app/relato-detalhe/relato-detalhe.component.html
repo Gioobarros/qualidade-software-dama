@@ -1,1 +1,11 @@
-<p>relato-detalhe works!</p>
+<app-header></app-header>
+<main>
+  <section *ngIf="relato" class="body">
+    <h1>Relato</h1>
+    <div class="corpo">
+      <div [innerHTML]="sanitizeHTML(relato.conteudo)"></div>
+      <p>Data de criação: {{ relato.data_criacao | date }}</p>
+    </div>
+  </section>
+  
+</main>

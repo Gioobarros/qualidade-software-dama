@@ -11,13 +11,22 @@ body, html {
     padding-top: 30px;
     padding-bottom: 40px;
   }
+
+  .main-content {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
   
   main {
     width: 30%;
     text-align: center;
     background: linear-gradient(to bottom, white, transparent);
     border-radius: 30px;
-    position: relative;
+    /* position: relative; */
   }
   
   main::before {

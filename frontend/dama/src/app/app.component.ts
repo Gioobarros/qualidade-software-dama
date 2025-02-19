@@ -7,21 +7,15 @@ import { FooterComponent } from './components/footer/footer.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CadastroComponent,
-    RouterOutlet,
-    HeaderComponent,
-    FooterComponent,
-  ],
+  imports: [CadastroComponent, RouterOutlet, HeaderComponent, FooterComponent],
+  styleUrls:["./app.component.css"], 
   template: `
     <div class="app-container">
-
       <div class="main-content">
         <router-outlet></router-outlet>
       </div>
-
-      <app-footer></app-footer>
     </div>
+    <app-footer></app-footer>
   `,
 })
 export class AppComponent {

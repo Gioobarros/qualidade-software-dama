@@ -7,7 +7,10 @@ export const routes: Routes = [
       path: '', pathMatch: 'full', redirectTo: 'index'
     },
     { path: 'relato', component: RelatoComponent, canActivate: [AuthGuard] },   // Tela protegida
-
+    {
+      path: 'redeapoio',
+      loadComponent: () => import('./redeapoio/redeapoio.component').then(m => m.RedeapoioComponent)
+    },
     {
       path: 'index',
       loadComponent: () => import('./index/index.component').then(i => i.IndexComponent)

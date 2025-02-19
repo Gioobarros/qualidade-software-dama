@@ -9,16 +9,8 @@ import { HeaderComponent } from "../components/header/header.component"
   selector: "app-relato-detalhe",
   standalone: true,
   imports: [CommonModule, HeaderComponent],
-  template: `
-    <app-header></app-header>
-    <main id="main">
-      <section *ngIf="relato">
-        <h1>Relato Completo</h1>
-        <div [innerHTML]="sanitizeHTML(relato.conteudo)"></div>
-        <p>Data de criação: {{relato.data_criacao | date}}</p>
-      </section>
-    </main>
-  `,
+  templateUrl: "./relato-detalhe.component.html",
+  styleUrls: ["./relato-detalhe.component.css"],
   styles: [],
 })
 export class RelatoDetalheComponent implements OnInit {
