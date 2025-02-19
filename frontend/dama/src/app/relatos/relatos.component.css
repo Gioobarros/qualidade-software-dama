@@ -88,6 +88,17 @@ button:active {
     max-width: 1515px; /* Ajuste este valor conforme necessário */
     margin-top: 20px;
 }
+
+
+.relatos-conteudo {
+    word-wrap: break-word; /* Para quebrar palavras longas */
+    overflow-wrap: break-word; /* Para compatibilidade com navegadores */
+    white-space: normal; /* Para permitir quebras de linha */
+    max-height: 100px; /* Defina uma altura máxima se necessário */
+    overflow: auto; /* Para permitir rolagem se o conteúdo exceder a altura */
+    padding: 1rem; /* Adiciona um pouco de espaço interno */
+  }
+
 .title{
     text-align: center;
     font-size: 33.18px;
@@ -95,22 +106,16 @@ button:active {
     color: #FF6E6E;
 }
 
-.card-relato {
-    padding: 15px;
-    cursor: pointer;
-    user-select: none;
-    border-radius: 5px;
-    background-color: bisque;
-    border: 1px solid rgb(189, 189, 189);
-}
 
-.card-relato:hover {
-    transition: box-shadow 0.5s ease;
-    box-shadow: 0 0 10px rgb(71, 66, 66);
+/* Button Styles */
+:host { 
+--p-surface-0: #575757;    /* Cor da letra */
+--p-card-background: #fff; /* backgraound */
+--p-card-border-radius: var(--p-content-border-radius);
+--p-card-color: var(--p-content-color);
+--p-card-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+--p-card-body-padding: 1.5rem;
+--p-card-body-gap: 0.75rem;
+--p-justify-content: space-between;
+--p-card-display: flex;
 }
-
-.card-relato-usuario {
-    display: flex;
-    justify-content: flex-start;
-}
-

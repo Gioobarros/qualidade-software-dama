@@ -1,0 +1,14 @@
+.corpo{
+    
+
+}
+.body{
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 5%;
+    justify-content: center;
+    height: 100%;
+}

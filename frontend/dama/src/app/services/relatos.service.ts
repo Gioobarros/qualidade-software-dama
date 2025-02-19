@@ -7,29 +7,22 @@ export interface Relato {
   id?: string;
   conteudo: string;
   data_criacao: Date;
+  title: string;
+  content: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 
-
 export class RelatosService {
-  private apiUrl = 'http://127.0.0.1:8000/api/relato/'; 
-
-  constructor(private http: HttpClient) { }
-
+  private apiUrl = "http://127.0.0.1:8000/api" 
+  constructor(private http: HttpClient) {}
   retrieveRelato(): Observable<HttpResponse<Relato[]>> {
-    return this.http.get<Relato[]>(this.apiUrl, {observe: 'response' });
+    return this.http.get<Relato[]>(`${this.apiUrl}/relato/`, { observe: "response" })
   }
-
-  // retrieveRelato(params?: any): Observable<Relato[]> {
-  //   return this.http.get<Relato[]>(this.apiUrl, { params });
-  // }
-  
-  // // Exemplo de uso
-  // this.relatosService.retrieveRelato({ search: 'termo' }).subscribe(relatos => {
-  //   console.log(relatos);
-  // });
-  
+  getRelato(id: string): Observable<Relato> {
+    return this.http.get<Relato>(`${this.apiUrl}/relato/${id}/`)
+  }
 }
+

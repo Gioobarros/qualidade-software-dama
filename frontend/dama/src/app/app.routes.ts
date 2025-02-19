@@ -6,17 +6,14 @@ export const routes: Routes = [
     {
       path: '', pathMatch: 'full', redirectTo: 'index'
     },
+    { path: 'relato', component: RelatoComponent, canActivate: [AuthGuard] },   // Tela protegida
     {
-      path: 'editor',
-      loadComponent: () => import('./editor/editor.component').then(t => t.EditorComponent)
+      path: 'redeapoio',
+      loadComponent: () => import('./redeapoio/redeapoio.component').then(m => m.RedeapoioComponent)
     },
     {
       path: 'index',
       loadComponent: () => import('./index/index.component').then(i => i.IndexComponent)
-    },
-    {
-      path: 'list',
-      loadComponent: () => import('./list/list.component').then(l => l.ListComponent)
     },
     {
       path: 'login',
@@ -27,10 +24,6 @@ export const routes: Routes = [
       loadComponent: () => import('./cadastro/cadastro.component').then(c => c.CadastroComponent)
     },
     {
-      path: 'relato',
-      loadComponent: () => import('./relato/relato.component').then(r => r.RelatoComponent)
-    },
-    {
       path: 'muraldeforca',
       loadComponent: () => import('./relatos/relatos.component').then(s => s.RelatosComponent)
     },
@@ -38,8 +31,12 @@ export const routes: Routes = [
       path: 'material',
       loadComponent: () => import('./material/material.component').then(r => r.MaterialComponent)
     },
+    {
+      path: 'relato/:id',
+      loadComponent: () => import('./relato-detalhe/relato-detalhe.component').then(i => i.RelatoDetalheComponent)
+    },
     { 
-      path: 'dashboard', component: RelatoComponent, canActivate: [AuthGuard] // ⬅️ Protege esta rota
+      path: 'relato', component: RelatoComponent, canActivate: [AuthGuard] 
     },
   ];
   
