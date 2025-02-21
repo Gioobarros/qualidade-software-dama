@@ -38,5 +38,6 @@ export const routes: Routes = [
     { 
       path: 'relato', component: RelatoComponent, canActivate: [AuthGuard] 
     },
+    { path: '**', redirectTo: 'index'}
   ];
   
