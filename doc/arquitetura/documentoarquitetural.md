@@ -76,8 +76,6 @@ Os principais casos de uso estão destacados em rosa nas imagens abaixo:
 
 ### 5.2. Diagrama de Contexto
 
-![Texto alternativo](https://imgur.com/PTXbnIE.jpg)
-
 ![Diagrama de contexto atualizado](https://imgur.com/KhAiEkR.jpg)
 
 ##### Atores principais:
@@ -93,7 +91,7 @@ Os principais casos de uso estão destacados em rosa nas imagens abaixo:
 - **API externa**: Integra-se com o sistema para validar o CNPJ das ONGs, garantindo a confiabilidade.
 
 ### 5.3. Diagrama de Containers
-![Texto alternativo](https://imgur.com/MdPAZJB.jpg)
+![Texto alternativo](https://imgur.com/4HxDBxE.jpg)
 
 ##### Principais containers:
 A aplicação web foi desenvolvida com JavaScrpt e Angular que permite o acesso e interação dos três tipos de usuários com o sistema.A API service foi desenvolvida com Django REST, permite o gerenciamento da lógica da aplicação, processa as solicitações realizadas na aplicação web e interage com o banco de dados. O banco de dados armazena os dados do sistema, utiliza um modelo relacional para organizar as tabelas e os dados, é gerenciado e acessado através da API service.
