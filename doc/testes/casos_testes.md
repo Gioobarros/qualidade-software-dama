@@ -19,7 +19,7 @@
 |--------------|---------------|---------------|---------------|---------------|---------------|----------------------------------|-------------------------------|------------|
 | Maria     |16766253982      | 17/6257      | 84999999999 | pro  | Cadastrado corretamente  |Cadastro realizado|  |  |
 | Maria     | Não preenchido      | 17/6257 | 84999999999 | pro   | CPF não preenchido |Erro. Aviso de que campo “CPF” é obrigatório|  |  |
-| João     | 123      | 17/6239      | 84888888888      | pro      | CPF preenchido mas não válido      | Erro. Aviso de que o “CPF” é inválido  |  |   |
+| João     | 1234      | 17/6239      | 84888888888      | pro      | CPF preenchido mas não válido      | Erro. Aviso de que o “CPF” é inválido  |  |   |
 | Ana     | 16766253982      | 17/4208      | 84900000000      | pro      | CPF já cadastrado no sistema      | Erro. Aviso de que o “CPF” já está cadastrado  |  |  |
 | Samir     | 09826863862     | Não preenchido | 84966286153     | pro      | O campo “Conselho” não foi preenchido      | Erro. Aviso de que o campo “Conselho” é obrigatório  |  |  |
 | Bruna    | 51477258251      | 17/6258      | Não preenchido      | pro      | O campo “Contato” não foi preenchido      |  Erro. Aviso de que o campo “Contato” é obrigatório |  |   |
