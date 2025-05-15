@@ -7,12 +7,12 @@
 
 ## Testes funcionais
 ### Publicar relato
-| Conteúdo     | Publicador     | Usuário     | Resultado Esperado     | Resultado Obtido     | Situação    | 
+| Conteúdo     | Perfil     | Usuário     | Resultado Esperado     | Resultado Obtido     | Situação    | 
 |--------------|---------------|---------------|---------------|---------------|---------------|
-| Relato preenchido    | Usuário autenticado     | Preenche o campo corretamente e clica em “publicar”.      | Relato criado, status “sub”      |       |       | 
-| Não preenchido     | Usuário autenticado      | Tenta publicar um relato sem preencher.    | Erro. Aviso de que o preenchimento do campo é obrigatório  |      |    |        
-| Relato preenchido    | Usuário não autenticado      | Tenta publicar um relato sem estar autenticado    | Erro. Aviso de que apenas usuários autenticados podem publicar relatos. Redirecionado para login ou cadastro.       |       |    | 
-| Alteração no relato     | Usuário autenticado diferente do publicador     | Tenta editar um relato publicado por outro usuário.    | Erro. Aviso de que aquele usuário não possui permissão para editar aquele determinado relato.       |      |     | 
+|"Paciente sofreu violência obstétrica durante atendimento hospitalar."| ONG | Preenche o campo corretamente e clica em “publicar”.      | O relato foi registrado com sucesso. |       |       | 
+| Não preenchido     | pro | Tenta publicar um relato sem preencher.    | Erro: O conteúdo do relato não pode estar vazio.  |      |    |        
+|"Paciente relata tentativa de abuso por parte de cuidador em abrigo."| Usuário não autenticado      | Tenta acessar o formulário de relato e publica sem estar logado| Erro: Ocorreu um erro ao enviar o relato.      |       |    | 
+| Alteração no relato | ONG diferente da autora do relato | Tenta editar um relato publicado por outro usuário.    | Erro: 403 - Você não tem permissão para editar este relato.    |      |     | 
 
 ### Fazer cadastro de profissional
 | Username     | CPF    | Conselho     | Contato     | Perfil     | Usuário     | Resultado Esperado              | Resultado Obtido              | Situação   |
