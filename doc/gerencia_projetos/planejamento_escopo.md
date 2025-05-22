@@ -30,9 +30,31 @@ O projeto DAMA (Defesa e Apoio às Mulheres Agredidas) tem como principal objeti
     - Cadastro de vítimas;
 
 ## 3. Estrutura Analítica do Projeto (EAP)
-- **Hierarquia de Tarefas**: Crie uma estrutura que divida o projeto em partes menores e gerenciáveis. Isso pode incluir fases do projeto, entregas e tarefas específicas.
-- **Níveis de Detalhe**: Cada nível deve ser mais específico que o anterior. Por exemplo, a fase de execução pode ser dividida em desenvolvimento, testes e documentação.
-- **Numeração**: Use um sistema de numeração para facilitar a referência a cada parte da EAP.
+
+1. **Iniciação**
+    - 1.1 Levantamento 
+        - 1.1.1 Pesquisa com o público-alvo
+    - 1.2 Definição dos objetivos
+
+2. **Planejamento**
+    - 2.1 Planejamento do escopo
+    - 2.2 Planejamento das tecnologias e ferramentas que serão utilizdas
+    - 2.3 Definição do  cronograma 
+3. **Desenvolvimento**
+    - 3.1 Backend (Django)
+        - 3.1.1 Criação da API
+        - 3.1.2 Modelagem do banco de dados
+    - 3.2 Frontend (Angular)
+        - 3.2.1 Interface
+        - 3.2.2 Publicação de relatos e materiais educativos
+        - 3.2.3 Visualização de materiais educativos
+4. **Testes**
+    - 4.1 Testes de funcionalidades
+    - 4.2 Testes de usabilidade 
+    - 4.3 Ajustes 
+5. **Documentação**
+    - 5.1 Documentação técnica
+
 
 ## 4. Dicionário da EAP
 - **Definições**: Para cada item da EAP, forneça uma descrição clara e concisa. O que cada item significa e qual é seu propósito?
