@@ -4,7 +4,7 @@
 
 O projeto DAMA (Defesa e Apoio às Mulheres Agredidas) tem como principal objetivo de ser uma plataforma que ofereça acesso facilitado, suporte e orientações para mulheres vítimas de violência, integrando informações educativas.
 
-- **Específico (S)**: Plataforma educativa de apoio às mulheres vítimas de violência.
+- **Específico (S)**: Plataforma informativa e educativa de apoio às mulheres vítimas de violência.
 
 - **Mensurável (M)**: Serão utilizados os indicadores > 80% de testes com o público-alvo e pela satisfção dos usuários, utilizando uma nota média maior do que 4.
 
@@ -17,7 +17,7 @@ O projeto DAMA (Defesa e Apoio às Mulheres Agredidas) tem como principal objeti
 ## 2. Declaração do Escopo
 - **Escopo**: O escopo inclui a criação de um sistema web que apresente: 
     - Cadastro de usuários (ONGs e profissionais);
-    - Publicação de relatos das vítimas pelos usuários já cadastrados;
+    - Publicação de relatos das vítimas por ONGs e Profissionais já cadastrados;
     - Cadastro e visualização de materiais educativos;
     - Interface acessível e responsiva;
     - Testes de usabilidade;
@@ -48,10 +48,14 @@ O projeto DAMA (Defesa e Apoio às Mulheres Agredidas) tem como principal objeti
         - 3.2.1 Interface
         - 3.2.2 Publicação de relatos e materiais educativos
         - 3.2.3 Visualização de materiais educativos
+    -3.3 - nuvem
 4. **Testes**
     - 4.1 Testes de funcionalidades
-    - 4.2 Testes de usabilidade 
-    - 4.3 Ajustes 
+    - 4.2 Testes de usabilidade (Avaliação empírica)
+    - 4.3 Ajustes
+    - 4.4 Testes não funcionais
+    - Testes unitários
+    - Testes da API
 5. **Documentação**
     - 5.1 Documentação técnica
 
