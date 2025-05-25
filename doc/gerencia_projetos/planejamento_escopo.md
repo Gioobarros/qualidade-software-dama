@@ -105,6 +105,25 @@ O projeto DAMA (Defesa e Apoio às Mulheres Agredidas) tem como principal objeti
 | 3.4.5    | Testes não funcionais                | Testes de desempenho, segurança, entre outros aspectos não funcionais. |
 | 3.4.6    | Ajustes pós testes                   | Correções e melhorias com base nos testes realizados. |
 
+## 5. Escopo do produto e critérios de aceitação
+
+O produto final será uma plataforma com funcionalidades voltadas à orientação de mulheres vítimas de violência. Estará disponível em ambiente de produção, conter documentação, apresentar interface, além de passar por testes.
+
+#### Critérios de aceitação:
+- O sistema deverá estar em um ambiente de nuvem e deve ser funcional;
+- Os testes devem atingir resultados satisfatórios;
+- Todos os requisitos definidos deverão estar implementados e funcionais;
+
+## 6. Restrições
+- O projeto deverá ser finalizado até o final do primeiro semestre de 2025;
+- Recursos financeiros limitados;
+- Trabalho realizado por poucos estudantes com disponibilidade limitada;
+
+## 7. Premissas
+- O público-alvo deverá participar dos testes de usabilidade;
+- Os aplicativos gratuitos que são utilizados para desenvolvimento do projeto devem existir até a finalização do projeto;
+- Não ocorrerá grandes mudanças nos requisitos até a finalização;
+
 ## Entrega dos artefatos
 | Entrega                    | Descrição                                                                 |
 |--------------------------|---------------------------------------------------------------------------|
