@@ -75,16 +75,16 @@ O projeto DAMA (Defesa e Apoio às Mulheres Agredidas) tem como principal objeti
 
 | Código   | Elemento                             | Descrição                                                                 |
 |----------|--------------------------------------|---------------------------------------------------------------------------|
-| 1        | Iniciação                            | Primeira etapa, pesquisas sobre o problema. |
+| 1        | Estudos preliminares                            | Primeira etapa, pesquisas sobre o problema. |
 | 1.1      | Levantamento                         | Coleta de informações junto ao público-alvo.                  |
-| 1.1.1    | Pesquisa com o público-alvo          | Aplicação de questionários via Google Forms para entender as necessidades do público-alvo. |
 | 1.2      | Definição dos objetivos              | Estabelecimento das metas do projeto. |
 | 1.3      | Documentação dos requisitos          | Registro das funcionalidades esperadas. |
-| 2        | Planejamento                         | Organização do escopo e tecnologias que serão utilizadas.               |
+| 1.4    | Pesquisa com o público-alvo          | Aplicação de questionários via Google Forms para entender as necessidades do público-alvo. |
+| 2        | Gerenciamento                        | Organização do escopo e tecnologias que serão utilizadas.               |
 | 2.1      | Planejamento do escopo               | Definição dos objetivos do projeto, do que será e não será entregue. |
 | 2.2      | Planejamento das tecnologias e ferramentas | Escolha das linguagens, frameworks, serviços e ferramentas a serem utilizadas. |
 | 2.3      | Definição do cronograma              | Planejamento das datas e prazos para cada etapa do projeto. |
-| 3        | Desenvolvimento                      | Construção do sistema, tanto backend quanto frontend. |
+| 3        | Desenvolvimento e implantação                     | Construção do sistema, tanto backend quanto frontend. |
 | 3.1      | Backend (Django)                     | Implementação do sistema. |
 | 3.1.1    | Criação da API                       | Desenvolvimento dos endpoints. |
 | 3.1.2    | Modelagem do banco de dados          | Estruturação do banco relacional. |
@@ -114,7 +114,7 @@ O produto final será uma plataforma com funcionalidades voltadas à orientaçã
 - Os testes devem atingir resultados satisfatórios;
 - Todos os requisitos definidos deverão estar implementados e funcionais;
 
-## 6. Restrições
+## 6. Restrições temporais
 - O projeto deverá ser finalizado até o final do primeiro semestre de 2025;
 - Recursos financeiros limitados;
 - Trabalho realizado por poucos estudantes com disponibilidade limitada;
