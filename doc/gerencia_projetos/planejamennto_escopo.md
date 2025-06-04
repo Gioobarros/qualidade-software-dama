@@ -35,18 +35,18 @@ O projeto DAMA (Defesa e Apoio às Mulheres Agredidas) tem como principal objeti
 
 ## 3. Estrutura Analítica do Projeto (EAP)
 
-1. **Iniciação**
+1. **Estudos prelimiares**
     - 1.1 Levantamento
-        - 1.1.1 Pesquisa com o público-alvo
     - 1.2 Definição dos objetivos
     - 1.3 Documentação dos requisitos
+    - 1.4 Pesquisa com o público-alvo
 
-2. **Planejamento**
+2. **Gerenciamento**
     - 2.1 Planejamento do escopo
     - 2.2 Planejamento das tecnologias e ferramentas que serão utilizdas
     - 2.3 Definição do  cronograma
 
-3. **Desenvolvimento**
+3. **Desenvolvimento e implantação**
 
     - 3.1 Backend (Django)
         - 3.1.1 Criação da API
