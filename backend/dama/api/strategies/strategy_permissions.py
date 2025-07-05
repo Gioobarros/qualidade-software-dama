@@ -12,7 +12,7 @@ class UsuarioPermission(PermissaoStrategy):
             return [IsAuthenticated()]
         return [AllowAny()]
     
-class RelatoPermission(PermissaoStrategy):
+class PublicacaoPermission(PermissaoStrategy):
 
     def get_permissions(self, action):
         if action in ['create', 'partial_update', 'destroy']:
@@ -22,6 +22,17 @@ class RelatoPermission(PermissaoStrategy):
     def validar(self, user):
         if user.perfil == 'admin':
             raise ValueError("Perfil de publicador inválido.")
+
+class EntidadePermission(PermissaoStrategy):
+
+    def get_permissions(self, action):
+        if action in ['create', 'partial_update', 'destroy']:
+            return [IsAuthenticated()]
+        return [AllowAny()]
+    
+    def validar(self, user):
+        if user.perfil != 'admin':
+            raise ValueError("Perfil de inválido para criação de entidades.")
 
 
 

@@ -1,22 +1,23 @@
 from django.http import Http404
 from rest_framework import status
 from rest_framework import viewsets
-from api.filters.relato_filter import RelatoFilter
-from api.serializer.relato import RelatoSerializer, Relato
-from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
+from api.filters.entidade_filter import EntidadeFilter
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.permissions import IsAuthenticated, AllowAny
-from api.strategies.strategy_permissions import RelatoPermission
+from api.serializer.entidade import EntidadeSerializer, Entidade
+from api.strategies.strategy_permissions import EntidadePermission
 
-class RelatoView(viewsets.ModelViewSet):
-    queryset = Relato.objects.all()
-    serializer_class = RelatoSerializer
-    filterset_class = RelatoFilter
+
+
+class EntidadeView(viewsets.ModelViewSet):
+    queryset = Entidade.objects.all()
+    filter_class = EntidadeFilter
     filter_backends = [DjangoFilterBackend]
-    search_fields = ['conteudo', 'data_criacao', 'status']
-    ordering_fields = ['data_criacao']
-    permission_strategy = RelatoPermission()
+    serializer_class = EntidadeSerializer
+    search_fields = ['nome', 'rua', 'tipo', 'municipio', 'cep']
+    ordering_fields = ['nome']
+    permission_strategy = EntidadePermission()
 
     def get_permissions(self):
         return self.permission_strategy.get_permissions(self.action)
@@ -25,7 +26,7 @@ class RelatoView(viewsets.ModelViewSet):
         try:
             self.permission_strategy.validar(request.user)  # Correção
 
-            serializer = RelatoSerializer(data=request.data)
+            serializer = EntidadeSerializer(data=request.data)
 
             if serializer.is_valid():
                 serializer.save()
@@ -58,7 +59,7 @@ class RelatoView(viewsets.ModelViewSet):
             itens = self.filter_queryset(self.get_queryset())
 
             if not itens.exists():
-                return Response({'messagem': 'Nenhum relato foi achado'}, status=status.HTTP_404_NOT_FOUND)
+                return Response({'messagem': 'Nenhuma entidade foi achada'}, status=status.HTTP_404_NOT_FOUND)
             
             serializer = self.get_serializer(itens, many=True)
 
@@ -72,14 +73,7 @@ class RelatoView(viewsets.ModelViewSet):
         try:
             item = self.get_object()
 
-            serializer = self.get_serializer(
-                item, 
-                data=request.data, 
-                partial=True, 
-                context={
-                    'usuario': request.user
-                }
-                )
+            serializer = self.get_serializer(item, data=request.data, partial=True)
 
             if serializer.is_valid():
                 serializer.save()
@@ -95,11 +89,14 @@ class RelatoView(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         try:
             if 'id' in request.data:
-                item = get_object_or_404(Relato, id=request.data.get("id"))
+                item = get_object_or_404(Entidade, id=request.data.get("id"))
 
                 item.delete() 
 
-                return Response({'mensagem': 'relato deletado com sucesso'}, status=status.HTTP_204_NO_CONTENT)
+                return Response({'mensagem': 'Entidade deletada com sucesso'}, status=status.HTTP_204_NO_CONTENT)
+            
+            else:
+                return Response({'erro': 'id não foi informado'}, status=status.HTTP_400_BAD_REQUEST)
 
         except Exception:
             return Response({'erro': 'problema na api'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

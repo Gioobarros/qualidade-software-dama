@@ -1,9 +1,9 @@
 from django.contrib import admin
-from api.models.relato import Relato
+from api.models.publicacao import Publicacao
 
 
-@admin.register(Relato)
-class AdminRelato(admin.ModelAdmin):
+@admin.register(Publicacao)
+class AdminPublicacao(admin.ModelAdmin):
     list_display = ("id", "conteudo", "data_criacao", "get_username", "status")  
     search_fields = ("publicador__username", "status")  
 

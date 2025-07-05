@@ -6,13 +6,6 @@ class UsuarioStrategy(ABC):
     def validar_usuario(self, perfil):
         pass
 
-class AdminStrategy(UsuarioStrategy):
-    def validar_usuario(self, request):
-        admin = getattr(request.user, 'admin', None)
-        if not admin:
-            raise PermissionDenied("Usuário não é um admin") 
-        return admin  
-
 class ProfissionalStrategy(UsuarioStrategy):
     def validar_usuario(self, request):
         profissional = getattr(request.user, 'profissional', None)
