@@ -1,6 +1,8 @@
 from pathlib import Path
+import os
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'django-insecure-i$n+&t-0mb3+oz!zucqv9lx8w48%f-0^ebnf#@g#24k6y!-f-i'
 
@@ -44,7 +46,6 @@ INSTALLED_APPS = [
     'django_filters'
 ]
 
-
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -75,7 +76,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'dama.wsgi.application'
-
 
 DATABASES = {
     'default': {
@@ -114,3 +114,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+
+

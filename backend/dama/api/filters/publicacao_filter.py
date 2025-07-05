@@ -1,8 +1,8 @@
 import django_filters
-from api.models.relato import Relato
+from api.models.publicacao import Publicacao
 
 
-class RelatoFilter(django_filters.FilterSet):
+class PublicacaoFilter(django_filters.FilterSet):
     palavra_chave = django_filters.CharFilter(field_name='conteudo', lookup_expr='regex')
 
     data_inicio = django_filters.DateFilter(field_name='data_criacao', lookup_expr='gte')
@@ -11,6 +11,8 @@ class RelatoFilter(django_filters.FilterSet):
 
     status = django_filters.CharFilter(field_name='status', lookup_expr='exact')
 
+    tag = django_filters.CharFilter(field_name='tag', lookup_expr='exact')
+
     class Meta:
-        model = Relato
-        fields = ['palavra_chave', 'data_criacao']
+        model = Publicacao
+        fields = ['palavra_chave', 'data_criacao', 'tag']
