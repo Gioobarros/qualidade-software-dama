@@ -1,5 +1,4 @@
 from .ong import AdminOng
 from .profissional import AdminProfissional
-from .relato import AdminRelato
+from .publicacao import AdminPublicacao
 from .usuario import AdminUsuario
-from .relato import AdminRelato

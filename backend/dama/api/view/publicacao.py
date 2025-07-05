@@ -1,22 +1,22 @@
 from django.http import Http404
 from rest_framework import status
 from rest_framework import viewsets
-from api.filters.relato_filter import RelatoFilter
-from api.serializer.relato import RelatoSerializer, Relato
+from api.filters.publicacao_filter import PublicacaoFilter
+from api.serializer.publicacao import PublicacaoSerializer, Publicacao
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from api.strategies.strategy_permissions import RelatoPermission
+from api.strategies.strategy_permissions import PublicacaoPermission
 
-class RelatoView(viewsets.ModelViewSet):
-    queryset = Relato.objects.all()
-    serializer_class = RelatoSerializer
-    filterset_class = RelatoFilter
+class PublicacaoView(viewsets.ModelViewSet):
+    queryset = Publicacao.objects.all()
+    serializer_class = PublicacaoSerializer
+    filterset_class = PublicacaoFilter
     filter_backends = [DjangoFilterBackend]
     search_fields = ['conteudo', 'data_criacao', 'status']
     ordering_fields = ['data_criacao']
-    permission_strategy = RelatoPermission()
+    permission_strategy = PublicacaoPermission()
 
     def get_permissions(self):
         return self.permission_strategy.get_permissions(self.action)
@@ -25,7 +25,7 @@ class RelatoView(viewsets.ModelViewSet):
         try:
             self.permission_strategy.validar(request.user)  # Correção
 
-            serializer = RelatoSerializer(data=request.data)
+            serializer = PublicacaoSerializer(data=request.data)
 
             if serializer.is_valid():
                 serializer.save()
@@ -58,7 +58,7 @@ class RelatoView(viewsets.ModelViewSet):
             itens = self.filter_queryset(self.get_queryset())
 
             if not itens.exists():
-                return Response({'messagem': 'Nenhum relato foi achado'}, status=status.HTTP_404_NOT_FOUND)
+                return Response({'messagem': 'Nenhuma Publicacao foi achado'}, status=status.HTTP_404_NOT_FOUND)
             
             serializer = self.get_serializer(itens, many=True)
 
@@ -95,11 +95,11 @@ class RelatoView(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         try:
             if 'id' in request.data:
-                item = get_object_or_404(Relato, id=request.data.get("id"))
+                item = get_object_or_404(Publicacao, id=request.data.get("id"))
 
                 item.delete() 
 
-                return Response({'mensagem': 'relato deletado com sucesso'}, status=status.HTTP_204_NO_CONTENT)
+                return Response({'mensagem': 'Publicacao deletado com sucesso'}, status=status.HTTP_204_NO_CONTENT)
 
         except Exception:
             return Response({'erro': 'problema na api'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
