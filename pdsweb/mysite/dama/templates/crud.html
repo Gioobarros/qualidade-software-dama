@@ -1,0 +1,155 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/perfil-main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+
+    <title>CRUD</title>
+
+    <style>
+      main {
+        min-height: 520px;
+        padding: 5px;
+        background-color: rgba(240, 229, 223, 0.8);
+        background-image: url("{% static 'img/bg-cadastro.png' %}");
+        background-size: auto;
+        background-repeat: no-repeat;
+        background-blend-mode: hard-light;
+        background-position: bottom left;       
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-size: 18px;     
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <header class="borda0 header">
+      <div class="borda0 header-div header-div-left">
+                <a href="{% url 'dama:index' %}">
+          <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="logomarca do Dama" />
+        </a>
+      </div>
+      <nav class="borda0 header-nav">
+        <ul>
+          <li><a href="{% url 'dama:index' %}">Home</a></li>
+          <li><a href="#">Quem Somos</a></li>
+          <li><a href="{% url 'dama:materiais' %}">Conheça seus direitos</a></li>
+          <li><a href="#">Rede de apoio</a></li>
+          <li><a href="{% url 'dama:mural' %}">Mural de Força</a></li>
+        </ul>
+      </nav>
+      <div class="borda0 header-div-right">
+
+          <p style="cursor: pointer">
+            {{ nome_login }}
+          </p>
+
+          <button id="voltar" class="button-header">
+            <a href="{% url 'dama:index' %}">Voltar</a>
+        </button>
+      </div>
+    </header>
+
+    <main id="main" class="borda2">
+
+        <div id="div-perfil" class="div-form borda1">
+
+            <div id="dados-perfil" class='borda2'>
+
+              {% if not mensagem_erro %}
+                
+              <h1>Manter perfil do usario - {{ nome_login }} </h1>
+
+              <h2>Tipo do Usuario: {{ tipo_usuario }}</h2>
+          
+              {% if tipo_usuario == 'profissional' %}
+                  <p>Nome Completo: {{ nome_completo }}</p>
+                  <p>Cadastro CRP: {{ cadastro_crp }}</p>
+                  <p>Telefone: {{ telefone }}</p>
+                  <p>Email: {{ email }}</p>
+                  
+              {% elif tipo_usuario == 'ong' %}
+                  <p>Razão Social: {{ razao_social }}</p>
+                  <p>CNPJ: {{ cnpj }}</p>
+                  <p>Telefone: {{ telefone }}</p>
+                  <p>Email: {{ email }}</p>
+              
+              {% else %}
+                  <p>Nome de Login: {{ nome_login }}</p>
+              {% endif %}
+              
+              <div id="div-buttons" class='borda1'>
+                  <button id="atualizar-conta" class="button-header borda1">
+                      <a href="{% url 'dama:editar' %}">Atualizar Perfil</a>
+                  </button>
+                  
+                  <button id="deletar-conta" class="button-header borda1">
+                      <a href="{% url 'dama:delete' %}">Excluir Perfil</a>
+                  </button>
+              </div>
+          
+          {% else %}
+              <p style="color: red;">{{ mensagem_erro }}</p>
+          {% endif %}
+    
+          {% if not request.user.usuarioanonimo %}
+          <button id="deletar-conta" class="button-header">
+              <a href="{% url 'dama:material' %}">Publicar Material</a>
+          </button>
+          {% endif %}
+          
+        <button id="voltar" class="button-header">
+            <a href="{% url 'dama:index' %}">Voltar</a>
+        </button>
+        </div>
+    </main>
+
+    <div id="cadastrado" class="oculto borda0">
+      <div class="cadastrado-janela borda0">
+          <h1>
+            Usuaria(o) cadastrada(o) com sucesso!<br>
+          </h1>
+      </div>
+      <div class="cadastrado-janela borda0">
+          <h1>
+            <span onclick="Login()">Acesse o DAMA com a sua nova conta aqui</span>            
+          </h1>
+      </div>
+    </div>
+
+    <footer class="borda0">
+      <div class="footer-div footer-div-left borda0">
+          <p>emergencia?</p>
+          <h1><span>ligue 180</span></h1>
+      </div>
+      <div class="footer-div footer-div-center borda0">
+        <div class="footer-div-center-top borda0" >
+            <h1>Ajuda</h1>
+        </div>
+
+        <div class="footer-div-center-bottom borda0">
+          <p><a href="#">Sobre nós</a></p>
+          <p><a href="#">Seja apoiador</a></p>
+          <p><a href="#">Seja voluntário</a></p>
+          <p><a href="{% url 'dama:materiais' %}">Conheça seus direitos</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-div footer-div-right borda0">
+        <img src="{% static 'img/logo_rn.png' %}" alt="">
+      </div>
+  </footer>
+
+    <script src="{% static 'js/perfil.js' %}"></script>
+  </body>
+</html>

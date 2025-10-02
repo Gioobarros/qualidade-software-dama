@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="content-wrapper">
+<main>
+    <div class="div-form">
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm" action="/login" method="post" name="login">
+            <h1>Login</h1>
+            <div id="nome-form" class="div-form-div">
+                <label for="nome">Nome do Usuario</label>
+                <div>
+                    <input type="text" id="nome" name="username" [(ngModel)]="username" required placeholder="Nome de usuário" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+                </div>
+            </div>
+            <div id="senha-form" class="div-form-div">
+                <label for="senha">Senha</label>
+                <div>
+                    <input type="password" id="senha" name="password" [(ngModel)]="password" required placeholder="Digite sua senha" onfocus="removePlaceholder(this.id)" onblur="addPlaceholder(this.id)">
+                </div>
+            </div>
+            <div id="D-redef-senha" class="div-form-div">
+                <a id="redef-senha" href="">Esqueceu sua senha?</a>
+            </div>
+            
+            <div id="submeter">
+                    <button id="entrar" type="submit" class="button-form" [disabled]="!loginForm.form.valid">Entrar</button>
+            </div>
+            <div id="sem-conta" class="div-form-div">
+                <a href="/cadastro">Não tem conta no DAMA? <br>Crie uma aqui!</a>
+            </div>
+        </form>
+    </div>
+</main>
+</div>
+

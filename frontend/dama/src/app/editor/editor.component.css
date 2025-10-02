@@ -1,0 +1,12 @@
+:host {
+  --p-editor-toolbar-background: #f0f0f0; /* Cabeçalho */
+  --p-editor-toolbar-border-color: #c9c9c9; /* Borda cabeçalho */
+  --p-editor-toolbar-border-radius: 8px; /* Exemplo de novo raio de borda */
+  --p-editor-toolbar-item-color: #000000; /* Exemplo de nova cor de item */
+  --p-editor-toolbar-item-hover-color: #D44E5A; /* Exemplo de nova cor de item ao passar o mouse */
+  --p-editor-toolbar-item-active-color: #7e2f36; /* Exemplo de nova cor de item ativo */
+  --p-editor-content-background: #f0f0f0; /* Fundo onde escreve */
+  --p-editor-content-border-color: #dcdcdc; /* Borda cinza claro para o conteúdo */
+  --p-editor-content-color: #000000; /* Cor do texto do conteúdo em cinza escuro */
+  --p-editor-content-border-radius: 4px; /* Raio de borda do conteúdo */
+}

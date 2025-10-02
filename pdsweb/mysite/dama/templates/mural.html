@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/mural-main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+
+
+    <title>Mural de Força</title>
+  </head>
+
+  <body>
+    <header id="cabecalho" class="borda0">
+      <div class="borda0 header-div header-div-left">
+        <a href="{% url 'dama:index' %}">
+          <img id="logo-img" src="{% static 'img/logo-dama.png' %}" alt="logomarca do Dama" />
+        </a>
+      </div>
+      <nav class="borda0 header-nav">
+        <ul>
+          <li><a href="{% url 'dama:index' %}">Home</a></li>
+          <li><a href="#">Quem Somos</a></li>
+          <li><a href="{% url 'dama:materiais' %}">Conheça seus direitos</a></li>
+          <li><a href="#">Rede de apoio</a></li>
+          
+        </ul>
+      </nav>
+      <div class="borda0 header-div-right">
+
+        {% if request.user.is_authenticated %}
+
+        <div id="usuario-logado" class="borda2">
+                <a href="{% url 'dama:perfil' %}">{{ request.user.username }}!</a>
+            </div>
+        
+        <div id="logout" class="borda2">
+          <form method="post" action="{% url 'dama:logout' %}" style="display: inline;">
+            {% csrf_token %}
+            <button class="button-header" type="submit">Sair</button>
+          </form>
+        </div>
+
+        {% else %}
+
+        <button id="header-login" class="button-header">
+          <a href="{% url 'dama:login' %}">Entrar</a>
+        </button>
+
+        {% endif %}
+      </div>
+    </header>
+
+    <main id="main">
+
+      <div id="main-div" class="borda0">
+        <table class="borda0">
+            <thead id="thead">
+                <tr id="thead" class="borda0">
+                    <th id="mural" class="borda0" colspan="5">Mural de Força</th>
+                </tr>
+                <tr id="intervalo" class="borda0">
+                  <th class="borda0" colspan="5">
+                      <label for="inicio">De:</label>
+                      <input type="date" id="inicio" name="inicio">
+                      <label for="fim">Até:</label>
+                      <input type="date" id="fim" name="fim">
+                      <a href="{% url 'dama:relato' %}"><button id="filtroButton">Envie sua história</button></a>
+                  </th>
+              </tr>
+            </thead>
+            <tbody class="borda0">
+              {% for relato in relatos %}
+                {% if forloop.counter0|divisibleby:4 %}
+                  {% if forloop.counter0 != 0 %}
+                    </tr>
+                  {% endif %}
+                  <tr>
+                {% endif %}
+                <td class="coluna-1" data-column="1">
+                  <div class="borda0 div-texto">
+                    <p>{{ relato.Relato }}</p>
+                  </div>
+                  <div class ="borda div-info"> 
+                    <div class="borda0 div-usuario">
+                      <p>{{ relato.usuario.username }}</p>
+                    </div>
+                    <div class="borda0 div-date">
+                      <br> {{ relato.dataformatada }}</p>
+                    </div>
+                  </div>
+                </td>
+              {% endfor %}
+              {% if forloop.counter|divisibleby:4 == False %}
+                </tr>
+              {% endif %}
+            </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-div footer-div-left borda0">
+            <p>emergencia?</p>
+            <h1><span>ligue 180</span></h1>
+        </div>
+        <div class="footer-div footer-div-center borda0">
+          <div class="footer-div-center-top borda0" >
+              <h1>Ajuda</h1>
+          </div>
+          <div class="footer-div-center-bottom borda0">
+            <p><a href="#">Sobre nós</a></p>
+            <p><a href="#">Seja apoiador</a></p>
+            <p><a href="#">Seja voluntário</a></p>
+            <p><a href="{% url 'dama:materiais' %}">Conheça seus direitos</a></p>
+          </div>
+        </div>
+        <div class="footer-div footer-div-right borda0">
+          <img src="{% static 'img/logo_rn.png' %}" alt="">
+        </div>
+    </footer>
+
+    <script src="{% static 'js/mural.js' %}"></script>
+  </body>
+</html>

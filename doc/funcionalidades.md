@@ -1,0 +1,13 @@
+# DAMA - Defesa e Apoio às Mulheres Agredidas
+
+O projeto DAMA (Defesa e Apoio às Mulheres Agredidas) é uma ferramenta digital dedicada ao apoio, orientação e defesa das mulheres vítimas de qualquer tipo de violência. O site oferece recursos educacionais, visando fornecer suporte seguro para as usuárias.
+
+# Funcionalidades 
+| Funcionalidade         | Descrição                                                                 | Objetivo                                                                 |
+|------------------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| **Consultar e visualizar órgãos e profissionais de apoio**   | Permite que os usuários consultem e visualizem as informações referentes aos órgãos e profissionais de apoio que estão disponíveis para ajudar. | Facilitar o acesso dos usuários à rede de apoio, promovendo uma resposta mais eficaz para as vítimas. |
+| **Gerenciar profissionais de apoio** | Permite que os administradores do sistema gerenciem os dados dos profissionais de apoio cadastrados no sistema que desejam ajudar os usuários do sistema e/ou vítimas de violência. | Facilitar a gestão e organização dos profissionais de apoio cadastrados no sistema, garantindo uma ajuda qualificada.           |
+| **Publicar material educativo**      | Permite que os profissionais de apoio publiquem materiais educativos que serão disponibilizados para todos os leitores do sistema, incluindo informações de como buscar ajuda, prevenção de violência e direitos das mulheres. | Informar, educar e conscientizar a comunidade sobre violência contra a mulher.  |
+| **Apresentar estatísticas de casos** | Apresenta dados estatísticos sobre ocorrências de denúncias registrados no sistema, permitindo que seja desenvolvido estratégias de prevenção. | Fornecer informações para que haja ações de preveção contra a violência contra a  mulher. |
+| **Gerenciar membros do sistema** | Permite o gerenciamento dos dados dos usuários cadastrados no sistema. | Garantir que os usuários cadastrados possuam a conta devidamente gerenciada e protegida, com o acesso controlado às funcionalidades, conforme o tipo de usuário. |
+| **Publicar trabalhos voluntários** | Permite que os profissionais publiquem seus trabalhos voluntários oferecidos às vítimas de violência. | Facilitar o acesso das vítimas a serviços de apoio voluntários e gratuitos, ajudando no reestabelecimento das suas vidas. |

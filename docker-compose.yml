@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # 1. Serviço da Aplicação Django
+  web:
+    # O VS Code irá construir o container a partir do Dockerfile que criaremos no Passo 3
+    build: .
+    # Mapeia a porta 8000 do container para a porta 8000 da sua máquina
+    ports:
+      - "8000:8000"
+    # Monta o código do seu projeto para o diretório /app dentro do container
+    volumes:
+      - .:/app
+    # Executa o servidor Django após o container iniciar
+    command: python manage.py runserver 0.0.0.0:8000
+    # Garante que o container "web" só inicie depois que o "db" estiver pronto
+    depends_on:
+      - db
+    # Variáveis de ambiente (ajuste conforme seu settings.py)
+    environment:
+      - POSTGRES_NAME=django_db
+      - POSTGRES_USER=django_user
+      - POSTGRES_PASSWORD=django_password
+      - DJANGO_SECRET_KEY=sua_super_chave_secreta
+
+  # 2. Serviço do Banco de Dados PostgreSQL
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=django_db
+      - POSTGRES_USER=django_user
+      - POSTGRES_PASSWORD=django_password
+    # Você pode expor a porta 5432 se quiser acessar o banco de dados de fora do container
+    # ports:
+    #   - "5432:5432"
+
+volumes:
+  postgres_data:

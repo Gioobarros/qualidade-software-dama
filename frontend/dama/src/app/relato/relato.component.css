@@ -1,0 +1,129 @@
+
+main{
+    background-color: #FFF9F8;
+}
+
+section{
+    width: 100%; 
+    height: 85vh; 
+    display: flex; 
+    margin-top: 1em;
+    align-items: center;
+    background-size: auto;
+    flex-direction: column; 
+    justify-content: flex-start;
+    background-repeat: no-repeat;
+    background-blend-mode: hard-light;
+    background-position: bottom left;
+}
+
+form{
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.form-grupo, header{
+    padding: 1em;
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+#relato{
+    width: 100%; 
+    height: 500px; 
+    max-width: 700px; 
+    max-height: 1000px; 
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    background-image: linear-gradient(white, white), radial-gradient(circle, rgba(255, 183, 183, 0.5), rgba(255, 91, 91, 0.7));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 6px;
+    resize: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #relato:focus {
+    outline: none;
+    border: 6px solid rgba(255, 91, 91, 0.05);
+    box-shadow: 0 4px 12px rgba(255, 91, 91, 0.5);
+    background-color: #fff;
+}
+
+#relato::placeholder {
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 50vh;
+}
+
+.oculto{
+    display: none;
+}
+
+.embassado{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.confirmation-div {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1em 2em;
+    background-color: #fff; 
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px;
+    width: 40%;
+    height: auto;
+    z-index: 9999; 
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+}
+
+#relatoButton {
+    background-color: rgba(255, 90, 90, 1);
+    border: none;
+    padding: 1em 2em;
+    height: 35px;
+    font-size: 16px;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    cursor: pointer;
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    background-color: none;
+}
+
+#relatoButton:hover {
+    background-color: rgba(255, 100, 100, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#relatoButton:active {
+    background-color: rgba(255, 100, 110, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.borda1{
+    border: 1px solid #000;
+}
+
+.borda2{
+    border: 1px solid #fd0505;
+}
+
