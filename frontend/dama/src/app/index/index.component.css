@@ -1,0 +1,364 @@
+span{
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+/*  DIV1    */
+
+.main-div1{
+    height: 700px;
+    display: flex;
+    min-height: 600px;
+    position: relative;
+    background-size: cover;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+.banner {
+    background-image: url("/images/bannerhome.png");
+}
+
+.main-div1-left{
+    width: 100%;
+    height: 100%; 
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-div1-right{
+    width: 50%;
+    height: 100%;
+    max-height: 500px;
+    padding-left: 49.3%;
+
+}
+
+.main-div1-right-top{
+    height: 50%;
+    display: flex;
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-div1-right-top p{
+    font-size: 25px;
+}
+
+.main-div1-right-top span{
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.main-div1-right-bottom{
+    display: flex;
+    height: 50%;
+    align-items: center;
+    padding-left: 45%;
+}
+
+
+.button-main {
+    background-color: #D44E5A;
+    border: none;
+    padding: 20px ;
+    width: 260px;
+
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 50px; /* Completely round edges */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    background-color: none;
+
+    color: white;
+    font-size: 19.2px;
+    text-align: center;
+    text-decoration: none;
+    font-style: oblique;
+}
+
+.button-main:hover {
+    background-color: rgba(255, 100, 100, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    
+}
+
+.button-main:active {
+    background-color: rgba(255, 100, 110, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.main-div1-div-bottom{
+    width: 100%;
+    height: 100%;
+    max-height: 220px;
+    position: bottom; 
+    margin: 3px;
+}
+
+/*  fim DIV1    */
+
+
+/*  DIV2    */
+.main-div2{
+    width: 100%;
+    /* height: 33%;  */
+    min-height: 500px;
+    background-color: #FFF;
+    display: flex;
+}
+
+.main-div2-left, .main-div2-right{
+    flex: 1;
+}
+
+
+.main-div2-left{
+    height: 100%;
+    min-height: 500px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+}
+
+.main-div2-right {
+    height: 100%;
+    width: 50%;
+    padding: 5px;
+    position: relative;
+}
+
+#relato{
+    margin-top: 20px;
+}
+
+.main-div2-right-top{
+    height: 50%;
+    display: flex;
+    text-align: right;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    padding-left: 5%;
+}
+
+.main-div2-right-top p{
+    font-size: 25px;
+}
+
+.main-div2-right-bottom{
+    display: flex;
+    height: 50%;
+    align-items: center;
+    padding-left: 43.5%;
+}
+
+.main-div2-left img{
+    height: 80%;
+    width: 50%;
+}
+
+.main-div2 h1{
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: rgba(165, 55, 154, 1);
+}
+
+.main-div2 p{
+    font-size: 25px;
+}
+
+
+.button-main-div2 {
+    background-color: rgba(255, 70, 70, 1);
+    border: none;
+    padding: 10px 5px;
+    
+    width: 280px;
+    height: 53px;
+    
+
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 60px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    background-color: none;
+
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+}
+
+.button-main-div2:hover {
+    background-color: rgba(255, 100, 100, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    
+}
+
+.button-main-div2:active {
+    background-color: rgba(255, 100, 110, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/*  DIV2    */
+
+
+/*  DIV3    */
+.main-div3{
+    
+    width: 100%;
+    height: 33%; 
+    max-height: 500px;
+    background-color: rgba(240, 229, 223,1);
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-div3-left{
+    height: 100%;
+    max-height: 500px;
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-div3-right{
+    height: 100%;
+    max-height: 500px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.article-direitos{
+    width: auto;
+    height: auto;
+    margin-left: 10px;
+    padding-left: 5px;
+    position: relative;
+}
+
+.article-direitos p{
+    font-size: 25px;
+    text-align: left;
+}
+
+.article-direitos h1{
+    text-align: left;
+}
+
+.article-direitos span{
+    font-size: 30px;
+}
+
+.carrossel{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    overflow: hidden;
+    min-height: 500px;
+    position: relative;
+}
+
+.carrossel img{
+    width: 60%;
+    opacity: 0;
+    height: auto;
+    user-select: none;
+    border-radius: 3%; 
+    visibility: hidden;
+    vertical-align: top;
+    transition: opacity 0.5s ease, visibility 0s 0.5s;
+    display: flex;
+}
+
+
+.carrossel label{
+    background-color: #000;
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 10;
+    bottom: 10%;
+    right: 100%;
+    transform: translate(950%, 100%);
+    user-select: none;
+    
+}
+
+.carrossel input{
+    display: none;
+}
+
+.carrossel li{
+    padding-top: 10px;
+    list-style: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.carrossel li input:checked ~ img{
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.carrossel li input:checked + label { /*label adjacente*/
+    background-color: rgba(255, 100, 100, 1); /* Cor do label quando a imagem está visível */
+}
+
+.carrossel input[type="radio"] {
+    display: none;
+}
+
+.carrossel li:nth-child(1) label {
+    left: 10px;
+}
+.carrossel li:nth-child(2) label {
+    left: 50px;
+}
+.carrossel li:nth-child(3) label {
+    left: 90px;
+}
+.carrossel li:nth-child(4) label {
+    left: 130px;
+}
+.carrossel li:nth-child(5) label {
+    left: 170px;
+}
+
+
+/*  DIV3    */
+
+.button-header a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+

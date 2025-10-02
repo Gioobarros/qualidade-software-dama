@@ -1,0 +1,153 @@
+.borda1 {
+    border: 1px solid #000;
+}
+
+.borda3 {
+    border: 5px solid #000;
+}
+
+.borda2 {
+    border: 5px solid #fd0505;
+}
+
+#main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#relatos {
+    height: 100%;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.bodycard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sem-relatos {
+    color: #000;
+    font-size: 27.65px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    opacity: 40%;
+}
+
+header {
+    text-align: center;
+    padding: 0.5em;
+}
+
+#buscar {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 10px 10px 194px;
+}
+
+button {
+    background-color: rgba(255, 90, 90, 0.8);
+    border: none;
+    padding: 1em 2em;
+    height: 35px;
+    font-size: 16px;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    cursor: pointer;
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: rgba(255, 100, 100, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    background-color: rgba(255, 100, 110, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.grid-relatos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 287px);
+    gap: 20px;
+    width: 100%;
+    max-width: 1515px;
+    margin-top: 20px;
+}
+
+.relatos-conteudo {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-height: 100px;
+    overflow: auto;
+    padding: 1rem;
+}
+
+.title {
+    text-align: center;
+    font-size: 33.18px;
+    margin-top: 10px;
+    color: #FF6E6E;
+}
+
+.filter-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 0 1rem 1rem 1rem;
+}
+
+.search-box {
+    flex: 1;
+}
+
+.date-filter {
+    min-width: 250px;
+}
+
+:host ::ng-deep .p-inputtext {
+    width: 100%;
+}
+
+/* PrimeNG Card Styles */
+:host { 
+    --p-surface-0: #575757;
+    --p-card-background: #fff;
+    --p-card-border-radius: var(--p-content-border-radius);
+    --p-card-color: var(--p-content-color);
+    --p-card-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+    --p-card-body-padding: 1.5rem;
+    --p-card-body-gap: 0.75rem;
+    --p-justify-content: space-between;
+    --p-card-display: flex;
+
+    font-family: inherit;
+    font-feature-settings: inherit;
+    font-size: 1rem;
+    color: var(--p-inputtext-color);
+    background: var(--p-inputtext-background);
+    padding-block: var(--p-inputtext-padding-y);
+    padding-inline: var(--p-inputtext-padding-x);
+    border: 1px solid var(--p-inputtext-border-color);
+    transition: background var(--p-inputtext-transition-duration), color var(--p-inputtext-transition-duration), border-color var(--p-inputtext-transition-duration), outline-color var(--p-inputtext-transition-duration), box-shadow var(--p-inputtext-transition-duration);
+    appearance: none;
+    border-radius: var(--p-inputtext-border-radius);
+    outline-color: transparent;
+    box-shadow: var(--p-inputtext-shadow);
+}

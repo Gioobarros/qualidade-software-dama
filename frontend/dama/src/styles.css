@@ -1,0 +1,8 @@
+html,body {
+  margin: 0; /* Retira espaçamento padrao do angular */
+  font-family: Inter, sans-serif; /* Define a font de todo o projeto  */
+  background-color: #fff9f8;
+  scroll-behavior: auto;
+  padding: 0;
+}
+

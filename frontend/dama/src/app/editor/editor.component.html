@@ -1,0 +1,7 @@
+<p-editor 
+  [(ngModel)]="text" 
+  [style]="{ height: '320px' }" 
+  (onTextChange)="onTextChange()"
+  (onPaste)="onTextChange()"
+  [modules]="{ clipboard: { matchVisual: false } }">
+</p-editor>

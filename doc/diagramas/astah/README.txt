@@ -1,0 +1,1 @@
+O arquivo do diagrama se encontra com problema de leitura/escrita. Ao finalizar sua issue, por favor, escolha "salvar como" e atualize o valor identificador.

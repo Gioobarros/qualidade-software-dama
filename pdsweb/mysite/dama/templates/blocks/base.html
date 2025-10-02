@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+
+
+    <title>{% block title %}Minha Página{% endblock %}</title>
+</head>
+
+<body>
+    <header id="cabecalho" class="borda0">
+        {% block header %}{% endblock %}
+    </header>
+
+    <main id="main" class="borda0">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="borda0">
+        {% block footer %}{% endblock %}
+    </footer>
+</body>
+</html>
