@@ -58,8 +58,8 @@ jobs:
 
       - name: Run migrations
         run: |
-          python manage.py migrate --noinput
+          python backend/dama/manage.py migrate --noinput
 
       - name: Run tests
         run: |
-          python manage.py test
+          python backend/dama/manage.py test
