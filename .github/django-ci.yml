@@ -1,0 +1,65 @@
+name: Django CI
+
+on:
+  push:
+    branches: ["main", "develop"]
+  pull_request:
+    branches: ["main", "develop"]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_USER: dama
+          POSTGRES_PASSWORD: dama
+          POSTGRES_DB: dama
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U dama -d dama"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DJANGO_SETTINGS_MODULE: dama.settings
+      POSTGRES_USER: dama
+      POSTGRES_PASSWORD: dama
+      POSTGRES_DB: dama
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: 'pip'
+          cache-dependency-path: requirements.txt
+
+      - name: Install system dependencies (psycopg2)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpq-dev
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel
+          pip install -r requirements.txt
+
+      - name: Run migrations
+        run: |
+          python manage.py migrate --noinput
+
+      - name: Run tests
+        run: |
+          python manage.py test
