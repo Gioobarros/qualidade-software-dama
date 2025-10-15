@@ -3,3 +3,4 @@ __pycache__/
 backend/venv
 backend/dama/db.sqlite3
 pdsweb/
+venv/
