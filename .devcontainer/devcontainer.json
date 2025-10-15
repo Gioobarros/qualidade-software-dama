@@ -1,13 +1,9 @@
 {
   "name": "Django Dev Container",
-  
-  "dockerComposeFile": [
-    "../docker-compose.yml" 
-  ],
-  
-  "service": "web", 
 
-  "workspaceFolder": "/app", 
+  "image": "python:3.11-slim",
+  
+  "workspaceFolder": "/workspace", 
   
   "customizations": {
     "vscode": {
@@ -21,5 +17,7 @@
     
   "forwardPorts": [8000],
 
-    "postCreateCommand": "python manage.py migrate --noinput"
+    "postCreateCommand": "cd backend/dama && pip install -r requirements.txt && python manage.py migrate --noinput",
+
+    "remoteUser": "root"
 }
