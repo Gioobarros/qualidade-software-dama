@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc 
-backend/venv
+backend/venv/
+backend/dama/venv/
 backend/dama/db.sqlite3
 pdsweb/
 venv/
