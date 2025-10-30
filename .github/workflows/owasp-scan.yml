@@ -21,12 +21,16 @@ jobs:
 
       - name: Baixar OWASP Dependency Check
         run: |
-          wget https://github.com/jeremylong/DependencyCheck/releases/download/v9.2.0/dependency-check-9.2.0-release.zip
-          unzip dependency-check-9.2.0-release.zip -d dependency-check
+          echo "Baixando OWASP Dependency Check..."
+          wget -q https://github.com/jeremylong/DependencyCheck/releases/download/v9.2.0/dependency-check-9.2.0-release.zip -O dependency-check.zip
+          unzip -q dependency-check.zip -d dependency-check
+          ls dependency-check
 
-      - name: Rodar análise
+      - name: Rodar análise de dependências
         run: |
-          ./dependency-check/bin/dependency-check.sh \
+          echo "Rodando análise..."
+          chmod +x dependency-check/bin/dependency-check.sh
+          dependency-check/bin/dependency-check.sh \
             --project "Python Security Scan" \
             --scan . \
             --format "HTML" \
