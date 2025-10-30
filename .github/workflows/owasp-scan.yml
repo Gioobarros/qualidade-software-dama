@@ -23,14 +23,19 @@ jobs:
         run: |
           echo "Baixando OWASP Dependency Check..."
           wget -q https://github.com/jeremylong/DependencyCheck/releases/download/v9.2.0/dependency-check-9.2.0-release.zip -O dependency-check.zip
-          unzip -q dependency-check.zip -d dependency-check
-          ls dependency-check
+          unzip -q dependency-check.zip
+          # Verificar o nome real da pasta extraída
+          echo "Conteúdo do diretório atual:"
+          ls -R | head -n 20
 
       - name: Rodar análise de dependências
         run: |
           echo "Rodando análise..."
-          chmod +x dependency-check/bin/dependency-check.sh
-          dependency-check/bin/dependency-check.sh \
+          # Detecta automaticamente a pasta extraída
+          DC_DIR=$(find . -type d -name "dependency-check*" -print -quit)
+          echo "Diretório OWASP detectado: $DC_DIR"
+          chmod +x "$DC_DIR/bin/dependency-check.sh"
+          "$DC_DIR/bin/dependency-check.sh" \
             --project "Python Security Scan" \
             --scan . \
             --format "HTML" \
