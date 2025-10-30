@@ -2,9 +2,7 @@ name: Django CI
 
 on:
   push:
-    branches: ["main", "develop"]
   pull_request:
-    branches: ["main", "develop"]
   workflow_dispatch:
 
 jobs:
@@ -45,6 +43,17 @@ jobs:
           cache: 'pip'
           cache-dependency-path: backend/dama/requirements.txt
 
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('backend/dama/requirements.txt') }}
+
+      - name: Cache system packages
+        uses: actions/cache@v3
+        with:
+          path: /var/cache/apt
+
       - name: Install system dependencies (psycopg2)
         run: |
           sudo apt-get update
@@ -55,6 +64,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install wheel
           pip install -r backend/dama/requirements.txt
+
+      - name: Cache Django migrations
+        uses: actions/cache@v3
+        with:
+          path: backend/dama/*/migrations/
 
       - name: Run migrations
         run: |
