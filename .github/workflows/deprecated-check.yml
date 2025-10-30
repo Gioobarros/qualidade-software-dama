@@ -27,4 +27,4 @@ jobs:
       - name: Run deprecated code detection
         run: |
           cd backend/dama
-          python -m vulture . --min-confidence 80 --sort-by-size
+          python -m vulture . --min-confidence 80 --sort-by-size --exclude=venv
