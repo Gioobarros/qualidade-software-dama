@@ -13,22 +13,26 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
-      - name: Instalar Java (requisito do OWASP)
+      - name: Instalar Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Create reports directory
-        run: mkdir -p reports
-
-      - name: Run OWASP Dependency Check
-        uses: dependency-check/Dependency-Check_Action@1.1.0
-        with:
-          project: 'Dama Security Scan'
-          path: './backend/dama'
-          format: 'HTML'
-          args: '--out reports'
+      - name: Download e executar OWASP Dependency Check
+        run: |
+          wget https://github.com/jeremylong/DependencyCheck/releases/download/v8.4.0/dependency-check-8.4.0-release.zip
+          unzip dependency-check-8.4.0-release.zip
+          
+          mkdir -p reports
+          
+          ./dependency-check/bin/dependency-check.sh \
+            --project "Dama Security Scan" \
+            --scan "./backend/dama" \
+            --format "HTML" \
+            --out "reports" \
+            --nvdApiKey false \
+            --disableAssembly
 
       - name: Upload do relatório
         uses: actions/upload-artifact@v4
