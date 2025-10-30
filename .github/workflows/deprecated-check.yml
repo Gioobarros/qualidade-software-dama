@@ -1,0 +1,30 @@
+name: Deprecated Code Detection
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  deprecated-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          cd backend/dama
+          pip install --break-system-packages -r requirements.txt
+          pip install --break-system-packages vulture
+
+      - name: Run deprecated code detection
+        run: |
+          cd backend/dama
+          python -m vulture . --min-confidence 80 --sort-by-size --exclude=venv
