@@ -2,28 +2,49 @@ name: OWASP Dependency Check
 
 on:
   workflow_dispatch:
+  push:
+  pull_request:
 
 jobs:
   security-scan:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
       
-      - uses: actions/setup-java@v4
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install Python dependencies
+        run: |
+          cd backend/dama
+          pip install -r requirements.txt
       
       - name: OWASP Dependency Check
         uses: dependency-check/Dependency-Check_Action@main
         with:
           project: 'Dama Security Scan'
-          path: '.'
-          format: 'HTML'
-          
-      - uses: actions/upload-artifact@v4
+          path: './backend/dama'
+          format: 'HTML,JSON'
+          args: >
+            --enableRetired
+            --enableExperimental
+            --failOnCVSS 7
+            
+      - name: Upload security report
+        uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: security-report
-          path: dependency-check-report.html
+          name: owasp-security-report
+          path: |
+            dependency-check-report.html
+            dependency-check-report.json
