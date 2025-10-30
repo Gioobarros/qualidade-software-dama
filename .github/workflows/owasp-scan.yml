@@ -6,55 +6,29 @@ on:
   pull_request:
 
 jobs:
-  security-scan:
+  dependency-check:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Checkout repository
+      - name: Checkout código
         uses: actions/checkout@v4
-      
-      - name: Setup Java
+
+      - name: Instalar Java (requisito do OWASP)
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
-      
-      - name: Verify Java Installation
-        run: |
-          echo "JAVA_HOME: $JAVA_HOME"
-          java -version
-          which java
-      
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      
-      - name: Install Python dependencies
-        run: |
-          cd backend/dama
-          pip install --break-system-packages -r requirements.txt
-      
-      - name: Create reports directory
-        run: mkdir -p reports
-      
-      - name: OWASP Dependency Check
+
+      - name: Rodar OWASP Dependency Check
         uses: dependency-check/Dependency-Check_Action@main
         with:
           project: 'Dama Security Scan'
           path: './backend/dama'
-          format: 'HTML,JSON'
+          format: 'HTML'
           out: 'reports'
-          args: >
-            --enableRetired
-            --enableExperimental
-            --failOnCVSS 7
-        env:
-          JAVA_HOME: ${{ steps.setup-java.outputs.path }}
-            
-      - name: Upload security report
+
+      - name: Upload do relatório
         uses: actions/upload-artifact@v4
-        if: always()
         with:
-          name: owasp-security-report
-          path: reports/
+          name: owasp-report
+          path: reports
