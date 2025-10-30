@@ -29,22 +29,26 @@ jobs:
           cd backend/dama
           pip install -r requirements.txt
       
+      - name: Create reports directory
+        run: mkdir -p reports
+      
       - name: OWASP Dependency Check
         uses: dependency-check/Dependency-Check_Action@main
         with:
           project: 'Dama Security Scan'
           path: './backend/dama'
           format: 'HTML,JSON'
+          out: 'reports'
           args: >
             --enableRetired
             --enableExperimental
             --failOnCVSS 7
+        env:
+          JAVA_HOME: ${{ env.JAVA_HOME_17_X64 }}
             
       - name: Upload security report
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: owasp-security-report
-          path: |
-            dependency-check-report.html
-            dependency-check-report.json
+          path: reports/
