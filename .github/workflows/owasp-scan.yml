@@ -2,40 +2,30 @@ name: OWASP Dependency Check
 
 on:
   workflow_dispatch:
-  push:
-  pull_request:
 
 jobs:
-  dependency-check:
+  security-scan:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout código
+      - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Instalar Java
+      
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
-
-      - name: Download e executar OWASP Dependency Check
+          java-version: '11'
+      
+      - name: Run OWASP Dependency Check
         run: |
-          wget https://github.com/jeremylong/DependencyCheck/releases/download/v8.4.0/dependency-check-8.4.0-release.zip
-          unzip dependency-check-8.4.0-release.zip
-          
-          mkdir -p reports
-          
-          ./dependency-check/bin/dependency-check.sh \
-            --project "Dama Security Scan" \
-            --scan "./backend/dama" \
-            --format "HTML" \
-            --out "reports" \
-            --nvdApiKey false \
-            --disableAssembly
-
-      - name: Upload do relatório
+          wget -q https://github.com/jeremylong/DependencyCheck/releases/download/v8.4.0/dependency-check-8.4.0-release.zip
+          unzip -q dependency-check-8.4.0-release.zip
+          ./dependency-check/bin/dependency-check.sh --project "DAMA" --scan "./backend/dama" --format "HTML" --out "." --noupdate
+      
+      - name: Upload Report
         uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: owasp-report
-          path: reports
+          name: security-report
+          path: dependency-check-report.html
