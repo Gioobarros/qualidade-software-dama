@@ -1,4 +1,3 @@
-from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.permissions import BasePermission
 
 class TodosPodemVer(BasePermission):    
