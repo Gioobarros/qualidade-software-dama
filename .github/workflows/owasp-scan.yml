@@ -1,19 +1,18 @@
-name: OWASP
-
-on:  
+on:
   workflow_dispatch:
   push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
 
-jobs:  
+
+jobs:
   dependency-check:
     runs-on: ubuntu-latest
+
 
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
+
 
       - name: Instalar Java (requisito do OWASP)
         uses: actions/setup-java@v4
@@ -21,13 +20,15 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+
       - name: Rodar OWASP Dependency Check
         uses: dependency-check/Dependency-Check_Action@main
         with:
           project: 'Python Security Scan'
-          scan: '.'
+          path: '.'
           format: 'HTML'
           out: 'reports'
+
 
       - name: Upload do relatório
         uses: actions/upload-artifact@v4
