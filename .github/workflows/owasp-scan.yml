@@ -16,7 +16,7 @@ jobs:
       - name: Run OWASP Dependency Check
         uses: dependency-check/Dependency-Check_Action@main
         with:
-          project: "qualidade-software-dama"
+          project: "dama"
           path: "."
           format: "HTML"
           out: "dependency-check-report"
@@ -43,13 +43,12 @@ jobs:
           flake8 . --select=DP --show-source
         continue-on-error: false
 
-      - name: Run Django Upgrade to detect deprecated code
+      - name: Check for deprecated Django code
         run: |
-          cd backend/dama
           pip install django-upgrade
-          find . -name "*.py" -type f | xargs django-upgrade --target-version 5.0
+          django-upgrade --target-version 5.0 --check .
         continue-on-error: false
-  
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
