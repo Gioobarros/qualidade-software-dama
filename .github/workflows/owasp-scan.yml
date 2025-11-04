@@ -43,10 +43,11 @@ jobs:
           flake8 . --select=DP --show-source
         continue-on-error: false
 
-      - name: Check for deprecated Django code
+      - name: Run Django Upgrade to detect deprecated code
         run: |
+          cd backend/dama
           pip install django-upgrade
-          django-upgrade --target-version 5.0 --check .
+          find . -name "*.py" -type f | xargs django-upgrade --target-version 5.0
         continue-on-error: false
   
       - name: Set up Docker Buildx
