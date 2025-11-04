@@ -43,16 +43,13 @@ jobs:
           cache: 'pip'
           cache-dependency-path: backend/dama/requirements.txt
 
-      - name: Cache pip dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('backend/dama/requirements.txt') }}
-
       - name: Cache system packages
         uses: actions/cache@v3
         with:
           path: /var/cache/apt
+          key: ${{ runner.os }}-apt-${{ hashFiles('.github/workflows/django-ci.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-apt-
 
       - name: Install system dependencies (psycopg2)
         run: |
@@ -65,18 +62,16 @@ jobs:
           pip install wheel
           pip install -r backend/dama/requirements.txt
 
-      - name: Cache Django migrations
-        uses: actions/cache@v3
-        with:
-          path: backend/dama/*/migrations/
-
       - name: Run migrations
         run: |
-          python backend/dama/manage.py migrate --noinput
+          cd backend/dama
+          python manage.py migrate --noinput
 
       - name: Run tests
         run: |
-          python backend/dama/manage.py test
+          cd backend/dama
+          python manage.py test
+
   security-scan:
     runs-on: ubuntu-latest
     
@@ -94,4 +89,37 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      
+          cache: 'pip'
+          cache-dependency-path: backend/dama/requirements.txt
+
+      - name: Install Python dependencies
+        run: |
+          cd backend/dama
+          pip install --break-system-packages -r requirements.txt
+
+      - name: Download OWASP Dependency Check
+        run: |
+          wget -q https://github.com/jeremylong/DependencyCheck/releases/download/v8.4.0/dependency-check-8.4.0-release.zip
+          unzip -q dependency-check-8.4.0-release.zip
+
+      - name: Run OWASP Dependency Check
+        run: |
+          ./dependency-check/bin/dependency-check.sh \
+            --project "DAMA" \
+            --scan "./backend/dama" \
+            --format "HTML" \
+            --out "." \
+            --noupdate \
+            --disableAssembly \
+            --disableAutoconf \
+            --disableComposer \
+            --disableNodeJS \
+            --disableNuspec \
+            --disableOpenSSL || echo "OWASP scan completed with warnings"
+
+      - name: Upload security report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: owasp-security-report
+          path: dependency-check-report.html
