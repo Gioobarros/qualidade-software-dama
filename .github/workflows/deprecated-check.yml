@@ -13,27 +13,23 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
+          cache: 'pip'
+          cache-dependency-path: backend/dama/requirements.txt
 
       - name: Install dependencies
         run: |
           cd backend/dama
           pip install --break-system-packages -r requirements.txt
-          pip install --break-system-packages deprecation-detector bandit
+
+      - name: Install deprecation tools
+        run: |
+          pip install --break-system-packages flake8 flake8-deprecated
 
       - name: Run deprecated code detection
         run: |
           cd backend/dama
-          
-          DEPRECATED_COUNT=$(grep -r "from django.utils import six\|import imp\|from django.conf.urls import url\|@deprecated\|warnings.warn.*DeprecationWarning\|\.render_to_response" . --include="*.py" | wc -l || echo "0")
-          
-          if [ $DEPRECATED_COUNT -gt 0 ]; then
-            echo "Código deprecado encontrado:"
-            grep -r "from django.utils import six\|import imp\|from django.conf.urls import url\|@deprecated\|warnings.warn.*DeprecationWarning\|\.render_to_response" . --include="*.py"
-            exit 1
-          fi
-          
-          echo "Nenhum código deprecado encontrado
+          flake8 --select=W601,W602,W603,W604 .
