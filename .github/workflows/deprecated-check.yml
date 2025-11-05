@@ -22,9 +22,18 @@ jobs:
         run: |
           cd backend/dama
           pip install --break-system-packages -r requirements.txt
-          pip install --break-system-packages vulture
+          pip install --break-system-packages deprecation-detector bandit
 
       - name: Run deprecated code detection
         run: |
           cd backend/dama
-          python -m vulture . --min-confidence 80 --sort-by-size --exclude=venv
+          
+          DEPRECATED_COUNT=$(grep -r "from django.utils import six\|import imp\|from django.conf.urls import url\|@deprecated\|warnings.warn.*DeprecationWarning\|\.render_to_response" . --include="*.py" | wc -l || echo "0")
+          
+          if [ $DEPRECATED_COUNT -gt 0 ]; then
+            echo "Código deprecado encontrado:"
+            grep -r "from django.utils import six\|import imp\|from django.conf.urls import url\|@deprecated\|warnings.warn.*DeprecationWarning\|\.render_to_response" . --include="*.py"
+            exit 1
+          fi
+          
+          echo "Nenhum código deprecado encontrado
