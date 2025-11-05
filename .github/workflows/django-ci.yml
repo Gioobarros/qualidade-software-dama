@@ -46,7 +46,9 @@ jobs:
       - name: Cache system packages
         uses: actions/cache@v3
         with:
-          path: /var/cache/apt
+          path: |
+            /var/cache/apt
+            /var/lib/apt/lists
           key: ${{ runner.os }}-apt-${{ hashFiles('.github/workflows/django-ci.yml') }}
           restore-keys: |
             ${{ runner.os }}-apt-
