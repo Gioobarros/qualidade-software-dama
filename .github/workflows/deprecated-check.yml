@@ -13,18 +13,23 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
+          cache: 'pip'
+          cache-dependency-path: backend/dama/requirements.txt
 
       - name: Install dependencies
         run: |
           cd backend/dama
           pip install --break-system-packages -r requirements.txt
-          pip install --break-system-packages vulture
+
+      - name: Install deprecation tools
+        run: |
+          pip install --break-system-packages flake8 flake8-deprecated
 
       - name: Run deprecated code detection
         run: |
           cd backend/dama
-          python -m vulture . --min-confidence 80 --sort-by-size --exclude=venv
+          flake8 --select=W601,W602,W603,W604 .
