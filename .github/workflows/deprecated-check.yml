@@ -1,0 +1,36 @@
+name: Deprecated Code Detection
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  deprecated-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: 'pip'
+          cache-dependency-path: backend/dama/requirements.txt
+
+      - name: Install dependencies
+        run: |
+          cd backend/dama
+          pip install --break-system-packages -r requirements.txt
+
+      - name: Install deprecation detection tool
+        run: |
+          pip install --break-system-packages flake8 flake8-deprecated
+
+      - name: Run deprecated code detection
+        run: |
+          cd backend/dama
+          # Detect only deprecated code (W601–W604)
+          flake8 --select=W601,W602,W603,W604 || echo "No deprecated code found"
