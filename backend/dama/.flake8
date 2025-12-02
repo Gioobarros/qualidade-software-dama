@@ -9,9 +9,9 @@ exclude =
     .github,
     manage.py
 ignore = 
-    E501,  #linha muito grande
-    W503,  #quebra de linha antes de operador binário
-    E203,  #espaço antes de :::
+    E501,  
+    W503, 
+    E203,  
 max-complexity = 10
 per-file-ignores =
     __init__.py:F401
