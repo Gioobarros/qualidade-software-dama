@@ -6,7 +6,7 @@ from .base import UsuarioAdminMixin
 
 __all__ = [
     'AdminOng',
-    'AdminProfissional', 
+    'AdminProfissional',
     'AdminPublicacao',
     'AdminUsuario',
     'UsuarioAdminMixin'

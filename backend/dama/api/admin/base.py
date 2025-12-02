@@ -1,4 +1,4 @@
-class UsuarioAdminMixin:    
+class UsuarioAdminMixin:
     def get_username(self, objeto):
         if objeto.user:
             return objeto.user.username
