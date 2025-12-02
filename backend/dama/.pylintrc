@@ -1,0 +1,13 @@
+[MASTER]
+ignore=venv,migrations,__pycache__,.git
+
+[MESSAGES CONTROL]
+disable=all
+enable=duplicate-code,R0801
+
+[SIMILARITIES]
+min-similarity-lines=5
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=yes
+ignore-signatures=yes
