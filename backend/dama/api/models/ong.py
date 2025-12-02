@@ -1,7 +1,5 @@
-import uuid
 from api.models.usuario import Usuario
 from django.db import models
-
 
 
 class Ong(models.Model):
@@ -13,5 +11,3 @@ class Ong(models.Model):
 
     def __str__(self):
         return f"Razão Social: {self.razao_social}   CNPJ: {self.cnpj}"
-
-

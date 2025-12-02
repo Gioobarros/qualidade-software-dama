@@ -2,6 +2,7 @@ import pytest
 from django.urls import reverse
 from api.models.ong import Ong
 
+
 @pytest.mark.django_db
 class TestOngViewSet:
 

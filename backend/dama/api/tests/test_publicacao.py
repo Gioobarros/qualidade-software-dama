@@ -4,6 +4,7 @@ from rest_framework.authtoken.models import Token
 from backend.dama.api.models.publicacao import Publicacao
 from api.models.usuario import Usuario
 
+
 @pytest.mark.django_db
 class TestPublicacaoViewSet:
 
@@ -45,10 +46,10 @@ class TestPublicacaoViewSet:
         admin_user = create_user('admin1', perfil='admin')
         token, _ = Token.objects.get_or_create(user=admin_user)
         api_client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
-        
+
         other_user = create_user('user2', perfil='pro')
         publicacao = Publicacao.objects.create(conteudo="Conteudo", publicador=other_user)
-        
+
         url = reverse('publicacao-detail', args=[publicacao.id])
         data = {"status": "aprovado"}
         response = api_client.patch(url, data, format='json')

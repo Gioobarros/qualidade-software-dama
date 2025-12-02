@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.urls import path, include
+from django.urls import path
 from django.conf.urls.static import static
 from api.view.ong import OngView
 from api.view.publicacao import PublicacaoView
@@ -22,7 +22,7 @@ router.register(r'entidade', EntidadeView, basename='entidade')
 urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
-] 
+]
 urlpatterns += router.urls
 
 if settings.DEBUG:

@@ -27,12 +27,12 @@ class ProfissionalView(viewsets.ModelViewSet):
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
-            
+
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
+
         except Exception as e:
             return Response({"erro": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
+
     def retrieve(self, request, *args, **kwargs):
         try:
             # Valida o perfil do usuário
@@ -42,7 +42,7 @@ class ProfissionalView(viewsets.ModelViewSet):
             item = self.get_object()
             serializer = self.get_serializer(item)
             return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
-        
+
         except Http404:
             return Response({'erro': 'Objeto não encontrado'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
@@ -57,10 +57,10 @@ class ProfissionalView(viewsets.ModelViewSet):
             itens = self.get_queryset()
             if not itens.exists():
                 return Response({'mensagem': 'Nenhum profissional encontrado'}, status=status.HTTP_404_NOT_FOUND)
-            
+
             serializer = self.get_serializer(itens, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
-        
+
         except Exception as e:
             return Response({"erro": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -81,7 +81,7 @@ class ProfissionalView(viewsets.ModelViewSet):
 
             return Response({"erro": "Campos obrigatórios ausentes na requisição"}, status=status.HTTP_406_NOT_ACCEPTABLE)
 
-        except Exception as e:
+        except Exception:
             return Response({'erro': 'Problema na API'}, status=status.HTTP_404_NOT_FOUND)
 
     def destroy(self, request, *args, **kwargs):
@@ -101,5 +101,5 @@ class ProfissionalView(viewsets.ModelViewSet):
 
             return Response({"erro": "Campos obrigatórios ausentes na requisição"}, status=status.HTTP_406_NOT_ACCEPTABLE)
 
-        except Exception as e:
+        except Exception:
             return Response({'erro': 'Problema na API'}, status=status.HTTP_404_NOT_FOUND)

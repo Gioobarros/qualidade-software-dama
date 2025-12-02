@@ -26,6 +26,4 @@ class Publicacao(models.Model):
     status = models.CharField(max_length=8, choices=STATUS, default='sub')
 
     def __str__(self):
-        return f"publicador: {self.publicador.username} tag: {self.tag} conteudo: {self.conteudo} criacao: {self.data_criacao}"   
-
-
+        return f"publicador: {self.publicador.username} tag: {self.tag} conteudo: {self.conteudo} criacao: {self.data_criacao}"

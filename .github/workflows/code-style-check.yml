@@ -26,7 +26,7 @@ jobs:
       - name: Run Flake8 - Code Style Check
         run: |
           cd backend/dama
-          echo "🔍 Verificando padrão de codificação PEP 8..."
+          echo "Verificando padrão de codificação PEP 8"
           flake8 . --config=.flake8 --statistics --count
         
       - name: Show violations summary

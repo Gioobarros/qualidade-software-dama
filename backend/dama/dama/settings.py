@@ -12,9 +12,9 @@ ALLOWED_HOSTS = []
 CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
- 
+
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',  
+        'rest_framework.authentication.TokenAuthentication',
         # 'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
@@ -25,7 +25,7 @@ REST_FRAMEWORK = {
         'rest_framework.filters.SearchFilter',  # Filtro de busca
         'rest_framework.filters.OrderingFilter',  # Filtro de ordenação
     ],
- 
+
 }
 
 AUTH_USER_MODEL = 'api.Usuario'
@@ -117,7 +117,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-
-

@@ -1,10 +1,9 @@
-import uuid
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
 class Usuario(AbstractUser):
-    PERFIL=(
+    PERFIL = (
         ('ong', 'Ong'),
         ('pro', 'Profissional'),
         ('admin', 'Administrador'),
@@ -15,7 +14,7 @@ class Usuario(AbstractUser):
         ('ok', 'Aprovada'),
         ('del', 'Deletada'),
     )
-    
+
     perfil = models.CharField(max_length=13, choices=PERFIL)
 
     status = models.CharField(max_length=8, choices=STATUS, default='sub')
