@@ -10,7 +10,7 @@ from api.serializer.profissional import ProfissionalSerializer
 
 
 class LoginView(ObtainAuthToken):
-    
+
     def post(self, request, *args, **kwargs):
         username = request.data.get('username')
         password = request.data.get('password')
@@ -24,7 +24,7 @@ class LoginView(ObtainAuthToken):
             if not created:
                 token.delete()
                 token = Token.objects.create(user=usuario)
-            
+
             response_data = {
                 'token': token.key,
                 'username': usuario.username,
@@ -40,7 +40,7 @@ class LoginView(ObtainAuthToken):
 
                     if usuario_response['bio'] is None:
                         usuario_response['bio'] = "vazio"
-                        
+
                     response_data['dados_usuario'] = usuario_response
 
             if usuario.perfil == 'pro':
@@ -64,7 +64,6 @@ class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        header = request.headers # para fim de debugar
         token_key = request.auth.key
         token = Token.objects.get(key=token_key)
         token.delete()

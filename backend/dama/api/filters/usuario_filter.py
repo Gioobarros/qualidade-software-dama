@@ -7,7 +7,6 @@ class UsuarioFilter(django_filters.FilterSet):
     situacao = django_filters.CharFilter(field_name='status', lookup_expr='exact')
     tipo_perfil = django_filters.CharFilter(field_name='perfil', lookup_expr='exact')
 
-
     class Meta:
         model = Usuario
         fields = ['username', 'status', 'perfil']

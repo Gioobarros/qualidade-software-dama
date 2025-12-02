@@ -1,4 +1,3 @@
-import uuid
 from api.models.usuario import Usuario
 from django.db import models
 

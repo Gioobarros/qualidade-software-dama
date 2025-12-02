@@ -2,6 +2,7 @@ import pytest
 from django.urls import reverse
 from rest_framework.authtoken.models import Token
 
+
 @pytest.mark.django_db
 class TestAuthViews:
 
@@ -11,7 +12,7 @@ class TestAuthViews:
         password = "strongpassword123"
         create_user(username=username, password=password, perfil='pro')
 
-        url = reverse('login') 
+        url = reverse('login')
         data = {
             "username": username,
             "password": password

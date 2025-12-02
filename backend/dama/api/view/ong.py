@@ -20,7 +20,7 @@ class OngView(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         try:
             # Validar o usuário via Strategy
-            
+
             # Processar a criação
             serializer = OngSerializer(data=request.data)
             if serializer.is_valid():
@@ -34,7 +34,7 @@ class OngView(viewsets.ModelViewSet):
         try:
             # Validar o usuário via Strategy
             self.usuario_strategy.validar_usuario(request)
-            
+
             # Recuperar o objeto
             item = self.get_object()
             serializer = self.get_serializer(item)
@@ -48,7 +48,7 @@ class OngView(viewsets.ModelViewSet):
         try:
             # Validar o usuário via Strategy
             self.usuario_strategy.validar_usuario(request)
-            
+
             # Listar objetos
             itens = self.get_queryset()
             if not itens.exists():
@@ -62,7 +62,7 @@ class OngView(viewsets.ModelViewSet):
         try:
             # Validar o usuário via Strategy
             item = self.usuario_strategy.validar_usuario(request)
-            
+
             # Atualizar objeto
             serializer = self.get_serializer(item, data=request.data, partial=True)
             if serializer.is_valid():
@@ -76,7 +76,7 @@ class OngView(viewsets.ModelViewSet):
         try:
             # Validar o usuário via Strategy
             item = self.usuario_strategy.validar_usuario(request)
-            
+
             # Deletar o objeto
             item.delete()
             return Response({'mensagem': 'ONG deletada com sucesso'}, status=status.HTTP_204_NO_CONTENT)

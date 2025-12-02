@@ -7,6 +7,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from api.filters.usuario_filter import UsuarioFilter  # Certifique-se de importar o filtro correto
 from api.serializer.usuario import UsuarioSerializer, Usuario
 
+
 class UsuarioView(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer

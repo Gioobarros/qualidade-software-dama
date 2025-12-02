@@ -18,5 +18,3 @@ class Entidade(models.Model):
 
     def __str__(self):
         return f"Entidade: {self.nome}   Endereço: {self.rua} {self.municipio} {self.cep} Contato: {self.contato} {self.email}"
-
-

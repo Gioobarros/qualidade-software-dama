@@ -1,13 +1,12 @@
 import pytest
 from django.urls import reverse
-from api.models.profissional import Profissional
-from api.models.usuario import Usuario
+
 
 @pytest.mark.django_db
 class TestProfissionalViewSet:
 
     def test_create_profissional(self, api_client):
-        url = reverse('profissional-list')  
+        url = reverse('profissional-list')
         data = {
             "nome_completo": "Prof Test",
             "conselho": "12345",

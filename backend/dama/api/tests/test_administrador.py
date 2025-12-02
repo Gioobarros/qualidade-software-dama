@@ -1,8 +1,6 @@
 import pytest
 from django.urls import reverse
-from rest_framework.test import APIClient
-from rest_framework.authtoken.models import Token
-from django.shortcuts import get_object_or_404
+
 
 @pytest.mark.django_db
 class TestAdministradorView:
@@ -50,11 +48,11 @@ class TestAdministradorView:
     def test_retrieve(self, api_client, admin_user):
         user, admin = admin_user
         url = reverse('administrador-detail', kwargs={'pk': admin.pk})
-        
+
         # sem autenticação
         response = api_client.get(url)
         assert response.status_code in [401, 403]
-        
+
         # autenticado
         api_client.force_authenticate(user=user)
         response = api_client.get(url)

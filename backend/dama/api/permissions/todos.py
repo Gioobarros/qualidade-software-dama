@@ -1,17 +1,19 @@
 from rest_framework.permissions import BasePermission
 
-class TodosPodemVer(BasePermission):    
+
+class TodosPodemVer(BasePermission):
     def has_permission(self, request, view):
         if request.method == 'GET':
             return True
         return False
-    
+
     def has_object_permission(self, request, view, obj):
         if request.method == 'GET':
             return True
         return False
 
-class TodosPodemCriar(BasePermission):    
+
+class TodosPodemCriar(BasePermission):
     def has_permission(self, request, view):
         if request.method == 'POST':
             return True
@@ -21,6 +23,7 @@ class TodosPodemCriar(BasePermission):
         if request.method == 'POST':
             return True
         return False
+
 
 class TodosPodemEditar(BasePermission):
     def has_permission(self, request, view):
@@ -33,6 +36,7 @@ class TodosPodemEditar(BasePermission):
             return True
         return False
 
+
 class TodosPodemDeletar(BasePermission):
     def has_permission(self, request, view):
         if request.method == 'DELETE':
@@ -43,6 +47,7 @@ class TodosPodemDeletar(BasePermission):
         if request.method == 'DELETE':
             return True
         return False
+
 
 class TodosTemTodasAsPermissoes(BasePermission):
     def has_permission(self, request, view):

@@ -4,5 +4,5 @@ from api.models.usuario import Usuario
 
 @admin.register(Usuario)
 class AdminUsuario(admin.ModelAdmin):
-    list_display = ("id","username", "email", "status", "perfil")  
-    search_fields = ("username", "status", "pefil")  
+    list_display = ("id", "username", "email", "status", "perfil")
+    search_fields = ("username", "status", "pefil")

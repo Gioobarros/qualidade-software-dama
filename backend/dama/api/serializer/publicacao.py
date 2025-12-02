@@ -6,9 +6,10 @@ from django.shortcuts import get_object_or_404
 
 class PublicacaoSerializer(serializers.ModelSerializer):
     publicador = serializers.CharField()
+
     class Meta:
         model = Publicacao
-        fields = ['id','conteudo', 'data_criacao', 'status', 'publicador', 'tag', 'imagem_publicacao']
+        fields = ['id', 'conteudo', 'data_criacao', 'status', 'publicador', 'tag', 'imagem_publicacao']
 
     def create(self, validated_data):
         username = validated_data.pop('publicador')
@@ -17,15 +18,13 @@ class PublicacaoSerializer(serializers.ModelSerializer):
 
         return publicacao
 
-
     def update(self, instance, validated_data):
         usuario = self.context.get('usuario')
-        
+
         if usuario == instance.publicador or usuario.perfil == 'admin':
             for attr, value in validated_data.items():
                 if attr == 'status' and usuario.perfil == 'admin':
                     setattr(instance, attr, value)
-        
+
         instance.save()
         return instance
-        

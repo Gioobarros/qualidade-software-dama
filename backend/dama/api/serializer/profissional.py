@@ -2,14 +2,16 @@ from rest_framework import serializers
 from api.serializer.usuario import UsuarioSerializer
 from api.models.profissional import Profissional
 
+
 class ProfissionalSerializer(serializers.ModelSerializer):
     user = UsuarioSerializer()
     bio = serializers.CharField(read_only=True)
+
     class Meta:
         model = Profissional
         fields = ['nome_completo', 'conselho', 'cpf', 'contato', 'user', 'bio']
         extra_kwargs = {'password' : {'write_only': True}}
-        
+
     def create(self, validated_data):
         usuario_data = validated_data.pop('user')
         usuario_serializer = UsuarioSerializer(data=usuario_data)
