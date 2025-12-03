@@ -11,6 +11,11 @@ ALLOWED_HOSTS = []
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+import sys
+if sys.platform == 'win32':
+    graphviz_path = r'C:\Program Files\Graphviz\bin'
+    if graphviz_path not in os.environ['PATH']:
+        os.environ['PATH'] += os.pathsep + graphviz_path
 REST_FRAMEWORK = {
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -42,7 +47,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    'django_filters'
+    'django_filters',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

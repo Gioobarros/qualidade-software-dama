@@ -53,10 +53,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-apt-
 
-      - name: Install system dependencies (psycopg2)
+      - name: Install system dependencies (psycopg2 + graphviz)
         run: |
           sudo apt-get update
-          sudo apt-get install -y libpq-dev
+          sudo apt-get install -y libpq-dev graphviz graphviz-dev
 
       - name: Install Python dependencies
         run: |
@@ -73,6 +73,21 @@ jobs:
         run: |
           cd backend/dama
           python manage.py test
+
+      - name: Generate UML Class Diagram
+        run: |
+          cd backend/dama
+          echo "Gerando diagrama UML das classes de domínio"
+          python manage.py graph_models api -g -o uml_diagram_domain.png
+          ls -lh uml_diagram_domain.png
+
+      - name: Upload UML Diagram
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: uml-class-diagram
+          path: backend/dama/uml_diagram_domain.png
+          retention-days: 30
 
   security-scan:
     runs-on: ubuntu-latest

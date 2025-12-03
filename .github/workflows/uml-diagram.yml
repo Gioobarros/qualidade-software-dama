@@ -1,0 +1,107 @@
+name: UML Class Diagram Generator
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - diagrama-de-classes-uml
+      - main
+  pull_request:
+
+jobs:
+  generate-uml:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_USER: dama
+          POSTGRES_PASSWORD: dama
+          POSTGRES_DB: dama
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U dama -d dama"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DJANGO_SETTINGS_MODULE: dama.settings
+      POSTGRES_USER: dama
+      POSTGRES_PASSWORD: dama
+      POSTGRES_DB: dama
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: backend/dama/requirements.txt
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpq-dev graphviz graphviz-dev
+
+      - name: Install Python dependencies
+        run: |
+          cd backend/dama
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run migrations
+        run: |
+          cd backend/dama
+          python manage.py migrate --noinput
+
+      - name: Generate UML Diagram - All Models
+        run: |
+          cd backend/dama
+          echo "Gerando diagrama UML de todos os models"
+          python manage.py graph_models -a -o uml_diagram_all.png
+          ls -lh uml_diagram_all.png
+
+      - name: Generate UML Diagram - Domain Models (api app)
+        run: |
+          cd backend/dama
+          echo "Gerando diagrama UML dos models de domínio"
+          python manage.py graph_models api -g -o uml_diagram_domain.png
+          ls -lh uml_diagram_domain.png
+
+      - name: Generate UML Diagram - Domain Models (detailed)
+        run: |
+          cd backend/dama
+          echo "Gerando diagrama UML"
+          python manage.py graph_models api \
+            --arrow-shape normal \
+            -o uml_diagram_detailed.png
+          ls -lh uml_diagram_detailed.png
+
+      - name: Upload UML Diagrams
+        uses: actions/upload-artifact@v4
+        with:
+          name: uml-class-diagrams
+          path: |
+            backend/dama/uml_diagram_all.png
+            backend/dama/uml_diagram_domain.png
+            backend/dama/uml_diagram_detailed.png
+          retention-days: 30
+
+      - name: Display diagram info
+        run: |
+          cd backend/dama
+          echo "Diagramas UML gerados"
+          echo ""
+          echo "Arquivos gerados:"
+          ls -lh uml_diagram_*.png
+          echo ""
+          echo "Estatísticas:"
+          file uml_diagram_*.png

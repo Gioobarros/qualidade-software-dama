@@ -5,3 +5,5 @@ backend/dama/venv/
 backend/dama/db.sqlite3
 pdsweb/
 venv/
+*.dot
+uml_diagram_*.png
