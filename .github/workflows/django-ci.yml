@@ -158,7 +158,7 @@ jobs:
           java-version: '17'
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@4b4d54b92be93539a7e766c1defb8d01c9d5cf9f
+        uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
