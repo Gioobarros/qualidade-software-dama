@@ -4,11 +4,11 @@ from api.models.ong import Ong
 from api.serializer.ong import OngSerializer
 from api.strategies.strategy_usuario import OngStrategy
 from api.strategies.strategy_permissions import UsuarioPermission
-from api.view.base import BaseModelViewSet
+from api.view.base import UsuarioValidatedViewSet
 from api.constants import MESSAGES
 
 
-class OngView(BaseModelViewSet):
+class OngView(UsuarioValidatedViewSet):
     queryset = Ong.objects.all()
     serializer_class = OngSerializer
     usuario_strategy = OngStrategy()
@@ -18,16 +18,10 @@ class OngView(BaseModelViewSet):
         return self.permission_strategy.get_permissions(self.action)
 
     def retrieve(self, request, *args, **kwargs):
-        return self._validated_action(
-            request,
-            lambda: super().retrieve(request, *args, **kwargs)
-        )
+        return super().retrieve(request, *args, **kwargs)
 
     def list(self, request, *args, **kwargs):
-        return self._validated_action(
-            request,
-            lambda: self._list_ongs(request)
-        )
+        return self._list_ongs(request)
 
     def partial_update(self, request, *args, **kwargs):
         return self._validated_action(

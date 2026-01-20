@@ -30,6 +30,15 @@ class BaseModelViewSet(viewsets.ModelViewSet):
         except Exception as error:  # fallback para garantir resposta consistente
             return self._handle_server_error(error)
 
+
+class UsuarioValidatedViewSet(BaseModelViewSet):
+    """ViewSet que valida o usuário antes de qualquer ação."""
+
+    def initial(self, request, *args, **kwargs):
+        if hasattr(self, 'usuario_strategy'):
+            self.usuario_strategy.validar_usuario(request)
+        return super().initial(request, *args, **kwargs)
+
     def create(self, request, *args, **kwargs):
         try:
             serializer = self.get_serializer(data=request.data)
