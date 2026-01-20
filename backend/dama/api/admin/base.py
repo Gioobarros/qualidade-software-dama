@@ -1,6 +1,3 @@
-from api.constants import MESSAGES
-
-
 class UsuarioAdminMixin:
     """Mixin para adicionar campos de usuário aos admins de modelos."""
 
