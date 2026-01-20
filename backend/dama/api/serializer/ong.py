@@ -1,6 +1,7 @@
+from rest_framework import serializers
+
 from api.models.ong import Ong
 from api.serializer.usuario import UsuarioSerializer
-from rest_framework import serializers
 
 
 class OngSerializer(serializers.ModelSerializer):

@@ -1,3 +1,4 @@
+"""Módulo de visualizações para entidade Profissional."""
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.response import Response
@@ -10,6 +11,7 @@ from api.constants import MESSAGES, FIELDS, PERFIS
 
 
 class ProfissionalView(UsuarioValidatedViewSet):
+    """ViewSet para gerenciar Profissional."""
     queryset = Profissional.objects.all()
     serializer_class = ProfissionalSerializer
     permission_strategy = UsuarioPermission()
@@ -17,12 +19,6 @@ class ProfissionalView(UsuarioValidatedViewSet):
 
     def get_permissions(self):
         return self.permission_strategy.get_permissions(self.action)
-
-    def retrieve(self, request, *args, **kwargs):
-        return super().retrieve(request, *args, **kwargs)
-
-    def list(self, request, *args, **kwargs):
-        return super().list(request, *args, **kwargs)
 
     def partial_update(self, request, *args, **kwargs):
         return self._validated_action(
@@ -36,7 +32,7 @@ class ProfissionalView(UsuarioValidatedViewSet):
             lambda: self._delete_profissional(request)
         )
 
-    def _partial_update_profissional(self, request, *args, **kwargs):
+    def _partial_update_profissional(self, request):
         if FIELDS['username'] not in request.data:
             return Response(
                 {MESSAGES['error']: MESSAGES['missing_required_fields']},

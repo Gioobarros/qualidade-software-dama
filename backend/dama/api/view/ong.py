@@ -17,22 +17,20 @@ class OngView(UsuarioValidatedViewSet):
     def get_permissions(self):
         return self.permission_strategy.get_permissions(self.action)
 
-    def retrieve(self, request, *args, **kwargs):
-        return super().retrieve(request, *args, **kwargs)
-
     def list(self, request, *args, **kwargs):
         return self._list_ongs(request)
 
     def partial_update(self, request, *args, **kwargs):
-        return self._validated_action(
-            request,
-            lambda: super().partial_update(request, *args, **kwargs)
-        )
+        """Atualiza parcialmente uma ONG."""
+        def update_action():
+            return super(OngView, self).partial_update(request, *args, **kwargs)
+        return self._validated_action(request, update_action)
 
     def destroy(self, request, *args, **kwargs):
+        """Remove uma ONG."""
         return self._validated_action(
             request,
-            lambda validated_user: self._delete_ong(validated_user),
+            self._delete_ong,
             passes_validated_user=True
         )
 

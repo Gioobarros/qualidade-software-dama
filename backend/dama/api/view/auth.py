@@ -1,3 +1,4 @@
+"""Módulo de autenticação da aplicação."""
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -10,8 +11,10 @@ from api.serializer.profissional import ProfissionalSerializer
 
 
 class LoginView(ObtainAuthToken):
+    """View para login de usuários."""
 
     def post(self, request, *args, **kwargs):
+        """Processar autenticação do usuário."""
         username = request.data.get('username')
         password = request.data.get('password')
 
@@ -56,15 +59,22 @@ class LoginView(ObtainAuthToken):
 
             return Response(response_data)
 
-        else:
-            return Response({'mensagem': 'Login ou Senha invalido'}, status=status.HTTP_401_UNAUTHORIZED)
+        return Response(
+            {'mensagem': 'Login ou Senha invalido'},
+            status=status.HTTP_401_UNAUTHORIZED
+        )
 
 
 class LogoutView(APIView):
+    """View para logout de usuários."""
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
+        """Processar logout do usuário."""
         token_key = request.auth.key
         token = Token.objects.get(key=token_key)
         token.delete()
-        return Response({'detail': 'usuário deslogado'}, status=status.HTTP_204_NO_CONTENT)
+        return Response(
+            {'detail': 'usuário deslogado'},
+            status=status.HTTP_204_NO_CONTENT
+        )

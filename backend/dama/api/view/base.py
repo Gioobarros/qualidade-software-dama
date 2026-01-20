@@ -1,3 +1,4 @@
+"""Módulo base para ViewSets do sistema."""
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from django.http import Http404
@@ -5,6 +6,7 @@ from api.constants import MESSAGES, FIELDS
 
 
 class BaseModelViewSet(viewsets.ModelViewSet):
+    """ViewSet base com métodos de tratamento de erro."""
     def _handle_serializer_error(self, serializer_errors):
         """Centraliza o tratamento de erros de serialização."""
         return Response(serializer_errors, status=status.HTTP_400_BAD_REQUEST)
@@ -27,7 +29,23 @@ class BaseModelViewSet(viewsets.ModelViewSet):
                 return action_callable(validated_user)
             return action_callable()
 
-        except Exception as error:  # fallback para garantir resposta consistente
+        except ValueError as error:
+            return Response(
+                {MESSAGES['error']: str(error)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        except (KeyError, AttributeError, TypeError) as error:
+            return Response(
+                {MESSAGES['error']: str(error)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        except Http404 as error:
+            return Response(
+                {MESSAGES['error']: str(error)},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as error:
+            # Fallback para erros inesperados - log deveria ser adicionado aqui
             return self._handle_server_error(error)
 
 
@@ -35,11 +53,13 @@ class UsuarioValidatedViewSet(BaseModelViewSet):
     """ViewSet que valida o usuário antes de qualquer ação."""
 
     def initial(self, request, *args, **kwargs):
+        """Inicializar validação de usuário."""
         if hasattr(self, 'usuario_strategy'):
             self.usuario_strategy.validar_usuario(request)
         return super().initial(request, *args, **kwargs)
 
-    def create(self, request, *args, **kwargs):
+    def create(self, request):
+        """Criar nova instância."""
         try:
             serializer = self.get_serializer(data=request.data)
 

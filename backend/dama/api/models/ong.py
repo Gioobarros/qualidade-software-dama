@@ -1,5 +1,5 @@
-from api.models.usuario import Usuario
 from django.db import models
+from api.models.usuario import Usuario
 
 
 class Ong(models.Model):
