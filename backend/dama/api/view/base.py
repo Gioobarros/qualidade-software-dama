@@ -16,6 +16,20 @@ class BaseModelViewSet(viewsets.ModelViewSet):
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
 
+    def _validated_action(self, request, action_callable, passes_validated_user=False):
+        """Executa a ação após validar o usuário, centralizando o try/except."""
+        try:
+            validated_user = None
+            if hasattr(self, 'usuario_strategy'):
+                validated_user = self.usuario_strategy.validar_usuario(request)
+
+            if passes_validated_user:
+                return action_callable(validated_user)
+            return action_callable()
+
+        except Exception as error:  # fallback para garantir resposta consistente
+            return self._handle_server_error(error)
+
     def create(self, request, *args, **kwargs):
         try:
             serializer = self.get_serializer(data=request.data)
