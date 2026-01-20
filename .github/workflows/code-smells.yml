@@ -1,0 +1,63 @@
+name: Code Smells Detection
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  code-smells-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'backend/dama/requirements.txt'
+
+      - name: Install dependencies
+        run: |
+          pip install -q pylint flake8 vulture
+
+      - name: Run Pylint - Code Smells Detection
+        continue-on-error: true
+        run: |
+          cd backend/dama
+          echo "========================================="
+          echo "Analisando Code Smells com Pylint..."
+          echo "========================================="
+          pylint api --load-plugins=pylint.extensions.bad_builtin,pylint.extensions.docparams --disable=all --enable=C,W,R,E --max-line-length=100 --fail-under=8.0 -r y 2>&1 || true
+
+      - name: Run Flake8 - Additional Code Style Check
+        continue-on-error: true
+        run: |
+          cd backend/dama
+          echo "========================================="
+          echo "Verificação adicional com Flake8..."
+          echo "========================================="
+          flake8 api --select=C,W,E,F --show-source --statistics 2>&1 || true
+
+      - name: Run Vulture - Dead Code Detection
+        continue-on-error: true
+        run: |
+          cd backend/dama
+          echo "========================================="
+          echo "Detectando código morto com Vulture..."
+          echo "========================================="
+          vulture api --min-confidence=60 2>&1 || true
+
+      - name: Report Code Smells
+        if: always()
+        run: |
+          echo "========================================="
+          echo "Relatório de Code Smells Concluído"
+          echo "========================================="
+          echo "Execute localmente para mais detalhes:"
+          echo "  pylint api --load-plugins=pylint.extensions.bad_builtin,pylint.extensions.docparams --disable=all --enable=C,W,R,E"
+          echo "  flake8 api --select=C,W,E,F --show-source"
+          echo "  vulture api --min-confidence=60"
