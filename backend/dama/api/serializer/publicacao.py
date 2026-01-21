@@ -1,7 +1,8 @@
-from api.models.publicacao import Publicacao
-from rest_framework import serializers
-from api.serializer.usuario import Usuario
 from django.shortcuts import get_object_or_404
+from rest_framework import serializers
+
+from api.models.publicacao import Publicacao
+from api.serializer.usuario import Usuario
 
 
 class PublicacaoSerializer(serializers.ModelSerializer):

@@ -1,9 +1,32 @@
 [MASTER]
-ignore=venv,migrations,__pycache__,.git
+ignore=venv,migrations,__pycache__,.git,tests
 
 [MESSAGES CONTROL]
-disable=all
-enable=duplicate-code,R0801
+# Habilita verificações importantes de code smells e segurança
+disable=
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+    too-few-public-methods,
+    C0114,
+    C0115,
+    C0116,
+    R0903
+
+enable=
+    duplicate-code,
+    R0801,
+    W0246,
+    W0108,
+    R1705,
+    W0718,
+    C0411,
+    C0412,
+    W0613,
+    W0237
+
+[BASIC]
+max-line-length=120
 
 [SIMILARITIES]
 min-similarity-lines=5
@@ -11,3 +34,8 @@ ignore-comments=yes
 ignore-docstrings=yes
 ignore-imports=yes
 ignore-signatures=yes
+
+[REPORTS]
+output-format=text
+reports=yes
+fail-under=8.0

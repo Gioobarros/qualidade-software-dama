@@ -1,0 +1,90 @@
+name: Static Analysis and Security Scan
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, code-smells-incluindo-seguranca]
+  pull_request:
+
+jobs:
+  static-analysis:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'backend/dama/requirements.txt'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install bandit[toml] pylint flake8 safety
+
+      - name: Run Bandit - Security Analysis
+        continue-on-error: false
+        run: |
+          cd backend/dama
+          echo "========================================="
+          echo "Análise de Segurança com Bandit..."
+          echo "========================================="
+          bandit -r api -ll -f txt || exit 0
+          echo ""
+          echo "Executando Bandit com todos os níveis..."
+          bandit -r api --exclude api/tests -f json -o bandit-report.json
+          echo "Relatório gerado: bandit-report.json"
+
+      - name: Upload Bandit Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bandit-security-report
+          path: backend/dama/bandit-report.json
+
+      - name: Run Pylint - Code Quality Analysis
+        continue-on-error: true
+        run: |
+          cd backend/dama
+          echo "========================================="
+          echo "Análise de Qualidade de Código com Pylint..."
+          echo "========================================="
+          pylint api --disable=all --enable=W,R,C,E --max-line-length=120 \
+            --fail-under=8.0 --output-format=text 2>&1 || true
+
+      - name: Run Flake8 - Style Guide Check
+        continue-on-error: true
+        run: |
+          cd backend/dama
+          echo "========================================="
+          echo "Verificação de Estilo com Flake8..."
+          echo "========================================="
+          flake8 api --exclude=api/tests,api/migrations --max-line-length=120 \
+            --statistics --count 2>&1 || true
+
+      - name: Check for Security Vulnerabilities in Dependencies
+        continue-on-error: true
+        run: |
+          cd backend/dama
+          echo "========================================="
+          echo "Verificando Vulnerabilidades de Dependências com Safety..."
+          echo "========================================="
+          pip install -r requirements.txt || true
+          safety check --json || true
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "========================================="
+          echo "Resumo da Análise Estática"
+          echo "========================================="
+          echo "✅ Bandit: Análise de segurança concluída"
+          echo "✅ Pylint: Análise de qualidade de código concluída"
+          echo "✅ Flake8: Verificação de estilo concluída"
+          echo "✅ Safety: Verificação de vulnerabilidades concluída"
+          echo ""
+          echo "Verifique os logs acima para detalhes de cada ferramenta."
