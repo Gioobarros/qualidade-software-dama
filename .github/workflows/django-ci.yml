@@ -56,7 +56,7 @@ jobs:
       - name: Install system dependencies (psycopg2 + graphviz)
         run: |
           sudo apt-get update
-          sudo apt-get install -y libpq-dev graphviz graphviz-dev
+          sudo apt-get install -y --no-install-recommends libpq-dev graphviz graphviz-dev
 
       - name: Install Python dependencies
         run: |
@@ -69,10 +69,12 @@ jobs:
           cd backend/dama
           python manage.py migrate --noinput
 
-      - name: Run tests
+      - name: Run tests with coverage
         run: |
           cd backend/dama
-          python manage.py test
+          coverage run --source='.' manage.py test
+          coverage xml
+          coverage report
 
       - name: Generate UML Class Diagram
         run: |
@@ -87,6 +89,14 @@ jobs:
         with:
           name: uml-class-diagram
           path: backend/dama/uml_diagram_domain.png
+          retention-days: 30
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report
+          path: backend/dama/coverage.xml
           retention-days: 30
 
   security-scan:
@@ -159,6 +169,12 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+
+      - name: Download coverage report
+        uses: actions/download-artifact@v4
+        with:
+          name: coverage-report
+          path: backend/dama/
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@0303d6b62e310685c0e34d0b9cde218036885c4d

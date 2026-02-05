@@ -1,15 +1,34 @@
 import os
+import warnings
 
-# BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-i$n+&t-0mb3+oz!zucqv9lx8w48%f-0^ebnf#@g#24k6y!-f-i')
 
+#SECRET_KEY
+if SECRET_KEY == 'django-insecure-i$n+&t-0mb3+oz!zucqv9lx8w48%f-0^ebnf#@g#24k6y!-f-i':
+    warnings.warn(
+        "Using default SECRET_KEY. Set SECRET_KEY environment variable in production!",
+        RuntimeWarning
+    )
+
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') if os.environ.get('ALLOWED_HOSTS') else []
 
-CORS_ALLOW_ALL_ORIGINS = True
+if not ALLOWED_HOSTS and not DEBUG:
+    warnings.warn(
+        "ALLOWED_HOSTS está vazio em modo de produção. Defina a variável de ambiente.",
+        RuntimeWarning
+    )
+
+CORS_ALLOW_ALL_ORIGINS = os.environ.get('CORS_ALLOW_ALL_ORIGINS', 'True') == 'True'
+
+if CORS_ALLOW_ALL_ORIGINS:
+    warnings.warn(
+        "CORS_ALLOW_ALL_ORIGINS está definido como True. Restrinja o CORS em produção!",
+        RuntimeWarning
+    )
 
 import sys
 if sys.platform == 'win32':
@@ -124,7 +143,6 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Security settings
 SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', 'False') == 'True'
 SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', 'False') == 'True'
 CSRF_COOKIE_SECURE = os.environ.get('CSRF_COOKIE_SECURE', 'False') == 'True'

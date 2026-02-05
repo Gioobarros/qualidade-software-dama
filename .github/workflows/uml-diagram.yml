@@ -49,7 +49,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libpq-dev graphviz graphviz-dev
+          sudo apt-get install -y --no-install-recommends libpq-dev graphviz graphviz-dev
 
       - name: Install Python dependencies
         run: |
