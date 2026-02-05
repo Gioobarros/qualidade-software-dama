@@ -5,10 +5,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-i$n+&t-0mb3+oz!zucqv9lx8w48%f-0^ebnf#@g#24k6y!-f-i')
 
-#SECRET_KEY
+# SECRET_KEY
 if SECRET_KEY == 'django-insecure-i$n+&t-0mb3+oz!zucqv9lx8w48%f-0^ebnf#@g#24k6y!-f-i':
     warnings.warn(
-        "Using default SECRET_KEY. Set SECRET_KEY environment variable in production!",
+        "SECRET_KEY padrão em uso. Configure SECRET_KEY para produção.",
         RuntimeWarning
     )
 
@@ -42,7 +42,7 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',  # Permissão padrão (aberta para todos)
+        'rest_framework.permissions.AllowAny',  # aberta para todos
     ],
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',
